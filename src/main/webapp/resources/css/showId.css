@@ -1,0 +1,70 @@
+@charset "EUC-KR";
+body {
+  padding-top: 56px;
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.jb-red {
+   color: red;
+}
+
+.ShowId_container{
+   width:400px;
+   height:900px;
+   position: absolute;
+   top:25%;
+   left: 37.5%;
+   right: 25%;
+}
+
+.ShowId_Title{
+   width:1000px;
+   height:20px;
+   position: absolute;
+   top: -45px;
+   left: 60px;
+}
+.ShowId_Titleline{
+   width:1000px;
+   height:20px;
+   position: absolute;
+   top: -40px;
+   left: -250px;
+}
+
+.Showid_box{
+   width:1000px;
+   height:200px;
+   position: absolute;
+   left:10px;
+   top: 100px;
+}
+
+.go_login{
+   width:1000px;
+   height:5px;
+   position: absolute;
+   left: 100px;
+   top: 100px;
+}
+
+.find_pw{
+   width:1000px;
+   height:5px;
+   position: absolute;
+   left: 200px;
+   top: 100px;
+}

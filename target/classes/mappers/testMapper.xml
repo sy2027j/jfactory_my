@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.ex.mappers.testMapper">
+	<select id="MemberList" resultType="MemberDTO">
+		SELECT * FROM jfactory_member
+	</select>
+	
+	<select id="AdminList" resultType="AdminDTO">
+		SELECT * FROM jfactory_member where mem_is_admin=1 or mem_is_admin=2
+	</select>
+</mapper>
+
