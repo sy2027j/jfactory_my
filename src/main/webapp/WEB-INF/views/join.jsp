@@ -13,7 +13,7 @@
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> 
-<script src="<c:url value='/js/common.js'/>" charset="utf-8"></script>
+<script src="<c:url value='resources/js/common.js'/>" charset="utf-8"></script>
   <!-- Custom styles for this template -->
   <link href="resources/css/join.css" rel="stylesheet">
 </head>
@@ -25,14 +25,14 @@
   <div class="row">
                 <div id="header">
       <div id="wrapper">
-        <form id="signUp" method="post" action="/ex/index">
+        <form id="signUp" method="post" action="index">
 		<h3 class="contents" style="text-align:center">회원가입</h3>
 		<div class="myForm-group">
 			<div class="form-group">
 				 <label for="MEMBER_ID">아이디 *</label> 
             <div class="form-inline">
             <input type="text"
-               class="form-control" id="MEMBER_ID" name="MEMBER_ID"
+               class="form-control" id="mem_id" name="mem_id"
                placeholder="아이디를 입력하세요" style="width:410px">
                &nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
                <input type="hidden" id="isEmailCheck" value="0">
@@ -43,14 +43,14 @@
 			<input type="hidden" id="isCheck" value="0">
 			<div class="form-group">
 				<label for="MEMBER_NAME">이름 *</label> <input type="text"
-					class="form-control" id="MEMBER_NAME" name="MEMBER_NAME"
+					class="form-control" id="mem_realname" name="mem_realname"
 					placeholder="이름을 입력하세요">
 					<div id="name_check"></div>
 			</div>
 			
 			<div class="form-group">
 				<label for="pwd1">비밀번호 *</label> <input type="password"
-					class="form-control" id="pwd1" name="MEMBER_PASSWD"
+					class="form-control" id="mem_password" name="mem_password"
 					placeholder="비밀번호(영문,숫자,특수문자 포함 8~20자리 입력)" size="100">
 					<div id="pw1_check"></div>
 			</div>
@@ -65,34 +65,34 @@
 				<label for="member_zipcode">배송지 주소 *</label>
 				<div class="form-inline">
 					<input type="text" class="form-control" style="width: 100px;"
-					name="MEMBER_ZIPCODE" id="MEMBER_ZIPCODE" placeholder="우편번호" onfocus="this.blur()">
+					name="mem_zipcode" id="mem_zipcode" placeholder="우편번호" onfocus="this.blur()">
 					&nbsp;<button class="btn btn-default" type="button" id="findAddrBtn" style="border-color:white; background-color:#e6e6fa; color:black;" onclick="findAddr()">우편번호 찾기</button>
 				</div>
 				<input type="text" class="form-control" style="margin-top: 5px;"
-					name="MEMBER_ADDR1" id="MEMBER_ADDR1" placeholder="주소 입력" onfocus="this.blur()">
+					name="mem_address1" id="mem_address1" placeholder="주소 입력" onfocus="this.blur()">
 				<input type="text" class="form-control" style="margin-top: 5px;"
-					name="MEMBER_ADDR2" id="MEMBER_ADDR2" placeholder="상세 주소 입력">
+					name="mem_address2" id="mem_address2" placeholder="상세 주소 입력">
 				<div id="addr_check"></div>
 			</div>
 			<div class="form-group">
 				<label for="MEMBER_BIRTH">생년월일 *</label>
 				<div class="form-inline">
-					<select class="form-control" style="width:150px;"name="MEMBER_BIRTH" id="MEMBER_BIRTH">
+					<select class="form-control" style="width:150px;"name="mem_birth_year" id="mem_birth_year">
 						<option value="">출생년도</option>
 						<c:forEach var="i" begin="1950" end="2005">
 							<option value="${i }">${i }년</option>
 						</c:forEach>
 					</select>
-					&nbsp;<select class="form-control" style="width:120px;" name="MEMBER_BIRTH2" id="MEMBER_BIRTH2">
+					&nbsp;<select class="form-control" style="width:120px;" name="mem_birth_month" id="mem_birth_month">
 						<option value="">월</option>
 						<c:forEach var="i" begin="1" end="12">
-								<option value="<c:if test="${i < 10}">0</c:if>${i }"><c:if test="${i < 10}">0</c:if>${i }월</option>
+								<option value="<c:if test="${i < 10}">0</c:if>${i }">${i }월</option>
 						</c:forEach>
 					</select>
-					&nbsp;<select class="form-control" style="width:120px;" name="MEMBER_BIRTH3" id="MEMBER_BIRTH3">
+					&nbsp;<select class="form-control" style="width:120px;" name="mem_birth_day" id="mem_birth_day">
 						<option value="">일</option>
 						<c:forEach var="i" begin="1" end="31">
-							<option value="<c:if test="${i < 10}">0</c:if>${i }"><c:if test="${i < 10}">0</c:if>${i }일</option>
+							<option value="<c:if test="${i < 10}">0</c:if>${i }">${i }일</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -100,15 +100,15 @@
 			<div class="form-group">
 				<label for="MEMBER_BIRTH">전화번호 *</label>
 				<div class="form-inline">
-					<select class="form-control" style="width:125px;" name="MEMBER_PHONE" id="MEMBER_PHONE">
+					<select class="form-control" style="width:125px;" name="mem_phone" id="mem_phone">
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="012">012</option>
 						<option value="013">013</option>
 					</select> &nbsp; - &nbsp;
-					<input type="text" class="form-control" id="MEMBER_PHONE2" name="MEMBER_PHONE2" style="width:150px">
+					<input type="text" class="form-control" id="mem_phone1" name="mem_phone1" style="width:150px">
 					&nbsp; - &nbsp;
-					<input type="text" class="form-control" id="MEMBER_PHONE3" name="MEMBER_PHONE3" style="width:150px">
+					<input type="text" class="form-control" id="mem_phone2" name="mem_phone2" style="width:150px">
 					<br/>
 					<div id="phone_check"></div>
 				<input type="checkbox" id="SMS_AGREE" name="SMS_AGREE" value="0">
@@ -118,8 +118,8 @@
 			<div class="form-group">
 				<label for="MEMBER_EMAIL">이메일 주소 *</label>
 				<div class="form-inline">
-					<input type="email" class="form-control" id="MEMBER_EMAIL" style="width:200px;"
-						name="MEMBER_EMAIL" placeholder="이메일을 입력하세요">&nbsp;&nbsp;
+					<input type="email" class="form-control" id="mem_email" style="width:200px;"
+						name="mem_email" placeholder="이메일을 입력하세요">&nbsp;&nbsp;
 					<select class="form-control" name="MEMBER_EMAIL2" id="MEMBER_EMAIL2">
 						<option value="">직접입력</option>
 						<option value="naver.com">naver.com</option>
@@ -174,8 +174,8 @@
                 </div>
                 
                 <div>
-                <input type="radio" name="sex" value="여성">여성 &nbsp;
-                <input type="radio" name="sex" value="남성">남성
+                <input type="radio" name="sex" value="0">여성 &nbsp;
+                <input type="radio" name="sex" value="1">남성
                 </div>
                 <br/>
                 <div>
@@ -773,9 +773,9 @@ function findAddr() {
                     extraAddr = ' (' + extraAddr + ')';
                 }
             }
-            document.getElementById('MEMBER_ZIPCODE').value = data.zonecode;
-            document.getElementById("MEMBER_ADDR1").value = addr + extraAddr;
-            document.getElementById("MEMBER_ADDR2").focus();
+            document.getElementById('mem_zipcode').value = data.zonecode;
+            document.getElementById("mem_address1").value = addr + extraAddr;
+            document.getElementById("mem_address2").focus();
         }
 	}).open();
 }

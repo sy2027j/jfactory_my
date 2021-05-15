@@ -18,4 +18,9 @@ public class MemberDAOImpl implements MemberDAO {
 	public List<MemberDTO> memberList() throws Exception {
 		return sqlSession.selectList(namespace + ".MemberList");
 	}
+	
+	@Override
+	public void memberJoinMethod(MemberDTO dto) throws Exception{
+		sqlSession.insert(namespace+".Join",dto);
+	}
 }

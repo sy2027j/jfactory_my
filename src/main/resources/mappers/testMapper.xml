@@ -9,5 +9,13 @@
 	<select id="AdminList" resultType="AdminDTO">
 		SELECT * FROM jfactory_member where mem_is_admin=1 or mem_is_admin=2
 	</select>
+	
+	<select id="QnaList" resultType="MemberqnaDTO">
+		SELECT * FROM jfactory_qna ORDER BY qna_pin DESC, qna_datetime DESC
+	</select>
+	
+	<insert id="Join" parameterType="MemberDTO">
+		INSERT INTO jfactory_member values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},0,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,0,DEFAULT,0,null,null,null,null,0,0,0)
+	</insert>
 </mapper>
 

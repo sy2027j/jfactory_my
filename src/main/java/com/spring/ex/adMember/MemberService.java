@@ -8,4 +8,6 @@ import org.springframework.stereotype.Service;
 public interface MemberService {
 
 	public List<MemberDTO> memberList() throws Exception;
+	
+	public void memberJoinMethod(MemberDTO dto) throws Exception;
 }

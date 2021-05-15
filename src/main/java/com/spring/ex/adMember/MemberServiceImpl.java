@@ -16,4 +16,9 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberDTO> memberList() throws Exception {
 		return dao.memberList();
 	}
+	
+	@Override
+	public void memberJoinMethod(MemberDTO dto) throws Exception{
+		dao.memberJoinMethod(dto);
+	}
 }

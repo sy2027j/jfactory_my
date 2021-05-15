@@ -9,6 +9,6 @@
 </head>
 <body>
 	<c:forEach items="${List }" var="member">
-		<c:out value="${member.getMem_id()}"></c:out>
+		<c:out value="${member.getmem_id()}"></c:out>
 	</c:forEach>
 </body>

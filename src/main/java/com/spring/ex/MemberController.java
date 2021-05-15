@@ -13,6 +13,8 @@ import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.adMember.MemberService;
 import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.admin.AdminService;
+import com.spring.ex.qna.MemberqnaDTO;
+import com.spring.ex.qna.MemberqnaService;
 
 @Controller
 public class MemberController {
@@ -40,4 +42,24 @@ public class MemberController {
 		
 		return "admin/admin_index";
 	}
+	
+	@Inject MemberqnaService qnaservice;
+	
+	@RequestMapping(value="/community_qna", method=RequestMethod.GET)
+		public String QnaList(Model model) throws Exception{
+			
+			List<MemberqnaDTO> qnalist=qnaservice.qnaList();
+			
+			model.addAttribute("QnaList", qnalist);
+			
+			return "/community_qna";
+		}
+	
+	@RequestMapping(value="/index", method=RequestMethod.POST)
+	public String joinPost(MemberDTO dto)throws Exception{
+		service.memberJoinMethod(dto);
+		
+		return "redirect:/login";
+	}
+	
 }

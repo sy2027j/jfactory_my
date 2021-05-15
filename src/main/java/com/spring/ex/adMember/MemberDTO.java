@@ -8,11 +8,11 @@ public class MemberDTO {
 	private String mem_level;
 	private int mem_point;
 	private int mem_phone;
-	private int mem_phone1;
-	private int mem_phone2;
-	private int mem_birth_year;
-	private int mem_birth_month;
-	private int mem_birth_day;
+	private String mem_phone1;
+	private String mem_phone2;
+	private String mem_birth_year;
+	private String mem_birth_month;
+	private String mem_birth_day;
 	private String mem_zipcode;
 	private String mem_address1;
 	private String mem_address2;
@@ -29,10 +29,10 @@ public class MemberDTO {
 	private int mem_count;
 	private int mem_total_cash;
 	
-	public String getMem_id() {
+	public String getmem_id() {
 		return mem_id;
 	}
-	public void setMem_id(String mem_id) {
+	public void setmem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
 	public String getMem_email() {
@@ -71,34 +71,34 @@ public class MemberDTO {
 	public void setMem_phone(int mem_phone) {
 		this.mem_phone = mem_phone;
 	}
-	public int getMem_phone1() {
+	public String getMem_phone1() {
 		return mem_phone1;
 	}
-	public void setMem_phone1(int mem_phone1) {
+	public void setMem_phone1(String mem_phone1) {
 		this.mem_phone1 = mem_phone1;
 	}
-	public int getMem_phone2() {
+	public String getMem_phone2() {
 		return mem_phone2;
 	}
-	public void setMem_phone2(int mem_phone2) {
+	public void setMem_phone2(String mem_phone2) {
 		this.mem_phone2 = mem_phone2;
 	}
-	public int getMem_birth_year() {
+	public String getMem_birth_year() {
 		return mem_birth_year;
 	}
-	public void setMem_birth_year(int mem_birth_year) {
+	public void setMem_birth_year(String mem_birth_year) {
 		this.mem_birth_year = mem_birth_year;
 	}
-	public int getMem_birth_month() {
+	public String getMem_birth_month() {
 		return mem_birth_month;
 	}
-	public void setMem_birth_month(int mem_birth_month) {
+	public void setMem_birth_month(String mem_birth_month) {
 		this.mem_birth_month = mem_birth_month;
 	}
-	public int getMem_birth_day() {
+	public String getMem_birth_day() {
 		return mem_birth_day;
 	}
-	public void setMem_birth_day(int mem_birth_day) {
+	public void setMem_birth_day(String mem_birth_day) {
 		this.mem_birth_day = mem_birth_day;
 	}
 	public String getMem_zipcode() {

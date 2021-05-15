@@ -29,10 +29,10 @@ public class AdminDTO {
 	private String mem_coupon;
 	private int mem_count;
 	private int mem_total_cash;
-	public String getMem_id() {
+	public String getmem_id() {
 		return mem_id;
 	}
-	public void setMem_id(String mem_id) {
+	public void setmem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
 	public String getMem_email() {

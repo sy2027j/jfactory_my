@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface MemberDAO {
 
 	public List<MemberDTO> memberList() throws Exception;
+	
+	public void memberJoinMethod(MemberDTO dto) throws Exception; 
 }
