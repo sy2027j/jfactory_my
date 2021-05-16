@@ -62,4 +62,11 @@ public class MemberController {
 		return "redirect:/login";
 	}
 	
+	@RequestMapping(value="/cm_qna_write", method=RequestMethod.POST)
+	public String qnaWrite(MemberqnaDTO dto)throws Exception{
+		qnaservice.qnaWriteMethod(dto);
+		
+		return "redirect:/community_qna";
+	}
+	
 }

@@ -19,4 +19,8 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 		return sqlSession.selectList(namespace+".QnaList");
 	}
 
+	@Override
+	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception{
+		sqlSession.insert(namespace+".QnaWrite",dto);
+	}
 }

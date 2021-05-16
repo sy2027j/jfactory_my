@@ -99,10 +99,10 @@
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://insight-prd-data.s3.ap-northeast-2.amazonaws.com/wp-content/uploads/2017/11/%ED%99%94%EC%9E%A5%ED%92%88%EA%B3%BC-ICT_1.jpg')">
+        <div class="carousel-item" style="background-image: url('https://image.freepik.com/free-vector/blue-sky-with-white-clouds-clear-sunny-day-landscape-background-with-clouds-illustration_210544-16.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <h3 style="color:black">JFACTORY</h3>
-            <p style="color:black">...</p>
+            <h3 style="color:black">오늘의 JFactory</h3>
+            <p style="color:white">...</p>
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->

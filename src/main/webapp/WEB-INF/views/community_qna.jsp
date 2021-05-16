@@ -5,6 +5,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
+<style>
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th {
+    background-color: #e6e6fa;
+    text-align: center;
+  }
+  td {
+  	text-align: center;
+  }
+</style>
   
   	<div class="container">
             <div id="layoutSidenav_content">
@@ -35,7 +49,7 @@
                         
                      </div>
                         </div>
-                         <button type="button" class="btn btn-primary" onclick="location.href='cm_qna_write'">글쓰기</button>
+                         <button type="button" style="float:right; background-color:#e6e6fa; color:black; border-color:#e6e6fa" class="btn btn-primary" onclick="location.href='cm_qna_write'">글쓰기</button>
                     </div>
                 </main>
                 

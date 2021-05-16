@@ -215,6 +215,11 @@ public class MyController {
 		return("admin/pd_index");
 	}
 	
+	@RequestMapping("admin/pd_add")
+	public String pd_add() {
+		return("admin/pd_add");
+	}
+	
 	
 	@RequestMapping("admin/cm_qna")
 	public String cm_qna() {
@@ -294,5 +299,10 @@ public class MyController {
 	@RequestMapping("/join_agree2")
 	public String join_agree2() {
 		return ("/join_agree2");
+	}
+	
+	@RequestMapping("/cm_qna_view")
+	public String cm_qna_view() {
+		return ("/cm_qna_view");
 	}
 }

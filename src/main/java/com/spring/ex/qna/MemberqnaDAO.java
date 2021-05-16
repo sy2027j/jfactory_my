@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface MemberqnaDAO {
 
 	public List<MemberqnaDTO> qnaList() throws Exception;
+	
+	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception;
 }

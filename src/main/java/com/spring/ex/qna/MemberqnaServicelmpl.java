@@ -17,4 +17,8 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 		return dao.qnaList();
 	}
 
+	@Override
+	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception{
+		dao.qnaWriteMethod(dto);
+	}
 }

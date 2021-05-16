@@ -13,12 +13,12 @@
             <div class="col-lg-12"> 
             <form role="form" id="writeForm" method="post" action="cm_qna_write"> 
             <div class="card"> <div class="card-header"> 
-            <h3 class="card-title">게시글 작성</h3> </div> <div class="card-body"> 
-            <input type="hidden" name="article_no"> 
+            <h3 class="card-title">게시글 조회</h3> </div> <div class="card-body"> 
+            <input type="hidden" name="article_no" value="${article.article_no}"> 
             <div class="form-group"> <label for="title">작성자</label> 
             <input class="form-control" id="mem_id" name="mem_id"> </div> 
             <div class="form-group"> <label for="title">제목</label> 
-            <input class="form-control" id="qna_title" name="qna_title" placeholder="제목을 입력해주세요"> </div> 
+            <input class="form-control" id="qna_title" name="qna_title" placeholder="제목을 입력해주세요" value="${dto.qna_title }"> </div> 
             <div class="form-group"> <label for="writer">카테고리</label> <br/>
 		<select id="qna_category" name="qna_category" size="1" style="width:1040px;height:40px;" class="form-control">
 			<option value="">문의 종류를 선택해주세요.</option>

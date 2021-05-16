@@ -25,7 +25,7 @@
   <div class="row">
                 <div id="header">
       <div id="wrapper">
-        <form id="signUp" method="post" action="index">
+        <form id="signUp" name="signUp" method="post" action="index">
 		<h3 class="contents" style="text-align:center">회원가입</h3>
 		<div class="myForm-group">
 			<div class="form-group">
@@ -57,7 +57,7 @@
 
 			<div class="form-group">
 				<label for="pwd2">비밀번호 확인 *</label> <input type="password"
-					class="form-control" id="pwd2" name="MEMBER_PASSWD2" 
+					class="form-control" id="mem_password2" name="mem_password2" 
 					placeholder="비밀번호 확인" size="100">
 				<div id="pw2_check"></div>
 			</div>
@@ -118,17 +118,9 @@
 			<div class="form-group">
 				<label for="MEMBER_EMAIL">이메일 주소 *</label>
 				<div class="form-inline">
-					<input type="email" class="form-control" id="mem_email" style="width:200px;"
-						name="mem_email" placeholder="이메일을 입력하세요">&nbsp;&nbsp;
-					<select class="form-control" name="MEMBER_EMAIL2" id="MEMBER_EMAIL2">
-						<option value="">직접입력</option>
-						<option value="naver.com">naver.com</option>
-						<option value="daum.net">daum.net</option>
-						<option value="hanmail.net">hanmail.net</option>
-						<option value="gmail.com">gmail.com</option>
-						<option value="nate.com">nate.com</option>
-					</select>
-					&nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
+					<input type="email" class="form-control" id="mem_email"
+						name="mem_email" placeholder="이메일을 입력하세요" style="width:410px">
+						&nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
 					<input type="hidden" id="isEmailCheck" value="0">
 				</div>
 				<div id="email_check"></div>
@@ -154,7 +146,7 @@
 					<button type="button" class="btn btn-default" onclick="window.open('join_agree2','_blanck','width=450, height=650'); return false"style="border-color:white; background-color:#e6e6fa; color:black;">내용보기</button>
 				</div>
 				<div>
-					<input type="checkbox" name="check3" id="check3"> <b>만 14세 이상입니다.</b>&nbsp;<font color="red">(필수)</font>
+					<input type="checkbox" name="check3" id="check3" value="1"> <b>만 14세 이상입니다.</b>&nbsp;<font color="red">(필수)</font>
 				</div>
 			</div>
 			<div class="chk_allAgree">
@@ -174,8 +166,8 @@
                 </div>
                 
                 <div>
-                <input type="radio" name="sex" value="0">여성 &nbsp;
-                <input type="radio" name="sex" value="1">남성
+                <input type="radio" name="mem_sex" value="0">여성 &nbsp;
+                <input type="radio" name="mem_sex" value="1">남성
                 </div>
                 <br/>
                 <div>
@@ -184,14 +176,14 @@
                 </h5>
                 </div> 
                 <div>
-                <input type="radio" name="skintype" value="건성">건성 &nbsp;
-                <input type="radio" name="skintype" value="중성">중성 &nbsp;
-                <input type="radio" name="skintype" value="지성">지성 &nbsp;
-                <input type="radio" name="skintype" value="복합성">복합성 &nbsp;
-                <input type="radio" name="skintype" value="민감성">민감성 &nbsp;
-                <input type="radio" name="skintype" value="트러블">트러블 &nbsp;
-                <input type="radio" name="skintype" value="아토피">아토피 &nbsp;
-                <input type="radio" name="skintype" value="기타">기타 
+                <input type="radio" name="mem_skintype" value="건성">건성 &nbsp;
+                <input type="radio" name="mem_skintype" value="중성">중성 &nbsp;
+                <input type="radio" name="mem_skintype" value="지성">지성 &nbsp;
+                <input type="radio" name="mem_skintype" value="복합성">복합성 &nbsp;
+                <input type="radio" name="mem_skintype" value="민감성">민감성 &nbsp;
+                <input type="radio" name="mem_skintype" value="트러블">트러블 &nbsp;
+                <input type="radio" name="mem_skintype" value="아토피">아토피 &nbsp;
+                <input type="radio" name="mem_skintype" value="기타">기타 
                 </div>       
                 <br/>
                 <div>
@@ -210,7 +202,7 @@
                 </div> 
 			<br/><br/>
 			<div align="center">
-			<button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 80pt; HEIGHT: 30pt" type="submit" class="btn" id="signUpBtn">가입</button>
+			<button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 80pt; HEIGHT: 30pt" type="button" class="btn" id="signUpBtn" onclick="join_check();">가입</button>
 			<button style="border-color:white; background-color:black; color:white; WIDTH: 80pt; HEIGHT: 30pt" type="button" class="btn center" onclick="location.href='login'">취소</button>
 			</div><br/><br/><br/><br/>
 		</div>
@@ -232,519 +224,140 @@
   
   <script type="text/javascript">
 
-	  	  //아이디 공백 확인
-	      if($("#MEMBER_ID").val() == ""){
-	          alert("아이디를 입력해주세요.");
-	          $("#MEMBER_ID").focus();
-	          return false;
-	        } else {
-					return true;
-		        }
-	      //이름의 유효성 검사
-	      if(!getCheck.test($("#MEMBER_ID").val())){
-	        alert("아이디를 형식에 맞게 입력해주세요");
-	        $("#MEMBER_ID").val("");
-	        $("#MEMBER_ID").focus();
-	        return false;
-	      }
+  function join_check(){
+	  var mem_id=document.getElementById("mem_id");
+	  var mem_password=document.getElementById("mem_password");
+	  var mem_realname=document.getElementById("mem_realname");
+	  var mem_password2=document.getElementById("mem_password2");
+	  var mem_zipcode=document.getElementById("mem_zipcode");
+	  var mem_address1=document.getElementById("mem_address1");
+	  var mem_address2=document.getElementById("mem_address2");
+	  var mem_birth_year=document.getElementById("mem_birth_year");
+	  var mem_birth_month=document.getElementById("mem_birth_month");
+	  var mem_birth_day=document.getElementById("mem_birth_day");
+	  var mem_phone=document.getElementById("mem_phone");
+	  var mem_phone1=document.getElementById("mem_phone1");
+	  var mem_phone2=document.getElementById("mem_phone2");
+	  var SMS_AGREE=document.getElementById("SMS_AGREE");
+	  var mem_email=document.getElementById("mem_email");
+	  var mem_email2=document.getElementById("mem_email2");
+	  var EMAIL_AGREE=document.getElementById("EMAIL_AGREE");
+	  var check1=document.getElementById("check1");
+	  var check2=document.getElementById("check2");
+	  var check3=document.getElementById("check3");
+	  
+	  if(mem_id.value==""){
+		  alert("아이디를 입력하세요.");
+		  mem_id.focus();
+		  return false;
+	  }
+	  var idCheck = /^[A-za-z0-9]/g;
+	  if(!idCheck.test(mem_id.value)){
+		  alert("아이디는 영문자와 숫자만 사용해야 합니다.")
+		  mem_id.focus();
+		  return false;
+	  }
+	  
+	  if(mem_realname.value==""){
+		  alert("이름을 입력하세요.");
+		  mem_realname.focus();
+		  return false;
+	  };
+	  
+	  //비밀번호 검사
+	  if(mem_password.value==""){
+		  alert("비밀번호를 입력하세요.");
+		  mem_password.focus();
+		  return false;
+	  }
+	  var pwdCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
+	  if(!pwdCheck.test(mem_password.value)){
+		  alert("비밀번호는 영문자, 숫자, 특수문자 조합으로 8~20자리 사용해야 합니다.");
+		  mem_password.focus();
+		  return false;
+	  }
+	  if(mem_password2.value!==mem_password.value){
+		  alert("비밀번호가 일치하지 않습니다.")
+		  mem_password2.focus();
+		  return false;
+	  }
+	  
+	  //주소 공백
+	  if(mem_zipcode.value==""){
+		  alert("주소를 입력하세요.");
+		  mem_zipcode.focus();
+		  return false;
+	  };
+	  
+	  //생년월일 공백
+	  if(mem_birth_year.value==""){
+		  alert("생년월일을 입력하세요.");
+		  mem_birth_year.focus();
+		  return false;
+	  };
+	  if(mem_birth_month.value==""){
+		  alert("생년월일을 입력하세요.");
+		  mem_birth_month.focus();
+		  return false;
+	  };
+	  if(mem_birth_day.value==""){
+		  alert("생년월일을 입력하세요.");
+		  mem_birth_day.focus();
+		  return false;
+	  };
+	  
+	  //전화번호 공백
+	  var reg = /^[0-9]+/g;
+	  if(mem_phone1.value==""){
+		  alert("전화번호를 입력하세요.");
+		  mem_phone1.focus();
+		  return false;
+	  };
+	  if (!reg.test(mem_phone1.value)) {
+		    alert("전화번호는 숫자만 입력할 수 있습니다.");
+		    mem_phone1.focus();
+		    return false;
+		  };
+	  if(mem_phone2.value==""){
+		  alert("전화번호를 입력하세요.");
+		  mem_phone2.focus();
+		  return false;
+	  };
+	  
+	  //이메일 검사
+	  if(mem_email.value==""){
+		  alert("이메일을 입력하세요.");
+		  mem_email.focus();
+		  return false;
+	  }
+	  
+	  var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
-
-
-$(function() {
-	
-	$(document).ready(function() {
-		$("#isCheck_EmailForm").hide();
-	});
-
-	$("#MEMBER_ID").keyup(function() {
-		var mem_userid = $('#MEMBER_ID').val();
-			$.ajax({
-				url : '${pageContext.request.contextPath}/selectIdCheck.do?mem_userid='+ mem_userid,
-				type : 'get',
-				success : function(data) {
-				console.log("1 = 중복o / 0 = 중복x : " + data);
-				if (data > 0) {
-						$("#id_check").text(
-								"사용중인 아이디입니다.");
-						$("#id_check").css("color",
-								"red");
-						$("#isCheck").val("0");
-					} else if (mem_userid == "") {
-						// 입력하지 않을 경우
-						$('#id_check').text(
-								'필수 항목 입니다.');
-						$('#id_check').css('color',
-								'red');
-						$("#isCheck").val("0");
-					} else if (data == 0) {
-						// 0 : 사용가능
-						$("#id_check").text(
-								"사용가능한 아이디입니다.");
-						$("#id_check").css("color",
-								"blue");
-						$("#isCheck").val("1");
-					}
-				}
-			});
-	});
-	
-	//아이디 특수문자 입력 제한
-	$("#MEMBER_ID").bind("keyup", function(){
-		re = /[~!@\#$%^&*\()\-=+_']/gi;
-		var temp = $("#MEMBER_ID").val();
-		if (re.test(temp)) {
-			$("#MEMBER_ID").val(temp.replace(re, ""));
-		}
-	});
-	
-	//이름입력
-	$("#MEMBER_NAME").keyup(function() {
-		var mem_name = $("#MEMBER_NAME").val();
-		if (mem_name == "") {
-			$("#name_check").text('필수 항목 입니다.');
-			$("#name_check").css('color', 'red');
-		} else {
-			$("#name_check").text('');
-		}
-	});
-
-	//이름 특수문자 입력 제한
-	$("#MEMBER_NAME").bind("keyup", function() {
-		re = /[~!@\#$%^&*\()\-=+_']/gi;
-		var temp = $("#MEMBER_NAME").val();
-		if (re.test(temp)) { //특수문자가 포함되면 삭제하여 값으로 다시셋팅
-			$("#MEMBER_NAME").val(temp.replace(re, ""));
-		}
-	});
-
-	//비밀번호 입력 (유효성, 일치여부)
-	$("#pwd1").keyup(function() {
-		var pwd1 = $("#pwd1").val();
-		var pwd2 = $("#pwd2").val();
-		var num = pwd1.search(/[0-9]/g);
-		var eng = pwd1.search(/[a-z]/ig);
-		var spe = pwd1.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-		if (pwd1 == "") {
-			$("#pw1_check").text('필수 항목 입니다.');
-			$("#pw1_check").css('color', 'red');
-			$("#pw2_check").val('0');
-		} else {
-			if(pwd1.length < 8 || pwd1.length > 20){
-				$("#pw1_check").text('8자리 ~ 20자리 이내로 입력해주세요.');
-				$("#pw1_check").css('color', 'red');
-				$("#pw2_check").val('0');
-			} else if(pwd1.search(/\s/) != -1){
-				$("#pw1_check").text('비밀번호는 공백 없이 입력해주세요.');
-				$("#pw1_check").css('color', 'red');
-				$("#pw2_check").val('0');
-			} else if(num < 0 || eng < 0 || spe < 0 ){
-				$("#pw1_check").text('영문,숫자,특수문자를 혼합하여 입력해주세요.');
-				$("#pw1_check").css('color', 'red');
-				$("#pw2_check").val('0');
-			} else {
-				$("#pw1_check").text('');
-			}
-		}
-		if (pwd1 != "") {
-			if (pwd2 != "") {
-				if (pwd1 == pwd2) {
-					if(pwd1.length < 8 || pwd1.length > 20 || pwd1.search(/\s/) != -1 || num < 0 || eng < 0 || spe < 0){
-						$("#pw2_check").text('비밀번호를 확인해주세요.');
-						$("#pw2_check").css('color', 'red');
-						$("#pw2_check").val('0');
-					} else {
-						$("#pw2_check").text('비밀번호가 일치 합니다.');
-						$("#pw2_check").css('color', 'blue');
-						$("#pw2_check").val('1');
-					}
-				} else {
-					$("#pw2_check").text('비밀번호가 일치 하지 않습니다.');
-					$("#pw2_check").css('color', 'red');
-					$("#pw2_check").val('0');
-				}
-			}
-		}
-	});
-	$("#pwd2").keyup(function() {
-		var pwd1 = $("#pwd1").val();
-		var pwd2 = $("#pwd2").val();
-		var num = pwd1.search(/[0-9]/g);
-		var eng = pwd1.search(/[a-z]/ig);
-		var spe = pwd1.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-		if (pwd2 == "") {
-			$("#pw2_check").text('필수 항목 입니다.');
-			$("#pw2_check").css('color', 'red');
-			$("#pw2_check").val('0');
-		} else {
-			$("#pw2_check").text('');
-		}
-		if (pwd1 != "") {
-			if (pwd2 != "") {
-				if (pwd1 == pwd2) {
-					if(pwd1.length < 8 || pwd1.length > 20 || pwd1.search(/\s/) != -1 || num < 0 || eng < 0 || spe < 0){
-						$("#pw2_check").text('비밀번호를 확인해주세요.');
-						$("#pw2_check").css('color', 'red');
-						$("#pw2_check").val('0');
-					} else {
-						$("#pw2_check").text('비밀번호가 일치 합니다.');
-						$("#pw2_check").css('color', 'blue');
-						$("#pw2_check").val('1');
-					}
-				} else {
-					$("#pw2_check").text('비밀번호가 일치 하지 않습니다.');
-					$("#pw2_check").css('color', 'red');
-					$("#pw2_check").val('0');
-				}
-			}
-		}
-	});
-
-	//전화번호 입력
-	$("#MEMBER_PHONE").keyup(function() {
-		var mem_phone = $("#MEMBER_PHONE").val();
-		if (mem_phone == "") {
-			$("#phone_check").text('필수 항목 입니다.');
-			$("#phone_check").css('color', 'red');
-		} else {
-			$("#phone_check").text('');
-		}
-	});
-	
-	//전화번호 특수문자 입력 제한
-	$("#MEMBER_PHONE").bind("keyup", function() {
-		re = /[~!@\#$%^&*\()\-=+_']/gi;
-		var temp = $("#MEMBER_PHONE").val();
-		if (re.test(temp)) {
-			$("#MEMBER_PHONE").val(temp.replace(re, ""));
-		}
-	});
-
-	//배송지 주소 입력
-	$("#MEMBER_ADDR2").keyup(function() {
-		var member_addr2 = $("#MEMBER_ADDR2").val();
-		if (member_addr2 == "") {
-			$("#addr_check").text('필수 항목 입니다.');
-			$("#addr_check").css('color', 'red');
-		} else {
-			$("#addr_check").text('');
-		}
-	});
-	
-	//이메일 중복,유효성 체크
-	$("#MEMBER_EMAIL").on('keyup', function() {
-		var user_email = $("#MEMBER_EMAIL").val();
-		var user_email2 = $("#MEMBER_EMAIL2").val();
-		if(user_email2 != "") user_email = user_email + "@" + user_email2;
-		$.ajax({
-			url : '${pageContext.request.contextPath}/selectEmailCheck.do?user_email='+ user_email,
-			type : 'get',
-			success : function(data) {
-			console.log("1 = 중복o / 0 = 중복x : " + data);
-			if (data > 0) {
-				$("#email_check").text(
-						"사용중인 이메일입니다.");
-				$("#email_check").css("color",
-						"red");
-				$("#isEmailCheck").val("0");
-			} else if (user_email == "") {
-				// 입력하지 않을 경우
-				$('#email_check').text(
-						'필수 항목 입니다.');
-				$('#email_check').css('color',
-						'red');
-				$("#isEmailCheck").val("0");
-			} else if (data == 0) {
-				//이메일 유형
-				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/;
-				//특수문자
-				var re2 = /[~!@\#$%^&*\()\-=+_']/gi;
-				// 0 : 사용가능
-				if ($("#MEMBER_EMAIL2 option:selected").val().length < 1) { //직접입력일 경우
-					if (!re.test($("#MEMBER_EMAIL").val())) { //이메일 유형이 아닌경우
-						$("#email_check").text("올바른 이메일을 입력해주세요.");
-						$("#email_check").css("color", "red");
-						$("#isEmailCheck").val("0");
-					} else {								//이메일 유형일 경우
-						$("#email_check").text("사용가능한 이메일입니다.");
-						$("#email_check").css("color","blue");
-						$("#isEmailCheck").val("1");
-					}
-				} else if ($("#MEMBER_EMAIL2 option:selected").val().length > 0) //직접입력이 아닐경우
-					if (!re2.test($("#MEMBER_EMAIL").val())) {		//특수문자가 입력된경우
-						$("#email_check").text("사용가능한 이메일입니다.");
-						$("#email_check").css("color","blue");
-						$("#isEmailCheck").val("1");
-					} else {										//특수문자가 없을경우
-						$("#email_check").text("올바른 이메일을 입력해주세요.");
-						$("#email_check").css("color", "red");
-						$("#isEmailCheck").val("0");
-					}
-				}
-			}
-		});
-	});
-	$("#MEMBER_EMAIL2").on('change', function() {
-		var user_email = $("#MEMBER_EMAIL").val();
-		var user_email2 = $("#MEMBER_EMAIL2").val();
-		if(user_email2 != "") user_email = user_email + "@" + user_email2;
-		$.ajax({
-			url : '${pageContext.request.contextPath}/selectEmailCheck.do?user_email='+ user_email,
-			type : 'get',
-			success : function(data) {
-			console.log("1 = 중복o / 0 = 중복x : " + data);
-			if (data > 0) {
-				$("#email_check").text(
-						"사용중인 이메일입니다.");
-				$("#email_check").css("color",
-						"red");
-				$("#isEmailCheck").val("0");
-			} else if (user_email == "") {
-				// 입력하지 않을 경우
-				$('#email_check').text(
-						'필수 항목 입니다.');
-				$('#email_check').css('color',
-						'red');
-				$("#isEmailCheck").val("0");
-			} else if (data == 0) {
-				//이메일 유형
-				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/;
-				//특수문자
-				var re2 = /[~!@\#$%^&*\()\-=+_']/gi;
-				// 0 : 사용가능
-				if ($("#MEMBER_EMAIL2 option:selected").val().length < 1) { //직접입력일 경우
-					if (!re.test($("#MEMBER_EMAIL").val())) { //이메일 유형이 아닌경우
-						$("#email_check").text("올바른 이메일을 입력해주세요.");
-						$("#email_check").css("color", "red");
-						$("#isEmailCheck").val("0");
-					} else {								//이메일 유형일 경우
-						$("#email_check").text("사용가능한 이메일입니다.");
-						$("#email_check").css("color","blue");
-						$("#isEmailCheck").val("1");
-					}
-				} else if ($("#MEMBER_EMAIL2 option:selected").val().length > 0) //직접입력이 아닐경우
-					if (!re2.test($("#MEMBER_EMAIL").val())) {		//특수문자가 입력된경우
-						$("#email_check").text("사용가능한 이메일입니다.");
-						$("#email_check").css("color","blue");
-						$("#isEmailCheck").val("1");
-					} else {										//특수문자가 없을경우
-						$("#email_check").text("올바른 이메일을 입력해주세요.");
-						$("#email_check").css("color", "red");
-						$("#isEmailCheck").val("0");
-					}
-				}
-			}
-		});
-	});
-
-	//이용약관 체크박스 클릭시
-	$("#check1").click(function(){
-		if ($("#check1").prop("checked")) {
-			$("#check1").attr("checked", false);
-			$("#check1").attr('data-toggle', 'modal').attr('data-target','#myModal1');
-		} else {
-			$("#check1").removeAttr("data-toggle").removeAttr("data-target");
-		}
-	});
-	$("#check2").click(function(){
-		if ($("#check2").prop("checked")) {
-			$("#check2").attr("checked", false);
-			$("#check2").attr('data-toggle', 'modal').attr('data-target','#myModal2');
-		} else {
-			$("#check2").removeAttr("data-toggle").removeAttr("data-target");
-		}
-	});
-
-	//이메일 수신동의 여부
-	$("#EMAIL_AGREE").click(function(){
-		email_agree();
-	});
-	function email_agree() {
-		if($("#EMAIL_AGREE").prop("checked")) {
-			$("#EMAIL_AGREE").val(1);
-		} else {
-			$("#EMAIL_AGREE").val(0);
-		}
-	}
-		
-	//SMS 수신동의 여부
-	$("#SMS_AGREE").click(function(){
-		sms_agree();
-	});
-	function sms_agree() {
-		if($("#SMS_AGREE").prop("checked")) {
-			$("#SMS_AGREE").val(1);
-		} else {
-			$("#SMS_AGREE").val(0);
-		}	
-	}
-	
-	//공란 확인
-	$(document).ready(function() {
-		$("#signUpBtn").unbind("click").click(function(e) {
-			e.preventDefault();
-			fn_signUp();
-		});
-	});
-
-	function fn_signUp() {
-		if ($("#MEMBER_ID").val().length < 1) {
-			alert("아이디를 입력해주세요.");
-			$("#MEMBER_ID").focus();
-		} else if ($("#MEMBER_NAME").val().length < 1) {
-			alert("이름을 입력해주세요.");
-			$("#MEMBER_NAME").focus();
-		} else if ($("#pwd1").val().length < 1) {
-			alert("사용하실 비밀번호를 입력해주세요.");
-			$("#pwd1").focus();
-		} else if ($("#pwd2").val().length < 1) {
-			alert("사용하실 비밀번호를 입력해주세요.");
-			$("#pwd2").focus();
-		} else if ($("#pw2_check").val() != '1') {
-			alert("비밀번호를 확인해주세요.");
-			$("#pwd2").focus();
-		} else if ($("#MEMBER_ZIPCODE").val().length < 1) {
-			alert("우편번호를 입력해주세요.");
-			$("#MEMBER_ZIPCODE").focus();
-		} else if (($("#MEMBER_ADDR1").val().length < 1)
-				|| ($("#MEMBER_ADDR2").val().length < 1)) {
-			alert("주소를 입력해주세요.");
-			$("#MEMBER_ADDR2").focus();
-		} else if (($("#MEMBER_BIRTH option:selected").val().length < 1)
-				|| ($("#MEMBER_BIRTH2 option:selected").val().length < 1)
-				|| ($("#MEMBER_BIRTH3 option:selected").val().length < 1)) {
-			alert("출생년도를 확인해주세요.");
-			$("#MEMBER_BIRTH").focus();
-		} else if ($("#MEMBER_PHONE").val().length < 1) {
-			alert("전화번호를 입력해주세요.");
-			$("#MEMBER_PHONE").focus();
-		} else if ($("#MEMBER_EMAIL").val().length < 1) {
-			alert("이메일을 입력해주세요.");
-			$("#MEMBER_EMAIL").focus();
-		} else if ($("#isCheck").val() != '1') {
-			alert("사용 불가능한 아이디 입니다.");
-			$("#MEMBER_ID").focus();
-		} else if ($("#isEmailAuth").val() != '1') {
-			alert("이메일 인증을 해주세요.");
-			$("#isCheck_Email").focus();
-		} else if (!$("#check1").is(":checked")) {
-			alert("서비스 이용약관에 동의 해주세요.");
-			$("#check1").focus();
-		} else if (!$("#check2").is(":checked")) {
-			alert("개인정보 수집에 동의 해주세요.");
-			$("#check2").focus();
-		} else if (!$("#check3").is(":checked")) {
-			alert("만 14세 이상 여부에 동의 해주세요.");
-			$("#check3").focus();
-		} else {
-			$('#signUp').submit();
-		}
-	}
-
-
-	//   이메일 인증 버튼 클릭시 발생하는 이벤트
-	$(document).on("click","#isCheck_Email",function(e) {
-
-		var user_email;
-		
-		if ($("#MEMBER_EMAIL2").val().length < 1) {
-			user_email = $("#MEMBER_EMAIL").val();
-		} else {
-			user_email = $("#MEMBER_EMAIL").val() + "@" + $("#MEMBER_EMAIL2").val();
-		}
-
-		if ($("#isEmailCheck").val() != '1') {
-			alert("이메일을 확인해주세요.");
-			return false;
-		} else {
-			e.preventDefault();
-			$("#loadingBar").show();
-			// 이메일 중복 체크 후 메일 발송 비동기 처리 
-				$.ajax({
-					type : "POST",
-					url : "${pageContext.request.contextPath}/emailAuth.do",
-					data : "user_email="+ user_email,
-					
-					success : function(data) {
-					$("#loadingBar").hide();
-					alert("인증번호가 발송되었습니다. 이메일을 확인해주세요.");
-					$("#isCheck_EmailForm").show();
-				},
-				error : function(data) {
-					alert("에러가 발생했습니다.");
-					return false;
-				}
-			});
-		}
-	});
-
-	// 이메일 인증번호 입력 후 인증 버튼 클릭 이벤트
-	$(document).on("click","#isAuth",function() {
-		$.ajax({
-			type : "POST",
-			url : "${pageContext.request.contextPath}/emailAuthCheck.do",
-			data : "joinCode="
-					+ $('#emailAuth').val()
-					+ "&ran=" + $("#ran").val(),
-			success : function(data) {
-				console.log(data.result);
-				if (data.result == "complete") {
-					$("#isAuth").contents().unwrap().wrap('<div id="isAuth"></div>');
-					$("#isAuth").text("인증완료");
-					$("#isAuth").css('color','blue').css('display','inline');
-					$("#emailAuth").attr('disabled', true);
-					$("#isEmailAuth").val("1");
-				} else if (data.result == "fail") {
-					alert("인증번호가 올바르지 않습니다.")
-				}
-			},
-			error : function(data) {
-				alert("에러가 발생했습니다.");
-			}
-		});
-	});
-	// modal의 동의하기 버튼 클릭 시 체크박스에 checked 속성 활성화
-	$("#check1_agree").click(function() {
-		$("#check1").prop("checked", true);
-		$('#myModal1').modal('hide');
-	});
-
-	$("#check2_agree").click(function() {
-		$("#check2").prop("checked", true);
-		$('#myModal2').modal('hide');
-	});
-
-	$("#chk_allAgree").click(function() {
-		var chk = $(this).is(":checked");
-		if (chk)
-			$("#checkboxes input").prop('checked', true);
-		else
-			$("#checkboxes input").prop('checked', false);
-	});
-	// modal의 스크롤바 이동에 따른 동의하기 버튼 활성화/비활성화
-	$(".guide_wrap").scroll(function() {
-		var scrollTop = $(this).scrollTop();
-		var innerHeight = $(this).innerHeight();
-		var scrollHeight = $(this).prop('scrollHeight');
-
-		if (scrollTop + innerHeight >= scrollHeight) {
-			$("#check1_agree").attr('disabled', false);
-		} else {
-			$("#check1_agree").attr('disabled', true);
-		}
-	});
-
-	$(".guide_wrap2").scroll(function() {
-		var scrollTop = $(this).scrollTop();
-		var innerHeight = $(this).innerHeight();
-		var scrollHeight = $(this).prop('scrollHeight');
-
-		if (scrollTop + innerHeight >= scrollHeight) {
-			$("#check2_agree").attr('disabled', false);
-		} else {
-			$("#check2_agree").attr('disabled', true);
-		}
-	});
-});
+	  if(!regExp.test(mem_email.value)){
+		  alert("이메일 형식을 확인해주세요.")
+		  mem_email.focus();
+		  return false;
+	  }
+	  
+	  //약관 동의
+	  if (!check1.checked) {
+    		alert("서비스 이용 약관 동의를 체크하세요.");
+    		check1.focus();
+    		return false;
+  	  }
+	  if (!check2.checked) {
+  		alert("개인정보 수집 및 이용 약관 동의를 체크하세요.");
+  		check2.focus();
+  		return false;
+	  }
+	  if (!check3.checked) {
+  		alert("약관 동의를 체크하세요.");
+  		check3.focus();
+  		return false;
+	  }
+	  
+	  document.signUp.submit();
+  }
 
 </script>
 <script>
