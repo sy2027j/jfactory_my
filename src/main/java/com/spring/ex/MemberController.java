@@ -21,6 +21,7 @@ public class MemberController {
 
 	@Inject MemberService service;
 	
+	//관리자 - 회원목록
 	@RequestMapping(value = "admin/index", method = RequestMethod.GET)
 	public String memberList(Model model) throws Exception {
 		
@@ -33,6 +34,7 @@ public class MemberController {
 	
 	@Inject AdminService adminservice;
 	
+	//관리자 - 관리자 목록
 	@RequestMapping(value="admin/admin_index", method=RequestMethod.GET)
 	public String AdminList(Model model) throws Exception{
 		
@@ -45,6 +47,7 @@ public class MemberController {
 	
 	@Inject MemberqnaService qnaservice;
 	
+	//회원 - qna 목록
 	@RequestMapping(value="/community_qna", method=RequestMethod.GET)
 		public String QnaList(Model model) throws Exception{
 			
@@ -62,11 +65,21 @@ public class MemberController {
 		return "redirect:/login";
 	}
 	
+	//회원 - qna 글쓰기
 	@RequestMapping(value="/cm_qna_write", method=RequestMethod.POST)
 	public String qnaWrite(MemberqnaDTO dto)throws Exception{
 		qnaservice.qnaWriteMethod(dto);
 		
 		return "redirect:/community_qna";
+	}
+	
+	//회원 - qna 상세보기
+	@RequestMapping(value="/cm_qna_view", method=RequestMethod.GET)
+	public String qnaDetail(Model model, String mem_id) {
+		MemberqnaDTO qnadetail=qnaservice.detail(mem_id);
+		model.addAttribute("Qnadetail",qnadetail);
+		System.out.println("상세보기");
+		return "/cm_qna_view";
 	}
 	
 }

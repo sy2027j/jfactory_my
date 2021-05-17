@@ -21,4 +21,9 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception{
 		dao.qnaWriteMethod(dto);
 	}
+	
+	@Override
+	public MemberqnaDTO detail(String mem_id) {
+		return dao.detail(mem_id);
+	}
 }

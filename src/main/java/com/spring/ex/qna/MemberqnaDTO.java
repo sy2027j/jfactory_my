@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class MemberqnaDTO {
 
+	private int qna_no;
 	private String qna_id;
 	private String qna_title;
 	private String qna_content;
@@ -80,6 +81,12 @@ public class MemberqnaDTO {
 	}
 	public void setQna_replay_datetime(Date qna_replay_datetime) {
 		this.qna_replay_datetime = qna_replay_datetime;
+	}
+	public int getQna_no() {
+		return qna_no;
+	}
+	public void setQna_no(int qna_no) {
+		this.qna_no = qna_no;
 	}
 	
 	

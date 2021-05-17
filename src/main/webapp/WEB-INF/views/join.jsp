@@ -192,13 +192,13 @@
                 </h5>
                 </div> 
                 <div>
-                <input type="checkbox" name="wrinkles" value="주름">주름 &nbsp;
-                <input type="checkbox" name="pimple" value="여드름">여드름 &nbsp;
-                <input type="checkbox" name="sebum&pores" value="피지&모공">피지&모공 &nbsp;
-                <input type="checkbox" name="no_moisturizing" value="수분부족">수분부족 &nbsp;
-                <input type="checkbox" name="darkcircles" value="다크써클">다크써클 &nbsp;
-                <input type="checkbox" name="corneous" value="각질">각질 &nbsp;
-                <input type="checkbox" name="etc" value="기타">기타 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="주름">주름 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="여드름">여드름 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="피지&모공">피지&모공 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="수분부족">수분부족 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="다크써클">다크써클 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="각질">각질 &nbsp;
+                <input type="checkbox" name="mem_skintrouble" value="기타">기타 &nbsp;
                 </div> 
 			<br/><br/>
 			<div align="center">
@@ -221,9 +221,24 @@
   <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  ﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   
   <script type="text/javascript">
-
+  /*
+  function Cboxchecked(obj){
+	  var checked=obj.checked;
+		if(checked){
+	  		obj.value="1";
+  		}else{
+	  		obj.value="0";
+  		}
+  };*/
+  
+  
+  </script>
+  
+  <script type="text/javascript">
+  //회원가입 검사...
   function join_check(){
 	  var mem_id=document.getElementById("mem_id");
 	  var mem_password=document.getElementById("mem_password");

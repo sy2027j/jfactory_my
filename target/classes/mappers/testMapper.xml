@@ -18,6 +18,7 @@
 		INSERT INTO jfactory_member values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},0,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,0,DEFAULT,0,null,null,null,null,0,0,0)
 	</insert>
 	
+	<!-- 로그인아직 -->
 	<select id="Login" resultType="MemberDTO">
 		SELECT mem_id, mem_password FROM jfactory_member where mem_id=#{mem_id} AND mem_password = {mem_password}
 	</select>
@@ -25,5 +26,9 @@
 	<insert id="QnaWrite" parameterType="MemberqnaDTO">
 		INSERT INTO jfactory_qna values(#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,#{qna_category},0)
 	</insert>
+	
+	<select id="QnaDetail" resultType="MemberqnaDTO">
+		SELECT mem_id, qna_title, qna_content, qna_reply_content, qna_category FROM jfactory_qna where mem_id=#{mem_id}
+	</select>
 </mapper>
 
