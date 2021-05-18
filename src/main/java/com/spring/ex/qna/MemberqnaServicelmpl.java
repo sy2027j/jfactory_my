@@ -23,7 +23,7 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	}
 	
 	@Override
-	public MemberqnaDTO detail(String mem_id) {
-		return dao.detail(mem_id);
+	public MemberqnaDTO detail(int qna_no) {
+		return dao.detail(qna_no);
 	}
 }

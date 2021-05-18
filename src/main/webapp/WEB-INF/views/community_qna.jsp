@@ -38,7 +38,7 @@
                               <tr>
                                  <c:forEach items="${QnaList}" var="qnalist">
 							<tr>
-								<td><a style="color:black; text-decoration:none "href="cm_qna_view?mem_id=${qnalist.getmem_id()}"><c:out value="${qnalist.getQna_title()}"/></a></td>
+								<td><a style="color:black; text-decoration:none "href="cm_qna_view?qna_no=${qnalist.getQna_no()}"><c:out value="${qnalist.getQna_title()}"/></a></td>
 								<td><c:out value="${qnalist.getmem_id() }"/></td>
 								<td><c:out value="${qnalist.getQna_datetime() }"/></td>
 								<td><c:out value="${qnalist.getQna_response() }"/></td>

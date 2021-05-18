@@ -41,7 +41,7 @@
 									</thead>
 										<tbody>
 										<c:forEach items="${List}" var="member">
-							<tr>
+							<tr onClick="window.open('링크주소','','')">
 								<td><c:out value="${member.getMem_level()}"/></td>
 								<td><c:out value="${member.getmem_id() }"/></td>
 								<td><c:out value="${member.getMem_realname() }"/></td>

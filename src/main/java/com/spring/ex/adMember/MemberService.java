@@ -10,4 +10,6 @@ public interface MemberService {
 	public List<MemberDTO> memberList() throws Exception;
 	
 	public void memberJoinMethod(MemberDTO dto) throws Exception;
+	
+	public int idCheck(MemberDTO dto) throws Exception;
 }

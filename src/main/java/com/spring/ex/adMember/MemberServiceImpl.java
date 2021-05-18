@@ -21,4 +21,10 @@ public class MemberServiceImpl implements MemberService {
 	public void memberJoinMethod(MemberDTO dto) throws Exception{
 		dao.memberJoinMethod(dto);
 	}
+	
+	@Override
+	public int idCheck(MemberDTO dto) throws Exception{
+		int result=dao.idCheck(dto);
+		return result;
+	}
 }

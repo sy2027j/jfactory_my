@@ -11,5 +11,5 @@ public interface MemberqnaDAO {
 	
 	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception;
 	
-	public MemberqnaDTO detail(String mem_id);
+	public MemberqnaDTO detail(int qna_no);
 }

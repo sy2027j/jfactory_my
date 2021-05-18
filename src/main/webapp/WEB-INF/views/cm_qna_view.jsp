@@ -39,7 +39,7 @@ table {
             </div> 
             
             <div class="card-body"> 
-            <input type="hidden" name="article_no" > 
+            <input type="hidden" name="qna_no" id="qna_no" value="${Qnadetail.getQna_no()}" > 
             <div class="form-group"> 
             <label for="title">작성자</label> 
             <input class="form-control" id="mem_id" name="mem_id" style="background-color:white;" value="${Qnadetail.getmem_id() }" readonly> 
@@ -62,8 +62,8 @@ table {
             </div> 
             </div> 
             <div class="card-footer">
-            <div class="float-right"> 
-            <button type="button" class="btn btn-warning cancelBtn"><i class="fa fa-trash"></i>돌아가기</button> 
+            <div align="center"> 
+            <button type="button" class="btn" onclick="location.href='community_qna'"><i class="fa fa-trash"></i>돌아가기</button> 
             
              </div> </div> </div>
 	</div>

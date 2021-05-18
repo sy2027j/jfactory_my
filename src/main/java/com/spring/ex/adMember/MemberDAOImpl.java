@@ -23,4 +23,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public void memberJoinMethod(MemberDTO dto) throws Exception{
 		sqlSession.insert(namespace+".Join",dto);
 	}
+	
+	@Override
+	public int idCheck(MemberDTO dto) throws Exception{
+		int result = sqlSession.selectOne(namespace+".idCheck",dto);
+		return result;
+	}
 }

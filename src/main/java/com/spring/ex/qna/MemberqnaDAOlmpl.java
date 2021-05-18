@@ -25,7 +25,7 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	}
 	
 	@Override
-	public MemberqnaDTO detail(String mem_id) {
-		return sqlSession.selectOne(namespace+".QnaDetail", mem_id);
+	public MemberqnaDTO detail(int qna_no) {
+		return sqlSession.selectOne(namespace+".QnaDetail", qna_no);
 	}
 }

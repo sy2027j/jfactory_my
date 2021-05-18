@@ -2,20 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.ex.mappers.testMapper">
+
+	<!-- 회원 리스트 불러오기 -->
 	<select id="MemberList" resultType="MemberDTO">
-		SELECT * FROM jfactory_member
+		SELECT * FROM jfactory_member where mem_is_admin=0
 	</select>
 	
+	<!-- 관리자 리스트 불러오기 -->
 	<select id="AdminList" resultType="AdminDTO">
 		SELECT * FROM jfactory_member where mem_is_admin=1 or mem_is_admin=2
 	</select>
 	
+	<!-- qna 글 공지 우선 불러오고 최신순으로 불러오기 -->
 	<select id="QnaList" resultType="MemberqnaDTO">
 		SELECT * FROM jfactory_qna ORDER BY qna_pin DESC, qna_datetime DESC
 	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="Join" parameterType="MemberDTO">
-		INSERT INTO jfactory_member values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},0,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,0,DEFAULT,0,null,null,null,null,0,0,0)
+		INSERT INTO jfactory_member values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},DEFAULT,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,0,DEFAULT,0,null,null,null,null,0,0,0)
 	</insert>
 	
 	<!-- 로그인아직 -->
@@ -23,12 +28,18 @@
 		SELECT mem_id, mem_password FROM jfactory_member where mem_id=#{mem_id} AND mem_password = {mem_password}
 	</select>
 	
+	<!-- qna 문의 남기기 -->
 	<insert id="QnaWrite" parameterType="MemberqnaDTO">
-		INSERT INTO jfactory_qna values(#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,#{qna_category},0)
+		INSERT INTO jfactory_qna values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,#{qna_category},0)
 	</insert>
 	
+	<!-- qna 상세 내용 보기 -->
 	<select id="QnaDetail" resultType="MemberqnaDTO">
-		SELECT mem_id, qna_title, qna_content, qna_reply_content, qna_category FROM jfactory_qna where mem_id=#{mem_id}
+		SELECT qna_no, mem_id, qna_title, qna_content, qna_reply_content, qna_category FROM jfactory_qna where qna_no=#{qna_no}
+	</select>
+	
+	<select id="idCheck" resultType="int">
+		SELECT COUNT(*) FROM jfactory_member WHERE mem_id=#{mem_id}
 	</select>
 </mapper>
 

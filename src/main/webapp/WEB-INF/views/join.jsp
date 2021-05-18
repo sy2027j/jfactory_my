@@ -12,7 +12,8 @@
 <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <script src="<c:url value='resources/js/common.js'/>" charset="utf-8"></script>
   <!-- Custom styles for this template -->
   <link href="resources/css/join.css" rel="stylesheet">
@@ -34,8 +35,10 @@
             <input type="text"
                class="form-control" id="mem_id" name="mem_id"
                placeholder="아이디를 입력하세요" style="width:410px">
-               &nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
+               &nbsp;<button type="button" class="btn btn-default" id="idChk" style="border-color:white; background-color:#e6e6fa; color:black;" onclick="fn_idChk();">인증</button>
                <input type="hidden" id="isEmailCheck" value="0">
+               <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+               <span class="id_input_re_1">사용 불가능한 아이디입니다.</span>
                </div>
                <div id="id_check"></div>
          </div>
@@ -147,12 +150,14 @@
 				</div>
 				<div>
 					<input type="checkbox" name="check3" id="check3" value="1"> <b>만 14세 이상입니다.</b>&nbsp;<font color="red">(필수)</font>
+					<p style="font-size:13px">만 19세 미만의 미성년자가 결제 시 법정대리인이 거래를 취소할 수 있습니다.<p>
 				</div>
 			</div>
+			<!-- 
 			<div class="chk_allAgree">
 				<input type="checkbox" name="chk_allAgree" id="chk_allAgree">
 				<b>내용 확인 및 전체 동의</b>
-			</div>
+			</div> -->
 			<br/>
 			<hr>
 			<div class="choice_Title">
@@ -222,6 +227,7 @@
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   ﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
   
   <script type="text/javascript">
   /*
@@ -232,8 +238,34 @@
   		}else{
 	  		obj.value="0";
   		}
-  };*/
+  };
   
+  function selectAll(selectAll)  {
+	  const checkboxes 
+	       = document.getElementsByName('animal');
+	  
+	  checkboxes.forEach((checkbox) => {
+	    checkbox.checked = selectAll.checked;
+	  })
+	}*/
+	
+	//아이디 중복 체크 메시지
+	function fn_idChk(){
+		$.ajax({
+			url : "/idChk",
+			type : "post",
+			dataType : "json",
+			data : {"mem_id" : $("#mem_id").val()},
+			success : function(data){
+				if(data == 1){
+					alert("중복된 아이디입니다.");
+				}else if(data == 0){
+					$("#idChk").attr("value", "Y");
+					alert("사용가능한 아이디입니다.");
+				}
+			}
+		})
+	}
   
   </script>
   

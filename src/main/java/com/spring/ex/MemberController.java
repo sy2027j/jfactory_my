@@ -75,11 +75,28 @@ public class MemberController {
 	
 	//회원 - qna 상세보기
 	@RequestMapping(value="/cm_qna_view", method=RequestMethod.GET)
-	public String qnaDetail(Model model, String mem_id) {
-		MemberqnaDTO qnadetail=qnaservice.detail(mem_id);
+	public String qnaDetail(Model model, int qna_no) {
+		MemberqnaDTO qnadetail=qnaservice.detail(qna_no);
 		model.addAttribute("Qnadetail",qnadetail);
 		System.out.println("상세보기");
 		return "/cm_qna_view";
 	}
+	
+	//아이디 중복 체크
+	@RequestMapping(value="/idChk", method=RequestMethod.GET)
+	public String idCheck(MemberDTO dto)throws Exception{
+		int result=service.idCheck(dto);
+		try {
+			if(result==1) {
+				System.out.println("사용가능");
+			}else if(result==0) {
+				System.out.println("사용불가능");
+			}
+		}catch(Exception e) {
+			throw new RuntimeException();
+		}
+		return "redirect:/login";
+	}
+	
 	
 }
