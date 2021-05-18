@@ -23,8 +23,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public int idCheck(MemberDTO dto) throws Exception{
-		int result=dao.idCheck(dto);
+	public int idChk(MemberDTO dto) throws Exception{
+		int result=dao.idChk(dto);
 		return result;
 	}
 }

@@ -11,5 +11,5 @@ public interface MemberService {
 	
 	public void memberJoinMethod(MemberDTO dto) throws Exception;
 	
-	public int idCheck(MemberDTO dto) throws Exception;
+	public int idChk(MemberDTO dto) throws Exception;
 }

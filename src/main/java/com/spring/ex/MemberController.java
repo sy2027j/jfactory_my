@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.adMember.MemberService;
@@ -58,10 +59,21 @@ public class MemberController {
 			return "/community_qna";
 		}
 	
+	//회원가입
 	@RequestMapping(value="/index", method=RequestMethod.POST)
 	public String joinPost(MemberDTO dto)throws Exception{
-		service.memberJoinMethod(dto);
+		//service.memberJoinMethod(dto);
 		
+		int result=service.idChk(dto);
+		try {
+			if(result==1) {
+				return "/index";
+			}else if(result==0) {
+				service.memberJoinMethod(dto);
+			}
+		}catch(Exception e) {
+			throw new RuntimeException();
+		}
 		return "redirect:/login";
 	}
 	
@@ -83,19 +95,12 @@ public class MemberController {
 	}
 	
 	//아이디 중복 체크
-	@RequestMapping(value="/idChk", method=RequestMethod.GET)
-	public String idCheck(MemberDTO dto)throws Exception{
-		int result=service.idCheck(dto);
-		try {
-			if(result==1) {
-				System.out.println("사용가능");
-			}else if(result==0) {
-				System.out.println("사용불가능");
-			}
-		}catch(Exception e) {
-			throw new RuntimeException();
-		}
-		return "redirect:/login";
+	@ResponseBody
+	@RequestMapping(value="/idChk", method=RequestMethod.POST)
+	public int idCheck(MemberDTO dto)throws Exception{
+		int result=service.idChk(dto);
+		return result;
+		//결과가 없으면 0 있으면 1을 반환해준다ㅐ
 	}
 	
 	

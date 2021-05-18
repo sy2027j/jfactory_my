@@ -14,9 +14,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
 <script src="<c:url value='resources/js/common.js'/>" charset="utf-8"></script>
-  <!-- Custom styles for this template -->
-  <link href="resources/css/join.css" rel="stylesheet">
 </head>
 
 <body>
@@ -36,9 +35,7 @@
                class="form-control" id="mem_id" name="mem_id"
                placeholder="아이디를 입력하세요" style="width:410px">
                &nbsp;<button type="button" class="btn btn-default" id="idChk" style="border-color:white; background-color:#e6e6fa; color:black;" onclick="fn_idChk();">인증</button>
-               <input type="hidden" id="isEmailCheck" value="0">
-               <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-               <span class="id_input_re_1">사용 불가능한 아이디입니다.</span>
+               <input type="hidden" name="isIdCheck" id="isIdCheck" value="n">
                </div>
                <div id="id_check"></div>
          </div>
@@ -229,47 +226,33 @@
   ﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
   
-  <script type="text/javascript">
-  /*
-  function Cboxchecked(obj){
-	  var checked=obj.checked;
-		if(checked){
-	  		obj.value="1";
-  		}else{
-	  		obj.value="0";
-  		}
-  };
   
-  function selectAll(selectAll)  {
-	  const checkboxes 
-	       = document.getElementsByName('animal');
-	  
-	  checkboxes.forEach((checkbox) => {
-	    checkbox.checked = selectAll.checked;
-	  })
-	}*/
+  <script type="text/javascript">
 	
-	//아이디 중복 체크 메시지
+	//아이디 중복 체크
 	function fn_idChk(){
 		$.ajax({
-			url : "/idChk",
-			type : "post",
+			url : "/ex/idChk",
+			type : "POST",
 			dataType : "json",
 			data : {"mem_id" : $("#mem_id").val()},
 			success : function(data){
 				if(data == 1){
-					alert("중복된 아이디입니다.");
+					alert("사용 불가능한 아이디입니다.");
 				}else if(data == 0){
-					$("#idChk").attr("value", "Y");
-					alert("사용가능한 아이디입니다.");
+					$("#isIdCheck").attr("value", "Y");
+					
+					alert("사용 가능한 아이디입니다.");
 				}
-			}
+			},error:function(request,status,error){
+		        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+		       }
 		})
 	}
   
-  </script>
-  
-  <script type="text/javascript">
+	</script>
+	
+ <script type="text/javascript">
   //회원가입 검사...
   function join_check(){
 	  var mem_id=document.getElementById("mem_id");
@@ -406,7 +389,7 @@
 	  document.signUp.submit();
   }
 
-</script>
+  </script>
 <script>
 
 

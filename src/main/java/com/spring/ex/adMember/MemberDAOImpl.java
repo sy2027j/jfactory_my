@@ -25,8 +25,8 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	
 	@Override
-	public int idCheck(MemberDTO dto) throws Exception{
-		int result = sqlSession.selectOne(namespace+".idCheck",dto);
+	public int idChk(MemberDTO dto) throws Exception{
+		int result = sqlSession.selectOne(namespace+".IdChk",dto);
 		return result;
 	}
 }

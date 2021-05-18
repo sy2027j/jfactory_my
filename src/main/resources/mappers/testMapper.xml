@@ -38,7 +38,7 @@
 		SELECT qna_no, mem_id, qna_title, qna_content, qna_reply_content, qna_category FROM jfactory_qna where qna_no=#{qna_no}
 	</select>
 	
-	<select id="idCheck" resultType="int">
+	<select id="IdChk" resultType="int">
 		SELECT COUNT(*) FROM jfactory_member WHERE mem_id=#{mem_id}
 	</select>
 </mapper>
