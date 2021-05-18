@@ -15,6 +15,10 @@ public class AdminDAOlmpl implements AdminDAO{
 	private static final String namespace="com.spring.ex.mappers.testMapper";
 	
 	@Override
+	public List<AdminDTO> adminMemberList() throws Exception{
+		return sqlSession.selectList(namespace + ".adminMemberList");
+	}
+	@Override
 	public List<AdminDTO> adminList() throws Exception{
 		return sqlSession.selectList(namespace+".AdminList");
 	}

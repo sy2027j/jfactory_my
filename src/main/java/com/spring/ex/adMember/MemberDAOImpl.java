@@ -3,6 +3,7 @@ package com.spring.ex.adMember;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -29,4 +30,10 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = sqlSession.selectOne(namespace+".IdChk",dto);
 		return result;
 	}
+	
+	@Override
+	public MemberDTO Login(MemberDTO dto) throws Exception{
+		return sqlSession.selectOne(namespace +".Login", dto);
+	}
+	
 }

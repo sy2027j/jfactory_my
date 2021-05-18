@@ -3,12 +3,19 @@ package com.spring.ex;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.mariadb.jdbc.internal.logging.Logger;
+import org.mariadb.jdbc.internal.logging.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.adMember.MemberService;
@@ -20,9 +27,8 @@ import com.spring.ex.qna.MemberqnaService;
 @Controller
 public class MemberController {
 
-	@Inject MemberService service;
-	
-	//관리자 - 회원목록
+	@Inject AdminService adminservice;
+	//관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
 	@RequestMapping(value = "admin/index", method = RequestMethod.GET)
 	public String memberList(Model model) throws Exception {
 		
@@ -33,9 +39,18 @@ public class MemberController {
 		return "admin/index";
 	}
 	
-	@Inject AdminService adminservice;
-	
-	//관리자 - 관리자 목록
+	//관리자 추가를 위해 회원 목록 불러오기
+	/*@RequestMapping(value = "admin/index", method = RequestMethod.GET)
+	public String memberList2(Model model) throws Exception {
+		
+		List<MemberDTO> memberlist2 =  service.memberList();
+		
+		model.addAttribute("List", memberlist2);
+		
+		return "admin/admin_index";
+	}
+	*/
+	//관리자 목록 불러오기
 	@RequestMapping(value="admin/admin_index", method=RequestMethod.GET)
 	public String AdminList(Model model) throws Exception{
 		
@@ -48,7 +63,7 @@ public class MemberController {
 	
 	@Inject MemberqnaService qnaservice;
 	
-	//회원 - qna 목록
+	//�쉶�썝 - qna 紐⑸줉
 	@RequestMapping(value="/community_qna", method=RequestMethod.GET)
 		public String QnaList(Model model) throws Exception{
 			
@@ -59,12 +74,16 @@ public class MemberController {
 			return "/community_qna";
 		}
 	
+	
+	@Inject MemberService service;
+	
 	//회원가입
 	@RequestMapping(value="/index", method=RequestMethod.POST)
 	public String joinPost(MemberDTO dto)throws Exception{
 		//service.memberJoinMethod(dto);
 		
 		int result=service.idChk(dto);
+		
 		try {
 			if(result==1) {
 				return "/index";
@@ -77,7 +96,28 @@ public class MemberController {
 		return "redirect:/login";
 	}
 	
-	//회원 - qna 글쓰기
+	//로그인
+	 
+    @RequestMapping(value="/login", method= RequestMethod.POST)
+    public String Login(MemberDTO dto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+        
+        HttpSession session = req.getSession();
+        MemberDTO login = service.Login(dto);
+        
+        	if(login == null) {  //일치 안 할 경우
+            
+		            int result = 0;
+		            rttr.addFlashAttribute("result", result);
+		            return "redirect:/index";
+		            
+		        }
+        			//일치할 경우
+			        session.setAttribute("member", login);  
+			        
+			        return "redirect:/mypage_order";
+			    }
+		
+	//�쉶�썝 - qna 湲��벐湲�
 	@RequestMapping(value="/cm_qna_write", method=RequestMethod.POST)
 	public String qnaWrite(MemberqnaDTO dto)throws Exception{
 		qnaservice.qnaWriteMethod(dto);
@@ -85,22 +125,22 @@ public class MemberController {
 		return "redirect:/community_qna";
 	}
 	
-	//회원 - qna 상세보기
+	//�쉶�썝 - qna �긽�꽭蹂닿린
 	@RequestMapping(value="/cm_qna_view", method=RequestMethod.GET)
 	public String qnaDetail(Model model, int qna_no) {
 		MemberqnaDTO qnadetail=qnaservice.detail(qna_no);
 		model.addAttribute("Qnadetail",qnadetail);
-		System.out.println("상세보기");
+		System.out.println("�긽�꽭蹂닿린");
 		return "/cm_qna_view";
 	}
 	
-	//아이디 중복 체크
+	//�븘�씠�뵒 以묐났 泥댄겕
 	@ResponseBody
 	@RequestMapping(value="/idChk", method=RequestMethod.POST)
 	public int idCheck(MemberDTO dto)throws Exception{
 		int result=service.idChk(dto);
 		return result;
-		//결과가 없으면 0 있으면 1을 반환해준다ㅐ
+		//寃곌낵媛� �뾾�쑝硫� 0 �엳�쑝硫� 1�쓣 諛섑솚�빐以��떎�뀗
 	}
 	
 	

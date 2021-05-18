@@ -40,7 +40,7 @@
 				<i class="fas fa-table mr-1"></i> 관리자 차트
 			</div>
 			<div class="memberManager">
-				<table class="table table-hover" id="memberList">
+				<table class="table table-hover" id="adminMemberList">
 						<tr>
 							<th>권한</th>
 							<th>ID</th>
@@ -48,7 +48,7 @@
 							<th>생년월일</th>
 							<th>번호</th>
 						</tr>
-						<c:forEach items="${AdminList}" var="admin">
+						<c:forEach items="${List}" var="admin">
 							<tr>
 								<td><c:out value="${admin.getMem_is_admin()}"/></td>
 								<td><c:out value="${admin.getMem_email() }"/></td>

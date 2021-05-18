@@ -27,22 +27,28 @@
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
                             </div>
-                            <div class="memberManager">    
-								<table class="table table-hover" id="memberList">  
+                                 <div class="memberManager">    
+								<table class="table table-hover" id="adminMemberList">  
 									<thead>
 										<tr>
+											<th>등급</th>
 											<th>ID</th>
 											<th>이름</th>  
+											<th>생년월일</th>
 											<th>번호</th>
 										</tr>
 									</thead>
 										<tbody>
-										<tr>
-											<td>AAAAA</td>
-											<td>정유진</td>
-											<td>01094256393</td>
-										</tr>	
-										
+										<c:forEach items="${List}" var="member">
+							<tr onClick="window.open('링크주소','','')">
+								<td><c:out value="${member.getMem_level()}"/></td>
+								<td><c:out value="${member.getmem_id() }"/></td>
+								<td><c:out value="${member.getMem_realname() }"/></td>
+								<td><c:out value="${member.getMem_birth_year() }.${member.getMem_birth_month() }.${member.getMem_birth_day() }"/></td>
+								<td><c:out value="${member.getMem_phone() }-${member.getMem_phone1() }-${member.getMem_phone2() }"/></td>
+								
+							</tr>
+						</c:forEach>
 											
 									</tbody>
 								</table>

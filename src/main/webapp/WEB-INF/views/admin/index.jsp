@@ -28,7 +28,7 @@
                                 	회원차트
                             </div>
                             <div class="memberManager">    
-								<table class="table table-hover" id="memberList">  
+								<table class="table table-hover" id="adminMemberList">  
 									<thead>
 										<tr>
 											<th>등급</th>

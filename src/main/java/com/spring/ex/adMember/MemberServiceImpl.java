@@ -3,6 +3,7 @@ package com.spring.ex.adMember;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class MemberServiceImpl implements MemberService {
 
 	@Inject
-	private MemberDAO dao;
+	MemberDAO dao;
 	
 	@Override
 	public List<MemberDTO> memberList() throws Exception {
@@ -27,4 +28,10 @@ public class MemberServiceImpl implements MemberService {
 		int result=dao.idChk(dto);
 		return result;
 	}
+	
+	@Override
+	public MemberDTO Login(MemberDTO dto) throws Exception {
+		return dao.Login(dto);
+	}
+
 }
