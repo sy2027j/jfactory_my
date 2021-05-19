@@ -48,7 +48,7 @@
 							<th>생년월일</th>
 							<th>번호</th>
 						</tr>
-						<c:forEach items="${List}" var="admin">
+						<c:forEach items="${AdminList}" var="admin">
 							<tr>
 								<td><c:out value="${admin.getMem_is_admin()}"/></td>
 								<td><c:out value="${admin.getMem_email() }"/></td>

@@ -33,7 +33,9 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	@Override
 	public MemberDTO Login(MemberDTO dto) throws Exception{
-		return sqlSession.selectOne(namespace +".Login", dto);
+		return sqlSession.selectOne(namespace+".Login", dto);
+		
+		
 	}
 	
 }

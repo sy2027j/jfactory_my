@@ -25,7 +25,7 @@
 	
 	<!-- 로그인 -->
 	<select id="Login" resultType="MemberDTO">
-		SELECT mem_id, mem_password FROM jfactory_member where mem_id=#{mem_id} AND mem_password = {mem_password}
+		SELECT mem_id, mem_password FROM jfactory_member where mem_id=#{mem_id} AND mem_password = #{mem_password}
 	</select>
 	
 	<!-- qna 문의 남기기 -->

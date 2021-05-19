@@ -96,28 +96,40 @@ public class MemberController {
 		return "redirect:/login";
 	}
 	
-	//로그인
-	 
-    @RequestMapping(value="/login", method= RequestMethod.POST)
-    public String Login(MemberDTO dto, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+	
+    /* 로그인 */
+    @RequestMapping(value="login", method=RequestMethod.POST)
+    public String loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr) throws Exception{
         
-        HttpSession session = req.getSession();
-        MemberDTO login = service.Login(dto);
+        //System.out.println("login 메서드 진입");
+        //System.out.println("전달된 데이터 : " + dto);
         
-        	if(login == null) {  //일치 안 할 경우
+    	//session 사용하기 위해 session변수 선언하고 request로 초기화
+    	//lvo 값은 아이디 비번이 존재할 경우 데이터가 담긴 dto 객체가 저장되는 것
+    	//아이디 비번이 없으면 lvo에 null 저장
+    	
+    	HttpSession session = request.getSession();
+    	MemberDTO lvo = service.Login(dto);
+    	
+
+        if(lvo == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
             
-		            int result = 0;
-		            rttr.addFlashAttribute("result", result);
-		            return "redirect:/index";
-		            
-		        }
-        			//일치할 경우
-			        session.setAttribute("member", login);  
-			        
-			        return "redirect:/mypage_order";
-			    }
-		
-	//�쉶�썝 - qna 湲��벐湲�
+            int result = 0;
+            rttr.addFlashAttribute("result", result);
+            return "redirect:/index";
+            
+        }
+        
+        session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
+        
+        return "redirect:/mypage_order";
+
+    
+    }
+	
+	
+    
+    //�쉶�썝 - qna 湲��벐湲�
 	@RequestMapping(value="/cm_qna_write", method=RequestMethod.POST)
 	public String qnaWrite(MemberqnaDTO dto)throws Exception{
 		qnaservice.qnaWriteMethod(dto);
