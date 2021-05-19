@@ -11,8 +11,15 @@
                     <div class="container">
           <div class="row">
           <div class="col-lg-6">
-              <img class="" src="resources/image/palette4.jpg" alt="" width="500px" height="500px">
-             <input type="file" class="form-control-file border">
+          	<!-- 상품 이미지 -->
+          	<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>상품 이미지</label>
+                    			</div>
+                    			<div class="form_section_content">
+									<input type="file" id ="fileItem" name='uploadFile' style="height: 30px;">
+                    			</div>
+                    		</div>  
             </div>
                   <div class="col-lg-6">
                      <div class="form-group">
@@ -80,5 +87,46 @@
     	</div>
                 </main>
             </div>
+            
+  <script type="text/javascript">
+  //이미지 업로드
+  $("input[type='file']").on("change", function(e){
+		//alert("동작");
+		
+		//formData -> 객체의 주소를 변수에 저장
+		let formData = new FormData();
+		let fileInput = $('input[name="uploadFile"]');
+		let fileList = fileInput[0].files;
+		let fileObj = fileList[0];
+		
+		
+		formData.append("pd_image_main", fileObj);
+		
+		//첨부파일 서버로 전송함 
+		//processData, contentType 은 false로 해줘야 서버로 전송됨 !! 주의하셈 !!
+		//url : 서버로 요청을 보낼 url
+		//processData : 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
+		//contentType : 서버로 전송되는 데이터의 content-type
+		//data : 서버로 전송할 데이터
+		//type : 서보 요청 타입(GET, POST)
+		//dataType : 서버로부터 반환받을 데이터 타입
+
+		.ajax({
+			url: '/admin/uploadAjaxAction',
+	    	processData : false,
+	    	contentType : false,
+	    	data : formData,
+	    	type : 'POST',
+	    	dataType : 'json'
+		});	
+		
+	});
+  
+
+  
+  
+  
+  </script>
+  
     </body>
 </html>

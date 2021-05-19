@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html lang="en">
 <div class="container" style="margin-top:30px">
-	<h3>MY PAGES</h3>
-	<hr style="size: 100%">정유진님은 <strong>다이아</strong>회원입니다.<br>
-	다음등급까지 <strong>100,000 원</strong>부족 (다음 등급 산정일 2021.06.04)<br>
-	당월포함 직전 6개월 구매금액 <strong>0원</strong><br>
-	<br>
+	
+	<c:if test="${ member != null }">
+		<h3>MY PAGES</h3>
+		<hr style="size: 100%">
+		${member.mem_realname }님은 <strong>${member.mem_level }</strong>회원입니다.<br>
+		다음등급까지 <strong>100,000 원</strong>부족 (다음 등급 산정일 2021.06.04)<br>
+		당월포함 직전 6개월 구매금액 <strong>0원</strong><br>
+		<br>
+	</c:if>
     </div>
 	</div>
