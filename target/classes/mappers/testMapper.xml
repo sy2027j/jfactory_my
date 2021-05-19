@@ -45,7 +45,7 @@
 	
 	<!-- review insert -->
 	<insert id="Reiew">
-		INSERT INTO jfactory_review values(#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,null)
+		INSERT INTO jfactory_review values(DEFAULT,#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,null,null)
 	</insert>
 </mapper>
 

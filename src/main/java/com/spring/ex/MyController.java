@@ -305,4 +305,11 @@ public class MyController {
 	public String cm_qna_view() {
 		return ("/cm_qna_view");
 	}
+	
+	@RequestMapping("/review_view")
+	public String reviewview() {
+		return("/review_view");
+	}
+	
 }
+ 
