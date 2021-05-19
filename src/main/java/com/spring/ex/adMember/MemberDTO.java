@@ -22,7 +22,7 @@ public class MemberDTO {
 	private String mem_register_datetime;
 	private int mem_is_admin;
 	private String mem_adminmemo;
-	private int mem_sex;
+	private String mem_sex;
 	private String mem_skintype;
 	private String mem_skintrouble;
 	private String mem_coupon;
@@ -155,10 +155,10 @@ public class MemberDTO {
 	public void setMem_adminmemo(String mem_adminmemo) {
 		this.mem_adminmemo = mem_adminmemo;
 	}
-	public int getMem_sex() {
+	public String getMem_sex() {
 		return mem_sex;
 	}
-	public void setMem_sex(int mem_sex) {
+	public void setMem_sex(String mem_sex) {
 		this.mem_sex = mem_sex;
 	}
 	public String getMem_skintype() {

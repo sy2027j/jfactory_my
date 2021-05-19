@@ -168,9 +168,10 @@
                 </div>
                 
                 <div>
-                <input type="radio" name="mem_sex" value="0">여성 &nbsp;
-                <input type="radio" name="mem_sex" value="1">남성
-                </div>
+                <input type="radio" name="mem_sex1" value="0">여성 &nbsp;
+                <input type="radio" name="mem_sex1" value="1">남성
+                </div>               
+                <input type="hidden" name="mem_sex" id="mem_sex" value="">
                 <br/>
                 <div>
                 <h5>
@@ -178,15 +179,16 @@
                 </h5>
                 </div> 
                 <div>
-                <input type="radio" name="mem_skintype" value="건성">건성 &nbsp;
-                <input type="radio" name="mem_skintype" value="중성">중성 &nbsp;
-                <input type="radio" name="mem_skintype" value="지성">지성 &nbsp;
-                <input type="radio" name="mem_skintype" value="복합성">복합성 &nbsp;
-                <input type="radio" name="mem_skintype" value="민감성">민감성 &nbsp;
-                <input type="radio" name="mem_skintype" value="트러블">트러블 &nbsp;
-                <input type="radio" name="mem_skintype" value="아토피">아토피 &nbsp;
-                <input type="radio" name="mem_skintype" value="기타">기타 
-                </div>       
+                <input type="radio" name="mem_skintype1" value="건성">건성 &nbsp;
+                <input type="radio" name="mem_skintype1" value="중성">중성 &nbsp;
+                <input type="radio" name="mem_skintype1" value="지성">지성 &nbsp;
+                <input type="radio" name="mem_skintype1" value="복합성">복합성 &nbsp;
+                <input type="radio" name="mem_skintype1" value="민감성">민감성 &nbsp;
+                <input type="radio" name="mem_skintype1" value="트러블">트러블 &nbsp;
+                <input type="radio" name="mem_skintype1" value="아토피">아토피 &nbsp;
+                <input type="radio" name="mem_skintype1" value="기타">기타 
+                </div>
+                <input type="hidden" name="mem_skintype" id="mem_skintype" value="">       
                 <br/>
                 <div>
                 <h5>
@@ -253,6 +255,7 @@
 	</script>
 	
  <script type="text/javascript">
+ 
   //회원가입 검사...
   function join_check(){
 	  var mem_id=document.getElementById("mem_id");
@@ -385,6 +388,22 @@
   		check3.focus();
   		return false;
 	  }
+	  
+	  //성별
+	  var obj_length = document.getElementsByName("mem_sex1").length;
+	  
+      for (var i=0; i<obj_length; i++) {
+          if (document.getElementsByName("mem_sex1")[i].checked == true) {
+        	  $("#mem_sex").attr("value", document.getElementsByName("mem_sex1")[i].value);
+          }}
+      
+      //피부타입
+      var obj_length = document.getElementsByName("mem_skintype1").length;
+	  
+      for (var i=0; i<obj_length; i++) {
+          if (document.getElementsByName("mem_skintype1")[i].checked == true) {
+        	  $("#mem_skintype").attr("value", document.getElementsByName("mem_skintype1")[i].value);
+          }}
 	  
 	  document.signUp.submit();
   }

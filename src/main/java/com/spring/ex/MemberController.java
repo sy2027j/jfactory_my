@@ -23,6 +23,8 @@ import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.admin.AdminService;
 import com.spring.ex.qna.MemberqnaDTO;
 import com.spring.ex.qna.MemberqnaService;
+import com.spring.ex.review.ReviewDTO;
+import com.spring.ex.review.ReviewService;
 
 @Controller
 public class MemberController {
@@ -155,5 +157,13 @@ public class MemberController {
 		//寃곌낵媛� �뾾�쑝硫� 0 �엳�쑝硫� 1�쓣 諛섑솚�빐以��떎�뀗
 	}
 	
+	@Inject ReviewService reservice;
+	
+	//review write insert
+	@RequestMapping(value="/review_write", method=RequestMethod.POST)
+	public String reviewWrite(ReviewDTO dto) throws Exception{
+		reservice.review(dto);
+		return "redirect:/review";
+	}
 	
 }

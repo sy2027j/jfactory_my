@@ -20,12 +20,12 @@
 	
 	<!-- 회원가입 -->
 	<insert id="Join" parameterType="MemberDTO">
-		INSERT INTO jfactory_member values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},DEFAULT,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,0,DEFAULT,0,null,null,null,null,0,0,0)
+		INSERT INTO jfactory_member values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},DEFAULT,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,0,DEFAULT,0,null,#{mem_sex},#{mem_skintype},null,0,0,0)
 	</insert>
 	
 	<!-- 로그인 -->
 	<select id="Login" resultType="MemberDTO">
-		SELECT mem_id, mem_password FROM jfactory_member where mem_id=#{mem_id} AND mem_password = #{mem_password}
+		SELECT * FROM jfactory_member where mem_id=#{mem_id} AND mem_password = #{mem_password}
 	</select>
 	
 	<!-- qna 문의 남기기 -->
@@ -42,5 +42,10 @@
 	<select id="IdChk" resultType="int">
 		SELECT COUNT(*) FROM jfactory_member WHERE mem_id=#{mem_id}
 	</select>
+	
+	<!-- review insert -->
+	<insert id="Reiew">
+		INSERT INTO jfactory_review values(#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,null)
+	</insert>
 </mapper>
 
