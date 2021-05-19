@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href='<c:url value="/resources/css/styles.css"/>' rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <title>관리자 목록 불러오기</title>
     </head>
     <body>
@@ -31,20 +33,16 @@
 								<table class="table table-hover" id="adminMemberList">  
 									<thead>
 										<tr>
-											<th>등급</th>
 											<th>ID</th>
-											<th>이름</th>  
-											<th>생년월일</th>
+											<th>이름</th> 
 											<th>번호</th>
 										</tr>
 									</thead>
 										<tbody>
 										<c:forEach items="${List}" var="member">
 							<tr onClick="window.open('링크주소','','')">
-								<td><c:out value="${member.getMem_level()}"/></td>
 								<td><c:out value="${member.getmem_id() }"/></td>
 								<td><c:out value="${member.getMem_realname() }"/></td>
-								<td><c:out value="${member.getMem_birth_year() }.${member.getMem_birth_month() }.${member.getMem_birth_day() }"/></td>
 								<td><c:out value="${member.getMem_phone() }-${member.getMem_phone1() }-${member.getMem_phone2() }"/></td>
 								
 							</tr>
