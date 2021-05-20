@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +27,17 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container" style="text-align: center; margin: 0auto;">
+      <c:if test="${ member == null }">
       <button type="button" class="btn btn-link" onclick="location.href='login'"><span style="color:black; font-size:10pt">로그인</span></button>
       <button type="button" class="btn btn-link" onclick="location.href='join'"><span style="color:black; font-size:10pt">회원가입 </span></button>
+      <button type="button" class="btn btn-link" onclick="location.href='login'"><span style="color:black; font-size:10pt">마이페이지</span></button>
+      </c:if>
+      <c:if test="${ member != null }">
+      <button type="button" class="btn btn-link" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
+      <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>
       <button type="button" class="btn btn-link" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">마이페이지</span></button>
+      </c:if>
+
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
               <h1><a class="navbar-brand " href="index.html">JFactory</a></h1>

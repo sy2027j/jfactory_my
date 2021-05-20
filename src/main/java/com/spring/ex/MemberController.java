@@ -65,7 +65,7 @@ public class MemberController {
 	
 	@Inject MemberqnaService qnaservice;
 	
-	//�쉶�썝 - qna 紐⑸줉
+	//qna list -select
 	@RequestMapping(value="/community_qna", method=RequestMethod.GET)
 		public String QnaList(Model model) throws Exception{
 			
@@ -131,7 +131,7 @@ public class MemberController {
 	
 	
     
-    //�쉶�썝 - qna 湲��벐湲�
+    //qna wirte -insert
 	@RequestMapping(value="/cm_qna_write", method=RequestMethod.POST)
 	public String qnaWrite(MemberqnaDTO dto)throws Exception{
 		qnaservice.qnaWriteMethod(dto);
@@ -139,22 +139,22 @@ public class MemberController {
 		return "redirect:/community_qna";
 	}
 	
-	//�쉶�썝 - qna �긽�꽭蹂닿린
+	//qna detail view -select
 	@RequestMapping(value="/cm_qna_view", method=RequestMethod.GET)
 	public String qnaDetail(Model model, int qna_no) {
 		MemberqnaDTO qnadetail=qnaservice.detail(qna_no);
 		model.addAttribute("Qnadetail",qnadetail);
-		System.out.println("�긽�꽭蹂닿린");
+		System.out.println("qna detail view");
 		return "/cm_qna_view";
 	}
 	
-	//�븘�씠�뵒 以묐났 泥댄겕
+	//id duplication check -select
 	@ResponseBody
 	@RequestMapping(value="/idChk", method=RequestMethod.POST)
 	public int idCheck(MemberDTO dto)throws Exception{
 		int result=service.idChk(dto);
 		return result;
-		//寃곌낵媛� �뾾�쑝硫� 0 �엳�쑝硫� 1�쓣 諛섑솚�빐以��떎�뀗
+		//id already exist -> result=1
 	}
 	
 	@Inject ReviewService reservice;
@@ -165,5 +165,12 @@ public class MemberController {
 		reservice.review(dto);
 		return "redirect:/review";
 	}
+	
+	//logout session remove
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	   public String logout(HttpSession session) {
+	      session.invalidate();
+	      return "/index";
+	   }
 	
 }

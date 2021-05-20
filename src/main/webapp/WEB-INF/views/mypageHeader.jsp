@@ -5,13 +5,14 @@
 <html lang="en">
 <div class="container" style="margin-top:30px">
 	
-	<c:if test="${ member != null }">
-		<h3>MY PAGES</h3>
-		<hr style="size: 100%">
-		${member.mem_realname }님은 <strong>${member.mem_level }</strong>회원입니다.<br>
-		다음등급까지 <strong>100,000 원</strong>부족 (다음 등급 산정일 2021.06.04)<br>
-		당월포함 직전 6개월 구매금액 <strong>0원</strong><br>
-		<br>
-	</c:if>
+	 <c:if test="${ member != null }">
+   <h3>MY PAGES</h3>
+   <div>
+      <hr style="size: 100%; background-color:#f5f5f5"><br/>
+      ${member.mem_realname }님은 <strong>${member.mem_level }</strong>회원입니다.<br>
+      다음등급까지 <strong>100,000 원</strong>부족 (다음 등급 산정일 2021.06.04)<br>
+      당월포함 직전 6개월 구매금액 <strong>${member.mem_total_cash }</strong><br>
+      <br/><hr></div>
+   </c:if>
     </div>
-	</div>
+   </div>
