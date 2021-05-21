@@ -8,17 +8,31 @@
             <div id="layoutSidenav_content">
                 <main>
                    <br>
+                   <form role="form" id="writeForm" name="writeForm" method="post" action="review_write" enctype="multipart/form-data"> 
                     <div class="container">
+                    <h3>상품 등록</h3><br/>
           <div class="row">
+          
           <div class="col-lg-6">
           	<!-- 상품 이미지 -->
           	<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 이미지</label>
-                    			</div>
-                    			<div class="form_section_content">
-									<input type="file" id ="fileItem" name='uploadFile' style="height: 30px;">
-                    			</div>
+                    			<div class="inputArea">
+ 			<label for="gdsImg">상품 이미지</label>
+ 			<input type="file" id="gdsImg" name="file" />
+ 			<div class="select_img"><img src="" /></div>
+ 
+ 			<script>
+  				$("#gdsImg").change(function(){
+   				if(this.files && this.files[0]) {
+    				var reader = new FileReader;
+    				reader.onload = function(data) {
+     					$(".select_img img").attr("src", data.target.result).width(500);        
+    					}
+    				reader.readAsDataURL(this.files[0]);
+   					}
+  				});
+ 			</script>
+			</div>
                     		</div>  
             </div>
                   <div class="col-lg-6">
@@ -31,22 +45,20 @@
                   <div class="form-group">
                       <input type="text" class="form-control" id="pd_price" placeholder="가격">
                   </div>
-                  <form method="get" action="SelectServlet">
                   <select id="select" name="select" size="1" style="width:540px;height:50px;">
                      <option value="정렬">카테고리</option>
                      <option value="주문 많은 순">아이</option>
                      <option value="리뷰 많은 순">립</option>
                      <option value="가격 높은 순">하하</option>
                      <option value="가격 낮은 순">호호</option>
-                  </select> <br> </form><br/>
-                  <form method="get" action="SelectServlet">
+                  </select> <br><br/>
                   <select id="select" name="select" size="1" style="width:540px;height:50px;">
                      <option value="정렬">카테고리</option>
                      <option value="주문 많은 순">졸려</option>
                      <option value="리뷰 많은 순">죽겟당</option>
                      <option value="가격 높은 순">하하</option>
                      <option value="가격 낮은 순">호호</option>
-                  </select> <br> </form></br>
+                  </select> <br> <br/>
 				
                 
                 <div class="skintype_Input">
@@ -78,15 +90,31 @@
                 </div>
                  <br/><br/>
     	<hr>
-    	<div class="container" style="text-align : center;">
-       		 <input type="file" class="form-control-file border"> 
-   		 </div>
+    	<div class="form_section2">
+                    			<div class="inputArea2">
+ 			<label for="gdsImg2">상품 이미지</label>
+ 			<input type="file" id="gdsImg2" name="file" />
+ 			<div class="select_img2"><img src="" /></div>
+ 
+ 			<script>
+  				$("#gdsImg2").change(function(){
+   				if(this.files && this.files[0]) {
+    				var reader = new FileReader;
+    				reader.onload = function(data) {
+     					$(".select_img2 img").attr("src", data.target.result).width(1100);        
+    					}
+    				reader.readAsDataURL(this.files[0]);
+   					}
+  				});
+ 			</script>
+			</div>
+                    		</div>  
    		 <br>
     		<button type="button" class="btn btn-secondary" >추가</button>
     		<button type="button" class="btn btn-secondary" >취소</button>
-    	</div>
-                </main>
-            </div>
+    	</div></form></main></div>
+                
+            
             
   <script type="text/javascript">
   //이미지 업로드

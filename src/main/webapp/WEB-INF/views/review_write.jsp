@@ -50,8 +50,9 @@
   					<output for="star-input"><b>0</b>점</output>
 			</span>
             </div>  
-            <input type="hidden" name="re_score" id="re_score" value=""> 
-            
+            <div class= "class" id="id" style="display:none">
+            <input type="number" name="re_score" id="re_score" value=> 
+            </div>
             <div class="form-group"> <label for="content">내용</label> 
             <textarea class="form-control" id="re_content" name="re_content" rows="30" placeholder="내용을 입력해주세요" style="resize: none;">${article.content}</textarea> </div> 
             
@@ -71,7 +72,6 @@
    					}
   				});
  			</script>
- 			<%=request.getRealPath("/") %>
 			</div>
             
             </div> <div class="card-footer">
@@ -126,6 +126,7 @@
 	  re_content.focus();
 	  return false;
   };
+  var starscore=parseInt(re_score);
   
   	document.writeForm.submit();
   }

@@ -4,7 +4,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
+  <script src="resources/vendor/jquery/jquery.min.js"></script>
+<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="resources/vendor/jquery/jquery.min.js"></script>
+  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+	<script type="text/javascript">
+	
+  var starscore = document.getElementById("starscore");
   
+  if(starscore.value == "6"){
+    	  $("#starscore2").attr("value", "a");
+  }else{
+	  $("#starscore2").attr("value", "a");
+  }
+  
+  var re_score=document.getElementById("re_score");
+  
+  }
+  </script>
   <div class="container">
     <br/>
     	<h3 align="center">이달의 BEST 리뷰</h3>
@@ -82,8 +108,9 @@
             <h5 class="card-title">
             <a href="review_view?re_no=${relist.getRe_no() }"><span style="color:black; font-size:10pt">${relist.getPd_name() }</span></a><br/>
             <a href="review_view?re_no=${relist.getRe_no() }"><span style="color:black; font-size:15pt">${relist.getRe_title() }</span></a><br/>
-            <span style="color:black; font-size:10pt">만족도</span><br/>
-            </h5>
+            </h5><span style="color:black; font-size:10pt">만족도 ${relist.getRe_score() }</span>
+            <input type="hidden" id="starscore" name="starscore" value="${relist.getRe_score() }">
+            <input type="hidden" id="starscore2" name="starscore2" value="" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">
             <p class="card-text"><span style="color:black; font-size:10pt">${relist.getMem_id() }<br/>
             👀 ${relist.getRe_count() }</span></p>
           </div>
@@ -96,7 +123,7 @@
           <div class="card-body">
             <h5 class="card-title">
             <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트(5)</span></a>
-            <p><span style="color:black; font-size:10pt">만족도</span><br/>
+            <span style="color:black; font-size:10pt">만족도</span><br/>
             </h5>
             <p class="card-text"><span style="color:black; font-size:10pt">작성자<br/>
             눈아이콘</span></p>
@@ -105,6 +132,8 @@
       </div>
     </div>
   </div>
+  
+  
   
 
 <%@ include file="./footer.jsp" %>

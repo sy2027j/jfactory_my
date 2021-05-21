@@ -60,5 +60,15 @@
 		SELECT * FROM jfactory_review ORDER BY re_datetime DESC
 	</select>
 	
+		<!-- 비밀번호 찾기 -->
+	<select id="findPw" resultType="MemberDTO">
+		SELECT * FROM jfactory_member WHERE mem_realname=#{mem_realname} AND mem_email=#{mem_email} AND mem_id=#{mem_id}
+	</select>
+	
+	<!--  비밀번호 입력 -->
+	<update id="setPw" parameterType="MemberDTO">
+		UPDATE jfactory_member SET mem_password=#{mem_password} WHERE mem_id=#{mem_id}
+	</update>
+	
 </mapper>
 

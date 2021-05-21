@@ -20,4 +20,8 @@ public interface MemberDAO {
 	public MemberDTO Login(MemberDTO dto) throws Exception;
 	
 	public MemberDTO findid(MemberDTO dto) throws Exception;
+	
+	public MemberDTO findPw(MemberDTO dto) throws Exception;
+	
+	public void setPw(MemberDTO dto) throws Exception;
 }
