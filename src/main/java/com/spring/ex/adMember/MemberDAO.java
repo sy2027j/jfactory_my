@@ -10,14 +10,14 @@ public interface MemberDAO {
 	//
 	public List<MemberDTO> memberList() throws Exception;
 	
-	//È¸¿ø°¡ÀÔ
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void memberJoinMethod(MemberDTO dto) throws Exception;
 	
-	//¾ÆÀÌµð Áßº¹
+	//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½
 	public int idChk(MemberDTO dto) throws Exception;
 	
-	//·Î±×ÀÎ 
+	//ï¿½Î±ï¿½ï¿½ï¿½ 
 	public MemberDTO Login(MemberDTO dto) throws Exception;
 	
-	
+	public MemberDTO findid(MemberDTO dto) throws Exception;
 }

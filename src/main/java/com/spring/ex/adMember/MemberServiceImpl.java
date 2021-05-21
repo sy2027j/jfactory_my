@@ -33,5 +33,10 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO Login(MemberDTO dto) throws Exception {
 		return dao.Login(dto);
 	}
+	
+	@Override
+	public MemberDTO findid(MemberDTO dto) throws Exception{
+		return dao.findid(dto);
+	}
 
 }

@@ -16,4 +16,6 @@ public interface MemberService {
 	public int idChk(MemberDTO dto) throws Exception;
 	
 	public MemberDTO Login(MemberDTO dto) throws Exception;
+	
+	public MemberDTO findid(MemberDTO dto) throws Exception;
 }

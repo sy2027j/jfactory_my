@@ -38,4 +38,9 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 	
+	@Override
+	public MemberDTO findid(MemberDTO dto) throws Exception{
+		return sqlSession.selectOne(namespace+".FindId", dto);
+	}
+	
 }

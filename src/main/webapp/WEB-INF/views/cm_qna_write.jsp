@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ include file="./header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
   <hr>
   
   	<div class="container">
-  	
+  	<c:if test="${ member != null }">
   	<div class="container-fluid">
                         <h1 class="mt-4">Q&A</h1> <br/>
                       </div>
@@ -15,8 +16,8 @@
             <div class="card"> <div class="card-header"> 
             <h3 class="card-title">게시글 작성</h3> </div> <div class="card-body"> 
             <input type="hidden" name="article_no"> 
-            <div class="form-group"> <label for="title">작성자</label> 
-            <input class="form-control" id="mem_id" name="mem_id"> </div> 
+            <div class="form-group">
+            <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }"> </div> 
             <div class="form-group"> <label for="title">제목</label> 
             <input class="form-control" id="qna_title" name="qna_title" placeholder="제목을 입력해주세요"> </div> 
             <div class="form-group"> <label for="writer">카테고리</label> <br/>
@@ -38,7 +39,7 @@
             
             
              </div>
-                        
+                       </c:if>
                     </div>
              <br/> 
                 

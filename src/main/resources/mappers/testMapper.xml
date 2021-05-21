@@ -45,7 +45,20 @@
 	
 	<!-- review insert -->
 	<insert id="Reiew">
-		INSERT INTO jfactory_review values(DEFAULT,#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,null,null)
+		INSERT INTO jfactory_review values(DEFAULT,#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,#{re_org_file},#{re_stored_file},#{pd_name})
 	</insert>
+	
+	<select id="FindId" resultType="MemberDTO">
+		SELECT * FROM jfactory_member WHERE mem_realname=#{mem_realname} AND mem_email=#{mem_email}
+	</select>
+	
+	<select id="ReviewView" resultType="ReviewDTO">
+		SELECT * FROM jfactory_review WHERE re_no=#{re_no}
+	</select>
+	
+	<select id="ReviewList" resultType="ReviewDTO">
+		SELECT * FROM jfactory_review ORDER BY re_datetime DESC
+	</select>
+	
 </mapper>
 

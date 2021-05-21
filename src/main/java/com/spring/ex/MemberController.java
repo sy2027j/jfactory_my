@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -161,8 +162,9 @@ public class MemberController {
 	
 	//review write insert
 	@RequestMapping(value="/review_write", method=RequestMethod.POST)
-	public String reviewWrite(ReviewDTO dto) throws Exception{
-		reservice.review(dto);
+	public String reviewWrite(ReviewDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
+		reservice.review(dto, mpRequest);
+		System.out.println("review write");
 		return "redirect:/review";
 	}
 	
@@ -172,5 +174,36 @@ public class MemberController {
 	      session.invalidate();
 	      return "/index";
 	   }
+	
+	@RequestMapping(value="/findId", method=RequestMethod.POST)
+	public String findid(Model model, MemberDTO dto) throws Exception{
+		MemberDTO iddto =service.findid(dto);
+		model.addAttribute("Iddto",iddto);
+		System.out.println("find id");
+		if(iddto == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
+            
+            return "redirect:/index";
+            
+        }
+			
+		return "/showId";
+	}
+	
+	//review detail view -select
+	@RequestMapping(value="/review_view", method=RequestMethod.GET)
+	public String reDetail(Model model, int re_no) {
+		ReviewDTO redto=reservice.detail(re_no);
+		model.addAttribute("Redetail",redto);
+		System.out.println("review detail view");
+		return "/review_view";
+	}
+	
+	//review list -select
+	@RequestMapping(value="/review", method=RequestMethod.GET)
+	public String ReviewList(Model model) throws Exception{
+		List<ReviewDTO> relist=reservice.reviewList();
+		model.addAttribute("ReviewList", relist);
+		return "/review";
+	}
 	
 }

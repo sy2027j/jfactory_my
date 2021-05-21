@@ -10,8 +10,10 @@ public class ReviewDTO {
 	private String re_content;
 	private Date re_datetime;
 	private int re_count;
-	private String re_file;
-	private String re_subimg;
+	private String re_org_file;
+	private String re_stored_file;
+	private int re_no;
+	private String pd_name;
 	
 	public String getMem_id() {
 		return mem_id;
@@ -49,17 +51,29 @@ public class ReviewDTO {
 	public void setRe_count(int re_count) {
 		this.re_count = re_count;
 	}
-	public String getRe_file() {
-		return re_file;
+	public int getRe_no() {
+		return re_no;
 	}
-	public void setRe_file(String re_file) {
-		this.re_file = re_file;
+	public void setRe_no(int re_no) {
+		this.re_no = re_no;
 	}
-	public String getRe_subimg() {
-		return re_subimg;
+	public String getPd_name() {
+		return pd_name;
 	}
-	public void setRe_subimg(String re_subimg) {
-		this.re_subimg = re_subimg;
+	public void setPd_name(String pd_name) {
+		this.pd_name = pd_name;
+	}
+	public String getRe_org_file() {
+		return re_org_file;
+	}
+	public void setRe_org_file(String re_org_file) {
+		this.re_org_file = re_org_file;
+	}
+	public String getRe_stored_file() {
+		return re_stored_file;
+	}
+	public void setRe_stored_file(String re_stored_file) {
+		this.re_stored_file = re_stored_file;
 	}
 	
 	
