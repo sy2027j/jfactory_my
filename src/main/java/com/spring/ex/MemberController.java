@@ -206,4 +206,14 @@ public class MemberController {
 		return "/review";
 	}
 	
+	@RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
+	public String memberaddList(Model model) throws Exception {
+		
+		List<MemberDTO> memberlist2 =  service.memberList();
+		
+		model.addAttribute("List2", memberlist2);
+		
+		return "admin/admin_addlist";
+	}
+	
 }

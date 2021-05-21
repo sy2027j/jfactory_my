@@ -311,5 +311,15 @@ public class MyController {
 		return("/review_view");
 	}
 	
+	@RequestMapping("admin/admin_addlist")
+	public String admin_addlist() {
+		return("admin/admin_addlist");
+	}
+	
+	@RequestMapping("admin/admin_addcheck")
+	public String admin_addcheck() {
+		return("admin/admin_addcheck");
+	}
+	
 }
  

@@ -24,8 +24,8 @@
 					<span style="font-size: 15pt">검색</span>
 				</button>
 				&nbsp;
-				<button class="btn btn-secondary" type="submit"
-					onclick="location.href='admin_list'">
+				<button class="btn btn-secondary" type="button"
+					onclick="window.open('admin_addlist','_blanck','width=500, height=600')">
 					<span style="font-size: 15pt">불러오기</span>
 				</button>
 				&nbsp;
