@@ -265,10 +265,21 @@ public class MemberController {
 	@Inject ProductSer prservice;
 	
 	@RequestMapping(value="admin/addproductjf", method=RequestMethod.POST)
-	public String AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
+	public String AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest, Model model, String pd_name) throws Exception{
 		prservice.AddProduct(dto, mpRequest);
 		System.out.println("add product");
-		return "/admin/pd_add";
+		ProductDTO jebal=prservice.AddDetail(pd_name);
+		model.addAttribute("Jebal",jebal);
+		System.out.println("add detail");
+		return "/admin/pd_add_detail";
 	}
+	
+	@RequestMapping(value="admin/addDetail", method=RequestMethod.POST)
+	public String addDetail(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception {
+		prservice.addDetail(dto, mpRequest);
+		System.out.println("update detail success");
+		return "redirect:/admin/pd_add";
+	}
+	
 	
 }
