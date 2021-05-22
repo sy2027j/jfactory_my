@@ -49,9 +49,6 @@ public class MemberServiceImpl implements MemberService {
 		dao.setPw(dto);
 	}
 	
-	@Override
-	public MemberDTO AdminLogin(MemberDTO dto) throws Exception{
-		return dao.AdminLogin(dto);
-	}
+	
 
 }

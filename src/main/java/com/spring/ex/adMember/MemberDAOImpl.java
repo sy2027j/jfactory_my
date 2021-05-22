@@ -52,10 +52,6 @@ public class MemberDAOImpl implements MemberDAO {
 	public void setPw(MemberDTO dto) throws Exception{
 		sqlSession.update(namespace+".setPw",dto);
 	}
-	
-	@Override
-	public MemberDTO AdminLogin(MemberDTO dto) throws Exception{
-		return sqlSession.selectOne(namespace+".AdminLogin", dto);
-	}
+
 	
 }

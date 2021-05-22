@@ -133,36 +133,7 @@ public class MemberController {
 
         
     }
-	
-    /* 관리자 로그인 */
-    @RequestMapping(value="AdminLogin", method=RequestMethod.POST)
-    public String AdminloginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr) throws Exception{
-        
-        //System.out.println("login 메서드 진입");
-        //System.out.println("전달된 데이터 : " + dto);
-        
-    	//session 사용하기 위해 session변수 선언하고 request로 초기화
-    	//lvo 값은 아이디 비번이 존재할 경우 데이터가 담긴 dto 객체가 저장되는 것
-    	//아이디 비번이 없으면 lvo에 null 저장
-    	
-    	HttpSession session = request.getSession();
-    	MemberDTO lvo = service.AdminLogin(dto);
-    	
 
-        if(lvo == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
-            
-            int result = 0;
-            rttr.addFlashAttribute("result", result);
-            return "redirect:/index";
-            
-        }
-        
-        session.setAttribute("admin", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
-        
-        return "redirect:/admin/admin_index";
-
-    
-    }
 	
     
     //qna wirte -insert

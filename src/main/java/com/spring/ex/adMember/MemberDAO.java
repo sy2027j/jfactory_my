@@ -26,6 +26,4 @@ public interface MemberDAO {
 	
 	public void setPw(MemberDTO dto) throws Exception;
 	
-	//관리자 로그인
-	public MemberDTO AdminLogin(MemberDTO dto) throws Exception;
 }

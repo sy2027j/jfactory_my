@@ -28,8 +28,6 @@
 		SELECT * FROM jfactory_member where mem_id=#{mem_id} AND mem_password = #{mem_password}
 	</select>
 	
-
-	
 	<!-- qna 문의 남기기 -->
 	<insert id="QnaWrite" parameterType="MemberqnaDTO">
 		INSERT INTO jfactory_qna values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,#{qna_category},0)
