@@ -1,5 +1,6 @@
 package com.spring.ex.adMember;
 
+import java.lang.reflect.Member;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -24,4 +25,7 @@ public interface MemberDAO {
 	public MemberDTO findPw(MemberDTO dto) throws Exception;
 	
 	public void setPw(MemberDTO dto) throws Exception;
+	
+	//관리자 로그인
+	public MemberDTO AdminLogin(MemberDTO dto) throws Exception;
 }

@@ -23,4 +23,6 @@ public interface MemberService {
 	public MemberDTO findPw(MemberDTO dto) throws Exception;
 	
 	public void setPw(MemberDTO dto) throws Exception;
+	
+	public MemberDTO AdminLogin(MemberDTO dto) throws Exception;
 }

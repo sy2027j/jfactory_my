@@ -48,5 +48,10 @@ public class MemberServiceImpl implements MemberService {
 	public void setPw(MemberDTO dto) throws Exception{
 		dao.setPw(dto);
 	}
+	
+	@Override
+	public MemberDTO AdminLogin(MemberDTO dto) throws Exception{
+		return dao.AdminLogin(dto);
+	}
 
 }
