@@ -176,8 +176,10 @@ public class MemberController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	   public String logout(HttpSession session) {
 	      session.invalidate();
-	      return "/index";
+	      return "redirect:/index";
 	   }
+	
+
 	
 	@RequestMapping(value="/findId", method=RequestMethod.POST)
 	public String findid(Model model, MemberDTO dto) throws Exception{

@@ -48,7 +48,7 @@
 							</div>
                         </div>
                     </div>
-		<button type="button" id="back_Btn" onclick="location.href='admin_index'">취소</button> 
+		<button type="button" id="back_Btn" onclick="location.href=window.close()">취소</button> 
 		
     </body>
             

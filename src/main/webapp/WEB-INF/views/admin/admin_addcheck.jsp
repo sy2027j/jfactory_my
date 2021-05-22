@@ -12,16 +12,19 @@
     <br/>
     	<!-- 메인 관리자 세션이 아니면 권한 없다고 뜨기 -->
     	  <div class="container-fluid">
-                        	   <div> 
+                   <div> 
                         	   <h4>관리자로 등록하시겠습니까?</h4>
                       </div>
                       <br>
                         <div class="card mb-4">
                                  <div class="memberManager">    
-							</div>
-                        </div>
-                    </div>
-		<button type="button" id="back_Btn" onclick="location.href='admin_index'">취소</button> 
+						</div>
+                   </div>
+          </div>
+                    <br>
+                    
+        <button type="button" id="add_Btn" onclick="location.href='admin_index'">추가</button>             
+		<button type="button" id="back_Btn" onclick="location.href=window.close()">취소</button> 
 		
     </body>
             
