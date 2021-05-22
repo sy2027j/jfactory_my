@@ -1,5 +1,6 @@
 package com.spring.ex.product;
 
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -8,4 +9,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public interface ProductSer {
 
 	public void AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception;
+
+	public ProductDTO AddDetail(String pd_name);
+	
+	public void addDetail(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception;
 }

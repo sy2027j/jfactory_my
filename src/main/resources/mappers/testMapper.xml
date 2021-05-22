@@ -71,8 +71,16 @@
 	</update>
 	
 	<insert id="AddProduct">
-		INSERT INTO jfactory_product values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},#{pd_main_file},#{pd_main_stored_file},#{pd_con_file},#{pd_con_stored_file},DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
+		INSERT INTO jfactory_product values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},#{pd_main_file},#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
 	</insert>
+	
+	<select id="ProductView" resultType="ProductDTO">
+		SELECT * FROM jfactory_product WHERE pd_name=#{pd_name}
+	</select>
+	
+	<update id="AddDetail" parameterType="ProductDTO">
+		UPDATE jfactory_product SET pd_con_file=#{pd_con_file}, pd_con_stored_file=#{pd_con_stored_file} WHERE pd_name=#{pd_name}
+	</update>
 	
 </mapper>
 

@@ -17,11 +17,11 @@
           	<!-- 상품 이미지 -->
                     			<div class="inputArea">
  			<label for="gdsImg">상품 이미지</label>
- 			<input type="file" id="gdsImg" name="file"/>
+ 			<input type="file" id="file1" name="file1"/>
  			<div class="select_img"><img src="" /></div>
  
  			<script>
-  				$("#gdsImg").change(function(){
+  				$("#file1").change(function(){
    				if(this.files && this.files[0]) {
     				var reader = new FileReader;
     				reader.onload = function(data) {
@@ -44,7 +44,7 @@
                   <div class="form-group">
                       <input type="number" class="form-control" id="pd_price" name="pd_price" placeholder="가격">
                   </div>
-                  <select id="pd_category" name="pd_category" size="1" style="width:540px;height:50px;">
+                  <select id="pd_category" name="pd_category" size="1" style="width:540px;height:40px;">
                      <option value="">카테고리</option>
                      <option value="아이">아이</option>
                      <option value="립">립</option>
@@ -53,62 +53,66 @@
                      <option value="클렌징">클렌징</option>
                   </select> <br><br/>
                   
-                  <select id="pd_tag1" name="pd_tag1" size="1" style="width:540px;height:50px;">
+                  <select id="pd_tag1" name="pd_tag1" size="1" style="width:540px;height:40px;">
                      <option value="">날씨 태그</option>
-                     <option value="맑음">맑음</option>
-                     <option value="흐림">흐림</option>
-                     <option value="구름 많음">구름 많음</option>
-                     <option value="비">비</option>
-                     <option value="눈">눈</option>
+                     <option value="#맑음">맑음</option>
+                     <option value="#흐림">흐림</option>
+                     <option value="#구름많음">구름 많음</option>
+                     <option value="#비">비</option>
+                     <option value="#눈">눈</option>
                   </select> <br><br/>
                   
-                  <select id="pd_tag2" name="pd_tag2" size="1" style="width:540px;height:50px;">
+                  <select id="pd_tag2" name="pd_tag2" size="1" style="width:540px;height:40px;">
                      <option value="">온도 태그</option>
-                     <option value="더워">더워</option>
-                     <option value="추워">추워</option>
-                     <option value="적당">적당</option>
+                     <option value="#더워">더워</option>
+                     <option value="#추워">추워</option>
+                     <option value="#적당">적당</option>
                   </select> <br><br/>
                   
-                  <select id="pd_tag3" name="pd_tag3" size="1" style="width:540px;height:50px;">
+                  <select id="pd_tag3" name="pd_tag3" size="1" style="width:540px;height:40px;">
                      <option value="">습도 태그</option>
-                     <option value="꿉꿉">꿉꿉</option>
-                     <option value="보습">보습</option>
-                     <option value="건조">건조</option>
+                     <option value="#꿉꿉">꿉꿉</option>
+                     <option value="#보습">보습</option>
+                     <option value="#건조">건조</option>
                   </select> <br><br/>
                   
-                  <select id="pd_tag4" name="pd_tag4" size="1" style="width:540px;height:50px;">
+                  <select id="pd_tag4" name="pd_tag4" size="1" style="width:540px;height:40px;">
                      <option value="">피부타입 태그</option>
-                     <option value="건성">건성</option>
-                     <option value="중성">중성</option>
-                     <option value="지성">지성</option>
-                     <option value="복합성">복합성</option>
-                     <option value="민감성">민감성</option>
+                     <option value="#건성">건성</option>
+                     <option value="#중성">중성</option>
+                     <option value="#지성">지성</option>
+                     <option value="#복합성">복합성</option>
+                     <option value="#민감성">민감성</option>
                   </select> <br><br/>
                   
-                  <select id="pd_tag5" name="pd_tag5" size="1" style="width:540px;height:50px;">
+                  <select id="pd_tag5" name="pd_tag5" size="1" style="width:540px;height:40px;">
                      <option value="">피부고민 태그</option>
-                     <option value="주름">주름</option>
-                     <option value="여드름">여드름</option>
-                     <option value="피지&모공">피지&모공</option>
-                     <option value="수분부족">수분부족</option>
-                     <option value="다크써클">다크써클</option>
-                     <option value="각질">각질</option>
-                     <option value="기타">기타</option>
+                     <option value="#주름">주름</option>
+                     <option value="#여드름">여드름</option>
+                     <option value="#피지&모공">피지&모공</option>
+                     <option value="#수분부족">수분부족</option>
+                     <option value="#다크써클">다크써클</option>
+                     <option value="#각질">각질</option>
+                     <option value="#기타">기타</option>
                   </select> <br><br/>
 				     
                 
                   </div>
                 </div>
                  <br/><br/>
-    	<hr>
+    	<hr><br/>
+    	<div style="float:right">
+    	<button type="button" style="border-color:#e6e6fa; background-color:#e6e6fa; color:black;" class="btn btn-success modBtn" onclick="jebal();" >추가</button>
+    		<button type="button" style="border-color:black; background-color:black; color:white;" class="btn btn-secondary" >취소</button></div>
+    	</div></form></main><!-- 
     	<div class="form_section2">
                     			<div class="inputArea2">
  			<label for="gdsImg2">상품 이미지</label>
- 			<input type="file" id="gdsImg2" name="file2" />
+ 			<input type="file" id="file2" name="file2" />
  			<div class="select_img2"><img src="" /></div>
  
  			<script>
-  				$("#gdsImg2").change(function(){
+  				$("#file2").change(function(){
    				if(this.files && this.files[0]) {
     				var reader = new FileReader;
     				reader.onload = function(data) {
@@ -123,7 +127,7 @@
    		 <br>
     		<button type="button" class="btn btn-success modBtn" onclick="jebal();" >추가</button>
     		<button type="button" class="btn btn-secondary" >취소</button>
-    	</div></form></main></div>
+    	</div></form></main></div> -->
                 
   <script type="text/javascript">
   function jebal(){
@@ -133,19 +137,19 @@
 	  
   
   if(pd_name.value==""){
-	  alert("상품명을 입력하세요.");
+	  alert("상품명을 작성하세요.");
 	  pd_name.focus();
 	  return false;
   };
   
   if(pd_simplecontent.value==""){
-	  alert("만족도를 선택하세요.");
+	  alert("한줄소개를 작성하세요.");
 	  pd_simplecontent.focus();
 	  return false;
   };
   
   if(pd_price.value==""){
-	  alert("내용을 입력하세요.");
+	  alert("가격을 입력하세요.");
 	  pd_price.focus();
 	  return false;
   };

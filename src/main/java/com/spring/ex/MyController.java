@@ -321,5 +321,10 @@ public class MyController {
 		return("admin/admin_addcheck");
 	}
 	
+	@RequestMapping("admin/pd_add_detail")
+	public String pd_add_detail() {
+		return("admin/pd_add_detail");
+	}
+	
 }
  
