@@ -13,4 +13,9 @@
 		SELECT * FROM jfactory_member where mem_is_admin=1 or mem_is_admin=2
 	</select>
 	
+	<!-- 관리자 서브 권한 주기 -->   
+	<update id="AddAdmin" >
+      UPDATE jfactory_member SET mem_is_admin=2 WHERE mem_id =#{mem_id}
+   </update>
+   
 	</mapper>

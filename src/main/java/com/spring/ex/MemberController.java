@@ -31,6 +31,8 @@ import com.spring.ex.review.ReviewService;
 public class MemberController {
 
 	@Inject AdminService adminservice;
+	
+	
 	//관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
 	@RequestMapping(value = "admin/index", method = RequestMethod.GET)
 	public String memberList(Model model) throws Exception {
@@ -42,17 +44,6 @@ public class MemberController {
 		return "admin/index";
 	}
 	
-	//관리자 추가를 위해 회원 목록 불러오기
-	/*@RequestMapping(value = "admin/index", method = RequestMethod.GET)
-	public String memberList2(Model model) throws Exception {
-		
-		List<MemberDTO> memberlist2 =  service.memberList();
-		
-		model.addAttribute("List", memberlist2);
-		
-		return "admin/admin_index";
-	}
-	*/
 	//관리자 목록 불러오기
 	@RequestMapping(value="admin/admin_index", method=RequestMethod.GET)
 	public String AdminList(Model model) throws Exception{
@@ -63,6 +54,35 @@ public class MemberController {
 		
 		return "admin/admin_index";
 	}
+	
+	@RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
+	public String memberaddList(Model model) throws Exception {
+		
+		List<MemberDTO> memberlist2 =  service.memberList();
+		
+		model.addAttribute("List2", memberlist2);
+		
+		return "admin/admin_addlist";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Inject MemberqnaService qnaservice;
 	
@@ -210,16 +230,6 @@ public class MemberController {
 		List<ReviewDTO> relist=reservice.reviewList();
 		model.addAttribute("ReviewList", relist);
 		return "/review";
-	}
-	
-	@RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
-	public String memberaddList(Model model) throws Exception {
-		
-		List<MemberDTO> memberlist2 =  service.memberList();
-		
-		model.addAttribute("List2", memberlist2);
-		
-		return "admin/admin_addlist";
 	}
 	
 	@RequestMapping(value = "/findPw", method = RequestMethod.POST)

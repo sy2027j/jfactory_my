@@ -23,7 +23,7 @@
           </div>
                     <br>
                     
-        <button type="button" id="add_Btn" onclick="location.href='admin_index'">추가</button>             
+        	<button  type="submit" id="submit" onclick="AddAdmin();">추가</button>             
 		<button type="button" id="back_Btn" onclick="location.href=window.close()">취소</button> 
 		
     </body>
