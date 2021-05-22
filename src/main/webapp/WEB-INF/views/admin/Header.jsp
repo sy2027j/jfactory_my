@@ -27,7 +27,7 @@
             <ul class="navbar-nav ml-auto ml-md-0">
             <c:if test="${ member != null }">
             	<button type="button" class="btn btn-link disabled" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
-                 <button type="button" class="btn btn-link" onclick="location.href='#'"><span style="color:black; font-size:10pt">로그아웃</span></button>
+                 <button type="button" class="btn btn-link" onclick="location.href='../index'"><span style="color:black; font-size:10pt">로그아웃</span></button>
 			</c:if>
 
             </ul>
