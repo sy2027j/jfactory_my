@@ -8,17 +8,16 @@
             <div id="layoutSidenav_content">
                 <main>
                    <br>
-                   <form role="form" id="writeForm" name="writeForm" method="post" action="review_write" enctype="multipart/form-data"> 
+                   <form role="form" id="pdaddForm" name="pdaddForm" method="post" action="addproductjf" enctype="multipart/form-data"> 
                     <div class="container">
                     <h3>상품 등록</h3><br/>
           <div class="row">
           
           <div class="col-lg-6">
           	<!-- 상품 이미지 -->
-          	<div class="form_section">
                     			<div class="inputArea">
  			<label for="gdsImg">상품 이미지</label>
- 			<input type="file" id="gdsImg" name="file" />
+ 			<input type="file" id="gdsImg" name="file"/>
  			<div class="select_img"><img src="" /></div>
  
  			<script>
@@ -33,59 +32,71 @@
   				});
  			</script>
 			</div>
-                    		</div>  
+                    	  
             </div>
                   <div class="col-lg-6">
                      <div class="form-group">
-                      <input type="text" class="form-control" id="pd_name" placeholder="상품명">
+                      <input type="text" class="form-control" id="pd_name" name="pd_name" placeholder="상품명">
                   </div>
                   <div class="form-group">
-                      <input type="text" class="form-control" id="pd_onelinedetail" placeholder="한줄 설명 (ex.물들 듯 편안하게 픽싱되는 하이드로 매트 틴트)">
+                      <input type="text" class="form-control" id="pd_simplecontent" name="pd_simplecontent" placeholder="한줄 설명 (ex.물들 듯 편안하게 픽싱되는 하이드로 매트 틴트)">
                   </div>
                   <div class="form-group">
-                      <input type="text" class="form-control" id="pd_price" placeholder="가격">
+                      <input type="number" class="form-control" id="pd_price" name="pd_price" placeholder="가격">
                   </div>
-                  <select id="select" name="select" size="1" style="width:540px;height:50px;">
-                     <option value="정렬">카테고리</option>
-                     <option value="주문 많은 순">아이</option>
-                     <option value="리뷰 많은 순">립</option>
-                     <option value="가격 높은 순">하하</option>
-                     <option value="가격 낮은 순">호호</option>
+                  <select id="pd_category" name="pd_category" size="1" style="width:540px;height:50px;">
+                     <option value="">카테고리</option>
+                     <option value="아이">아이</option>
+                     <option value="립">립</option>
+                     <option value="페이스">페이스</option>
+                     <option value="스킨케어">스킨케어</option>
+                     <option value="클렌징">클렌징</option>
                   </select> <br><br/>
-                  <select id="select" name="select" size="1" style="width:540px;height:50px;">
-                     <option value="정렬">카테고리</option>
-                     <option value="주문 많은 순">졸려</option>
-                     <option value="리뷰 많은 순">죽겟당</option>
-                     <option value="가격 높은 순">하하</option>
-                     <option value="가격 낮은 순">호호</option>
-                  </select> <br> <br/>
-				
+                  
+                  <select id="pd_tag1" name="pd_tag1" size="1" style="width:540px;height:50px;">
+                     <option value="">날씨 태그</option>
+                     <option value="맑음">맑음</option>
+                     <option value="흐림">흐림</option>
+                     <option value="구름 많음">구름 많음</option>
+                     <option value="비">비</option>
+                     <option value="눈">눈</option>
+                  </select> <br><br/>
+                  
+                  <select id="pd_tag2" name="pd_tag2" size="1" style="width:540px;height:50px;">
+                     <option value="">온도 태그</option>
+                     <option value="더워">더워</option>
+                     <option value="추워">추워</option>
+                     <option value="적당">적당</option>
+                  </select> <br><br/>
+                  
+                  <select id="pd_tag3" name="pd_tag3" size="1" style="width:540px;height:50px;">
+                     <option value="">습도 태그</option>
+                     <option value="꿉꿉">꿉꿉</option>
+                     <option value="보습">보습</option>
+                     <option value="건조">건조</option>
+                  </select> <br><br/>
+                  
+                  <select id="pd_tag4" name="pd_tag4" size="1" style="width:540px;height:50px;">
+                     <option value="">피부타입 태그</option>
+                     <option value="건성">건성</option>
+                     <option value="중성">중성</option>
+                     <option value="지성">지성</option>
+                     <option value="복합성">복합성</option>
+                     <option value="민감성">민감성</option>
+                  </select> <br><br/>
+                  
+                  <select id="pd_tag5" name="pd_tag5" size="1" style="width:540px;height:50px;">
+                     <option value="">피부고민 태그</option>
+                     <option value="주름">주름</option>
+                     <option value="여드름">여드름</option>
+                     <option value="피지&모공">피지&모공</option>
+                     <option value="수분부족">수분부족</option>
+                     <option value="다크써클">다크써클</option>
+                     <option value="각질">각질</option>
+                     <option value="기타">기타</option>
+                  </select> <br><br/>
+				     
                 
-                <div class="skintype_Input">
-                <input type="radio" name="dryskin" value="건성">건성 &nbsp;
-                <input type="radio" name="normalskin" value="중성">중성 &nbsp;
-                <input type="radio" name="oilyskin" value="지성">지성 &nbsp;
-                <input type="radio" name="combinationskin" value="복합성">복합성 &nbsp;
-                <input type="radio" name="sensitiveskin" value="민감성">민감성 &nbsp;
-                <input type="radio" name="trouble" value="트러블">트러블 &nbsp;
-                <input type="radio" name="atopy" value="아토피">아토피 &nbsp;
-                <input type="radio" name="etc" value="기타">기타 
-                </div>       
-                
-                <div class="skinworry_Title">
-                <h5>
-                    <label for="skinworry_Title">피부 고민</label>
-                </h5>
-                </div> 
-                <div class="skinworry_Input">
-                <input type="checkbox" name="wrinkles" value="주름">주름 &nbsp;
-                <input type="checkbox" name="pimple" value="여드름">여드름 &nbsp;
-                <input type="checkbox" name="sebum&pores" value="피지&모공">피지&모공 &nbsp;
-                <input type="checkbox" name="no_moisturizing" value="수분부족">수분부족 &nbsp;
-                <input type="checkbox" name="darkcircles" value="다크써클">다크써클 &nbsp;
-                <input type="checkbox" name="corneous" value="각질">각질 &nbsp;
-                <input type="checkbox" name="etc" value="기타">기타 &nbsp;
-                </div> 
                   </div>
                 </div>
                  <br/><br/>
@@ -93,7 +104,7 @@
     	<div class="form_section2">
                     			<div class="inputArea2">
  			<label for="gdsImg2">상품 이미지</label>
- 			<input type="file" id="gdsImg2" name="file" />
+ 			<input type="file" id="gdsImg2" name="file2" />
  			<div class="select_img2"><img src="" /></div>
  
  			<script>
@@ -110,51 +121,39 @@
 			</div>
                     		</div>  
    		 <br>
-    		<button type="button" class="btn btn-secondary" >추가</button>
+    		<button type="button" class="btn btn-success modBtn" onclick="jebal();" >추가</button>
     		<button type="button" class="btn btn-secondary" >취소</button>
     	</div></form></main></div>
                 
-            
-            
   <script type="text/javascript">
-  //이미지 업로드
-  $("input[type='file']").on("change", function(e){
-		//alert("동작");
-		
-		//formData -> 객체의 주소를 변수에 저장
-		let formData = new FormData();
-		let fileInput = $('input[name="uploadFile"]');
-		let fileList = fileInput[0].files;
-		let fileObj = fileList[0];
-		
-		
-		formData.append("pd_image_main", fileObj);
-		
-		//첨부파일 서버로 전송함 
-		//processData, contentType 은 false로 해줘야 서버로 전송됨 !! 주의하셈 !!
-		//url : 서버로 요청을 보낼 url
-		//processData : 서버로 전송할 데이터를 queryStirng 형태로 변환할지 여부
-		//contentType : 서버로 전송되는 데이터의 content-type
-		//data : 서버로 전송할 데이터
-		//type : 서보 요청 타입(GET, POST)
-		//dataType : 서버로부터 반환받을 데이터 타입
-
-		.ajax({
-			url: '/admin/uploadAjaxAction',
-	    	processData : false,
-	    	contentType : false,
-	    	data : formData,
-	    	type : 'POST',
-	    	dataType : 'json'
-		});	
-		
-	});
+  function jebal(){
+	  var pd_name=document.getElementById("pd_name");
+	  var pd_simplecontent=document.getElementById("pd_simplecontent");
+	  var pd_price=document.getElementById("pd_price");
+	  
   
-
+  if(pd_name.value==""){
+	  alert("상품명을 입력하세요.");
+	  pd_name.focus();
+	  return false;
+  };
   
+  if(pd_simplecontent.value==""){
+	  alert("만족도를 선택하세요.");
+	  pd_simplecontent.focus();
+	  return false;
+  };
   
+  if(pd_price.value==""){
+	  alert("내용을 입력하세요.");
+	  pd_price.focus();
+	  return false;
+  };
   
-  </script>
+  	document.pdaddForm.submit();
+  }
+  </script>   
+  
   
     </body>
 </html>

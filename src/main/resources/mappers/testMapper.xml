@@ -70,5 +70,9 @@
 		UPDATE jfactory_member SET mem_password=#{mem_password} WHERE mem_id=#{mem_id}
 	</update>
 	
+	<insert id="AddProduct">
+		INSERT INTO jfactory_product values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},#{pd_main_file},#{pd_main_stored_file},#{pd_con_file},#{pd_con_stored_file},DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
+	</insert>
+	
 </mapper>
 

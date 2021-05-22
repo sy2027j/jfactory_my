@@ -22,6 +22,8 @@ import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.adMember.MemberService;
 import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.admin.AdminService;
+import com.spring.ex.product.ProductDTO;
+import com.spring.ex.product.ProductSer;
 import com.spring.ex.qna.MemberqnaDTO;
 import com.spring.ex.qna.MemberqnaService;
 import com.spring.ex.review.ReviewDTO;
@@ -255,6 +257,15 @@ public class MemberController {
 		service.setPw(dto);
 		session.invalidate();
 		return "redirect:/login";
+	}
+	
+	@Inject ProductSer prservice;
+	
+	@RequestMapping(value="admin/addproductjf", method=RequestMethod.POST)
+	public String AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
+		prservice.AddProduct(dto, mpRequest);
+		System.out.println("add product");
+		return "/admin/pd_add";
 	}
 	
 }

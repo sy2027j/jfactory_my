@@ -7,5 +7,6 @@
 		<typeAlias type="com.spring.ex.admin.AdminDTO" alias="AdminDTO"/>
 		<typeAlias type="com.spring.ex.qna.MemberqnaDTO" alias="MemberqnaDTO"/>
 		<typeAlias type="com.spring.ex.review.ReviewDTO" alias="ReviewDTO"/>
+		<typeAlias type="com.spring.ex.product.ProductDTO" alias="ProductDTO"/>
 	</typeAliases>
 </configuration>
