@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,19 +21,19 @@
                     </div>
                 </div>
             </form>
+            
             <!-- Navbar-->
+            
             <ul class="navbar-nav ml-auto ml-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#!" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                </li>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#!">Settings</a>
-                    <a class="dropdown-item" href="#!">Activity Log</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
-                </div>
+            <c:if test="${ member != null }">
+            	<button type="button" class="btn btn-link disabled" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
+                 <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>
+			</c:if>
+
             </ul>
         </nav>
+        
+        
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav sb-sidenav-light" style="background-color:#E6E6FA;">
