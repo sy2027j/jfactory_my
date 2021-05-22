@@ -321,5 +321,9 @@ public class MyController {
 		return("admin/admin_addcheck");
 	}
 	
+	@RequestMapping("/weather")
+	public String weather() {
+		return("/weather");
+	}
 }
  

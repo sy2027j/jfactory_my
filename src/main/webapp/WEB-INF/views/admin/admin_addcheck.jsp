@@ -23,8 +23,20 @@
           </div>
                     <br>
                     
-        	<button  type="submit" id="submit" onclick="AddAdmin();">추가</button>             
+        	<button  type="submit" id="submit" onclick="AddAdmin();">추가</button>   
+        	          
 		<button type="button" id="back_Btn" onclick="location.href=window.close()">취소</button> 
 		
+		
+ <script type="text/javascript">
+ 
+ function AddAdmin() {
+	 var mem_is_admin=document.getElememtById("mem_ids_admin");
+	 
+	 if(mem_is_admin==0){
+		 document.getElementById("mem_is_admin").value= "2";
+		 alert("추가됨");
+	 }
+ }
     </body>
             

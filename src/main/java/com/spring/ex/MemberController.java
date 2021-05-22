@@ -143,10 +143,13 @@ public class MemberController {
             rttr.addFlashAttribute("result", result);
             return "redirect:/index";
             
-        } else if (lvo.getMem_is_admin()==1) {
-        	  session.setAttribute("member", lvo); 
-              
+        } else if (lvo.getMem_is_admin()==1) { //관리자 1,2이면 관리자 페이지로 로그인창 넘어감
+        	  session.setAttribute("member", lvo);   
               return "redirect:/admin/index";
+        
+        } else if (lvo.getMem_is_admin()==2) {
+        	session.setAttribute("member", lvo);
+        	return "redirect:/admin/index";
         }
         
         session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
