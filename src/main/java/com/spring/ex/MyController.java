@@ -321,17 +321,14 @@ public class MyController {
 		return("admin/admin_addcheck");
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/weather")
 	public String weather() {
 		return("/weather");
 	}
-=======
 	@RequestMapping("admin/pd_add_detail")
 	public String pd_add_detail() {
 		return("admin/pd_add_detail");
 	}
 	
->>>>>>> branch 'master' of https://github.com/sy2027j/jfactory_my.git
 }
  
