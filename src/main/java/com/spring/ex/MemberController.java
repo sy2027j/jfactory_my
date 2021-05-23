@@ -289,4 +289,12 @@ public class MemberController {
 		return "/eye_product_list";
 	}
 	
+	@RequestMapping(value="/product_detail", method=RequestMethod.GET)
+	public String ProductDetailView(Model model, String pd_name) {
+		ProductDTO pddetaildto=prservice.AddDetail(pd_name);
+		model.addAttribute("ProductDetail",pddetaildto);
+		System.out.println("product detail view");
+		return "/product_detail";
+	}
+	
 }

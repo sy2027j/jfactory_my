@@ -8,22 +8,23 @@
 
   <div class="container">
 
-    <h1 class="mt-4 mb-3">PRODUCT
-      <p><span style="font-size:10pt">제이 팩토리의 베스트 상품, 신상품, 카테고리별 상품을 만나보세요.</span></p>
+    <h1 class="mt-4 mb-3">PRODUCT<br/>
+      <span style="font-size:10pt">제이 팩토리의 베스트 상품, 신상품, 카테고리별 상품을 만나보세요.</span>
     </h1>
     <hr color = "black" size="10">
     <br/><br/>
     
     <div class="row">
       <div class="col-lg-6">
-        <img class="img-fluid rounded mb-4" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/QPX2C3URVYSAQ8HNEK6H.jpg" alt="" height="500" width="500">
+        <img class="img-fluid rounded mb-4" src = '<c:url value="/resources/image/product/${ProductDetail.getPd_main_stored_file() }"/>' alt="" height="500" width="500">
       </div>
       <div class="col-lg-6">
-        <h6>#아이섀도우</h6><br/>
-        <h3>프로 아이 팔레트</h3>
-        <h6>다재다능한 컬러조합</h6><br/>
-        <h3>13000원</h3><br/>
-        <h5>★★★★★ 5점</h5>
+        <h6>${ProductDetail.getPd_tag1()}&nbsp;${ProductDetail.getPd_tag2()}&nbsp;${ProductDetail.getPd_tag3()}&nbsp;${ProductDetail.getPd_tag4()}&nbsp;${ProductDetail.getPd_tag5()}</h6><br/>
+        <h3>${ProductDetail.getPd_name()}</h3>
+        <h6>${ProductDetail.getPd_simplecontent()}</h6><br/>
+        <h3>${ProductDetail.getPd_price()}원</h3><br/>
+        <h5>★★★★★ 5점</h5><br/>
+        <!-- 
         <hr>
         <br/>
         <form method="get" action="SelectServlet">
@@ -33,10 +34,17 @@
 			<option value="리뷰 많은 순">죽겟당</option>
 			<option value="가격 높은 순">하하</option>
 			<option value="가격 낮은 순">호호</option>
-		</select> <br> </form>
+		</select> <br> </form> 
 		<br/>
 		<div style="border:1px solid; border-color:black; background-color:white; color:black; WIDTH: 540px; HEIGHT: 100px"><p><br/><br/><p align="right">합계 원  </div>
-		<br/><div  align="right">
+		<br/>
+		-->
+		<hr>
+		<div>
+		수량을 선택해주세요
+		</div>
+		<hr><br/><br/>
+		<div  align="right">
       <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg">장바구니</button>
       <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로가기</button>
    <br/><br/><br/><br/>
@@ -46,7 +54,7 @@
     <!-- /.row -->
     <br/><br/>
     <div class="container" style="text-align : center;">
-        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
+        <img style="width:1000px" src = '<c:url value="/resources/image/product/${ProductDetail.getPd_con_stored_file() }"/>' alt=""><br/>
     </div>
 <br/><br/><br/>
     <!--Our Customers -->
