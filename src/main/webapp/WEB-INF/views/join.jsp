@@ -120,7 +120,7 @@
 				<div class="form-inline">
 					<input type="email" class="form-control" id="mem_email"
 						name="mem_email" placeholder="이메일을 입력하세요" style="width:410px">
-						&nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
+						&nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" name="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
 					<input type="hidden" id="isEmailCheck" value="0">
 				</div>
 				<div id="email_check"></div>
@@ -133,7 +133,7 @@
 					<input type="email" class="form-control" id="emailAuth"
 						name="emailAuth" placeholder="인증코드를 입력하세요">
 					&nbsp;<button type="button" class="btn btn-default" id="isAuth" style="border-color:white; background-color:#e6e6fa; color:black;">확인</button>
-					<input type="hidden" id="isEmailAuth" value="0">
+					<input type="hidden" name="mem_email_cert" id="mem_email_cert" class="mem_email_cert" value="">
 				</div>
 			</div>
 			<div class="form-group" id="checkboxes">
@@ -273,11 +273,16 @@
 	  var mem_phone2=document.getElementById("mem_phone2");
 	  var SMS_AGREE=document.getElementById("SMS_AGREE");
 	  var mem_email=document.getElementById("mem_email");
-	  var mem_email2=document.getElementById("mem_email2");
 	  var EMAIL_AGREE=document.getElementById("EMAIL_AGREE");
 	  var check1=document.getElementById("check1");
 	  var check2=document.getElementById("check2");
 	  var check3=document.getElementById("check3");
+	  var emailAuth=document.getElementById("emailAuth");
+	  var emailAuth=document.getElementById("isAuth");
+	  var emailAuth=document.getElementById("mem_email_cert");
+	  var emailAuth=document.getElementById("isCheck_Email");
+
+	  
 	  
 	  if(mem_id.value==""){
 		  alert("아이디를 입력하세요.");
@@ -371,6 +376,60 @@
 		  mem_email.focus();
 		  return false;
 	  }
+	  
+	  $("#isCheck_Email").click(function ()) {
+		  var mem_email = ${".mem_email"}.val();
+		  
+		  var key; //인증키
+		  var bool =true; //boolean 인듯
+		  
+		  if(bool){
+			  
+			  $.ajax({
+				  url:"/ex/emailSend",
+				  type:"post",
+				  dataType:"json"
+				  data:{"mem_email": mem_email},
+				  success: function (result) {
+					  alert("인증번호 발송!");
+					  key=result;
+					  bool=false;
+				},
+				
+				error:function(xhr, status, error){
+					  alert("Error : " + status + "==>" + error);
+				}
+				
+			  });
+			  
+			  //인증코드 확인 부분
+			  $(".emailAuth").show();
+			  $(".isAuth").val("인증번호 확인!"); //이메일 인증 버튼 -> 내용 변경
+			  $(".emailAuth").keyup(function () {
+				
+				  //이메일 인증코드 입력한 부분을 userContent로 하고 인증코드 값(입력한 값)과 원래 보낸 키가 같으면 성공
+				  if($(".emailAuth").val()>=6){
+					  var userContent = $(".emailAuth").val();
+					  
+					  if(userContent == key){
+						  alert("인증 성공!");
+						  $("#mem_email_cert").val("1") //성공하면 디비에 1로 입력
+					      $("#isCheck_Email").val("인증완료!");
+					      $("#isCheck_Email").attr("disabled", true);
+					      $(".emailAuth").attr("disabled", true);
+					  }else {
+						  $("#mem_email_cert").valu("0");
+						  $("#isCheck_Email").valu("인증번호 재발송");
+						  event.preventDefault();
+					  }
+				  }
+			}); //keyup 
+		  }else{//1
+			  alert("test1=>false");
+			  event.preventDefault();
+		  }
+		
+	})
 	  
 	  //약관 동의
 	  if (!check1.checked) {

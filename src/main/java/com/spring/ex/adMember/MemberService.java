@@ -2,8 +2,6 @@ package com.spring.ex.adMember;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Service;
 
 @Service

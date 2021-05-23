@@ -1,6 +1,5 @@
 package com.spring.ex.adMember;
 
-import java.lang.reflect.Member;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
