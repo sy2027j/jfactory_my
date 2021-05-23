@@ -24,7 +24,6 @@
 </head>
 
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container" style="text-align: center; margin: 0auto;">
       <c:if test="${ member == null }">
@@ -61,11 +60,11 @@
           	   카테고리
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownCategory">
-              <a class="dropdown-item" href="eye_product_list">아이</a>
-              <a class="dropdown-item" href="lip_product_list">립</a>
-              <a class="dropdown-item" href="face_product_list">페이스</a>
-              <a class="dropdown-item" href="skin_product_list">스킨케어</a>
-              <a class="dropdown-item" href="clean_product_list">클렌징</a>
+              <a class="dropdown-item" href="eye_product_list?pd_category=아이&engname=Eyes">아이</a>
+              <a class="dropdown-item" href="eye_product_list?pd_category=립&engname=Lip">립</a>
+              <a class="dropdown-item" href="eye_product_list?pd_category=페이스&engname=Face">페이스</a>
+              <a class="dropdown-item" href="eye_product_list?pd_category=스킨케어&engname=Skin+Care">스킨케어</a>
+              <a class="dropdown-item" href="eye_product_list?pd_category=클렌징&engname=Cleansing">클렌징</a>
             </div>
           </li>
           <li class="nav-item dropdown">

@@ -29,10 +29,6 @@ public class MyController {
 		return("/legalNotice");
 	}
 	
-	@RequestMapping("/eye_product_list")
-	public String eyelist() {
-		return("/eye_product_list");
-	}
 	
 	@RequestMapping("/mypalette")
 	public String mypalette() {

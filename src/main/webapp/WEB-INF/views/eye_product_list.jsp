@@ -4,10 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
-  
+  <%
+  	String pd_category=request.getParameter("pd_category");
+  	String engname=request.getParameter("engname");
+  %>
   <div class="container">
-    <h3 class="mt-4 mb-3">아이
-      <small>Eyes</small>
+    <h3 class="mt-4 mb-3"><%=pd_category %>
+      <small><%=engname %></small>
     </h3>
 
     <ol class="breadcrumb" style="background-color:#e6e6fa;">
@@ -15,7 +18,7 @@
         <a href="index.html"><span style="color:gray">JFactory</span></a>
       </li>
       <li class="breadcrumb-item active"><span style="color:gray">카테고리</span></li>
-      <li class="breadcrumb-item active"><span style="color:black">아이</span></li>
+      <li class="breadcrumb-item active"><span style="color:black"><%=pd_category %></span></li>
     </ol>
   
     <form method="get" action="SelectServlet">
@@ -29,18 +32,19 @@
 		<br/>
 
     <div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+    <c:forEach items="${Productlist}" var="pdlist">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${pdlist.getPd_name()}'">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/QPX2C3URVYSAQ8HNEK6H.jpg" alt=""></a>
+          <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${pdlist.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="product_detail"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
+            <a href="product_detail"><span style="color:black; font-size:15pt">${pdlist.getPd_name() }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            ${pdlist.getPd_price() }원
           </div>
         </div>
       </div>
+      </c:forEach>
      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/MEZ8WLMDBM4YXB5XHKA5(1).jpg" alt=""></a>
@@ -49,7 +53,7 @@
             <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
             </h5>
             <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            15000원</p>
           </div>
         </div>
       </div>

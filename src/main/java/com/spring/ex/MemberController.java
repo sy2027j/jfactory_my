@@ -281,5 +281,12 @@ public class MemberController {
 		return "redirect:/admin/pd_add";
 	}
 	
+	@RequestMapping(value="/eye_product_list", method=RequestMethod.GET)
+	public String productlist(Model model, String pd_category) throws Exception{
+		List<ProductDTO> pddto=prservice.productlist(pd_category);
+		model.addAttribute("Productlist",pddto);
+		System.out.println("product list select");
+		return "/eye_product_list";
+	}
 	
 }

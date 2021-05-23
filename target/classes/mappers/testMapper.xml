@@ -82,5 +82,10 @@
 		UPDATE jfactory_product SET pd_con_file=#{pd_con_file}, pd_con_stored_file=#{pd_con_stored_file} WHERE pd_name=#{pd_name}
 	</update>
 	
+	
+	<select id="ProductListView" resultType="ProductDTO">
+		SELECT * FROM jfactory_product WHERE pd_category=#{pd_category}
+	</select>
+	
 </mapper>
 

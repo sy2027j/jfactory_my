@@ -29,4 +29,9 @@ public class ProductDAOlmpl implements ProductDAO {
 	public void addDetail(Map<String, Object> map) throws Exception{
 		sqlSession.update(namespace+".AddDetail", map);
 	}
+	
+	@Override
+	public List<ProductDTO> productlist(String pd_category) throws Exception{
+		return sqlSession.selectList(namespace+".ProductListView", pd_category);
+	}
 }

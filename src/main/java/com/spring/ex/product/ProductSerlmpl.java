@@ -43,5 +43,10 @@ public class ProductSerlmpl implements ProductSer {
 			dao.addDetail(list2.get(i));
 		}
 	}
+	
+	@Override
+	public List<ProductDTO> productlist(String pd_category) throws Exception{
+		return dao.productlist(pd_category);
+	}
 
 }

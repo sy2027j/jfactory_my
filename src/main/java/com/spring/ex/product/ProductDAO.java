@@ -13,4 +13,7 @@ public interface ProductDAO {
 	public ProductDTO AddDetail(String pd_name);
 	
 	public void addDetail(Map<String, Object> map) throws Exception;
+
+	public List<ProductDTO> productlist(String pd_category) throws Exception;
+
 }
