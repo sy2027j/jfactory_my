@@ -133,7 +133,7 @@
 					<input type="email" class="form-control" id="emailAuth"
 						name="emailAuth" placeholder="인증코드를 입력하세요">
 					&nbsp;<button type="button" class="btn btn-default" id="isAuth" style="border-color:white; background-color:#e6e6fa; color:black;">확인</button>
-					<input type="hidden" name="mem_email_cert" id="mem_email_cert" class="mem_email_cert" value="">
+					<input type="hidden" name="mem_email_cert" id="mem_email_cert" class="mem_email_cert" value="0">
 				</div>
 			</div>
 			<div class="form-group" id="checkboxes">
@@ -195,7 +195,7 @@
                     <label for="skinworry_Title">피부 고민 (최대 2개 선택)</label>
                 </h5>
                 </div> 
-                <div><input type="hidden" value="2" id="selCnt" name="selCnt">
+                <div>
                 <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="주름">주름 &nbsp;
                 <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="여드름">여드름 &nbsp;
                 <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="피지&모공">피지&모공 &nbsp;
@@ -203,6 +203,8 @@
                 <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="다크써클">다크써클 &nbsp;
                 <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="각질">각질 &nbsp;
                 <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="기타">기타 &nbsp;
+                <input type="text" value="" id="mem_skintrouble1" name="mem_skintrouble1">
+                <input type="text" value="" id="mem_skintrouble2" name="mem_skintrouble2">
                 </div> 
 			<br/><br/>
 			<div align="center">
@@ -245,6 +247,21 @@
   	field.checked = false;
   	count -= 1;
   	}
+  	
+	var checkBoxArr=[];
+    
+    $("input[name=mem_skintrouble]:checked").each(function(i){
+  	checkBoxArr.puch($(this).val());  
+  	$("#mem_skintrouble1").attr("value", checkBoxArr[0]);
+    })
+    
+    //var obj_length = document.getElementsByName("mem_skintype1").length;
+	  
+      //for (var i=0; i<obj_length; i++) {
+          //if (document.getElementsByName("mem_skintype1")[i].checked == true) {
+        	  //$("#mem_skintype").attr("value", document.getElementsByName("mem_skintype1")[i].value);
+          //}}
+    
   }
   </script>
   <script type="text/javascript">

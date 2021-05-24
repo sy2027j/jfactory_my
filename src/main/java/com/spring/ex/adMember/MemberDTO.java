@@ -24,7 +24,8 @@ public class MemberDTO {
 	private String mem_adminmemo;
 	private String mem_sex;
 	private String mem_skintype;
-	private String mem_skintrouble;
+	private String mem_skintrouble1;
+	private String mem_skintrouble2;
 	private String mem_coupon;
 	private int mem_count;
 	private int mem_total_cash;
@@ -167,11 +168,11 @@ public class MemberDTO {
 	public void setMem_skintype(String mem_skintype) {
 		this.mem_skintype = mem_skintype;
 	}
-	public String getMem_skintrouble() {
-		return mem_skintrouble;
+	public String getMem_skintrouble1() {
+		return mem_skintrouble1;
 	}
-	public void setMem_skintrouble(String mem_skintrouble) {
-		this.mem_skintrouble = mem_skintrouble;
+	public void setMem_skintrouble1(String mem_skintrouble1) {
+		this.mem_skintrouble1 = mem_skintrouble1;
 	}
 	public String getMem_coupon() {
 		return mem_coupon;
@@ -190,6 +191,12 @@ public class MemberDTO {
 	}
 	public void setMem_total_cash(int mem_total_cash) {
 		this.mem_total_cash = mem_total_cash;
+	}
+	public String getMem_skintrouble2() {
+		return mem_skintrouble2;
+	}
+	public void setMem_skintrouble2(String mem_skintrouble2) {
+		this.mem_skintrouble2 = mem_skintrouble2;
 	}
 	
 	

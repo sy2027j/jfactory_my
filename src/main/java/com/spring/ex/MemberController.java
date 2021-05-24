@@ -96,6 +96,7 @@ public class MemberController {
 		
 		try {
 			if(result==1) {
+				System.out.println("중복된 아이디");
 				return "/index";
 			}else if(result==0) {
 				service.memberJoinMethod(dto);
