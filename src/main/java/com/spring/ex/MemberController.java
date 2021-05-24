@@ -283,9 +283,10 @@ public class MemberController {
 	}
 	
 	//emailSend는 컨트롤러, sendMail은 emailSender
-	@RequestMapping("/emailSend")
+	@RequestMapping(value="/emailSend", method=RequestMethod.POST)
 	@ResponseBody
 	public String emailSend(@RequestParam(required = false) String mem_email) {
+		System.out.println("이메일 인증");
 		String mem_Email = "";
 		String subject = "";
 		String content = "";

@@ -120,7 +120,7 @@
 				<div class="form-inline">
 					<input type="email" class="form-control" id="mem_email"
 						name="mem_email" placeholder="이메일을 입력하세요" style="width:410px">
-						&nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" name="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;">인증</button>
+						&nbsp;<button type="button" class="btn btn-default" id="isCheck_Email" name="isCheck_Email" style="border-color:white; background-color:#e6e6fa; color:black;" onclick="Email_send();">인증</button>
 					<input type="hidden" id="isEmailCheck" value="0">
 				</div>
 				<div id="email_check"></div>
@@ -192,17 +192,17 @@
                 <br/>
                 <div>
                 <h5>
-                    <label for="skinworry_Title">피부 고민</label>
+                    <label for="skinworry_Title">피부 고민 (최대 2개 선택)</label>
                 </h5>
                 </div> 
-                <div>
-                <input type="checkbox" name="mem_skintrouble" value="주름">주름 &nbsp;
-                <input type="checkbox" name="mem_skintrouble" value="여드름">여드름 &nbsp;
-                <input type="checkbox" name="mem_skintrouble" value="피지&모공">피지&모공 &nbsp;
-                <input type="checkbox" name="mem_skintrouble" value="수분부족">수분부족 &nbsp;
-                <input type="checkbox" name="mem_skintrouble" value="다크써클">다크써클 &nbsp;
-                <input type="checkbox" name="mem_skintrouble" value="각질">각질 &nbsp;
-                <input type="checkbox" name="mem_skintrouble" value="기타">기타 &nbsp;
+                <div><input type="hidden" value="2" id="selCnt" name="selCnt">
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="주름">주름 &nbsp;
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="여드름">여드름 &nbsp;
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="피지&모공">피지&모공 &nbsp;
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="수분부족">수분부족 &nbsp;
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="다크써클">다크써클 &nbsp;
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="각질">각질 &nbsp;
+                <input onclick="CountChecked(this)"type="checkbox" name="mem_skintrouble" value="기타">기타 &nbsp;
                 </div> 
 			<br/><br/>
 			<div align="center">
@@ -228,7 +228,83 @@
   ﻿<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
   
-  
+  <script type="text/javascript">
+  var maxCount = 2;
+  var count = 0;
+
+  function CountChecked(field){
+  	if (field.checked) {
+  		count += 1;
+  	}
+  	else {
+  		count -= 1;
+  	}
+  	
+  	if (count > maxCount) {
+  		alert("최대 2개까지만 선택가능합니다.");
+  	field.checked = false;
+  	count -= 1;
+  	}
+  }
+  </script>
+  <script type="text/javascript">
+  function Email_send(){
+	  var mem_email2=document.getElementById("mem_email");
+	  
+	  if(mem_email2.value==""){
+		  alert("이메일을 입력하세요.");
+		  mem_email2.focus();
+		  return false;
+	  }
+	  
+	  var key; //인증키
+	  var bool =true; //boolean 인듯
+	  
+	  if(bool){
+		  
+		  $.ajax({
+				url : "/ex/emailSend",
+				type : "POST",
+				dataType : "json",
+				data : {"mem_email" : $("#mem_email").val()},
+				success : function(data){
+						alert("이메일 발송.");
+						key=data;
+						bool=false;
+					},error:function(request,status,error){
+			        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+			       }
+			})
+		  
+		  //인증코드 확인 부분
+		  $(".emailAuth").show();
+		  $(".isAuth").val("인증번호 확인!"); //이메일 인증 버튼 -> 내용 변경
+		  $(".emailAuth").keyup(function () {
+			
+			  //이메일 인증코드 입력한 부분을 userContent로 하고 인증코드 값(입력한 값)과 원래 보낸 키가 같으면 성공
+			  if($(".emailAuth").val()>=6){
+				  var userContent = $(".emailAuth").val();
+				  
+				  if(userContent == key){
+					  alert("인증 성공!");
+					  $("#mem_email_cert").val("1") //성공하면 디비에 1로 입력
+				      $("#isCheck_Email").val("인증완료!");
+				      $("#isCheck_Email").attr("disabled", true);
+				      $(".emailAuth").attr("disabled", true);
+				  }else {
+					  $("#mem_email_cert").valu("0");
+					  $("#isCheck_Email").valu("인증번호 재발송");
+					  event.preventDefault();
+				  }
+			  }
+		}); //keyup 
+	  }else{//1
+		  alert("test1=>false");
+		  event.preventDefault();
+	  }
+	
+  }
+  </script>
   <script type="text/javascript">
 	
 	//아이디 중복 체크
@@ -377,59 +453,6 @@
 		  return false;
 	  }
 	  
-	  $("#isCheck_Email").click(function ()) {
-		  var mem_email = ${".mem_email"}.val();
-		  
-		  var key; //인증키
-		  var bool =true; //boolean 인듯
-		  
-		  if(bool){
-			  
-			  $.ajax({
-				  url:"/ex/emailSend",
-				  type:"post",
-				  dataType:"json"
-				  data:{"mem_email": mem_email},
-				  success: function (result) {
-					  alert("인증번호 발송!");
-					  key=result;
-					  bool=false;
-				},
-				
-				error:function(xhr, status, error){
-					  alert("Error : " + status + "==>" + error);
-				}
-				
-			  });
-			  
-			  //인증코드 확인 부분
-			  $(".emailAuth").show();
-			  $(".isAuth").val("인증번호 확인!"); //이메일 인증 버튼 -> 내용 변경
-			  $(".emailAuth").keyup(function () {
-				
-				  //이메일 인증코드 입력한 부분을 userContent로 하고 인증코드 값(입력한 값)과 원래 보낸 키가 같으면 성공
-				  if($(".emailAuth").val()>=6){
-					  var userContent = $(".emailAuth").val();
-					  
-					  if(userContent == key){
-						  alert("인증 성공!");
-						  $("#mem_email_cert").val("1") //성공하면 디비에 1로 입력
-					      $("#isCheck_Email").val("인증완료!");
-					      $("#isCheck_Email").attr("disabled", true);
-					      $(".emailAuth").attr("disabled", true);
-					  }else {
-						  $("#mem_email_cert").valu("0");
-						  $("#isCheck_Email").valu("인증번호 재발송");
-						  event.preventDefault();
-					  }
-				  }
-			}); //keyup 
-		  }else{//1
-			  alert("test1=>false");
-			  event.preventDefault();
-		  }
-		
-	})
 	  
 	  //약관 동의
 	  if (!check1.checked) {
