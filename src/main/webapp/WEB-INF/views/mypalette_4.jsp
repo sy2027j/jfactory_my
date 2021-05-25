@@ -33,7 +33,22 @@
     <div class="container">
     <div class="row">
     <div class="col-lg-6">
-        <img class="" src="resources/image/palette4.jpg" alt="" width="500px" height="500px">
+    <table style="table-layout:fixed;">
+    <tbody>
+    <tr>
+    <td>아</td>
+    
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td>아</td>
+    
+    <td></td>
+    </tr>
+    </tbody>
+    </table>
+        
       </div>
       <div class="col-lg-6">
         <form method="get" action="SelectServlet">
