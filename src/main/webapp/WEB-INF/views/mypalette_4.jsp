@@ -25,6 +25,16 @@
     </table> 
     -->
     
+    <style>
+    
+    table{
+    	border:solid lightpink;
+    	border-spacing:50px;
+    	table-layout:fixed;
+    	border-collapse:separate;
+    }
+    </style>
+    
     <br/><br/>
     <div class="col-lg-12">
     	<h3 align="center"> 4구 팔레트 조합하기</h3><br/>
@@ -33,17 +43,16 @@
     <div class="container">
     <div class="row">
     <div class="col-lg-6">
-    <table style="table-layout:fixed;">
+    <table border="20px"  width="500" height="500"  bordercolor=lightblue>
+    
     <tbody>
     <tr>
-    <td>아</td>
-    
+    <td></td>
     <td></td>
     </tr>
     
     <tr>
-    <td>아</td>
-    
+    <td></td>
     <td></td>
     </tr>
     </tbody>
