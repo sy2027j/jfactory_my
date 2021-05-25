@@ -14,9 +14,9 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver" />
-        <property name="url" value="jdbc:mariadb://localhost:3307/jfactory" />
+        <property name="url" value="jdbc:mariadb://localhost:3306/jfactory" />
         <property name="username" value="root" />
-        <property name="password" value="1234" />
+        <property name="password" value="apmsetup" />
     </bean>
  
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -33,8 +33,8 @@
 <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
     <property name="host" value="smtp.gmail.com" />
     <property name="port" value="587" />
-    <property name="username" value="yeonhee010117@google.com" />
-    <property name="password" value="cuovbqoinpukopdy" />
+    <property name="username" value="jfactorykm@gmail.com" />
+    <property name="password" value="a19831060." />
     <property name="javaMailProperties">
         <props>
             <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>

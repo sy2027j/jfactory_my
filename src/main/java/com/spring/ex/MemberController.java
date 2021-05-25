@@ -283,46 +283,47 @@ public class MemberController {
 		return "/product_detail";
 	}
 	
-	//emailSend는 컨트롤러, sendMail은 emailSender
-	@RequestMapping(value="/emailSend", method=RequestMethod.POST)
-	@ResponseBody
-	public String emailSend(@RequestParam(required = false) String mem_email) {
-		System.out.println("이메일 인증");
-		String mem_Email = "";
-		String subject = "";
-		String content = "";
-		String receiver = "";
-		String sender = "";
-		
-		int mem_email_code = 0;
-		String authCodes = "";
-		
-		if (mem_email!=null && !mem_email.isEmpty()) {
-			mem_Email = mem_email;
-			
-			for(int i=0; i<6; i++) {
-				mem_email_code = (int)(Math.random()*9+1);
-				authCodes += Integer.toString(mem_email_code);
-			}
-			
-			subject="jfactory에서 발송된 인증번호 입니다.";
-		    content="안녕하세요 고객님 jfactory를 찾아주셔서 감사합니다. jfactory 인증번호를 다음과 같이 알려드립니다." + "<br><br>" + "인증번호는" + mem_email_code + "입니다." + "<br><br>" + "회원가입 창으로 돌아가 인증번호란에 입력해주세요.";
-			receiver=mem_Email;
-			sender="yeonhee010117@google.com";
-		}
-		
-		try {
-			MimeMessage message = emailSender.createMimeMessage();
-			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
-			helper.setFrom(sender);
-			helper.setTo(receiver);
-			helper.setSubject(subject);
-			helper.setText(content, true);
-			emailSender.send(message);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return authCodes;
-	}
+	 //emailSend는 컨트롤러, sendMail은 emailSender
+	   @RequestMapping(value="/emailSend", method=RequestMethod.POST)
+	   @ResponseBody
+	   public String emailSend(@RequestParam(required = false) String mem_email) {
+	      System.out.println("이메일 인증");
+	      String mem_Email = "";
+	      String subject = "";
+	      String content = "";
+	      String receiver = "";
+	      String sender = "";
+	      
+	      int mem_email_code = 0;
+	      String authCodes = "";
+	      
+	      if (mem_email!=null && !mem_email.isEmpty()) {
+	         mem_Email = mem_email;
+	         
+	         for(int i=0; i<6; i++) {
+	            mem_email_code = (int)(Math.random()*9+1);
+	            authCodes += Integer.toString(mem_email_code);
+	         }
+	         
+	         subject="jfactory에서 발송된 인증번호 입니다.";
+	          content="안녕하세요 고객님 jfactory를 찾아주셔서 감사합니다. jfactory 인증번호를 다음과 같이 알려드립니다." + "<br><br>" + "인증번호는" + authCodes + "입니다." + "<br><br>" + "회원가입 창으로 돌아가 인증번호란에 입력해주세요.";
+	         receiver=mem_Email;
+	         sender="jfactorykm@gmail.com";
+	      }
+	      
+	      try {
+	         MimeMessage message = emailSender.createMimeMessage();
+	         MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+	         helper.setFrom(sender);
+	         helper.setTo(receiver);
+	         helper.setSubject(subject);
+	         helper.setText(content, true);
+	         emailSender.send(message);
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      return authCodes;
+	   }
+
 	
 }

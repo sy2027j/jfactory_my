@@ -28,7 +28,7 @@
     <style>
     
     table{
-    	border:solid lightpink;
+    	border:solid #ff953e;
     	border-spacing:50px;
     	table-layout:fixed;
     	border-collapse:separate;

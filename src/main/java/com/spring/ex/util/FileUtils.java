@@ -69,7 +69,19 @@ public class FileUtils {
 				listMap.put("re_stored_file", storedFileName);
 				listMap.put("pd_name", pd_name);
 				list.add(listMap);
+			}else {
+				listMap = new HashMap<String, Object>();
+				listMap.put("mem_id", mem_id);
+				listMap.put("re_title", re_title);
+				listMap.put("re_score", re_score);
+				listMap.put("re_content", re_content);
+				listMap.put("re_count", re_count);
+				listMap.put("re_org_file", originalFileName);
+				listMap.put("re_stored_file", storedFileName);
+				listMap.put("pd_name", pd_name);
+				list.add(listMap);
 			}
+			
 		}
 		return list;
 	}

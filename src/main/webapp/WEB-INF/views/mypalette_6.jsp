@@ -4,7 +4,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
-
+<style>
+    
+    table{
+    	border:solid black;
+    	border-spacing:40px;
+    	table-layout:fixed;
+    	border-collapse:separate;
+    }
+    </style>
     <br/><br/>
     <div class="col-lg-12">
     	<h3 align="center"> 6구 팔레트 조합하기</h3><br/>
@@ -13,7 +21,23 @@
     <div class="container">
     <div class="row">
     <div class="col-lg-6">
-        <img class="" src="resources/image/palette6.png" alt="" width="500px" height="500px">
+    <br/>
+        <table border="20px"  width="500" height="350"  bordercolor=lightblue>
+    
+    <tbody>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    </tbody>
+    </table>
       </div>
       <div class="col-lg-6">
         <form method="get" action="SelectServlet">
