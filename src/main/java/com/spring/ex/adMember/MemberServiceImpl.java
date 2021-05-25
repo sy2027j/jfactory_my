@@ -39,8 +39,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public MemberDTO findPw(MemberDTO dto) throws Exception{
-		return dao.findPw(dto);
+	public MemberDTO findpw(MemberDTO dto) throws Exception{
+		return dao.findpw(dto);
 	}
 	
 	@Override
