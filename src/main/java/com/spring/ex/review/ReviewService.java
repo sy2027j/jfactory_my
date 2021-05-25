@@ -13,4 +13,6 @@ public interface ReviewService {
 	public ReviewDTO detail(int re_no);
 	
 	public List<ReviewDTO> reviewList() throws Exception;
+	
+	public List<ReviewDTO> bestlist() throws Exception;
 }

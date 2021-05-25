@@ -1,10 +1,12 @@
 package com.spring.ex;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,9 +110,9 @@ public class MemberController {
 	}
 	
 	
-    /* 로그인 */
+	 /* 로그인 */
     @RequestMapping(value="login", method=RequestMethod.POST)
-    public String loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr) throws Exception{
+    public String loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr, HttpServletResponse response) throws Exception{
         
         //System.out.println("login 메서드 진입");
         //System.out.println("전달된 데이터 : " + dto);
@@ -127,11 +129,17 @@ public class MemberController {
             
             int result = 0;
             rttr.addFlashAttribute("result", result);
-            return "redirect:/index";
+            response.setContentType("text/html; charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
+            out.flush();
             
         } else if (lvo.getMem_is_admin()==1) { //관리자 1,2이면 관리자 페이지로 로그인창 넘어감
         	  session.setAttribute("member", lvo);   
-              return "redirect:/admin/index";
+        	  response.setContentType("text/html; charset=UTF-8");
+              PrintWriter out = response.getWriter();
+              out.println("<script>alert('메인 관리자 권한으로 로그인 되었습니다.');window.open('admin/admin_index','_blanck');</script>");
+              out.flush();
         
         } else if (lvo.getMem_is_admin()==2) {
         	session.setAttribute("member", lvo);
@@ -139,8 +147,7 @@ public class MemberController {
         }
         
         session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
-        
-        return "redirect:/mypage_order";
+        return "/index";
 
         
     }
@@ -220,7 +227,9 @@ public class MemberController {
 	@RequestMapping(value="/review", method=RequestMethod.GET)
 	public String ReviewList(Model model) throws Exception{
 		List<ReviewDTO> relist=reservice.reviewList();
+		List<ReviewDTO> bedto=reservice.bestlist();
 		model.addAttribute("ReviewList", relist);
+		model.addAttribute("BestReview",bedto);
 		return "/review";
 	}
 	

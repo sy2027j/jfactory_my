@@ -39,4 +39,9 @@ public class ReviewServicelmpl implements ReviewService {
 	public List<ReviewDTO> reviewList() throws Exception{
 		return dao.reviewList();
 	}
+	
+	@Override
+	public List<ReviewDTO> bestlist() throws Exception{
+		return dao.bestlist();
+	}
 }

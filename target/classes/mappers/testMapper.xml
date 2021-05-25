@@ -87,5 +87,9 @@
 		SELECT * FROM jfactory_product WHERE pd_category=#{pd_category}
 	</select>
 	
+	<select id="BestReview" resultType="ReviewDTO">
+		SELECT * FROM jfactory_review ORDER BY re_count DESC LIMIT 4
+	</select>
+	
 </mapper>
 

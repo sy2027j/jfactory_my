@@ -30,4 +30,9 @@ public class ReviewDAOlmpl implements ReviewDAO {
 		return sqlSession.selectList(namespace+".ReviewList");
 	}
 	
+	@Override
+	public List<ReviewDTO> bestlist() throws Exception{
+		return sqlSession.selectList(namespace+".BestReview");
+	}
+	
 }

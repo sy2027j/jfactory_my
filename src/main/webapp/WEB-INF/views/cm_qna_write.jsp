@@ -7,6 +7,13 @@
   <hr>
   
   	<div class="container">
+  	<c:if test="${member == null }">
+  		<script type="text/javascript">
+  			alert("로그인 하세요.");
+  			window.location = '/ex/login';
+		</script>
+  	
+  	</c:if>
   	<c:if test="${ member != null }">
   	<div class="container-fluid">
                         <h1 class="mt-4">Q&A</h1> <br/>

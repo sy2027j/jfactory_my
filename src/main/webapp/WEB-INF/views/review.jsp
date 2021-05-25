@@ -33,58 +33,27 @@
   </script>
   <div class="container">
     <br/>
-    	<h3 align="center">이달의 BEST 리뷰</h3>
+    	<h3 align="center">BEST 리뷰</h3>
     <br/><br/>
 
     <div class="row" >
+    <c:forEach items="${BestReview}" var="bestre">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/QPX2C3URVYSAQ8HNEK6H.jpg" alt=""></a>
+          <a href="review_view?re_no=${bestre.getRe_no() }"><img src = '<c:url value="/resources/image/123/${bestre.getRe_stored_file() }"/>' width="253px" height="253px"></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="product_detail"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            <a href="review_view?re_no=${bestre.getRe_no() }"><span style="color:black; font-size:10pt">${bestre.getPd_name() }</span></a><br/>
+            <a href="review_view?re_no=${bestre.getRe_no() }"><span style="color:black; font-size:15pt">${bestre.getRe_title() }</span></a><br/>
+            </h5><span style="color:black; font-size:10pt">만족도 ${bestre.getRe_score() }</span>
+            <input type="hidden" id="starscore" name="starscore" value="${bestre.getRe_score() }">
+            <input type="hidden" id="starscore2" name="starscore2" value="" style="border:none;border-right:0px; border-top:0px; boder-left:0px; boder-bottom:0px;">
+            <p class="card-text"><span style="color:black; font-size:10pt">${bestre.getMem_id() }<br/>
+            👀 ${bestre.getRe_count() }</span></p>
           </div>
         </div>
       </div>
-     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/MEZ8WLMDBM4YXB5XHKA5(1).jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/BG3A1CRKUQ953E01ZYNZ.jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/BG3A1CRKUQ953E01ZYNZ.jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
+      </c:forEach>
     </div>
     
     <br/>
@@ -117,19 +86,6 @@
         </div>
       </div>
       </c:forEach>
-     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/MEZ8WLMDBM4YXB5XHKA5(1).jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트(5)</span></a>
-            <span style="color:black; font-size:10pt">만족도</span><br/>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">작성자<br/>
-            눈아이콘</span></p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   

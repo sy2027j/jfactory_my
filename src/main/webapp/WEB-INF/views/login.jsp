@@ -15,6 +15,13 @@
 <body>
 <div  class="container col-lg-3">
   <div class="row">
+  <c:if test="${member != null }">
+  		<script type="text/javascript">
+  			alert("로그인 상태입니다.");
+  			window.location = '/ex/index';
+		</script>
+  	
+  	</c:if>
         <div id="header">
       <div id="wrapper">
         <form id="Login" method="post">
@@ -42,10 +49,9 @@
 				      		<button type="button" class="btn btn-link" onclick="location.href='findId'"><span style="color:black; font-size:10pt">아이디 찾기</span></button>
 				      		<button type="button" class="btn btn-link" onclick="location.href='findPw'"><span style="color:black; font-size:10pt">비밀번호 찾기</span></button>
 				        </div>
-				        
+			</form>	        
 				</div>
-			</form>
-	</form>
+			
 	
 	<br/>
 				

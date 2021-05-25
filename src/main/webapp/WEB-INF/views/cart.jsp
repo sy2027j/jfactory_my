@@ -5,38 +5,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<div class="container">
 
- <div class="col-sm-8">
-      <h2>주문내역</h2>
-      <hr>
-       <div class="mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table mr-1" ></i>
-                                	장바구니
-                            </div>
+  	<div class="container">
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">장바구니</h1> 
+                        <br/>
+                        
+                      </div>
+                      <br>
                             <div class="memberManager">    
-								<table class="table table-hover" id="memberList">  
-									<thead>
-										<tr>
-											<th>구매날짜</th>
-											<th>상품명</th>
-											<th>수량</th>  
-											<th>금액</th>
-											<th>주문상태</th>
-											
-										</tr>
-									</thead>
-										<tbody>
-											
-									</tbody>
-								</table>
-							</div>
-		  </div>
-		   
-		</div>
-	</div>
-	</div>
+                        <table class="table table-hover" id="qnalist" style="table-layout:fixed;">
+                              <tr>
+                                 <th>제목</th>
+                                 <th>작성자</th>
+                                 <th>작성일</th>  
+                                 <th>답변상태</th>
+                              </tr>
+                              <tr>
+                                 <c:forEach items="${QnaList}" var="qnalist">
+							<tr>
+								<td><a style="color:black; text-decoration:none "href="cm_qna_view?qna_no=${qnalist.getQna_no()}"><c:out value="${qnalist.getQna_title()}"/></a></td>
+								<td><c:out value="${qnalist.getmem_id() }"/></td>
+								<td><c:out value="${qnalist.getQna_datetime() }"/></td>
+								<td><c:out value="${qnalist.getQna_response() }"/></td>
+							</tr>
+						</c:forEach>
+                              </tr>   
+                        </table>
+                        
+                     </div>
+                        </div>
+                         <button type="button" style="float:right; background-color:#e6e6fa; color:black; border-color:#e6e6fa" class="btn btn-primary" onclick="location.href='cm_qna_write'">글쓰기</button>
+                    </div>
+                </main>
+                
 	  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 <%@ include file="./footer.jsp"%>
