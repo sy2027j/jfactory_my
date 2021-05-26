@@ -26,4 +26,9 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	public MemberqnaDTO detail(int qna_no) {
 		return dao.detail(qna_no);
 	}
+	
+	@Override
+	public void ReplyQna(MemberqnaDTO dto) throws Exception{
+		dao.ReplyQna(dto);
+	}
 }

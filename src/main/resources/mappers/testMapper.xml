@@ -91,5 +91,9 @@
 		SELECT * FROM jfactory_review ORDER BY re_count DESC LIMIT 4
 	</select>
 	
+	<update id="ReplyQna" parameterType="MemberqnaDTO">
+		UPDATE jfactory_qna SET qna_reply_content=#{qna_reply_content} WHERE qna_no=#{qna_no}
+	</update>
+	
 </mapper>
 

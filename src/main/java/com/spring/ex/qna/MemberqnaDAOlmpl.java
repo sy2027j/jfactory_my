@@ -28,4 +28,9 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	public MemberqnaDTO detail(int qna_no) {
 		return sqlSession.selectOne(namespace+".QnaDetail", qna_no);
 	}
+	
+	@Override
+	public void ReplyQna(MemberqnaDTO dto) throws Exception{
+		sqlSession.update(namespace+".ReplyQna", dto);
+	}
 }

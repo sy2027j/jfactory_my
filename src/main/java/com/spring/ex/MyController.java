@@ -376,9 +376,9 @@ public class MyController {
 		return("/w_jeju");
 	}
 	
-	@RequestMapping("/w_jeonju")
-	public String w_jeonju() {
-		return("/w_jeonju");
+	@RequestMapping("admin/admin_cm_qna_view")
+	public String admin_cm_qna_view() {
+		return("admin/admin_cm_qna_view");
 	}
 	
 	

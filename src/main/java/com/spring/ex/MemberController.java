@@ -277,6 +277,7 @@ public class MemberController {
 		return "redirect:/admin/pd_add";
 	}
 	
+	//product list
 	@RequestMapping(value="/eye_product_list", method=RequestMethod.GET)
 	public String productlist(Model model, String pd_category) throws Exception{
 		List<ProductDTO> pddto=prservice.productlist(pd_category);
@@ -285,6 +286,7 @@ public class MemberController {
 		return "/eye_product_list";
 	}
 	
+	//product detail
 	@RequestMapping(value="/product_detail", method=RequestMethod.GET)
 	public String ProductDetailView(Model model, String pd_name) {
 		ProductDTO pddetaildto=prservice.AddDetail(pd_name);
@@ -334,6 +336,32 @@ public class MemberController {
 	      }
 	      return authCodes;
 	   }
+	   
+	   //admin qna list 
+	   @RequestMapping(value="admin/cm_qna", method=RequestMethod.GET)
+		public String AdminQnaList(Model model) throws Exception{
+			
+			List<MemberqnaDTO> qnalist=qnaservice.qnaList();
+			
+			model.addAttribute("QnaList", qnalist);
+			System.out.println("admin qna list");
+			return "admin/cm_qna";
+		}
 
+	 //admin qna detail view
+		@RequestMapping(value="admin/admin_cm_qna_view", method=RequestMethod.GET)
+		public String AdminqnaDetail(Model model, int qna_no) {
+			MemberqnaDTO qnadetail=qnaservice.detail(qna_no);
+			model.addAttribute("Qnadetail",qnadetail);
+			System.out.println("qna detail view");
+			return "admin/admin_cm_qna_view";
+		}
+		
+		@RequestMapping(value = "admin/reply_qna", method = RequestMethod.GET)
+		public String ReplyQna(MemberqnaDTO dto) throws Exception {
+			qnaservice.ReplyQna(dto);
+			System.out.println("reply qna");
+			return "redirect:/admin/cm_qna";
+		}
 	
 }
