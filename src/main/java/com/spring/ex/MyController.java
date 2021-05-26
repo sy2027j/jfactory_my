@@ -381,6 +381,10 @@ public class MyController {
 		return("admin/admin_cm_qna_view");
 	}
 	
+	@RequestMapping("admin/write_notice")
+	public String write_notice() {
+		return("admin/write_notice");
+	}
 	
 }
  

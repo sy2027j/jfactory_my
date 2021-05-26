@@ -92,8 +92,12 @@
 	</select>
 	
 	<update id="ReplyQna" parameterType="MemberqnaDTO">
-		UPDATE jfactory_qna SET qna_reply_content=#{qna_reply_content} WHERE qna_no=#{qna_no}
+		UPDATE jfactory_qna SET qna_reply_content=#{qna_reply_content}, qna_replay_datetime=DEFAULT, qna_response=1 WHERE qna_no=#{qna_no}
 	</update>
+	
+	<insert id="WriteNotice" parameterType="MemberqnaDTO">
+		INSERT INTO jfactory_qna values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,null,1)
+	</insert>
 	
 </mapper>
 

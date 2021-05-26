@@ -16,5 +16,5 @@ public interface MemberqnaService {
 	
 	public void ReplyQna(MemberqnaDTO dto) throws Exception;
 	
-	
+	public void NoticeWrite(MemberqnaDTO dto) throws Exception;
 }

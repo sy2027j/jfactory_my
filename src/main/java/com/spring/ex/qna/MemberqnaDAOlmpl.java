@@ -33,4 +33,9 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	public void ReplyQna(MemberqnaDTO dto) throws Exception{
 		sqlSession.update(namespace+".ReplyQna", dto);
 	}
+	
+	@Override
+	public void NoticeWrite(MemberqnaDTO dto) throws Exception{
+		sqlSession.insert(namespace+".WriteNotice",dto);
+	}
 }

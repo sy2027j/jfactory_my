@@ -14,4 +14,6 @@ public interface MemberqnaDAO {
 	public MemberqnaDTO detail(int qna_no);
 	
 	public void ReplyQna(MemberqnaDTO dto) throws Exception;
+	
+	public void NoticeWrite(MemberqnaDTO dto) throws Exception;
 }

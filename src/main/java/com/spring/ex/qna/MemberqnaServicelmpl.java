@@ -31,4 +31,9 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	public void ReplyQna(MemberqnaDTO dto) throws Exception{
 		dao.ReplyQna(dto);
 	}
+	
+	@Override
+	public void NoticeWrite(MemberqnaDTO dto) throws Exception{
+		dao.NoticeWrite(dto);
+	}
 }

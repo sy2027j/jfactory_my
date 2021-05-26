@@ -3,7 +3,7 @@
 <%@ include file="./Header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
-    <body>
+    <body><br/><br/>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
@@ -36,7 +36,8 @@
                            		<td><a style="color:black; text-decoration:none "href="admin_cm_qna_view?qna_no=${qnalist.getQna_no()}"><c:out value="${qnalist.getQna_title()}"/></a></td>
 								<td><c:out value="${qnalist.getmem_id() }"/></td>
 								<td><c:out value="${qnalist.getQna_datetime() }"/></td>
-								<td><c:out value="${qnalist.getQna_response() }"/></td>
+								<td><c:if test="${qnalist.getQna_response() eq 1}"><span style="color:blue">답변완료</span></c:if>
+									<c:if test="${qnalist.getQna_response() eq 0}"><span style="color:red">답변아직</span></c:if></td>
                            		</tr> 
                            		</c:forEach>
                            		
@@ -46,8 +47,7 @@
                            		</div>
                            		<div class="card-footer"> 
                            		<div class="float-right"> 
-                           		<button type="button" class="btn btn-success btn-flat" id="writeBtn"> 
-                           		<i class="fa fa-pencil"></i> 글쓰기 </button> 
+                           		<button type="button" class="btn btn-success btn-flat" id="writeBtn" onclick="location.href='write_notice'"><i class="fa fa-pencil"></i> 글쓰기 </button> 
                            		</div> 
                            		</div> 
                            		</div> 

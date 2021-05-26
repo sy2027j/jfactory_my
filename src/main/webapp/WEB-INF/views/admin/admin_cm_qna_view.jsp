@@ -4,31 +4,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<hr>
-<style>
-table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    table-layout:fixed;
-    border-spacing:30px;
-  }
-  th {
-  	padding:100px;
-  	height:100%;
-    background-color: #e6e6fa;
-    text-align: center;
-  }
-  td {
-  	padding:100px;
-  	text-align: left;
-  }
-  a{
-  	color:black;
-  }
-</style>
+    <body><br/><br/>
+            <div id="layoutSidenav_content">
+                <main>
 <div class="container">
 	<div class="container-fluid">
-		<h1>Q&A</h1>
+		<br/><h1>Q&A</h1>
 		<br />
 	</div>
 	<div class="col-lg-12">
@@ -73,6 +54,7 @@ table {
             </div><br/><br/>
 	</div>
 </div>
+</main></div>
 <br />
 
 <script type="text/javascript">
@@ -81,7 +63,7 @@ table {
 	  
   
   if(qna_reply_content.value==""){
-	  alert("상품명을 작성하세요.");
+	  alert("답변을 작성하세요.");
 	  qna_reply_content.focus();
 	  return false;
   };

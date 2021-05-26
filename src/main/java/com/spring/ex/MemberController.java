@@ -363,5 +363,13 @@ public class MemberController {
 			System.out.println("reply qna");
 			return "redirect:/admin/cm_qna";
 		}
+		
+		//notice faq write
+		@RequestMapping(value="admin/write_notice", method=RequestMethod.POST)
+		public String AdminqnaWrite(MemberqnaDTO dto)throws Exception{
+			qnaservice.NoticeWrite(dto);
+			System.out.println("notice faq write");
+			return "redirect:/admin/cm_qna";
+		}
 	
 }

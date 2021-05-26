@@ -41,7 +41,8 @@
 								<td><a style="color:black; text-decoration:none "href="cm_qna_view?qna_no=${qnalist.getQna_no()}"><c:out value="${qnalist.getQna_title()}"/></a></td>
 								<td><c:out value="${qnalist.getmem_id() }"/></td>
 								<td><c:out value="${qnalist.getQna_datetime() }"/></td>
-								<td><c:out value="${qnalist.getQna_response() }"/></td>
+								<td><c:if test="${qnalist.getQna_response() eq 1}"><span style="color:blue">답변완료</span></c:if>
+									<c:if test="${qnalist.getQna_response() eq 0}"><span style="color:red">답변아직</span></c:if></td>
 							</tr>
 						</c:forEach>
                               </tr>   
