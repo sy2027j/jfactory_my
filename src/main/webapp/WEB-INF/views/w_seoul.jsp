@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="./header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@ $(document).ready(function() {
          '50' : 'fas fa-smog' }; 
    
    $.ajax({ 
-      url:'http://api.openweathermap.org/data/2.5/weather?q=incheon&APPID=f819f3ac4b0076eb8e81c19dac977945&units=metric', 
+      url:'http://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f819f3ac4b0076eb8e81c19dac977945&units=metric', 
       dataType:'json', 
       type:'GET', 
       success:function(data){ 
@@ -49,12 +50,11 @@ $(document).ready(function() {
   <div class="container">
 
    <br/><br/>
-    <h3 align="center"> ★ 오늘의 날씨 ★</h3>
+    <h3 align="center"> ★ 서울의 날씨 ★</h3>
     <h6 align="center">제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</h6>
    <br/><br/></div><hr>
-   <br/><br/>
 
-    <div class="weather"> 
+    <div class="weather" align="center"> 
       <div class="CurrIcon"></div> 
       <div class="CurrTemp"></div> 
       <div class="City"></div> 
@@ -62,8 +62,6 @@ $(document).ready(function() {
    
    </div>
 
-</body>
-
-
+<%@ include file="./footer.jsp" %>
 </body>
 </html>
