@@ -239,8 +239,8 @@
                            name="mem_skintrouble" value="각질">각질 &nbsp; <input
                            onclick="CountChecked(this)" type="checkbox"
                            name="mem_skintrouble" value="기타">기타 &nbsp; <input
-                           type="text" value="" id="mem_skintrouble1"
-                           name="mem_skintrouble1"> <input type="text" value=""
+                           type="hidden" value="" id="mem_skintrouble1"
+                           name="mem_skintrouble1"> <input type="hidden" value=""
                            id="mem_skintrouble2" name="mem_skintrouble2">
                      </div>
                      <br /> <br />
@@ -298,8 +298,9 @@
    var checkBoxArr=[];
     
     $("input[name=mem_skintrouble]:checked").each(function(i){
-     checkBoxArr.puch($(this).val());  
+     checkBoxArr.push($(this).val());  
      $("#mem_skintrouble1").attr("value", checkBoxArr[0]);
+     $("#mem_skintrouble2").attr("value", checkBoxArr[1]);
     })
     
     //var obj_length = document.getElementsByName("mem_skintype1").length;

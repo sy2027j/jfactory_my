@@ -234,21 +234,21 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
-	public String findpw(Model model, MemberDTO dto, HttpServletRequest request) throws Exception {
-		System.out.println("ddd");
-		HttpSession session = request.getSession();
-		MemberDTO pwdto = service.findpw(dto);
-		model.addAttribute("Pwdto", pwdto);
-		System.out.println("findPw");
-		if (pwdto == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
+	   public String findpw(Model model, MemberDTO dto, HttpServletRequest request) throws Exception {
+	      System.out.println("ddd");
+	      HttpSession session = request.getSession();
+	      MemberDTO pwdto = service.findpw(dto);
+	      model.addAttribute("Pwdto", pwdto);
+	      System.out.println("findPw");
+	      if (pwdto == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
 
-			return "redirect:/index";
-		}
-		
-		session.setAttribute("member_rePw", pwdto); 
-		
-		return "/setPw";
-	}
+	         return "redirect:/index"; ///일치하는 회원이 없습니다 부분 구현해야함
+	      }
+	      
+	      session.setAttribute("member_rePw", pwdto); 
+	      
+	      return "/setPw";
+	   }
 
 	@RequestMapping(value = "/setPw", method = RequestMethod.POST)
 	public String setPw(MemberDTO dto, HttpSession session) throws Exception {
