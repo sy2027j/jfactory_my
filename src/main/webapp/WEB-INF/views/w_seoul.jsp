@@ -46,21 +46,60 @@ $(document).ready(function() {
 </head>
 
 <body>
-
+<style>
+div.CurrIcon{font-size: 600%;}
+div.weather_info{font-size: 120%;}
+</style>
   <div class="container">
 
    <br/><br/>
     <h3 align="center"> ★ 서울의 날씨 ★</h3>
     <h6 align="center">제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</h6>
-   <br/><br/></div><hr>
+   <br/></div><hr>
 
     <div class="weather" align="center"> 
-      <div class="CurrIcon"></div> 
-      <div class="CurrTemp"></div> 
-      <div class="City"></div> 
-      <div class="humidity"></div>
-   
+   	 <div class="CurrIcon" ></div> 
+    	<div class="weather_info">
+    	  <div class="CurrTemp"></div> 
+	      <div class="City"></div> 
+	      <div class="humidity"></div>
+    	</div>
    </div>
+   <hr>
+   
+<div class="container px-4 px-lg-5"> 
+<h3 style="text-align:center">B E S T</h3>
+  <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card One</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Two</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Card Three</h2>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
 
 <%@ include file="./footer.jsp" %>
 </body>
