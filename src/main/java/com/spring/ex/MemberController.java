@@ -227,7 +227,7 @@ public class MemberController {
 
 	// review detail view -select
 	@RequestMapping(value = "/review_view", method = RequestMethod.GET)
-	public String reDetail(Model model, int re_no) {
+	public String reDetail(Model model, int re_no, ReviewDTO dto) {
 		ReviewDTO redto = reservice.detail(re_no);
 		model.addAttribute("Redetail", redto);
 		System.out.println("review detail view");

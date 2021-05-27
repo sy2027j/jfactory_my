@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public interface ReviewDAO {
 
@@ -15,4 +16,6 @@ public interface ReviewDAO {
 	public List<ReviewDTO> reviewList() throws Exception;
 	
 	public List<ReviewDTO> bestlist() throws Exception;
+	
+	public void Reiew_count(ReviewDTO dto) throws Exception;
 }

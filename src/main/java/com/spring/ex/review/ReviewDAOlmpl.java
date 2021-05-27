@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class ReviewDAOlmpl implements ReviewDAO {
 
@@ -35,4 +36,8 @@ public class ReviewDAOlmpl implements ReviewDAO {
 		return sqlSession.selectList(namespace+".BestReview");
 	}
 	
+	@Override
+	public void Reiew_count(ReviewDTO dto) throws Exception{
+		sqlSession.update(namespace+".Reiew_count", dto);
+	}
 }

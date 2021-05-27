@@ -36,7 +36,7 @@
                <tr>
                <tr>
                   <td><b>전화번호</b></td>
-                  <td class="data_td">${memdetaildto.getMem_phone() }-${memdetaildto.getMem_phone1() }-${memdetaildto.getMem_phone2() }</td>
+                  <td class="data_td">0${memdetaildto.getMem_phone() }-${memdetaildto.getMem_phone1() }-${memdetaildto.getMem_phone2() }</td>
             
                <tr>
                <tr>

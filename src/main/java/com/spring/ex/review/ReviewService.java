@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+
+
 @Service
 public interface ReviewService {
 
@@ -15,4 +17,6 @@ public interface ReviewService {
 	public List<ReviewDTO> reviewList() throws Exception;
 	
 	public List<ReviewDTO> bestlist() throws Exception;
+	
+	public void Reiew_count(ReviewDTO dto) throws Exception;
 }
