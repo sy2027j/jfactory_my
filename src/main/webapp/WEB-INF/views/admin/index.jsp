@@ -18,7 +18,7 @@
 					<option value="이름">이름</option>
 					<option value="전화번호">전화번호</option>
 				</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-					style="width: 500px; height: 35px;" " type="text" placeholder="검색창">&nbsp;
+					style="width: 500px; height: 35px;" type="text" placeholder="검색창">&nbsp;
 				<button class="btn btn-secondary" type="submit">
 					<span style="font-size: 15pt">검색</span>
 				</button>
