@@ -48,5 +48,10 @@ public class ProductSerlmpl implements ProductSer {
 	public List<ProductDTO> productlist(String pd_category) throws Exception{
 		return dao.productlist(pd_category);
 	}
+	
+	@Override
+	public void ProductPhotoWrite(ProductDTO dto) throws Exception{
+		dao.ProductPhotoWrite(dto);
+	}
 
 }

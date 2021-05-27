@@ -15,13 +15,13 @@
           
           <div class="col-lg-6">
           	<!-- 상품 이미지 -->
-                    			<div class="inputArea">
+            <div class="inputArea">
  			<label for="gdsImg">상품 이미지</label>
- 			<input type="file" id="file1" name="file1"/>
+ 			<input type="file" id="gdsImg" name="file"/>
  			<div class="select_img"><img src="" /></div>
  
  			<script>
-  				$("#file1").change(function(){
+  				$("#gdsImg").change(function(){
    				if(this.files && this.files[0]) {
     				var reader = new FileReader;
     				reader.onload = function(data) {

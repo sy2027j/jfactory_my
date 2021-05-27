@@ -34,4 +34,10 @@ public class ProductDAOlmpl implements ProductDAO {
 	public List<ProductDTO> productlist(String pd_category) throws Exception{
 		return sqlSession.selectList(namespace+".ProductListView", pd_category);
 	}
+	
+	
+	@Override
+	public void ProductPhotoWrite(ProductDTO dto) throws Exception{
+		sqlSession.insert(namespace+".ProductPhotoWrite", dto);
+	}
 }

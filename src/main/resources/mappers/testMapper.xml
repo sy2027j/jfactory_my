@@ -99,5 +99,9 @@
 		INSERT INTO jfactory_qna values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,null,1)
 	</insert>
 	
+	<insert id="ProductPhotoWrite" parameterType="hashMap">
+      INSERT INTO jfactory_product values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},null,#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
+   </insert>
+	
 </mapper>
 

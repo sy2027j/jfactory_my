@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -31,6 +32,7 @@ import com.spring.ex.qna.MemberqnaDTO;
 import com.spring.ex.qna.MemberqnaService;
 import com.spring.ex.review.ReviewDTO;
 import com.spring.ex.review.ReviewService;
+import com.spring.ex.util.UploadFileUtils;
 
 @Controller
 public class MemberController {
@@ -270,6 +272,7 @@ public class MemberController {
 	@Inject
 	ProductSer prservice;
 
+	/*
 	@RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
 	public String AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest, Model model, String pd_name)
 			throws Exception {
@@ -280,7 +283,7 @@ public class MemberController {
 		System.out.println("add detail");
 		return "/admin/pd_add_detail";
 	}
-
+*/
 	@RequestMapping(value = "admin/addDetail", method = RequestMethod.POST)
 	public String addDetail(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception {
 		prservice.addDetail(dto, mpRequest);
@@ -382,6 +385,23 @@ public class MemberController {
 		qnaservice.NoticeWrite(dto);
 		System.out.println("notice faq write");
 		return "redirect:/admin/cm_qna";
+	}
+	
+	@RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
+	public String TravelPhotoWrite(ProductDTO vo ,MultipartFile file, HttpServletRequest req) throws Exception {
+		String Path = req.getSession().getServletContext().getRealPath("resources/images/UploadImages/");
+		System.out.println(Path);
+		String fileName=null;
+		
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
+		}
+		
+		vo.setPd_main_stored_file(fileName);
+				
+		prservice.ProductPhotoWrite(vo);
+		
+		return "/admin/pd_add_detail";
 	}
 
 }

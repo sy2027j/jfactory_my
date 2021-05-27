@@ -15,5 +15,7 @@ public interface ProductDAO {
 	public void addDetail(Map<String, Object> map) throws Exception;
 
 	public List<ProductDTO> productlist(String pd_category) throws Exception;
+	
+	public void ProductPhotoWrite(ProductDTO dto) throws Exception;
 
 }
