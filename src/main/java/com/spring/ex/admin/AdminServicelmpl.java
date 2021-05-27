@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.adMember.MemberDTO;
+
 @Service
 public class AdminServicelmpl implements AdminService{
 
@@ -19,5 +21,9 @@ public class AdminServicelmpl implements AdminService{
 	@Override
 	public List<AdminDTO> adminList() throws Exception{
 		return dao.adminList();
+	}
+	@Override
+	public AdminDTO member_detail(AdminDTO dto) throws Exception{
+		return dao.member_detail(dto);
 	}
 }

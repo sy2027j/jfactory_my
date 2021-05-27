@@ -18,4 +18,9 @@
       UPDATE jfactory_member SET mem_is_admin=2 WHERE mem_id =#{mem_id}
    </update>
    
+   <!-- 회원 상세정보 -->
+	<select id="member_detail" resultType="AdminDTO">
+      SELECT * FROM jfactory_member WHERE mem_id=#{mem_id}
+   </select>
+   
 	</mapper>

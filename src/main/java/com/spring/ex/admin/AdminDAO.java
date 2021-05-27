@@ -4,13 +4,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.adMember.MemberDTO;
+
 @Repository
 public interface AdminDAO {
 
-	//È¸¿ø ¸ñ·Ï ºÒ·¯¿À±â ( °ü¸®ÀÚ Á¦¿Ü )
+	//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ )
 	public List<AdminDTO> adminMemberList() throws Exception;
-	//°ü¸®ÀÚ¸¸ ºÒ·¯¿À±â 
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	public List<AdminDTO> adminList() throws Exception;
 	
-	
+	public AdminDTO member_detail(AdminDTO dto) throws Exception;
 }
