@@ -51,7 +51,7 @@ button.jeonju {
 }
 button.daegu {
   position: absolute;
-  top: 720px;
+  top: 720px; 
   left : 1120px;
 }
 button.gwangju {
