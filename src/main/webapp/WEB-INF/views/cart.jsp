@@ -26,7 +26,7 @@
   		<script type="text/javascript">
   			alert("로그인 하세요.");
   			window.location = '/ex/login';
-		</script>
+		</script> 
   	
   	</c:if>
   	
