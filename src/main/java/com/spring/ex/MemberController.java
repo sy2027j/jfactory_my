@@ -395,7 +395,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
 	public String TravelPhotoWrite(ProductDTO vo ,MultipartFile file, HttpServletRequest req) throws Exception {
-		String Path = req.getSession().getServletContext().getRealPath("resources/images/UploadImages/");
+		String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
 		System.out.println(Path);
 		String fileName=null;
 		
