@@ -49,5 +49,10 @@ public class ProductSerlmpl implements ProductSer {
 	public void ProductPhotoWrite(ProductDTO dto) throws Exception{
 		dao.ProductPhotoWrite(dto);
 	}
+	
+	@Override
+	public List<ProductDTO> ProductStockList() throws Exception{
+		return dao.ProductStockList();
+	}
 
 }

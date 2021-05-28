@@ -34,12 +34,14 @@
 										</tr>
 									</thead>
 										<tbody>
+										<c:forEach items="${StockList}" var="stocklist"> 
 										<tr>
-											<td>2019.05.16</td>
-											<td>립</td>
-											<td>떡볶이 15호</td>
-											<td>50</td>
+											<td><c:out value="${stocklist.getPd_datetime() }"/></td>
+											<td><c:out value="${stocklist.getPd_category() }"/></td>
+											<td><c:out value="${stocklist.getPd_name() }"/></td>
+											<td><c:out value="${stocklist.getPd_stock() }"/></td>
 										</tr>	
+										</c:forEach>
 									</tbody>
 								</table>
 								

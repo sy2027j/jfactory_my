@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,7 +29,7 @@
                <tr>
                <tr>
                   <td><b>성별</b></td>
-                  <td class="data_td">${memdetaildto.getMem_sex()}</td>
+                  <td class="data_td"><c:if test="${memdetaildto.getMem_sex()eq 1}">남성</c:if><c:if test="${memdetaildto.getMem_sex()eq 0}">여성</c:if></td>
                <tr>
                <tr>
                   <td><b>생년월일</b></td>
@@ -53,7 +54,7 @@
                <tr>
                <tr>
                   <td><b>피부고민</b></td>
-                  <td class="data_td">${memdetaildto.getMem_skintrouble1()} , ${memdetaildto.getMem_skintrouble2()}</td>
+                  <td class="data_td"><c:if test="${!empty memdetaildto.getMem_skintrouble1()}">${memdetaildto.getMem_skintrouble1()},</c:if> ${memdetaildto.getMem_skintrouble2()}</td>
                <tr>
                <tr>
                   <td><b>누적 주문 횟수</b></td>

@@ -138,5 +138,9 @@
 		INSERT INTO jfactory_mypalette values(#{my_category},#{my_main_stored_img},#{my_name})
 	</insert>
 	
+	<select id="ProductStockList" resultType="ProductDTO">
+		SELECT * FROM jfactory_product
+		ORDER BY pd_datetime DESC
+	</select>
 </mapper>
 

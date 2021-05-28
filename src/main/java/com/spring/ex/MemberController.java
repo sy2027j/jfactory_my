@@ -450,5 +450,12 @@ public class MemberController {
 			myservice.AddPalette(vo);
 			return "/admin/mypalette_add";
 		}
+		
+		@RequestMapping(value = "admin/pd_index", method = RequestMethod.GET)
+		public String StockList(Model model) throws Exception {
+			List<ProductDTO> stocklist = prservice.ProductStockList();
+			model.addAttribute("StockList", stocklist);
+			return "admin/pd_index";
+		}
  
 }

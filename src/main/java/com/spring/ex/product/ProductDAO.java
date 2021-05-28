@@ -17,5 +17,7 @@ public interface ProductDAO {
 	public List<ProductDTO> productlist(String pd_category) throws Exception;
 	
 	public void ProductPhotoWrite(ProductDTO dto) throws Exception;
+	
+	public List<ProductDTO> ProductStockList() throws Exception;
 
 }

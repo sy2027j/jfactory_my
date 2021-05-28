@@ -40,4 +40,9 @@ public class ProductDAOlmpl implements ProductDAO {
 	public void ProductPhotoWrite(ProductDTO dto) throws Exception{
 		sqlSession.insert(namespace+".ProductPhotoWrite", dto);
 	}
+	
+	@Override
+	public List<ProductDTO> ProductStockList() throws Exception{
+		return sqlSession.selectList(namespace+".ProductStockList");
+	}
 }
