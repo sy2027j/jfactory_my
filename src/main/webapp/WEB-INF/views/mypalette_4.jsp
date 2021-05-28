@@ -4,7 +4,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
-
+<script type="text/javascript">
+function categoryChange(e) {
+	
+	  var pd_아이 = ["1", "2", "3", "4"];
+	  var pd_블러셔 = ["집", "가", "고", "파"];
+	  var target = document.getElementById("pd");
+	 
+	  if(e.value == "아이") var d = pd_아이;
+	  else if(e.value == "블러셔") var d = pd_블러셔;
+	 
+	  target.options.length = 0;
+	 
+	  for (x in d) {
+	    var opt = document.createElement("option");
+	    opt.value = d[x];
+	    opt.innerHTML = d[x];
+	    target.appendChild(opt);
+	  } 
+	}
+</script>
 <!--  
 	<div class="row">
       <div class="col-lg-6">
@@ -60,40 +79,18 @@
         
       </div>
       <div class="col-lg-6">
-        <form method="get" action="SelectServlet">
-		<select id="select" name="select" size="1" style="width:540px;height:50px;">
-			<option value="정렬">제품 종류를 선택해주세요.</option>
+
+		<select id="select" name="select" size="1" style="width:540px;height:50px;" onchange="categoryChange(this)">
+			<option>제품 종류를 선택해주세요.</option>
 			<option value="아이">아이</option>
-			<option value="립">립</option>
-			<option value="페이스">페이스</option>
-			<option value="스킨케어">스킨케어</option>
-			<option value="클렌징">클렌징</option>
+			<option value="블러셔">블러셔</option>
 		</select> <br> </form> <br/>
-        <form method="get" action="SelectServlet">
-		<select id="select" name="select" size="1" style="width:540px;height:50px;">
-			<option value="정렬">상품 옵션을 선택해주세요.</option>
-			<option value="주문 많은 순">졸려</option>
-			<option value="리뷰 많은 순">죽겟당</option>
-			<option value="가격 높은 순">하하</option>
-			<option value="가격 낮은 순">호호</option>
-		</select> <br> </form><br/>
-		<form method="get" action="SelectServlet">
-		<select id="select" name="select" size="1" style="width:540px;height:50px;">
-			<option value="정렬">제품 종류를 선택해주세요.</option>
-			<option value="아이">아이</option>
-			<option value="립">립</option>
-			<option value="페이스">페이스</option>
-			<option value="스킨케어">스킨케어</option>
-			<option value="클렌징">클렌징</option>
-		</select> <br> </form><br/>
-		<form method="get" action="SelectServlet">
-		<select id="select" name="select" size="1" style="width:540px;height:50px;">
-			<option value="정렬">상품 옵션을 선택해주세요.</option>
-			<option value="주문 많은 순">졸려</option>
-			<option value="리뷰 많은 순">죽겟당</option>
-			<option value="가격 높은 순">하하</option>
-			<option value="가격 낮은 순">호호</option>
-		</select> <br> </form>
+
+		<select id="pd" name="select" size="1" style="width:540px;height:50px;">
+			<option>상품 옵션을 선택해주세요</option>
+		</select>
+		
+		
       </div>
     </div>
      <br/><br/>
