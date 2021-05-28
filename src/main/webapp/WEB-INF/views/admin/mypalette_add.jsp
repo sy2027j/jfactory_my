@@ -37,10 +37,7 @@
             </div>
                   <div class="col-lg-6">
                      <div class="form-group">
-                      <input type="text" class="form-control" id="pd_name" name="my_name" placeholder="상품명">
-                  </div>
-                  <div class="form-group">
-                      <input type="number" class="form-control" id="my_price" name="my_price" placeholder="가격">
+                      <input type="text" class="form-control" id="my_name" name="my_name" placeholder="상품명">
                   </div>
                   <select id="my_category" name="my_category" size="1" style="width:540px;height:40px;">
                      <option value="">카테고리</option>
@@ -88,26 +85,12 @@
                 
   <script type="text/javascript">
   function jebal(){
-	  var pd_name=document.getElementById("pd_name");
-	  var pd_simplecontent=document.getElementById("pd_simplecontent");
-	  var pd_price=document.getElementById("pd_price");
+	  var my_name=document.getElementById("my_name");
 	  
   
-  if(pd_name.value==""){
+  if(my_name.value==""){
 	  alert("상품명을 작성하세요.");
-	  pd_name.focus();
-	  return false;
-  };
-  
-  if(pd_simplecontent.value==""){
-	  alert("한줄소개를 작성하세요.");
-	  pd_simplecontent.focus();
-	  return false;
-  };
-  
-  if(pd_price.value==""){
-	  alert("가격을 입력하세요.");
-	  pd_price.focus();
+	  my_name.focus();
 	  return false;
   };
   

@@ -22,6 +22,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.ex.Mypalette.PaletteDTO;
+import com.spring.ex.Mypalette.PaletteService;
 import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.adMember.MemberService;
 import com.spring.ex.admin.AdminDTO;
@@ -430,5 +432,23 @@ public class MemberController {
 			System.out.println("review write");
 			return "redirect:/review";
 		}
-
+		
+		@Inject
+		PaletteService myservice;
+		
+		@RequestMapping(value = "admin/mypalette_op", method = RequestMethod.POST)
+		public String MypalettePhotoAdd(PaletteDTO vo ,MultipartFile file, HttpServletRequest req, Model model) throws Exception {
+			String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
+			System.out.println(Path);
+			String fileName=null;
+			
+			if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+				fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
+			}
+			vo.setMy_main_stored_img(fileName);
+					
+			myservice.AddPalette(vo);
+			return "/admin/mypalette_add";
+		}
+ 
 }
