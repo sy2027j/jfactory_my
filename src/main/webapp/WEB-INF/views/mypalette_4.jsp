@@ -4,47 +4,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
-<script type="text/javascript">
-function categoryChange(e) {
-	
-	  var pd_아이 = ["1", "2", "3", "4"];
-	  var pd_블러셔 = ["집", "가", "고", "파"];
-	  var target = document.getElementById("pd");
-	 
-	  if(e.value == "아이") var d = pd_아이;
-	  else if(e.value == "블러셔") var d = pd_블러셔;
-	 
-	  target.options.length = 0;
-	 
-	  for (x in d) {
-	    var opt = document.createElement("option");
-	    opt.value = d[x];
-	    opt.innerHTML = d[x];
-	    target.appendChild(opt);
-	  } 
-	}
+<!-- SCRIPT -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+$( document ).ready(function(){
+   
+	//테스트용 데이터
+	var sel1 = {
+    	" ":"카테고리를 선택하세요",
+    	"E":"아이",
+        "B":"블러셔"
+    };
+    
+    //sel1이 아이일경우
+    var sel2_1 = {
+    	" ":"아이셰도우",
+    	"C01": "아이",
+        "C02": "세도우",
+        "C03": "희희",
+        "C04": "하하"
+    };
+    
+    //sel1이 블러셔일경우
+    var sel2_2 = {
+    	" ":"블러셔 선택",
+    	"D01": "블",
+        "D02": "러",
+        "D03": "셔",
+        "D04": "흥"
+    };
+    
+   //sel1에 서버에서 받아온 값을 넣기위해..
+   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
+   // map[키이름] = 그 키에 해당하는 value를 반환한다.
+   //retOption(데이터맵, select함수 id)
+   function retOption(mapArr, select){
+    	var html = '';
+    	var keys = Object.keys(mapArr);
+    	for (var i in keys) {
+    	    html += "<option value=" + "'" + keys[i] + "'>" + mapArr[keys[i]] + "</option>";
+    	}
+        
+        $("select[id='" + select +"']").html(html);
+   }
+   
+   $("select[id='sel1']").on("change", function(){
+    	var option = $("#sel1 option:selected").val();
+        var subSelName = '';
+    	if(option == "E") {
+        	subSelName = "sel2_1";
+        } else if(option == "B"){
+        	subSelName = "sel2_2";
+        } else{
+        	$("#sel2").hide();
+        	return;
+        }
+        $("#sel2").show();
+        retOption(eval(subSelName), "sel2");
+    })
+   retOption(sel1, "sel1");
+});
+
 </script>
-<!--  
-	<div class="row">
-      <div class="col-lg-6">
-        <img src="" alt="">
-      </div>
-      <div class="col-lg-4 mt-4">
-        <h2>나만의팔레트</h2>
-        <br/>
-        <p>나만의 팔레트란~ consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
-      </div>
-    </div>
+
+<script>
+$( document ).ready(function(){
+   
+	//테스트용 데이터
+	var sel3 = {
+    	" ":"카테고리를 선택하세요",
+    	"E":"아이",
+        "B":"블러셔"
+    };
     
-    <table>
-    <td>
-    </td>
-    </table> 
-    -->
+    //sel1이 아이일경우
+    var sel4_1 = {
+    	" ":"아이셰도우",
+    	"C01": "아이",
+        "C02": "세도우",
+        "C03": "희희",
+        "C04": "하하"
+    };
     
-    <style>
+    //sel1이 블러셔일경우
+    var sel4_2 = {
+    	" ":"블러셔 선택",
+    	"D01": "블",
+        "D02": "러",
+        "D03": "셔",
+        "D04": "흥"
+    };
+    
+   //sel1에 서버에서 받아온 값을 넣기위해..
+   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
+   // map[키이름] = 그 키에 해당하는 value를 반환한다.
+   //retOption(데이터맵, select함수 id)
+   function retOption(mapArr, select){
+    	var html = '';
+    	var keys = Object.keys(mapArr);
+    	for (var i in keys) {
+    	    html += "<option value=" + "'" + keys[i] + "'>" + mapArr[keys[i]] + "</option>";
+    	}
+        
+        $("select[id='" + select +"']").html(html);
+   }
+   
+   $("select[id='sel3']").on("change", function(){
+    	var option = $("#sel3 option:selected").val();
+        var subSelName = '';
+    	if(option == "E") {
+        	subSelName = "sel4_1";
+        } else if(option == "B"){
+        	subSelName = "sel4_2";
+        } else{
+        	$("#sel4").hide();
+        	return;
+        }
+        $("#sel4").show();
+        retOption(eval(subSelName), "sel4");
+    })
+   retOption(sel3, "sel3");
+});
+
+</script>
+
+<script>
+$( document ).ready(function(){
+   
+	//테스트용 데이터
+	var sel5 = {
+    	" ":"카테고리를 선택하세요",
+    	"E":"아이",
+        "B":"블러셔"
+    };
+    
+    //sel1이 아이일경우
+    var sel6_1 = {
+    	" ":"아이셰도우",
+    	"C01": "아이",
+        "C02": "세도우",
+        "C03": "희희",
+        "C04": "하하"
+    };
+    
+    //sel1이 블러셔일경우
+    var sel6_2 = {
+    	" ":"블러셔 선택",
+    	"D01": "블",
+        "D02": "러",
+        "D03": "셔",
+        "D04": "흥"
+    };
+    
+   //sel1에 서버에서 받아온 값을 넣기위해..
+   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
+   // map[키이름] = 그 키에 해당하는 value를 반환한다.
+   //retOption(데이터맵, select함수 id)
+   function retOption(mapArr, select){
+    	var html = '';
+    	var keys = Object.keys(mapArr);
+    	for (var i in keys) {
+    	    html += "<option value=" + "'" + keys[i] + "'>" + mapArr[keys[i]] + "</option>";
+    	}
+        
+        $("select[id='" + select +"']").html(html);
+   }
+   
+   $("select[id='sel5']").on("change", function(){
+    	var option = $("#sel5 option:selected").val();
+        var subSelName = '';
+    	if(option == "E") {
+        	subSelName = "sel6_1";
+        } else if(option == "B"){
+        	subSelName = "sel6_2";
+        } else{
+        	$("#sel6").hide();
+        	return;
+        }
+        $("#sel6").show();
+        retOption(eval(subSelName), "sel6");
+    })
+   retOption(sel5, "sel5");
+});
+
+</script>
+
+<script>
+$( document ).ready(function(){
+   
+	//테스트용 데이터
+	var sel7 = {
+    	" ":"카테고리를 선택하세요",
+    	"E":"아이",
+        "B":"블러셔"
+    };
+    
+    //sel1이 아이일경우
+    var sel8_1 = {
+    	" ":"아이셰도우",
+    	"C01": "아이",
+        "C02": "세도우",
+        "C03": "희희",
+        "C04": "하하"
+    };
+    
+    //sel1이 블러셔일경우
+    var sel8_2 = {
+    	" ":"블러셔 선택",
+    	"D01": "블",
+        "D02": "러",
+        "D03": "셔",
+        "D04": "흥"
+    };
+    
+   //sel1에 서버에서 받아온 값을 넣기위해..
+   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
+   // map[키이름] = 그 키에 해당하는 value를 반환한다.
+   //retOption(데이터맵, select함수 id)
+   function retOption(mapArr, select){
+    	var html = '';
+    	var keys = Object.keys(mapArr);
+    	for (var i in keys) {
+    	    html += "<option value=" + "'" + keys[i] + "'>" + mapArr[keys[i]] + "</option>";
+    	}
+        
+        $("select[id='" + select +"']").html(html);
+   }
+   
+   $("select[id='sel7']").on("change", function(){
+    	var option = $("#sel7 option:selected").val();
+        var subSelName = '';
+    	if(option == "E") {
+        	subSelName = "sel8_1";
+        } else if(option == "B"){
+        	subSelName = "sel8_2";
+        } else{
+        	$("#sel8").hide();
+        	return;
+        }
+        $("#sel8").show();
+        retOption(eval(subSelName), "sel8");
+    })
+   retOption(sel7, "sel7");
+});
+
+</script>
+<style>
     
     table{
     	border:solid #ff953e;
@@ -78,37 +283,71 @@ function categoryChange(e) {
     </table>
         
       </div>
-      <div class="col-lg-6">
-
-		<select id="select" name="select" size="1" style="width:540px;height:50px;" onchange="categoryChange(this)">
-			<option>제품 종류를 선택해주세요.</option>
-			<option value="아이">아이</option>
-			<option value="블러셔">블러셔</option>
-		</select> <br> </form> <br/>
-
-		<select id="pd" name="select" size="1" style="width:540px;height:50px;">
-			<option>상품 옵션을 선택해주세요</option>
-		</select>
-		
-		
-      </div>
-    </div>
-     <br/><br/>
+      
+<!-- 상품 선택 -->
+				<div class="col-lg-6">
+			
+				    <select id="sel1" name="sel1" style="width:540px;height:50px;" onchange="categoryChange(this)">
+						<option>제품 종류를 선택해주세요.</option>
+						<option value="아이">아이</option>
+						<option value="블러셔">블러셔</option>
+					</select> <br> </form> <br>
+					<select id="sel2" name="sel2" style="width:540px;height:50px;display: none;">
+						<option>상품 옵션을 선택해주세요</option>
+					</select>
+					<br><br>
+					<select id="sel3" name="sel3" style="width:540px;height:50px;" onchange="categoryChange(this)">
+						<option>제품 종류를 선택해주세요.</option>
+						<option value="아이">아이</option>
+						<option value="블러셔">블러셔</option>
+					</select> <br> </form> <br/>
+			
+					<select id="sel4" name="sel4" style="width:540px;height:50px;display: none;">
+						<option>상품 옵션을 선택해주세요</option>
+					</select>
+					<br><br>
+					 <select id="sel5" name="sel5" style="width:540px;height:50px;" onchange="categoryChange(this)">
+						<option>제품 종류를 선택해주세요.</option>
+						<option value="아이">아이</option>
+						<option value="블러셔">블러셔</option>
+					</select> <br> </form> <br>
+					<select id="sel6" name="sel6" style="width:540px;height:50px;display: none;">
+						<option>상품 옵션을 선택해주세요</option>
+					</select>
+					<br><br>
+					<select id="sel7" name="sel7" style="width:540px;height:50px;" onchange="categoryChange(this)">
+						<option>제품 종류를 선택해주세요.</option>
+						<option value="아이">아이</option>
+						<option value="블러셔">블러셔</option>
+					</select> <br> </form> <br/>
+			
+					<select id="sel8" name="sel8" size="1" style="width:540px;height:50px;display: none;">
+						<option>상품 옵션을 선택해주세요</option>
+					</select>
+					
+			
+			      </div>
+			    </div>
+   <br/><br/>
     <hr>
-    <div class="container" style="text-align : center;">
-        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
-    </div>
-    </div>
+		    <div class="container" style="text-align : center;">
+		        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
+		    </div>
+ </div>
     
     <br/>
-  <!-- Page Content -->
-  <div class="container">
+    
+    
+    
+    
+<!-- Page Content -->
+<div class="container">
 
     <h3 class="my-4">팔레트 구 선택</h3><br/>
 </div>
 <div class="container">
 
-    <!-- Page Heading/Breadcrumbs -->
+ <!-- Page Heading/Breadcrumbs -->
 
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
