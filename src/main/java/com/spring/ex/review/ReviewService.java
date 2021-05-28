@@ -17,6 +17,7 @@ public interface ReviewService {
 	public List<ReviewDTO> reviewList() throws Exception;
 	
 	public List<ReviewDTO> bestlist() throws Exception;
-	
-	public void Reiew_count(ReviewDTO dto) throws Exception;
+
+	public void Review_count(int re_no) throws Exception;
+
 }

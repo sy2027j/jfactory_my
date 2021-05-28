@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 
+
 @Repository
 public class ReviewDAOlmpl implements ReviewDAO {
 
@@ -37,7 +38,8 @@ public class ReviewDAOlmpl implements ReviewDAO {
 	}
 	
 	@Override
-	public void Reiew_count(ReviewDTO dto) throws Exception{
-		sqlSession.update(namespace+".Reiew_count", dto);
+	public void Review_count(int re_no) throws Exception{
+		sqlSession.update(namespace+".Review_count", re_no);
 	}
+	
 }

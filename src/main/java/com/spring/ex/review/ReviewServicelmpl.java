@@ -46,7 +46,7 @@ public class ReviewServicelmpl implements ReviewService {
 	}
 	
 	@Override
-	public void Reiew_count(ReviewDTO dto) throws Exception{
-		dao.Reiew_count(dto);
+	public void Review_count(int re_no) throws Exception{
+		dao.Review_count(re_no);
 	}
 }

@@ -67,6 +67,11 @@
 		SELECT * FROM jfactory_review
 		WHERE re_no=#{re_no}
 	</select>
+	
+	<!-- 조회수 올리기 -->
+	<update id="Review_count">
+		UPDATE jfactory_review SET re_count = re_count + 1 where re_no = #{re_no}
+	</update>
 
 	<select id="ReviewList" resultType="ReviewDTO">
 		SELECT * FROM jfactory_review
@@ -117,12 +122,6 @@
 		UPDATE jfactory_qna SET
 		qna_reply_content=#{qna_reply_content}, qna_replay_datetime=DEFAULT,
 		qna_response=1 WHERE qna_no=#{qna_no}
-	</update>
-
-	<!-- review 조회수 -->
-	<update id="Reiew_count" parameterType="int">
-		INSERT INTO
-		jfactory_review SET re_count=re_count+1 WHERE re_no=#{re_no}
 	</update>
 
 	<insert id="WriteNotice" parameterType="MemberqnaDTO">

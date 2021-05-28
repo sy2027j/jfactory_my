@@ -229,6 +229,12 @@ public class MemberController {
 	@RequestMapping(value = "/review_view", method = RequestMethod.GET)
 	public String reDetail(Model model, int re_no, ReviewDTO dto) {
 		ReviewDTO redto = reservice.detail(re_no);
+		try {
+			reservice.Review_count(re_no);
+			System.out.println("조회수 1번 적립");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		model.addAttribute("Redetail", redto);
 		System.out.println("review detail view");
 		return "/review_view";
