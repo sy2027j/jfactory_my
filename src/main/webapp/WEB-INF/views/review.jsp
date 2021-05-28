@@ -56,7 +56,7 @@
       </c:forEach>
     </div>
     
-    <br/>
+    <br/> 
     <!-- Pagination -->
     <div style="text-align: center;">
     <button style="border-color:black; background-color:white; color:black; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg" onclick="location.href='review_write'"><span style="float:center;font-size:13pt">리뷰 작성하고 적립금 받기</span></button>
