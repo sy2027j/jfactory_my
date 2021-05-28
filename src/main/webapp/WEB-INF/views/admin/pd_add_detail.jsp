@@ -41,7 +41,7 @@
     	<div class="form_section2">
                     			<div class="inputArea2">
  			<label for="gdsImg2">상품 이미지</label>
- 			<input type="file" id="file2" name="file2" />
+ 			<input type="file" id="file2" name="file" />
  			<div class="select_img2"><img src="" /></div>
  
  			<script>

@@ -26,8 +26,8 @@ public class ProductDAOlmpl implements ProductDAO {
 	}
 
 	@Override
-	public void addDetail(Map<String, Object> map) throws Exception{
-		sqlSession.update(namespace+".AddDetail", map);
+	public void addDetail(ProductDTO dto) throws Exception{
+		sqlSession.update(namespace+".AddDetail", dto);
 	}
 	
 	@Override

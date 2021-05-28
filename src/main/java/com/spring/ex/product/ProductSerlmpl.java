@@ -36,12 +36,8 @@ public class ProductSerlmpl implements ProductSer {
 	}
 	
 	@Override
-	public void addDetail(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
-		List<Map<String, Object>> list2=FileUtilsPd.parseInsertFileInfo3(dto, mpRequest);
-		int size =list2.size();
-		for(int i=0; i<size; i++) {
-			dao.addDetail(list2.get(i));
-		}
+	public void addDetail(ProductDTO dto) throws Exception{
+		dao.addDetail(dto);
 	}
 	
 	@Override

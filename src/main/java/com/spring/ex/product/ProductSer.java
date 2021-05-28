@@ -14,7 +14,7 @@ public interface ProductSer {
 
 	public ProductDTO AddDetail(String pd_name);
 	
-	public void addDetail(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception;
+	public void addDetail(ProductDTO dto) throws Exception;
 
 	public List<ProductDTO> productlist(String pd_category) throws Exception;
 

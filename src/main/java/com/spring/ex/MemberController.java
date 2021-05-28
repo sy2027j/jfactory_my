@@ -290,12 +290,6 @@ public class MemberController {
 		return "/admin/pd_add_detail";
 	}
 */
-	@RequestMapping(value = "admin/addDetail", method = RequestMethod.POST)
-	public String addDetail(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception {
-		prservice.addDetail(dto, mpRequest);
-		System.out.println("update detail success");
-		return "redirect:/admin/pd_add";
-	}
 
 	// product list
 	@RequestMapping(value = "/eye_product_list", method = RequestMethod.GET)
@@ -394,7 +388,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
-	public String TravelPhotoWrite(ProductDTO vo ,MultipartFile file, HttpServletRequest req) throws Exception {
+	public String TravelPhotoWrite(ProductDTO vo ,MultipartFile file, HttpServletRequest req, Model model, String pd_name) throws Exception {
 		String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
 		System.out.println(Path);
 		String fileName=null;
@@ -402,12 +396,30 @@ public class MemberController {
 		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
 			fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
 		}
-		
 		vo.setPd_main_stored_file(fileName);
 				
 		prservice.ProductPhotoWrite(vo);
-		
+		ProductDTO jebal = prservice.AddDetail(pd_name);
+		model.addAttribute("Jebal", jebal);
+		System.out.println("add detail");
 		return "/admin/pd_add_detail";
+	}
+	
+	@RequestMapping(value = "admin/addDetail", method = RequestMethod.POST)
+	public String addDetail(ProductDTO dto,MultipartFile file, HttpServletRequest req) throws Exception {
+		String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
+		System.out.println(Path);
+		String fileName=null;
+		
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
+		}
+		dto.setPd_con_stored_file(fileName);
+		dto.setPd_con_file(file.getOriginalFilename());
+		prservice.addDetail(dto);
+		System.out.println("update detail success");
+		
+		return "redirect:/admin/pd_add";
 	}
 
 }
