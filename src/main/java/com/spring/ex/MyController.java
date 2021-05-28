@@ -387,5 +387,10 @@ public class MyController {
 		return("admin/write_notice");
 	}
 	
+	@RequestMapping("admin/mypalette_add")
+	public String mypalette_add() {
+		return("admin/mypalette_add");
+	}
+	
 }
  

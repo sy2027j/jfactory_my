@@ -72,6 +72,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                    재고관리
                                  </a>
+                                 <a class="nav-link" href="mypalette_add">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                   마이팔레트 옵션   
+                               </a>
                               <div class="sb-sidenav-menu-heading">커뮤니티</div>
                                <a class="nav-link" href="cm_qna">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
