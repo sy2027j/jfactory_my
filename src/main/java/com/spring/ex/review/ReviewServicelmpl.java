@@ -21,13 +21,8 @@ public class ReviewServicelmpl implements ReviewService {
 	private FileUtils fileUtils;
 	
 	@Override
-	public void review(ReviewDTO dto, MultipartHttpServletRequest mpRequest) throws Exception{
-		
-		List<Map<String, Object>> list=fileUtils.parseInsertFileInfo(dto, mpRequest);
-		int size =list.size();
-		for(int i=0; i<size; i++) {
-			dao.review(list.get(i));
-		}
+	public void review(ReviewDTO dto) throws Exception{
+		dao.review(dto);
 	}
 	
 	@Override

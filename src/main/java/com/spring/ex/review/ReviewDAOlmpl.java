@@ -18,8 +18,8 @@ public class ReviewDAOlmpl implements ReviewDAO {
 	private static final String namespace="com.spring.ex.mappers.testMapper";
 	
 	@Override
-	public void review(Map<String, Object> map) throws Exception{
-		sqlSession.insert(namespace+".Reiew", map);
+	public void review(ReviewDTO dto) throws Exception{
+		sqlSession.insert(namespace+".Reiew", dto);
 	}
 	
 	@Override

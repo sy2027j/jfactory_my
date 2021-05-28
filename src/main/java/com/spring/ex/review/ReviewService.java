@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Service
 public interface ReviewService {
 
-	public void review(ReviewDTO dto, MultipartHttpServletRequest mpRequest) throws Exception;
+	public void review(ReviewDTO dto) throws Exception;
 	
 	public ReviewDTO detail(int re_no);
 	

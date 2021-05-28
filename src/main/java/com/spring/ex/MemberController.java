@@ -195,13 +195,6 @@ public class MemberController {
 	@Inject
 	ReviewService reservice;
 
-	// review write insert
-	@RequestMapping(value = "/review_write", method = RequestMethod.POST)
-	public String reviewWrite(ReviewDTO dto, MultipartHttpServletRequest mpRequest) throws Exception {
-		reservice.review(dto, mpRequest);
-		System.out.println("review write");
-		return "redirect:/review";
-	}
 
 	// logout session remove
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -421,5 +414,21 @@ public class MemberController {
 		
 		return "redirect:/admin/pd_add";
 	}
+	
+	// review write insert
+		@RequestMapping(value = "/review_write", method = RequestMethod.POST)
+		public String reviewWrite(ReviewDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
+			String Path = req.getSession().getServletContext().getRealPath("resources/image/review/");
+			System.out.println(Path);
+			String fileName=null;
+			
+			if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+				fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
+			}
+			dto.setRe_stored_file(fileName);
+			reservice.review(dto);
+			System.out.println("review write");
+			return "redirect:/review";
+		}
 
 }

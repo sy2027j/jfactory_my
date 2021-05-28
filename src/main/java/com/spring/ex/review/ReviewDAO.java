@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReviewDAO {
 
-	public void review(Map<String, Object> map) throws Exception;
+	public void review(ReviewDTO dto) throws Exception;
 	
 	public ReviewDTO detail(int re_no);
 	

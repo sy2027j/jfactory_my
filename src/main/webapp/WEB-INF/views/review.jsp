@@ -29,7 +29,7 @@
   
   var re_score=document.getElementById("re_score");
   
-  }
+  
   </script>
   <div class="container">
     <br/>
@@ -72,7 +72,7 @@
     <c:forEach items="${ReviewList}" var="relist">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="review_view?re_no=${relist.getRe_no() }"><img src = '<c:url value="/resources/image/123/${relist.getRe_stored_file() }"/>' width="253px" height="253px"></a>
+          <a href="review_view?re_no=${relist.getRe_no() }"><img src = '<c:url value="/resources/image/review/${relist.getRe_stored_file() }"/>' width="253px" height="253px"></a>
           <div class="card-body">
             <h5 class="card-title">
             <a href="review_view?re_no=${relist.getRe_no() }"><span style="color:black; font-size:10pt">${relist.getPd_name() }</span></a><br/>
