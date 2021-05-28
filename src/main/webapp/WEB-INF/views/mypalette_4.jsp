@@ -299,7 +299,7 @@ $( document ).ready(function(){
 					<select id="sel3" name="sel3" style="width:540px;height:50px;" onchange="categoryChange(this)">
 						<option>제품 종류를 선택해주세요.</option>
 						<option value="아이">아이</option>
-						<option value="블러셔">블러셔</option>
+						<option value="블러셔">블러셔</option> 
 					</select> <br> </form> <br/>
 			
 					<select id="sel4" name="sel4" style="width:540px;height:50px;display: none;">
