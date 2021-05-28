@@ -50,6 +50,7 @@
     $(function(){    
         if(getCookie("divpop1") !="Y"){
 
+        	
             $("#divpop1").show();
         }
     });
