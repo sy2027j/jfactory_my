@@ -31,7 +31,7 @@ $(document).ready(function() {
          
          $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>'); 
          $('.CurrTemp').prepend($Temp); 
-         $('.City').append($city); 
+         $('.City').append($city);  
          $('.humidity').append('습도 : ' + $humidity + "%");
       
       } 
