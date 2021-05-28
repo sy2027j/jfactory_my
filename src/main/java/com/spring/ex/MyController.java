@@ -12,19 +12,19 @@ public class MyController {
 		return("/index");
 	}
 	
-	//��������ó�����
+	//占쏙옙占쏙옙占쏙옙占쏙옙처占쏙옙占쏙옙占�
 	@RequestMapping("/PrivacyPolicy")
 	public String PrivacyPolicy() {
 		return("/PrivacyPolicy");
 	}
 	
-	//�̿���
+	//占싱울옙占쏙옙
 	@RequestMapping("/tos")
 	public String tos() {
 		return("/tos");
 	}
 	
-	//��������
+	//占쏙옙占쏙옙占쏙옙占쏙옙
 	@RequestMapping("/legalNotice")
 	public String legalNotice() {
 		return("/legalNotice");
@@ -372,9 +372,15 @@ public class MyController {
 	public String w_gwangju() {
 		return("/w_gwangju");
 	}
+	
 	@RequestMapping("/w_jeju")
 	public String w_jeju() {
 		return("/w_jeju");
+	}
+	
+	@RequestMapping("/w_jeonju")
+	public String w_jeonju() {
+		return("/w_jeonju");
 	}
 	
 	@RequestMapping("admin/admin_cm_qna_view")

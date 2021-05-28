@@ -321,7 +321,7 @@ $( document ).ready(function(){
 						<option value="블러셔">블러셔</option>
 					</select> <br> </form> <br/>
 			
-					<select id="sel8" name="sel8" size="1" style="width:540px;height:50px;display: none;">
+					<select id="sel8" name="sel8" style="width:540px;height:50px;display: none;">
 						<option>상품 옵션을 선택해주세요</option>
 					</select>
 					
