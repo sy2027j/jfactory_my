@@ -54,29 +54,7 @@ $( document ).ready(function(){
     	"E":"아이",
         "B":"블러셔"
     };
-    
-    //sel1이 아이일경우
-    var sel4_1 = {
-    	" ":"아이셰도우",
-    	"C01": "아이",
-        "C02": "세도우",
-        "C03": "희희",
-        "C04": "하하"
-    };
-    
-    //sel1이 블러셔일경우
-    var sel4_2 = {
-    	" ":"블러셔 선택",
-    	"D01": "블",
-        "D02": "러",
-        "D03": "셔",
-        "D04": "흥"
-    };
-    
-   //sel1에 서버에서 받아온 값을 넣기위해..
-   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
-   // map[키이름] = 그 키에 해당하는 value를 반환한다.
-   //retOption(데이터맵, select함수 id)
+   
    function retOption(mapArr, select){
     	var html = '';
     	var keys = Object.keys(mapArr);
@@ -90,16 +68,16 @@ $( document ).ready(function(){
    $("select[id='sel3']").on("change", function(){
     	var option = $("#sel3 option:selected").val();
         var subSelName = '';
-    	if(option == "E") {
-        	subSelName = "sel4_1";
+        if(option == "E") {
+    		$("#eye2").show();
+        	$("#bl2").hide();
         } else if(option == "B"){
-        	subSelName = "sel4_2";
+        	$("#eye2").hide();
+        	$("#bl2").show();
         } else{
-        	$("#sel4").hide();
-        	return;
+        	$("#eye2").hide();
+    		$("#bl2").hide();
         }
-        $("#sel4").show();
-        retOption(eval(subSelName), "sel4");
     })
    retOption(sel3, "sel3");
 });
@@ -116,28 +94,6 @@ $( document ).ready(function(){
         "B":"블러셔"
     };
     
-    //sel1이 아이일경우
-    var sel6_1 = {
-    	" ":"아이셰도우",
-    	"C01": "아이",
-        "C02": "세도우",
-        "C03": "희희",
-        "C04": "하하"
-    };
-    
-    //sel1이 블러셔일경우
-    var sel6_2 = {
-    	" ":"블러셔 선택",
-    	"D01": "블",
-        "D02": "러",
-        "D03": "셔",
-        "D04": "흥"
-    };
-    
-   //sel1에 서버에서 받아온 값을 넣기위해..
-   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
-   // map[키이름] = 그 키에 해당하는 value를 반환한다.
-   //retOption(데이터맵, select함수 id)
    function retOption(mapArr, select){
     	var html = '';
     	var keys = Object.keys(mapArr);
@@ -151,16 +107,16 @@ $( document ).ready(function(){
    $("select[id='sel5']").on("change", function(){
     	var option = $("#sel5 option:selected").val();
         var subSelName = '';
-    	if(option == "E") {
-        	subSelName = "sel6_1";
+        if(option == "E") {
+    		$("#eye3").show();
+        	$("#bl3").hide();
         } else if(option == "B"){
-        	subSelName = "sel6_2";
+        	$("#eye3").hide();
+        	$("#bl3").show();
         } else{
-        	$("#sel6").hide();
-        	return;
+        	$("#eye3").hide();
+    		$("#bl3").hide();
         }
-        $("#sel6").show();
-        retOption(eval(subSelName), "sel6");
     })
    retOption(sel5, "sel5");
 });
@@ -176,29 +132,7 @@ $( document ).ready(function(){
     	"E":"아이",
         "B":"블러셔"
     };
-    
-    //sel1이 아이일경우
-    var sel8_1 = {
-    	" ":"아이셰도우",
-    	"C01": "아이",
-        "C02": "세도우",
-        "C03": "희희",
-        "C04": "하하"
-    };
-    
-    //sel1이 블러셔일경우
-    var sel8_2 = {
-    	" ":"블러셔 선택",
-    	"D01": "블",
-        "D02": "러",
-        "D03": "셔",
-        "D04": "흥"
-    };
-    
-   //sel1에 서버에서 받아온 값을 넣기위해..
-   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
-   // map[키이름] = 그 키에 해당하는 value를 반환한다.
-   //retOption(데이터맵, select함수 id)
+	
    function retOption(mapArr, select){
     	var html = '';
     	var keys = Object.keys(mapArr);
@@ -212,16 +146,16 @@ $( document ).ready(function(){
    $("select[id='sel7']").on("change", function(){
     	var option = $("#sel7 option:selected").val();
         var subSelName = '';
-    	if(option == "E") {
-        	subSelName = "sel8_1";
+        if(option == "E") {
+    		$("#eye4").show();
+        	$("#bl4").hide();
         } else if(option == "B"){
-        	subSelName = "sel8_2";
+        	$("#eye4").hide();
+        	$("#bl4").show();
         } else{
-        	$("#sel8").hide();
-        	return;
+        	$("#eye4").hide();
+    		$("#bl4").hide();
         }
-        $("#sel8").show();
-        retOption(eval(subSelName), "sel8");
     })
    retOption(sel7, "sel7");
 });
@@ -298,9 +232,15 @@ $( document ).ready(function(){
 						<option value="아이">아이</option>
 						<option value="블러셔">블러셔</option> 
 					</select> <br> </form> <br/>
-			
-					<select id="sel4" name="sel4" style="width:540px;height:50px;display: none;">
-						<option>상품 옵션을 선택해주세요</option>
+					<select id="eye2" name="eye2" style="width:540px;height:50px;display: none;">
+						<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
+         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
+     					</c:forEach>
+					</select>
+					<select id="bl2" name="bl2" style="width:540px;height:50px;display: none;">
+						<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
+         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
+     					</c:forEach>
 					</select>
 					<br><br>
 					 <select id="sel5" name="sel5" style="width:540px;height:50px;" onchange="categoryChange(this)">
@@ -308,8 +248,15 @@ $( document ).ready(function(){
 						<option value="아이">아이</option>
 						<option value="블러셔">블러셔</option>
 					</select> <br> </form> <br>
-					<select id="sel6" name="sel6" style="width:540px;height:50px;display: none;">
-						<option>상품 옵션을 선택해주세요</option>
+					<select id="eye3" name="eye3" style="width:540px;height:50px;display: none;">
+						<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
+         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
+     					</c:forEach>
+					</select>
+					<select id="bl3" name="bl3" style="width:540px;height:50px;display: none;">
+						<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
+         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
+     					</c:forEach>
 					</select>
 					<br><br>
 					<select id="sel7" name="sel7" style="width:540px;height:50px;" onchange="categoryChange(this)">
@@ -317,9 +264,15 @@ $( document ).ready(function(){
 						<option value="아이">아이</option>
 						<option value="블러셔">블러셔</option>
 					</select> <br> </form> <br/>
-			
-					<select id="sel8" name="sel8" style="width:540px;height:50px;display: none;">
-						<option>상품 옵션을 선택해주세요</option>
+					<select id="eye4" name="eye4" style="width:540px;height:50px;display: none;">
+						<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
+         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
+     					</c:forEach>
+					</select>
+					<select id="bl4" name="bl4" style="width:540px;height:50px;display: none;">
+						<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
+         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
+     					</c:forEach>
 					</select>
 					
 					
