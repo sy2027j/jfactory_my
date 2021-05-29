@@ -41,7 +41,7 @@
 					</div>
 						
 						<div align="center">
-							<button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 350pt; HEIGHT: 30pt" type="submit" class="btnLogin">로그인</button>
+							<button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 350pt; HEIGHT: 30pt" type="submit" class="btn btnLogin">로그인</button>
 						</div>
 								<br/>
 						<div style="text-align:center">

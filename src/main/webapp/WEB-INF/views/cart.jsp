@@ -54,8 +54,8 @@
 		                               <c:forEach items="${CartList}" var="cartlist">
 										<tr>
 											<td class="product_name" style="vertical-align: middle"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}</td>
-											<td class="Quantity" style="vertical-align: middle"><c:out value="${cartlist.getPd_amount() }"/></td>
-											<td class="Price" style="vertical-align: middle">${cartlist.getPd_price()}</td>
+											<td class="Quantity" style="vertical-align: middle"><c:out value="${cartlist.getPd_amount() }"/>개</td>
+											<td class="Price" style="vertical-align: middle">${cartlist.getPd_price() * cartlist.getPd_amount()}원</td>
 											<td><button style="border-color:white; background-color:white; font-size:15px; color:black; WIDTH: 50pt; HEIGHT: 70pt" type="button" class="btn btn-secondary btn-lg">삭제</button></td>
 										</tr>
 										</c:forEach>
@@ -66,7 +66,7 @@
                      <div>
                      <hr>
                      <label for="all_price" style="text-align: right; width: 100%; height: 25px; font-weight: bold;">
-                     상품금액 변수 + 배송비 변수 = 총 금액변수
+                     상품금액 변수 + 배송비 2500원 = 총 금액변수
                      </label>
                      <hr>
                      </div>
