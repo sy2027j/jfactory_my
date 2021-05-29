@@ -143,6 +143,13 @@
 		ORDER BY pd_datetime DESC
 	</select>
 	
+	<select id="MypaletteEyes" resultType="PaletteDTO">
+		SELECT * FROM jfactory_mypalette WHERE my_category="아이"
+	</select>
+	
+	<select id="MypaletteBlusher" resultType="PaletteDTO">
+		SELECT * FROM jfactory_mypalette WHERE my_category="블러셔"
+	</select>
 	
 </mapper>
 

@@ -6,40 +6,16 @@
 <hr>
 <!-- SCRIPT -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
-
 <script>
 $( document ).ready(function(){
    
 	//테스트용 데이터
 	var sel1 = {
-    	" ":"카테고리를 선택하세요",
+    	"":"카테고리를 선택하세요",
     	"E":"아이",
         "B":"블러셔"
     };
     
-    //sel1이 아이일경우
-    var sel2_1 = {
-    	" ":"아이셰도우",
-    	"C01": "아이",
-        "C02": "세도우",
-        "C03": "희희",
-        "C04": "하하"
-    };
-    
-    //sel1이 블러셔일경우
-    var sel2_2 = {
-    	" ":"블러셔 선택",
-    	"D01": "블",
-        "D02": "러",
-        "D03": "셔",
-        "D04": "흥"
-    };
-    
-   //sel1에 서버에서 받아온 값을 넣기위해..
-   // map배열과 select 태그 id를 넘겨주면 option 태그를 붙여줌.
-   // map[키이름] = 그 키에 해당하는 value를 반환한다.
-   //retOption(데이터맵, select함수 id)
    function retOption(mapArr, select){
     	var html = '';
     	var keys = Object.keys(mapArr);
@@ -54,15 +30,15 @@ $( document ).ready(function(){
     	var option = $("#sel1 option:selected").val();
         var subSelName = '';
     	if(option == "E") {
-        	subSelName = "sel2_1";
+    		$("#eye1").show();
+        	$("#bl1").hide();
         } else if(option == "B"){
-        	subSelName = "sel2_2";
+        	$("#eye1").hide();
+        	$("#bl1").show();
         } else{
-        	$("#sel2").hide();
-        	return;
+        	$("#eye1").hide();
+    		$("#bl1").hide();
         }
-        $("#sel2").show();
-        retOption(eval(subSelName), "sel2");
     })
    retOption(sel1, "sel1");
 });
@@ -251,6 +227,17 @@ $( document ).ready(function(){
 });
 
 </script>
+
+<script>
+         function onClickCheckBox(checkBox){
+            var tableValue = document.getElementById('tableId');
+            if(checkBox.checked == true){
+               tableValue.rows[0].cells[0].innerHTML = checkBox.value;
+            } else {
+               console.log("fdfd");
+            }
+         }
+      </script>
 <style>
     
     table{
@@ -269,8 +256,7 @@ $( document ).ready(function(){
     <div class="container">
     <div class="row">
     <div class="col-lg-6">
-    <table id = "tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
-  
+    <table id="tableId" name="tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
     
     <tbody>
     <tr>
@@ -287,18 +273,8 @@ $( document ).ready(function(){
         
       </div>
       
+      
 <!-- 상품 선택 -->
-
-<script>
-         function onClickSelectBox(sel2){
-            var tableValue = document.getElementById('tableId');
-            if($("#sel2 option:selected").val() == true){
-               tableValue.rows[0].cells[0].innerHTML = sel2.value;
-            } else {
-               console.log("fdfd");
-            }
-         }
-</script>
 				<div class="col-lg-6">
 			
 				    <select id="sel1" name="sel1" style="width:540px;height:50px;" onchange="categoryChange(this)">
@@ -306,8 +282,15 @@ $( document ).ready(function(){
 						<option value="아이">아이</option>
 						<option value="블러셔">블러셔</option>
 					</select> <br> </form> <br>
-					<select id="sel2" name="sel2" style="width:540px;height:50px;display: none;">
-						<option>상품 옵션을 선택해주세요</option>
+					<select id="eye1" name="eye1" style="width:540px;height:50px;display: none;">
+						<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
+         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
+     					</c:forEach>
+					</select>
+					<select id="bl1" name="bl1" style="width:540px;height:50px;display: none;">
+						<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
+         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
+     					</c:forEach>
 					</select>
 					<br><br>
 					<select id="sel3" name="sel3" style="width:540px;height:50px;" onchange="categoryChange(this)">
@@ -339,7 +322,8 @@ $( document ).ready(function(){
 						<option>상품 옵션을 선택해주세요</option>
 					</select>
 					
-			
+					
+			<input type="checkBox" id="checkBox" name="checkBox" value="1" onclick="onClickCheckBox(this)">
 			      </div>
 			    </div>
    <br/><br/>

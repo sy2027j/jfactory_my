@@ -42,10 +42,7 @@
                   <select id="my_category" name="my_category" size="1" style="width:540px;height:40px;">
                      <option value="">카테고리</option>
                      <option value="아이">아이</option>
-                     <option value="립">립</option>
-                     <option value="페이스">페이스</option>
-                     <option value="스킨케어">스킨케어</option>
-                     <option value="클렌징">클렌징</option>
+                     <option value="블러셔">블러셔</option>
                   </select> <br><br/>
                   
                    <br><br/>

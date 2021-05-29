@@ -471,5 +471,13 @@ public class MemberController {
 			return "rediret:/index";
 		}
 		*/
-		
+		@RequestMapping(value = "/mypalette_4", method = RequestMethod.GET)
+		public String EyeOptionList(Model model) throws Exception {
+			List<PaletteDTO> eyeoplist =myservice.EyesOptionlist();
+			model.addAttribute("EyesList", eyeoplist);
+			List<PaletteDTO> blusheroplist=myservice.BlusherOptionList();
+			model.addAttribute("BlusherList",blusheroplist);
+			return "/mypalette_4";
+		}
+ 
 }

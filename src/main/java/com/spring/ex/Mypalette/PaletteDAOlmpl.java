@@ -1,5 +1,7 @@
 package com.spring.ex.Mypalette;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,4 +19,13 @@ public class PaletteDAOlmpl implements PaletteDAO {
 		sqlSession.insert(namespace+".AddMypalette",dto);
 	}
 	
+	@Override
+	public List<PaletteDTO> EyesOptionlist() throws Exception{
+		return sqlSession.selectList(namespace+".MypaletteEyes");
+	}
+	
+	@Override
+	public List<PaletteDTO> BlusherOptionList() throws Exception{
+		return sqlSession.selectList(namespace+".MypaletteBlusher");
+	}
 }
