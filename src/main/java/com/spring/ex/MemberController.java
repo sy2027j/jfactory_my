@@ -481,13 +481,17 @@ public class MemberController {
 		}
 		
 		@RequestMapping(value = "/cartadd", method = RequestMethod.POST)
-		public String AddCart(CartDTO dto) throws Exception {
+		public void AddCart(CartDTO dto,HttpServletResponse response) throws Exception {
 			// service.memberJoinMethod(dto);
 			cartservice.AddCart(dto);
-			return "/product_detail";
+			System.out.println("add cart");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('장바구니에 상품이 담겼습니다.');history.go(-1);</script>");
+			out.flush();
 		}
 		
-		@RequestMapping(value = "/cart", method = RequestMethod.GET)
+		@RequestMapping(value = "/cart", method = RequestMethod.POST)
 		public String CartList(Model model, CartDTO dto) throws Exception {
 			List<CartDTO> cartlist = cartservice.CartList(dto);
 			System.out.println("cart list");

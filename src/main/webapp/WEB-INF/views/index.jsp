@@ -133,6 +133,7 @@
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
      <input size=60 maxlength=255 style="width:1050px;height:30px;text-align:center;" type="text" placeholder="#20대  #여성  #수분부족  #산뜻" size=10>
      &nbsp;<input type=submit name=btnG value="검색" />
+     <input class="form-control" type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
     </div>
     <br>
 
