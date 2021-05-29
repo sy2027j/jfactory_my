@@ -6,5 +6,12 @@
     <delete id="delete">
         delete from cart where cart_id=#{cart_id}
     </delete>
+    
+    <insert id="AddCart">
+    	INSERT INTO jfactory_cart values(DEFAULT,#{mem_id},#{pd_name},#{pd_amount},DEFAULT)
+    </insert>
 	
+	<select id="CartList" resultType="CartDTO">
+		SELECT * FROM jfactory_cart WHERE mem_id='abcd'
+	</select>
 </mapper>

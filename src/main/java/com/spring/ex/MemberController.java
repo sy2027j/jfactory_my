@@ -479,5 +479,20 @@ public class MemberController {
 			model.addAttribute("BlusherList",blusheroplist);
 			return "/mypalette_4";
 		}
+		
+		@RequestMapping(value = "/cartadd", method = RequestMethod.POST)
+		public String AddCart(CartDTO dto) throws Exception {
+			// service.memberJoinMethod(dto);
+			cartservice.AddCart(dto);
+			return "/product_detail";
+		}
+		
+		@RequestMapping(value = "/cart", method = RequestMethod.GET)
+		public String CartList(Model model, CartDTO dto) throws Exception {
+			List<CartDTO> cartlist = cartservice.CartList(dto);
+			System.out.println("cart list");
+			model.addAttribute("CartList", cartlist);
+			return "/cart";
+		}
  
 }

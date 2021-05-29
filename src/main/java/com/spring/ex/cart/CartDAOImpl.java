@@ -1,5 +1,7 @@
 package com.spring.ex.cart;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,5 +20,14 @@ public class CartDAOImpl implements CartDAO {
 		sqlSession.delete(namespace+".delete");
 
 	}
+	
+	@Override
+	public void AddCart(CartDTO dto) throws Exception{
+		sqlSession.insert(namespace+".AddCart",dto);
+	}
 
+	@Override
+	public List<CartDTO> CartList(CartDTO dto) throws Exception{
+		return sqlSession.selectList(namespace+".CartList",dto);
+	}
 }

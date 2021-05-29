@@ -8,6 +8,7 @@
 
   <script src="resources/vendor/jquery/jquery.min.js"></script>
   <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/jquery.dd.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -20,7 +21,7 @@
 	<link href="resources/css/star.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="resources/css/modern-business.css" rel="stylesheet">
-
+  <link href="resources/css/dd.css" rel="stylesheet">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
       <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>
       <button type="button" class="btn btn-link" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">마이페이지</span></button>
       </c:if>
-
+<input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
               <h1><a class="navbar-brand " href="index.html">JFactory</a></h1>

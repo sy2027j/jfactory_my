@@ -9,5 +9,6 @@
 		<typeAlias type="com.spring.ex.review.ReviewDTO" alias="ReviewDTO"/>
 		<typeAlias type="com.spring.ex.product.ProductDTO" alias="ProductDTO"/>
 		<typeAlias type="com.spring.ex.Mypalette.PaletteDTO" alias="PaletteDTO"/>
+		<typeAlias type="com.spring.ex.cart.CartDTO" alias="CartDTO"/>
 	</typeAliases>
 </configuration>

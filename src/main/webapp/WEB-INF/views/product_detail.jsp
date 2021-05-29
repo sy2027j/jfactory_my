@@ -43,7 +43,7 @@
 		<div style="border:1px solid; border-color:black; background-color:white; color:black; WIDTH: 540px; HEIGHT: 100px"><p><br/><br/><p align="right">합계 원  </div>
 		<br/>
 		-->
-		<hr><form id="addcart" name="addcart" action="cart" method="POST">
+		<hr><form id="addcart" name="addcart" action="cartadd" method="POST">
 		<div>
 		수량을 선택해주세요. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="pd_amount" id="pd_amount" style="width:100px"><option value="">수량</option>
                               <c:forEach var="i" begin="1" end="10">
