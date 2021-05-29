@@ -28,6 +28,8 @@ import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.adMember.MemberService;
 import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.admin.AdminService;
+import com.spring.ex.cart.CartDTO;
+import com.spring.ex.cart.CartService;
 import com.spring.ex.product.ProductDTO;
 import com.spring.ex.product.ProductSer;
 import com.spring.ex.qna.MemberqnaDTO;
@@ -457,5 +459,17 @@ public class MemberController {
 			model.addAttribute("StockList", stocklist);
 			return "admin/pd_index";
 		}
- 
+		
+		
+		@Inject
+		CartService cartservice;
+		
+		//CART  장바구니 controller
+		/*@RequestMapping(value ="/cart", method = RequestMethod.GET)
+		public String delete(CartDTO dto) throws Exception {
+			cartservice.delete(dto);
+			return "rediret:/index";
+		}
+		*/
+		
 }

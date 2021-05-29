@@ -31,7 +31,7 @@ $(document).ready(function() {
          
          $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>'); 
          $('.CurrTemp').prepend($Temp); 
-         $('.City').append($city);  
+         $('.City').append($city); 
          $('.humidity').append('습도 : ' + $humidity + "%");
       
       } 
@@ -53,7 +53,7 @@ div.weather_info{font-size: 120%;}
   <div class="container">
 
    <br/><br/>
-    <h3 align="center"> ★ 부산의 날씨 ★</h3>
+    <h3 align="center"> ★ 청주의 날씨 ★</h3>
     <h6 align="center">제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</h6>
    <br/></div><hr>
 

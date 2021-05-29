@@ -36,41 +36,41 @@
                         <h3 class="mt-4" style="text-align:center">장바구니</h3> 
                       </div>
                       <br>
-                      <button type="button" style="float:left; background-color:#e6e6fa; color:black; border-color:#e6e6fa" class="btn btn-primary" onclick="location.href='cm_qna_write'">선택</button><br/>
-                            <div class="memberManager">   
-                        <br/>
-                        <div class="form-group">
-            <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }"> </div>
-                        <table class="table" id="qnalist" style="table-layout:fixed;">
-                              <thead class="table-header-bg" style="background-color: #e6e6fa">
-                              <tr>
-									<th style="width: 2%;"></th>
-									<th style="width: 5%;"></th>
-									<th style="width: 20%;">상품명</th>
-									<th style="width: 8%;">수량</th>
-									<th style="width: 8%;">금액</th>
-								</tr>
-								</thead>
-                              <tbody id="cart" class="table-body-row">
-								<tr th:each="result : ${cartListResult}">
-									<td class="product_choice" style="vertical-align: middle">
-											<input type="checkbox" name="cartListBox">
-										</td>
-									<td class="product_img" style="vertical-align: middle"
-										th:text="${result.cartNumber}">
-											<img src="../images/아이쉐도우1.png" width=100 height=50>
-										</td>
-									<td class="product_name" style="vertical-align: middle"
-										th:text="${result.productName}"><center></center></td>
-									<td class="Quantity" style="vertical-align: middle"
-										th:text="${result.Quantity}"></td>
-									<td class="Price" style="vertical-align: middle"
-										th:text="${result.price}"></td>
-								</tr>
-                        </tbody>
-						</table>
-                     </div>
-                     
+                      
+				     <div class="memberManager">   
+		                        <br/>
+		         <div class="form-group">
+		            <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }"> </div>
+		                        <table class="table" id="qnalist" style="table-layout:fixed; ">
+		                              <thead class="table-header-bg" style="background-color: #e6e6fa">
+		                              <tr>
+											<th style="width: 5%;"></th>
+											<th style="width: 20%;">상품명</th>
+											<th style="width: 8%;">수량</th>
+											<th style="width: 8%;">금액</th>
+											<th style="width: 8%;">선택</th> 
+										</tr>
+										</thead>
+		                              <tbody id="cart" class="table-body-row" style="text-align: center; vertical-align: middle;">
+										<tr th:each="result : ${cartListResult}">
+											<td class="product_img" style="vertical-align: middle"
+												th:text="${result.cartNumber}">
+													<img src="../images/아이쉐도우1.png" width=100 height=50>
+												</td>
+											<td class="product_name" style="vertical-align: middle"
+												th:text="${result.productName}"><center></center></td>
+											<td class="Quantity" style="vertical-align: middle"
+												th:text="${result.Quantity}"></td>
+											<td class="Price" style="vertical-align: middle"
+												th:text="${result.price}"></td>
+											<td class="btn btn-primary" style="background-color:#e6e6fa; color:black; border-color:#e6e6fa" onclick="">선택</td>
+											
+                     	
+										</tr>
+		                        </tbody>
+								</table>
+		                     </div>
+		                     
                      <div>
                      <hr>
                      <label for="all_price" style="text-align: right; width: 100%; height: 25px; font-weight: bold;">

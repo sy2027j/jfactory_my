@@ -6,6 +6,8 @@
 <hr>
 <!-- SCRIPT -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
 <script>
 $( document ).ready(function(){
    
@@ -267,7 +269,8 @@ $( document ).ready(function(){
     <div class="container">
     <div class="row">
     <div class="col-lg-6">
-    <table border="20px"  width="500" height="500"  bordercolor=lightblue>
+    <table id = "tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
+  
     
     <tbody>
     <tr>
@@ -285,6 +288,17 @@ $( document ).ready(function(){
       </div>
       
 <!-- 상품 선택 -->
+
+<script>
+         function onClickSelectBox(sel2){
+            var tableValue = document.getElementById('tableId');
+            if($("#sel2 option:selected").val() == true){
+               tableValue.rows[0].cells[0].innerHTML = sel2.value;
+            } else {
+               console.log("fdfd");
+            }
+         }
+</script>
 				<div class="col-lg-6">
 			
 				    <select id="sel1" name="sel1" style="width:540px;height:50px;" onchange="categoryChange(this)">

@@ -142,5 +142,7 @@
 		SELECT * FROM jfactory_product
 		ORDER BY pd_datetime DESC
 	</select>
+	
+	
 </mapper>
 
