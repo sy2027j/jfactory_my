@@ -12,6 +12,11 @@ public class MyController {
 		return("/index");
 	}
 	
+	@RequestMapping("/secession")
+	public String secession() {
+		return("/secession");
+	}
+	
 	//占쏙옙占쏙옙占쏙옙占쏙옙처占쏙옙占쏙옙占�
 	@RequestMapping("/PrivacyPolicy")
 	public String PrivacyPolicy() {

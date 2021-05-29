@@ -46,6 +46,7 @@ $(document).ready(function() {
 </head>
 
 <body>
+
 <style>
 div.CurrIcon{font-size: 600%;}
 div.weather_info{font-size: 120%;}
