@@ -15,7 +15,9 @@
     <br/><br/>
     
     <div class="row">
+   
       <div class="col-lg-6">
+      
         <img class="img-fluid rounded mb-4" src = '<c:url value="/resources/image/product/${ProductDetail.getPd_main_stored_file() }"/>' alt="" height="500" width="500">
       </div>
       <div class="col-lg-6">
@@ -24,6 +26,8 @@
         <h6>${ProductDetail.getPd_simplecontent()}</h6><br/>
         <h3>${ProductDetail.getPd_price()}원</h3><br/>
         <h5>★★★★★ 5점</h5><br/>
+        
+        
         <!-- 
         <hr>
         <br/>
@@ -39,16 +43,22 @@
 		<div style="border:1px solid; border-color:black; background-color:white; color:black; WIDTH: 540px; HEIGHT: 100px"><p><br/><br/><p align="right">합계 원  </div>
 		<br/>
 		-->
-		<hr>
+		<hr><form id="addcart" name="addcart" action="cart" method="POST">
 		<div>
-		수량을 선택해주세요
+		수량을 선택해주세요. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="pd_amount" id="pd_amount" style="width:100px"><option value="">수량</option>
+                              <c:forEach var="i" begin="1" end="10">
+                                 <option value="${i }">${i }</option>
+                              </c:forEach></select>
 		</div>
 		<hr><br/><br/>
 		<div  align="right">
-      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg">장바구니</button>
+		 
+		 <input type="hidden" id="pd_name" name="pd_name" value="${ProductDetail.getPd_name()}">
+		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
+      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
       <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로가기</button>
    <br/><br/><br/><br/>
-    </div>
+    </div></form>
     </div></div>
     <hr>
     <!-- /.row -->
@@ -111,6 +121,19 @@
       </div>
     </div>
   </div>
+  <script>
+  function Cart_check(){
+	     var pd_amount=document.getElementById("pd_amount");
+	     
+  if(pd_amount.value==""){
+      alert("수량을 선택하세요.");
+      pd_amount.focus();
+      return false;
+   };
+   
+   document.addcart.submit();
+  }
+  </script>
 
 <%@ include file="./footer.jsp" %>
 </body>

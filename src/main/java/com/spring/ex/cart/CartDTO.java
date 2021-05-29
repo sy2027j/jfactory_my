@@ -1,10 +1,14 @@
 package com.spring.ex.cart;
 
+import java.sql.Date;
+
 public class CartDTO {
 	private String cart_id;
 	private String mem_id;
-	private String pd_id;
+	private String pd_name;
 	private int pd_amount;
+	private Date cart_datetime;
+	
 	public String getCart_id() {
 		return cart_id;
 	}
@@ -17,17 +21,23 @@ public class CartDTO {
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
-	public String getPd_id() {
-		return pd_id;
+	public String getPd_name() {
+		return pd_name;
 	}
-	public void setPd_id(String pd_id) {
-		this.pd_id = pd_id;
+	public void setPd_name(String pd_name) {
+		this.pd_name = pd_name;
 	}
 	public int getPd_amount() {
 		return pd_amount;
 	}
 	public void setPd_amount(int pd_amount) {
 		this.pd_amount = pd_amount;
+	}
+	public Date getCart_datetime() {
+		return cart_datetime;
+	}
+	public void setCart_datetime(Date cart_datetime) {
+		this.cart_datetime = cart_datetime;
 	}
 	
 	
