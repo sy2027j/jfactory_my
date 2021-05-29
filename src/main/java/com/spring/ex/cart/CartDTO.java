@@ -8,6 +8,8 @@ public class CartDTO {
 	private String pd_name;
 	private int pd_amount;
 	private Date cart_datetime;
+	private String pd_img;
+	private int pd_price;
 	
 	public String getCart_id() {
 		return cart_id;
@@ -38,6 +40,18 @@ public class CartDTO {
 	}
 	public void setCart_datetime(Date cart_datetime) {
 		this.cart_datetime = cart_datetime;
+	}
+	public String getPd_img() {
+		return pd_img;
+	}
+	public void setPd_img(String pd_img) {
+		this.pd_img = pd_img;
+	}
+	public int getPd_price() {
+		return pd_price;
+	}
+	public void setPd_price(int pd_price) {
+		this.pd_price = pd_price;
 	}
 	
 	

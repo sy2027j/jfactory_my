@@ -44,7 +44,6 @@
 		                        <table class="table" id="qnalist" style="table-layout:fixed; ">
 		                              <thead class="table-header-bg" style="background-color: #e6e6fa">
 		                              <tr>
-											<th style="width: 5%;"></th>
 											<th style="width: 20%;">상품명</th>
 											<th style="width: 8%;">수량</th>
 											<th style="width: 8%;">금액</th>
@@ -52,21 +51,14 @@
 										</tr>
 										</thead>
 		                              <tbody id="cart" class="table-body-row" style="text-align: center; vertical-align: middle;">
-										<tr th:each="result : ${cartListResult}">
-											<td class="product_img" style="vertical-align: middle"
-												th:text="${result.cartNumber}">
-													<img src="../images/아이쉐도우1.png" width=100 height=50>
-												</td>
-											<td class="product_name" style="vertical-align: middle"
-												th:text="${result.productName}"><center></center></td>
-											<td class="Quantity" style="vertical-align: middle"
-												th:text="${result.Quantity}"></td>
-											<td class="Price" style="vertical-align: middle"
-												th:text="${result.price}"></td>
-											<td class="btn btn-primary" style="background-color:#e6e6fa; color:black; border-color:#e6e6fa" onclick="">선택</td>
-											
-                     	
+		                               <c:forEach items="${CartList}" var="cartlist">
+										<tr>
+											<td class="product_name" style="vertical-align: middle"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}</td>
+											<td class="Quantity" style="vertical-align: middle"><c:out value="${cartlist.getPd_amount() }"/></td>
+											<td class="Price" style="vertical-align: middle">${cartlist.getPd_price()}</td>
+											<td><button style="border-color:white; background-color:white; font-size:15px; color:black; WIDTH: 50pt; HEIGHT: 70pt" type="button" class="btn btn-secondary btn-lg">삭제</button></td>
 										</tr>
+										</c:forEach>
 		                        </tbody>
 								</table>
 		                     </div>
@@ -82,8 +74,8 @@
                      <br/>
                      
 	<div  align="center">
-      <button style="border-color:white; background-color:#e6e6fa; font-size:15px; color:black; WIDTH: 100pt; HEIGHT: 30pt" type="button" class="btn btn-secondary btn-lg">주문 결제하기</button>
-      <button style="border-color:white; background-color:black; font-size:15px; color:white; WIDTH: 100pt; HEIGHT: 30pt " type="button" class="btn btn-secondary btn-lg" onclick="location.href='eye_product_list'">계속 쇼핑하기</button>
+      <button style="border-color:white; background-color:#e6e6fa; font-size:20px; color:black; WIDTH: 200pt; HEIGHT: 50pt" type="button" class="btn btn-secondary btn-lg">주문 결제하기</button>
+      <button style="border-color:white; background-color:black; font-size:20px; color:white; WIDTH: 200pt; HEIGHT: 50pt " type="button" class="btn btn-secondary btn-lg" onclick="location.href='eye_product_list'">계속 쇼핑하기</button>
     </div>
                      </main>
                         </div>
