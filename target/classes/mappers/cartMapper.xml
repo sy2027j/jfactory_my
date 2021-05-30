@@ -12,6 +12,6 @@
     </insert>
 	
 	<select id="CartList" resultType="CartDTO">
-		SELECT * FROM jfactory_cart WHERE mem_id=#{mem_id}
+		SELECT * FROM jfactory_cart WHERE mem_id=#{mem_id} ORDER BY cart_datetime DESC
 	</select>
 </mapper>

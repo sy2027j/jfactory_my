@@ -110,7 +110,7 @@
 
 	<select id="ProductListView" resultType="ProductDTO">
 		SELECT * FROM
-		jfactory_product WHERE pd_category=#{pd_category}
+		jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_datetime DESC
 	</select>
 
 	<select id="BestReview" resultType="ReviewDTO">
@@ -126,7 +126,7 @@
 
 	<insert id="WriteNotice" parameterType="MemberqnaDTO">
 		INSERT INTO jfactory_qna
-		values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,null,1)
+		values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,2,null,1)
 	</insert>
 
 	<insert id="ProductPhotoWrite" parameterType="hashMap">

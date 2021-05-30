@@ -36,7 +36,7 @@
       <button type="button" class="btn btn-link" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
       <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>
       <button type="button" class="btn btn-link" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">마이페이지</span></button>
-      </c:if>
+      </c:if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">

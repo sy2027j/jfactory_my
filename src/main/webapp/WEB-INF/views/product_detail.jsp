@@ -57,8 +57,9 @@
 		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 		 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
 		 <input type="hidden" id="pd_price" name="pd_price" value="${ProductDetail.getPd_price()}">
-      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
-      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로가기</button>
+		 <c:if test="${member != null }">
+      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button></c:if>
+      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로구매</button>
    <br/><br/><br/><br/>
     </div></form>
     </div></div>
