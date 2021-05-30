@@ -19,11 +19,11 @@
             <h3 class="card-title">리뷰 조회</h3> </div> <div class="card-body"> 
             <input type="hidden" name="article_no" value="${article.article_no}"> 
             <div class="form-group"> <label for="title">작성자</label> 
-            <input class="form-control" id="mem_id" name="mem_id" value="${Redetail.getMem_id()}"> </div> 
+            <input class="form-control" id="mem_id" name="mem_id" value="${Redetail.getMem_id()}" style="background-color:white;" readonly> </div> 
             <div class="form-group"> <label for="title">제목</label> 
-            <input class="form-control" id="re_title" name="re_title" placeholder="제목을 입력해주세요" value="${Redetail.getRe_title()}"> </div> 
+            <input class="form-control" id="re_title" name="re_title" placeholder="제목을 입력해주세요" value="${Redetail.getRe_title()}"style="background-color:white;"readonly> </div> 
             <div class="form-group"> <label for="writer">제품명</label> <br/>
-            <input class="form-control" id="re_title" name="re_title" placeholder="제목을 입력해주세요" value="${Redetail.getPd_name()}">
+            <input class="form-control" id="re_title" name="re_title" placeholder="제목을 입력해주세요" value="${Redetail.getPd_name()}"style="background-color:white;"readonly>
 			</div> 
 			<div class="form-group"> <label for="title">만족도</label> <br/>
 			<span class="star-input">
@@ -45,7 +45,7 @@
             <input type="hidden" name="re_score" id="re_score" value=""> 
             
             <div class="form-group"> <label for="content">내용</label> 
-            <textarea class="form-control" id="re_content" name="re_content" rows="30" placeholder="내용을 입력해주세요" style="resize: none;">${Redetail.getRe_content()}</textarea> </div> 
+            <textarea class="form-control" id="re_content" name="re_content" rows="30" placeholder="내용을 입력해주세요" style="resize: none; background-color:white;"readonly>${Redetail.getRe_content()}</textarea> </div> 
             
             <div class="inputArea">
  			<label for="gdsImg">이미지</label><br/>
