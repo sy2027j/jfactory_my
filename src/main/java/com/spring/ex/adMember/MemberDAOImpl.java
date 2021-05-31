@@ -53,5 +53,8 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.update(namespace+".setPw",dto);
 	}
 
-	
+	@Override
+    public void Joinout(MemberDTO dto) throws Exception{
+		sqlSession.delete(namespace+".Joinout", dto);
+	}
 }

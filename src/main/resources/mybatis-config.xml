@@ -10,5 +10,6 @@
 		<typeAlias type="com.spring.ex.product.ProductDTO" alias="ProductDTO"/>
 		<typeAlias type="com.spring.ex.Mypalette.PaletteDTO" alias="PaletteDTO"/>
 		<typeAlias type="com.spring.ex.cart.CartDTO" alias="CartDTO"/>
+		<typeAlias type="com.spring.ex.joinout.JoinoutDTO" alias="JoinoutDTO"/>
 	</typeAliases>
 </configuration>

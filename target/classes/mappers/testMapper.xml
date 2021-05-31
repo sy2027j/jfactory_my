@@ -67,10 +67,11 @@
 		SELECT * FROM jfactory_review
 		WHERE re_no=#{re_no}
 	</select>
-	
+
 	<!-- 조회수 올리기 -->
 	<update id="Review_count">
-		UPDATE jfactory_review SET re_count = re_count + 1 where re_no = #{re_no}
+		UPDATE jfactory_review SET re_count = re_count + 1
+		where re_no = #{re_no}
 	</update>
 
 	<select id="ReviewList" resultType="ReviewDTO">
@@ -110,7 +111,8 @@
 
 	<select id="ProductListView" resultType="ProductDTO">
 		SELECT * FROM
-		jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_datetime DESC
+		jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_datetime
+		DESC
 	</select>
 
 	<select id="BestReview" resultType="ReviewDTO">
@@ -130,26 +132,44 @@
 	</insert>
 
 	<insert id="ProductPhotoWrite" parameterType="hashMap">
-		INSERT INTO jfactory_product
+		INSERT INTO
+		jfactory_product
 		values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},null,#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
 	</insert>
-	
+
 	<insert id="AddMypalette" parameterType="hashMap">
-		INSERT INTO jfactory_mypalette values(#{my_category},#{my_main_stored_img},#{my_name})
+		INSERT INTO
+		jfactory_mypalette
+		values(#{my_category},#{my_main_stored_img},#{my_name})
 	</insert>
-	
+
 	<select id="ProductStockList" resultType="ProductDTO">
-		SELECT * FROM jfactory_product
+		SELECT * FROM
+		jfactory_product
 		ORDER BY pd_datetime DESC
 	</select>
-	
+
 	<select id="MypaletteEyes" resultType="PaletteDTO">
-		SELECT * FROM jfactory_mypalette WHERE my_category="아이"
+		SELECT * FROM
+		jfactory_mypalette WHERE my_category="아이"
 	</select>
-	
+
 	<select id="MypaletteBlusher" resultType="PaletteDTO">
-		SELECT * FROM jfactory_mypalette WHERE my_category="블러셔"
+		SELECT * FROM
+		jfactory_mypalette WHERE my_category="블러셔"
 	</select>
-	
+
+	<delete id="Joinout" parameterType="MemberDTO">
+		DELETE * FROM jfactory_member
+		WHERE mem_id = #{mem_id}
+		AND mem_password = #{mem_password}
+	</delete>
+
+	<!-- 회원 탈퇴 사유 등록 -->
+	<insert id="joinout_input" parameterType="JoinoutDTO">
+		INSERT INTO jfactory_joinout
+		values(#{joinout_opinion},#{joinout_reason})
+	</insert>
+
 </mapper>
 

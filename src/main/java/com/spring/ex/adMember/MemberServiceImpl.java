@@ -48,6 +48,9 @@ public class MemberServiceImpl implements MemberService {
 		dao.setPw(dto);
 	}
 	
-	
+	@Override
+	public void Joinout(MemberDTO dto) throws Exception{
+	    dao.Joinout(dto);
+	}
 
 }

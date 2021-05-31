@@ -24,5 +24,6 @@ public interface MemberDAO {
 	public MemberDTO findpw(MemberDTO dto) throws Exception;
 	
 	public void setPw(MemberDTO dto) throws Exception;
-	
+
+	public void Joinout(MemberDTO dto) throws Exception;
 }

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.ex.Mypalette.PaletteDTO;
@@ -30,6 +29,8 @@ import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.admin.AdminService;
 import com.spring.ex.cart.CartDTO;
 import com.spring.ex.cart.CartService;
+import com.spring.ex.joinout.JoinoutDTO;
+import com.spring.ex.joinout.JoinoutService;
 import com.spring.ex.product.ProductDTO;
 import com.spring.ex.product.ProductSer;
 import com.spring.ex.qna.MemberqnaDTO;
@@ -168,6 +169,32 @@ public class MemberController {
 		session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
 		return "/index";
 
+	}
+	
+	@RequestMapping(value = "joinout_check", method = RequestMethod.POST)
+	public String joinout_check(HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
+		MemberDTO member = (MemberDTO)session.getAttribute("member");
+	 
+	 String sessionpass = member.getMem_password();
+	 String dtopass = dto.getMem_password();
+	     
+	 if(!(sessionpass.equals(dtopass))) {
+	  return "redirect:/joinout_check";
+	 }
+	 return "redirect:/joinout";
+	}
+	
+	@Inject
+	JoinoutService joinoutservice;
+	
+	@RequestMapping(value = "/joinout", method = RequestMethod.POST)
+	public String joinout(JoinoutDTO Jdto, MemberDTO dto) throws Exception { 
+		System.out.println("joinout");
+		joinoutservice.joinout(Jdto);
+		System.out.println("123");
+		service.Joinout(dto);
+		System.out.println("456");
+		return "redirect:/joinout_confirm";
 	}
 
 	// qna wirte -insert

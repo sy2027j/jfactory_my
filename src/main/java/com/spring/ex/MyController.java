@@ -263,9 +263,9 @@ public class MyController {
 		return ("/mypage_point");
 	}
 	
-	@RequestMapping("/mypage_infomation")
-	public String mypage_infomation() {
-		return ("/mypage_infomation");
+	@RequestMapping("/mypage_information")
+	public String mypage_information() {
+		return ("/mypage_information");
 	}
 	
 	@RequestMapping("/mypage_coupon")
@@ -282,6 +282,17 @@ public class MyController {
 	public String joinout() {
 		return ("/joinout");
 	}
+	
+	@RequestMapping("/joinout_check")
+	public String joinout_check() {
+		return ("/joinout_check");
+	}
+	
+	@RequestMapping("/joinout_confirm")
+	public String joinout_confirm() {
+		return ("/joinout_confirm");
+	}
+	
 	
 	@RequestMapping("/mypage_orderdetail")
 	public String mypage_orderdetail() {
@@ -404,4 +415,3 @@ public class MyController {
 	}
 	
 }
- 
