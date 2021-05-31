@@ -52,5 +52,11 @@ public class MemberServiceImpl implements MemberService {
 	public void Joinout(MemberDTO dto) throws Exception{
 	    dao.Joinout(dto);
 	}
+	
+	@Override 
+	public void mypage_information(MemberDTO dto) throws Exception {
+		dao.mypage_information(dto); 
+		}
+
 
 }

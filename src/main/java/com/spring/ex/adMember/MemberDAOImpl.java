@@ -57,4 +57,9 @@ public class MemberDAOImpl implements MemberDAO {
     public void Joinout(MemberDTO dto) throws Exception{
 		sqlSession.delete(namespace+".Joinout", dto);
 	}
+	
+	@Override public void mypage_information(MemberDTO dto) throws Exception { 
+		sqlSession.update(namespace + ".mypage_information", dto); 
+		}
+
 }

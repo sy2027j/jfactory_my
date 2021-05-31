@@ -26,4 +26,7 @@ public interface MemberDAO {
 	public void setPw(MemberDTO dto) throws Exception;
 
 	public void Joinout(MemberDTO dto) throws Exception;
+	
+	public void mypage_information(MemberDTO dto) throws Exception;
+
 }

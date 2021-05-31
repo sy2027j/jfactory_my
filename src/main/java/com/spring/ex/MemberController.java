@@ -171,7 +171,13 @@ public class MemberController {
 
 	}
 	
-	@RequestMapping(value = "joinout_check", method = RequestMethod.POST)
+	@RequestMapping(value = "/mypage_information", method = RequestMethod.POST)
+	public String mypage_information(HttpSession session, MemberDTO dto) throws Exception {
+		
+		return "redirect:/mypage_information";
+	}
+	
+	@RequestMapping(value = "/joinout_check", method = RequestMethod.POST)
 	public String joinout_check(HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
 		MemberDTO member = (MemberDTO)session.getAttribute("member");
 	 
