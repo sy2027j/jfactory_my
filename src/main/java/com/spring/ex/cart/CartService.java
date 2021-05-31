@@ -10,5 +10,5 @@ public interface CartService {
 	
 	public void AddCart(CartDTO dto) throws Exception;
 	
-	public List<CartDTO> CartList(CartDTO dto) throws Exception;
+	public List<CartDTO> CartList(String mem_id) throws Exception;
 }

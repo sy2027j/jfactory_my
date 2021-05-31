@@ -3,7 +3,7 @@ package com.spring.ex.cart;
 import java.sql.Date;
 
 public class CartDTO {
-	private String cart_id;
+	private int cart_id;
 	private String mem_id;
 	private String pd_name;
 	private int pd_amount;
@@ -11,10 +11,10 @@ public class CartDTO {
 	private String pd_img;
 	private int pd_price;
 	
-	public String getCart_id() {
+	public int getCart_id() {
 		return cart_id;
 	}
-	public void setCart_id(String cart_id) {
+	public void setCart_id(int cart_id) {
 		this.cart_id = cart_id;
 	}
 	public String getMem_id() {

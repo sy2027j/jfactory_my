@@ -491,9 +491,22 @@ public class MemberController {
 			out.flush();
 		}
 		
-		@RequestMapping(value = "/cart", method = RequestMethod.POST)
-		public String CartList(Model model, CartDTO dto) throws Exception {
-			List<CartDTO> cartlist = cartservice.CartList(dto);
+		@RequestMapping(value = "/cart", method = RequestMethod.GET)
+		public String CartList(Model model, CartDTO dto,HttpSession session, MemberDTO mdto) throws Exception {
+			MemberDTO member = (MemberDTO)session.getAttribute("member");
+		    String sessionpass = member.getmem_id();
+			List<CartDTO> cartlist = cartservice.CartList(sessionpass);
+			System.out.println("cart list");
+			model.addAttribute("CartList", cartlist);
+			return "/cart";
+		}
+		
+		@RequestMapping(value="/delete", method=RequestMethod.GET)
+		public String delete(CartDTO dto,HttpServletResponse response,Model model,HttpSession session, MemberDTO mdto) throws Exception{
+			cartservice.delete(dto);
+			MemberDTO member = (MemberDTO)session.getAttribute("member");
+		    String sessionpass = member.getmem_id();
+			List<CartDTO> cartlist = cartservice.CartList(sessionpass);
 			System.out.println("cart list");
 			model.addAttribute("CartList", cartlist);
 			return "/cart";

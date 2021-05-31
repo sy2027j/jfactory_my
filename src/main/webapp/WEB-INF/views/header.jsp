@@ -46,10 +46,8 @@
       <input class="form-control mr-sm-2" type="text" placeholder="검색창">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit"><span style="font-size:10pt">검색</span></button>
     </form>
-    <form id="cartbtn" name="cartbtn" method="post" action="cart">
     <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
-    <button type="submit" class="btn btn-link"><span style="color:black; font-size:10pt">장바구니</span></button>
-      </form>
+    <button type="submit" class="btn btn-link"><span style="color:black; font-size:10pt" onclick="location.href='cart'">장바구니</span></button>
       </div>
     </div>
   </nav>

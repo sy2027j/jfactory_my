@@ -17,7 +17,7 @@ public class CartDAOImpl implements CartDAO {
 	
 	@Override
 	public void delete(CartDTO dto) throws Exception {
-		sqlSession.delete(namespace+".delete");
+		sqlSession.delete(namespace+".delete", dto);
 
 	}
 	
@@ -27,7 +27,7 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Override
-	public List<CartDTO> CartList(CartDTO dto) throws Exception{
-		return sqlSession.selectList(namespace+".CartList",dto);
+	public List<CartDTO> CartList(String mem_id) throws Exception{
+		return sqlSession.selectList(namespace+".CartList",mem_id);
 	}
 }

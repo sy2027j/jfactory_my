@@ -24,7 +24,7 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
-	public List<CartDTO> CartList(CartDTO dto) throws Exception{
-		return dao.CartList(dto);
+	public List<CartDTO> CartList(String mem_id) throws Exception{
+		return dao.CartList(mem_id);
 	}
 }
