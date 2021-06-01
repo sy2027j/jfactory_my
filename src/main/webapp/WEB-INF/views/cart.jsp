@@ -53,7 +53,7 @@
 		                        <br/>
 		         <div class="form-group">
 		            <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }"> </div>
-		                        <table class="table" id="qnalist" style="table-layout:fixed; ">
+		                        <table class="table" id="cartlist" name="cartList" style="table-layout:fixed; ">
 		                              <thead class="table-header-bg" style="background-color: #e6e6fa">
 		                              <tr>
 											<th style="width: 20%;">상품명</th>
@@ -73,14 +73,18 @@
 										</tr>
 										</c:forEach>
 		                        </tbody>
+		                        
 								</table>
 								
 		                     </div>
                      <div>
                      <hr>
-                     <label for="all_price" style="text-align: right; width: 100%; height: 25px; font-weight: bold;">
-                     상품금액 변수 + 배송비 2500원 = 총 금액변수
-                     </label>
+                     <input type="hidden" id="allllprice" name="allllprice" value="">
+                     <input type="hidden" id="dellllprice" name="dellllprice" value="2500">
+                     <input type="hidden" id="totalllprice" name="" value="">
+                     <div class="form-inline" align="right" style=" width: 100%; height: 25px; font-weight: bold;">
+                     <label id="allprice"></label><label>원 + </label><label>&nbsp;배송비&nbsp;</label><label id="delprice" for="2500">2500</label><label>원</label><label>= 총&nbsp;</label><label id="totalprice"></label><label>원</label>
+                     </div>
                      <hr>
                      </div>
                      
@@ -107,6 +111,31 @@
 	}	
 </script>
 <script>
+$(document).ready(function() {
+	  const table = document.getElementById('cartlist');
+	  
+	  let sum = 0;
+	  for(let i = 1; i < table.rows.length; i++)  {
+	    sum += parseInt(table.rows[i].cells[2].innerHTML);
+	  }
+	  
+	  document.getElementById('allprice').innerText = sum;
+	  $("#allllprice").attr("value", sum);
+	});
+
+</script>
+<script>
+$(document).ready(function() {
+	  var allprice = parseInt(document.getElementById("allllprice").value);
+	  var delprice = parseInt(document.getElementById("dellllprice").value);
+
+	  let price = allprice+delprice;
+	  document.getElementById('totalprice').innerText = price;
+	  $("#totalllprice").attr("value", price);
+	});
+
+</script>
+<script>
 $("#check_module").click(function () {
 var IMP = window.IMP; 
 var mem_realname=document.getElementById("mem_realname");
@@ -114,13 +143,14 @@ var mem_phone=document.getElementById("mem_phone");
 var mem_email=document.getElementById("mem_email");
 var mem_zipcode=document.getElementById("mem_zipcode");
 var mem_address=document.getElementById("mem_address");
+var total = parseInt(document.getElementById("totalllprice").value);
 IMP.init('imp44772017');
 IMP.request_pay({
 pg: 'inicis', 
 pay_method: 'card',
 merchant_uid: 'merchant_' + new Date().getTime(),
 name: 'JFACTORY',
-amount: 1000,
+amount: total,
 buyer_email: mem_email.value,
 buyer_name: mem_realname.value,
 buyer_tel: mem_phone.value,
