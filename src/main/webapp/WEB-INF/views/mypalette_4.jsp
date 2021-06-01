@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <hr>
+<head>
 	<!-- SCRIPT -->
 	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/dd.css"/>'>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -16,11 +17,8 @@
 		    	border-collapse:separate;
 		    }
 		</style>
-
-</head>
-</html>
+</head>	
 <body>
-
     <br><br>
 	    <div class="col-lg-12">
 	    	<h3 align="center"> 4구 팔레트 조합하기</h3><br/>
@@ -145,6 +143,8 @@
 					});
 				});
 				</script>
+				
+				
    				<br/><br/>
   				<hr>
 					    <div class="container" style="text-align : center;">
@@ -221,6 +221,7 @@
 <%@ include file="./footer.jsp" %>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
 <!-- 카테고리 선택 -->
 <script>
 $( document ).ready(function(){

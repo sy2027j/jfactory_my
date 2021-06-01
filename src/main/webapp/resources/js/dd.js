@@ -1,5 +1,47 @@
-class BVSelect{constructor({selector='defaultId',width="100%",searchbox=false,offset=true,search_placeholder="Search...",placeholder="Select Option",breakpoint="600"})
-{var randomID=Math.floor(Math.random()*(9999-0+1))+0;var SearchPlaceholder=search_placeholder;var MainPlaceholder=placeholder;var selectedIDFocus=0;var selectedMultiple=[];var selected_option_text="";var first_option_text="";var MDivSelector=selector.substring(1);this.selector=selector.substring(1);this.searchbox=searchbox;this.width=width;this.offset=offset;this.randomID=randomID;this.search_placeholder;this.breakpoint=breakpoint;document.getElementById(this.selector).style.display="none";this.SetupListOptions=function(){var x=document.getElementById(this.selector);for(var i=0;i<x.length;i++){var optionText=x[i].text;var optionValue=x[i].value;var optionDisabled=x[i].disabled;var optionSeparator=x[i].getAttribute("data-separator");var optionImg=x[i].getAttribute("data-img");var optionIcon=x[i].getAttribute("data-icon");if(optionDisabled==true){var is_disabled="bv_disabled";}else{var is_disabled="";}
+class BVSelect{
+	constructor({
+		selector='defaultId',
+		width="100%",
+		searchbox=false,
+		offset=true,
+		search_placeholder="Search...",
+		placeholder="Select Option",
+		breakpoint="600"
+	})
+{
+		var randomID=Math.floor(Math.random()*(9999-0+1))+0;
+		var SearchPlaceholder=search_placeholder;
+		var MainPlaceholder=placeholder;
+		var selectedIDFocus=0;
+		var selectedMultiple=[];
+		var selected_option_text="";
+		var first_option_text="";
+		var MDivSelector=selector.substring(1);
+		this.selector=selector.substring(1);
+		this.searchbox=searchbox;
+		this.width=width;
+		this.offset=offset;
+		this.randomID=randomID;
+		this.search_placeholder;
+		this.breakpoint=breakpoint;document.getElementById(this.selector).style.display="none";
+		this.SetupListOptions=function()
+		{
+			var x=document.getElementById(this.selector);
+		for(var i=0;i<x.length;i++)
+		{
+			var optionText=x[i].text;
+			var optionValue=x[i].value;
+			var optionDisabled=x[i].disabled;
+			var optionSeparator=x[i].getAttribute("data-separator");
+			var optionImg=x[i].getAttribute("data-img");
+			var optionIcon=x[i].getAttribute("data-icon");
+			if(optionDisabled==true)
+			{
+				var is_disabled="bv_disabled";}
+			else
+			{
+				var is_disabled="";
+			}
 if(optionSeparator){var is_separator="bv_separator";}else{var is_separator="";}
 if(optionImg){var has_attachment="<img src="+optionImg+">";}else{if(optionIcon){var has_attachment="<i class='"+optionIcon+"' aria-hidden='true'></i>";}else{var has_attachment="";}}
 document.getElementById("ul_"+randomID).insertAdjacentHTML('beforeend',"<li class='"+is_disabled+" "+is_separator+"'  > "+has_attachment+" "+optionText+"</li>");}
