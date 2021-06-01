@@ -47,6 +47,9 @@ public class MemberController {
 
 	@Inject
 	AdminService adminservice;
+	
+	@Inject
+	JoinoutService joinoutservice;
 
 	// 관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
 	@RequestMapping(value = "admin/index", method = RequestMethod.GET)
@@ -172,11 +175,28 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/mypage_information", method = RequestMethod.POST)
-	public String mypage_information(HttpSession session, MemberDTO dto) throws Exception {
-		
-		return "redirect:/mypage_information";
+	public String mypage_information(Model model, MemberDTO dto) throws Exception {
+		System.out.println("find id");
+		MemberDTO member =service.getinformation(dto);
+		System.out.println("find id");
+		model.addAttribute("member",member);
+		System.out.println("find id");
+		service.mypage_information(dto);
+		return "redirect:/mypage_order";
 	}
 	
+	@RequestMapping(value = "/information_check", method = RequestMethod.POST)
+	public String information_check(HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
+		MemberDTO member = (MemberDTO)session.getAttribute("member");
+		
+		String sessionpass = member.getMem_password();
+		String dtopass = dto.getMem_password();
+		
+		if(!(sessionpass.equals(dtopass))) {
+			return "redirect:/information_check";
+		}
+		return "redirect:/mypage_information";
+	}
 	@RequestMapping(value = "/joinout_check", method = RequestMethod.POST)
 	public String joinout_check(HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
 		MemberDTO member = (MemberDTO)session.getAttribute("member");
@@ -190,16 +210,14 @@ public class MemberController {
 	 return "redirect:/joinout";
 	}
 	
-	@Inject
-	JoinoutService joinoutservice;
-	
 	@RequestMapping(value = "/joinout", method = RequestMethod.POST)
-	public String joinout(JoinoutDTO Jdto, MemberDTO dto) throws Exception { 
+	public String joinout(JoinoutDTO Jdto, MemberDTO dto, HttpSession session) throws Exception { 
 		System.out.println("joinout");
 		joinoutservice.joinout(Jdto);
 		System.out.println("123");
 		service.Joinout(dto);
-		System.out.println("456");
+        session.invalidate();
+        System.out.println("254");
 		return "redirect:/joinout_confirm";
 	}
 

@@ -87,11 +87,11 @@ th, td {
 									<tr>
 										<td><select name="joinout_reason" id="joinout_reason">
 										<option value="">탈퇴사유를 선택하세요</option>
-												<option value="1">개인정보 유출이 우려되어서</option>
-												<option value="2">제이팩토리 제품및 서비스를 더이상 사용하지 않아서</option>
-												<option value="3">제이팩토리의 서비스에 불만족해서</option>
-												<option value="4">광고 메일 및 문자가 귀찮아서</option>
-												<option value="etc">기타
+												<option value="개인정보 유출이 우려되어서">개인정보 유출이 우려되어서</option>
+												<option value="제이팩토리 제품및 서비스를 더이상 사용하지 않아서">제이팩토리 제품및 서비스를 더이상 사용하지 않아서</option>
+												<option value="제이팩토리의 서비스에 불만족해서">제이팩토리의 서비스에 불만족해서</option>
+												<option value="광고 메일 및 문자가 귀찮아서">광고 메일 및 문자가 귀찮아서</option>
+												<option value="기타">기타
 										</select></td>
 										<td><input type="text" name="joinout_opinion" id="joinout_opinion"
 											style="width: 400px; height: 30px;"></td>

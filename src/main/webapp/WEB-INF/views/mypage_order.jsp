@@ -26,7 +26,7 @@
           <a style="color:black; text-decoration:none "class="nav-link" href="mypage_coupon">보유쿠폰</a>
         </li>
         <li class="nav-item">
-          <a style="color:black; text-decoration:none "class="nav-link" href="mypage_information">회원정보수정</a>
+          <a style="color:black; text-decoration:none "class="nav-link" href="information_check">회원정보수정</a>
         </li>
       </ul>
       <hr class="d-sm-none">

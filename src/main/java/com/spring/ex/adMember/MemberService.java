@@ -16,13 +16,14 @@ public interface MemberService {
 	public MemberDTO Login(MemberDTO dto) throws Exception;
 	
 	public MemberDTO findid(MemberDTO dto) throws Exception;
-	
-	
+		
 	public MemberDTO findpw(MemberDTO dto) throws Exception;
 	
 	public void setPw(MemberDTO dto) throws Exception;
 	
 	public void Joinout(MemberDTO dto) throws Exception;
+	
+	public MemberDTO getinformation(MemberDTO dto) throws Exception;
 	
 	public void mypage_information(MemberDTO dto) throws Exception;
 

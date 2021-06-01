@@ -27,6 +27,8 @@ public interface MemberDAO {
 
 	public void Joinout(MemberDTO dto) throws Exception;
 	
+	public MemberDTO getinformation(MemberDTO dto) throws Exception;
+	
 	public void mypage_information(MemberDTO dto) throws Exception;
 
 }

@@ -37,7 +37,7 @@
 		<div class="row">
 			<div id="header">
 				<div id="wrapper">
-					<form id="joinout_check" name=joinout_check method="post" action="joinout_check">
+					<form id="information_check" name=information_check method="post" action="information_check">
 					<c:if test="${ member != null }">
 							<h3 class="contents" style="text-align: center">비밀번호 확인</h3>
 							<br/>
@@ -56,8 +56,8 @@
 								</div>
 								<div align="center">
 									<button id="submit" name="submit"
-										style="border-color: white; background-color: #e6e6fa; color: black; WIDTH: 80pt; HEIGHT: 30pt"
-										type="submit" class="btn center" onclick="joinout();">탈퇴</button>
+										style="border-color: white; background-color: #e6e6fa; color: black; WIDTH: 100pt; HEIGHT: 30pt"
+										type="submit" class="btn center" onclick="information_pw();">회원정보 수정</button>
 									<button id="cancle" name="cancle"
 										style="border-color: white; background-color: black; color: white; WIDTH: 80pt; HEIGHT: 30pt"
 										type="button" class="btn center"
@@ -84,7 +84,7 @@
 	<script type="text/javascript"
 		src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 	<script type="text/javascript">
-		function joinout() {
+		function information_pw() {
 
 			var mem_password = document.getElementById("mem_password");
 
@@ -93,7 +93,7 @@
 				mem_password.focus();
 				return false;
 			}
-			document.joinout_check.submit();
+			document.information_check.submit();
 
 		}
 	</script>

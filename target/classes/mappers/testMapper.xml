@@ -160,9 +160,9 @@
 	</select>
 	
     <!-- 회원정보 수정 -->
-	<update id="mypage_information" parameterType="MemberDTO">
-		UPDATE INTO jfactory_member 
-		SET mem_realname = #{mem_realname}, mem_zipcode = #{mem_zipcode}, mem_address1 = #{mem_address1}, mem_address2 = #{mem_address2}, mem_birth_year = #{mem_birth_year}, mem_birth_month = #{mem_birth_month}, mem_birth_day = #{mem_birth_day}, mem_phone = #{mem_phone}, mem_phone1 = #{mem_phone1}, mem_phone2 = #{mem_phone2}, mem_email = #{mem_email}, mem_skintype1 = #{mem_skintype1}, mem_skintrouble1 = #{mem_skintrouble1}, mem_skintrouble2 = #{mem_skintrouble2}  
+	<update id="Mypage_information" parameterType="MemberDTO">
+		UPDATE jfactory_member 
+		SET mem_realname = #{mem_realname}, mem_zipcode = #{mem_zipcode}, mem_address1 = #{mem_address1}, mem_address2 = #{mem_address2}, mem_birth_year = #{mem_birth_year}, mem_birth_month = #{mem_birth_month}, mem_birth_day = #{mem_birth_day}, mem_phone = #{mem_phone}, mem_phone1 = #{mem_phone1}, mem_phone2 = #{mem_phone2}, mem_email = #{mem_email}, mem_skintype = #{mem_skintype}, mem_skintrouble1 = #{mem_skintrouble1}, mem_skintrouble2 = #{mem_skintrouble2}  
 		WHERE mem_id=#{mem_id}
 	</update>
 	
@@ -177,6 +177,10 @@
 		INSERT INTO jfactory_joinout
 		values(#{joinout_opinion},#{joinout_reason})
 	</insert>
+	
+	<select id="getinformation" resultType="MemberDTO">
+         SELECT * FROM jfactory_member WHERE mem_id=#{mem_id}
+	</select>
 
 </mapper>
 

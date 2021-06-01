@@ -268,6 +268,11 @@ public class MyController {
 		return ("/mypage_information");
 	}
 	
+	@RequestMapping("/information_check")
+	public String information_check() {
+		return ("/information_check");
+	}
+	
 	@RequestMapping("/mypage_coupon")
 	public String mypage_coupon() {
 		return ("/mypage_coupon");

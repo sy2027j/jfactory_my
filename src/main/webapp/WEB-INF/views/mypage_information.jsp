@@ -39,7 +39,7 @@
                         <label for="MEMBER_ID">아이디 *</label>
                         <div class="form-inline">
                            <input type="text" class="form-control" id="mem_id"
-                              name="mem_id" placeholder="${member.mem_id }" readonly="readonly" style="width: 410px">
+                              name="mem_id" placeholder="${member.mem_id }" value="${member.mem_id }" readonly="readonly" style="width: 410px">
                            &nbsp;                         
                      </div>
                      </div>
@@ -47,7 +47,7 @@
                      <div class="form-group">
                         <label for="MEMBER_NAME">이름 *</label> <input type="text"
                            class="form-control" id="mem_realname" name="mem_realname"
-                           placeholder=" ${member.mem_realname }" readonly="readonly">
+                           placeholder=" ${member.mem_realname }" readonly="readonly" value="${member.mem_realname }">
                         <div id="name_check"></div>
                      </div>
 
@@ -55,36 +55,36 @@
                         <label for="member_zipcode">배송지 주소 *</label>
                         <div class="form-inline">
                            <input type="text" class="form-control" style="width: 100px;"
-                              name="mem_zipcode" id="mem_zipcode" placeholder="${member.mem_zipcode}"
+                              name="mem_zipcode" id="mem_zipcode" placeholder="${member.mem_zipcode}" value="${member.mem_zipcode}"
                               onfocus="this.blur()"> &nbsp;
                            <button class="btn btn-default" type="button" id="findAddrBtn"
                               style="border-color: white; background-color: #e6e6fa; color: black;"
                               onclick="findAddr();">우편번호 찾기</button>
                         </div>
                         <input type="text" class="form-control" style="margin-top: 5px;"
-                           name="mem_address1" id="mem_address1" placeholder="${member.mem_address1}"
+                           name="mem_address1" id="mem_address1" placeholder="${member.mem_address1}" value="${member.mem_address1}" 
                            onfocus="this.blur()"> <input type="text"
                            class="form-control" style="margin-top: 5px;"
-                           name="mem_address2" id="mem_address2" placeholder="${member.mem_address2}">
+                           name="mem_address2" id="mem_address2" placeholder="${member.mem_address2}" value="${member.mem_address2}" >
                         <div id="addr_check"></div>
                      </div>
                      <div class="form-group">
                         <label for="MEMBER_BIRTH">생년월일 *</label>
                         <div class="form-inline">
                            <select class="form-control" style="width: 150px;"
-                              name="mem_birth_year" id="mem_birth_year">
+                              name="mem_birth_year" id="mem_birth_year" value="${member.mem_birth_year}" >
                               <option value="">${member.mem_birth_year}년</option>
                               <c:forEach var="i" begin="1950" end="2005">
                                  <option value="${i }">${i }년</option>
                               </c:forEach>
                            </select> &nbsp;<select class="form-control" style="width: 120px;"
-                              name="mem_birth_month" id="mem_birth_month">
+                              name="mem_birth_month" id="mem_birth_month" value="${member.mem_birth_month}" >
                               <option value="">${member.mem_birth_month}월</option>
                               <c:forEach var="i" begin="1" end="12">
                                  <option value="<c:if test="${i < 10}">0</c:if>${i }">${i }월</option>
                               </c:forEach>
                            </select> &nbsp;<select class="form-control" style="width: 120px;"
-                              name="mem_birth_day" id="mem_birth_day">
+                              name="mem_birth_day" id="mem_birth_day" value="${member.mem_birth_day}">
                               <option value="">${member.mem_birth_day}일</option>
                               <c:forEach var="i" begin="1" end="31">
                                  <option value="<c:if test="${i < 10}">0</c:if>${i }">${i }일</option>
@@ -96,15 +96,15 @@
                         <label for="MEMBER_BIRTH">전화번호 *</label>
                         <div class="form-inline">
                            <select class="form-control" style="width: 125px;"
-                              name="mem_phone" id="mem_phone">
+                              name="mem_phone" id="mem_phone" value="${member.mem_phone}">
                               <option value="010">010</option>
                               <option value="011">011</option>
                               <option value="012">012</option>
                               <option value="013">013</option>
                            </select> &nbsp; - &nbsp; <input type="text" class="form-control"
-                              id="mem_phone1" name="mem_phone1" style="width: 150px" placeholder="${member.mem_phone1}">
+                              id="mem_phone1" name="mem_phone1" style="width: 150px" placeholder="${member.mem_phone1}" value="${member.mem_phone1}">
                            &nbsp; - &nbsp; <input type="text" class="form-control"
-                              id="mem_phone2" name="mem_phone2" style="width: 150px" placeholder="${member.mem_phone2}">
+                              id="mem_phone2" name="mem_phone2" style="width: 150px" placeholder="${member.mem_phone2}" value="${member.mem_phone2}">
                            <br />
                         </div>
                      </div>
@@ -112,7 +112,7 @@
                         <label for="MEMBER_EMAIL">이메일 주소 *</label>
                         <div class="form-inline">
                            <input type="email" class="form-control" id="mem_email"
-                              name="mem_email" placeholder="${member.mem_email}" style="width: 410px">
+                              name="mem_email" placeholder="${member.mem_email}" value="${member.mem_email}" style="width: 410px">
                            &nbsp;
                            <button type="button" class="btn btn-default"
                               id="isCheck_Email" name="isCheck_Email"
@@ -209,12 +209,7 @@
    
 
 <%@ include file="./footer.jsp"%>
-</body>
-
-</html>
-
-
-   <!-- Bootstrap core JavaScript -->
+ <!-- Bootstrap core JavaScript -->
    <script src="resources/vendor/jquery/jquery.min.js"></script>
    <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script
@@ -367,6 +362,12 @@ function information_update(){
 }
 
 </script>
+</body>
+
+</html>
+
+
+  
 
 
 

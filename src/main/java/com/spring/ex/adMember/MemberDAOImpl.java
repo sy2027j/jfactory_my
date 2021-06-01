@@ -58,8 +58,14 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.delete(namespace+".Joinout", dto);
 	}
 	
-	@Override public void mypage_information(MemberDTO dto) throws Exception { 
-		sqlSession.update(namespace + ".mypage_information", dto); 
+	@Override
+	public MemberDTO getinformation(MemberDTO dto) throws Exception{
+		return sqlSession.selectOne(namespace + ".getinformation", dto);
+	}
+	
+	@Override
+	public void mypage_information(MemberDTO dto) throws Exception { 
+		sqlSession.update(namespace + ".Mypage_information", dto); 
 		}
 
 }
