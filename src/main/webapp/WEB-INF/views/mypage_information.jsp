@@ -96,7 +96,8 @@
                         <label for="MEMBER_BIRTH">전화번호 *</label>
                         <div class="form-inline">
                            <select class="form-control" style="width: 125px;"
-                              name="mem_phone" id="mem_phone" value="${member.mem_phone}">
+                              name="mem_phone" id="mem_phone">
+                              <option value="${member.mem_phone}">0${member.mem_phone}</option>
                               <option value="010">010</option>
                               <option value="011">011</option>
                               <option value="012">012</option>
@@ -365,14 +366,5 @@ function information_update(){
 </body>
 
 </html>
-
-
-  
-
-
-
-
-
-
 
 

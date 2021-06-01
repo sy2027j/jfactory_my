@@ -47,7 +47,7 @@ public class MemberController {
 
 	@Inject
 	AdminService adminservice;
-	
+
 	@Inject
 	JoinoutService joinoutservice;
 
@@ -62,16 +62,15 @@ public class MemberController {
 		return "admin/index";
 	}
 
-	
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
 	public String member_detail(Model model, AdminDTO dto) throws Exception {
-		
+
 		System.out.println("find id");
-		AdminDTO memdetaildto =adminservice.member_detail(dto);
+		AdminDTO memdetaildto = adminservice.member_detail(dto);
 		System.out.println("find id");
-		model.addAttribute("memdetaildto",memdetaildto);
+		model.addAttribute("memdetaildto", memdetaildto);
 		System.out.println("find id");
-		
+
 		return "admin/member_detail";
 	}
 
@@ -173,51 +172,62 @@ public class MemberController {
 		return "/index";
 
 	}
-	
+
 	@RequestMapping(value = "/mypage_information", method = RequestMethod.POST)
-	public String mypage_information(Model model, MemberDTO dto) throws Exception {
+	public void mypage_information(Model model, HttpServletResponse response, Object handler, MemberDTO dto) throws Exception {
 		System.out.println("find id");
-		MemberDTO member =service.getinformation(dto);
+		MemberDTO member = service.getinformation(dto);
 		System.out.println("find id");
-		model.addAttribute("member",member);
+		model.addAttribute("member", member);
 		System.out.println("find id");
 		service.mypage_information(dto);
-		return "redirect:/mypage_order";
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("<script>alert('회원정보가 수정되었습니다.'); location.href='/ex/mypage_order';</script>");
+		out.flush();
+		out.close();
 	}
-	
+
 	@RequestMapping(value = "/information_check", method = RequestMethod.POST)
-	public String information_check(HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
-		MemberDTO member = (MemberDTO)session.getAttribute("member");
-		
+	public String information_check(HttpServletRequest request
+            , HttpServletResponse response, Object handler, HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+
 		String sessionpass = member.getMem_password();
 		String dtopass = dto.getMem_password();
-		
-		if(!(sessionpass.equals(dtopass))) {
+
+		if (!(sessionpass.equals(dtopass))) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.print("<script>alert('비밀번호를 확인하세요.'); location.href='/ex/information_check';</script>");
+			out.flush();
+			out.close();
 			return "redirect:/information_check";
 		}
 		return "redirect:/mypage_information";
 	}
+
 	@RequestMapping(value = "/joinout_check", method = RequestMethod.POST)
 	public String joinout_check(HttpSession session, MemberDTO dto, RedirectAttributes rttr) throws Exception {
-		MemberDTO member = (MemberDTO)session.getAttribute("member");
-	 
-	 String sessionpass = member.getMem_password();
-	 String dtopass = dto.getMem_password();
-	     
-	 if(!(sessionpass.equals(dtopass))) {
-	  return "redirect:/joinout_check";
-	 }
-	 return "redirect:/joinout";
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+
+		String sessionpass = member.getMem_password();
+		String dtopass = dto.getMem_password();
+
+		if (!(sessionpass.equals(dtopass))) {
+			return "redirect:/joinout_check";
+		}
+		return "redirect:/joinout";
 	}
-	
+
 	@RequestMapping(value = "/joinout", method = RequestMethod.POST)
-	public String joinout(JoinoutDTO Jdto, MemberDTO dto, HttpSession session) throws Exception { 
+	public String joinout(JoinoutDTO Jdto, MemberDTO dto, HttpSession session) throws Exception {
 		System.out.println("joinout");
 		joinoutservice.joinout(Jdto);
 		System.out.println("123");
 		service.Joinout(dto);
-        session.invalidate();
-        System.out.println("254");
+		session.invalidate();
+		System.out.println("254");
 		return "redirect:/joinout_confirm";
 	}
 
@@ -249,7 +259,6 @@ public class MemberController {
 
 	@Inject
 	ReviewService reservice;
-
 
 	// logout session remove
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -327,17 +336,13 @@ public class MemberController {
 	ProductSer prservice;
 
 	/*
-	@RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
-	public String AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest, Model model, String pd_name)
-			throws Exception {
-		prservice.AddProduct(dto, mpRequest);
-		System.out.println("add product");
-		ProductDTO jebal = prservice.AddDetail(pd_name);
-		model.addAttribute("Jebal", jebal);
-		System.out.println("add detail");
-		return "/admin/pd_add_detail";
-	}
-*/
+	 * @RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
+	 * public String AddProduct(ProductDTO dto, MultipartHttpServletRequest
+	 * mpRequest, Model model, String pd_name) throws Exception {
+	 * prservice.AddProduct(dto, mpRequest); System.out.println("add product");
+	 * ProductDTO jebal = prservice.AddDetail(pd_name); model.addAttribute("Jebal",
+	 * jebal); System.out.println("add detail"); return "/admin/pd_add_detail"; }
+	 */
 
 	// product list
 	@RequestMapping(value = "/eye_product_list", method = RequestMethod.GET)
@@ -434,133 +439,134 @@ public class MemberController {
 		System.out.println("notice faq write");
 		return "redirect:/admin/cm_qna";
 	}
-	
+
 	@RequestMapping(value = "admin/addproductjf", method = RequestMethod.POST)
-	public String TravelPhotoWrite(ProductDTO vo ,MultipartFile file, HttpServletRequest req, Model model, String pd_name) throws Exception {
+	public String TravelPhotoWrite(ProductDTO vo, MultipartFile file, HttpServletRequest req, Model model,
+			String pd_name) throws Exception {
 		String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
 		System.out.println(Path);
-		String fileName=null;
-		
-		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-			fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
+		String fileName = null;
+
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName = UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());
 		}
 		vo.setPd_main_stored_file(fileName);
-				
+
 		prservice.ProductPhotoWrite(vo);
 		ProductDTO jebal = prservice.AddDetail(pd_name);
 		model.addAttribute("Jebal", jebal);
 		System.out.println("add detail");
 		return "/admin/pd_add_detail";
 	}
-	
+
 	@RequestMapping(value = "admin/addDetail", method = RequestMethod.POST)
-	public String addDetail(ProductDTO dto,MultipartFile file, HttpServletRequest req) throws Exception {
+	public String addDetail(ProductDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
 		String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
 		System.out.println(Path);
-		String fileName=null;
-		
-		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-			fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
+		String fileName = null;
+
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName = UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());
 		}
 		dto.setPd_con_stored_file(fileName);
 		dto.setPd_con_file(file.getOriginalFilename());
 		prservice.addDetail(dto);
 		System.out.println("update detail success");
-		
+
 		return "redirect:/admin/pd_add";
 	}
-	
+
 	// review write insert
-		@RequestMapping(value = "/review_write", method = RequestMethod.POST)
-		public String reviewWrite(ReviewDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
-			String Path = req.getSession().getServletContext().getRealPath("resources/image/review/");
-			System.out.println(Path);
-			String fileName=null;
-			
-			if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-				fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
-			}
-			dto.setRe_stored_file(fileName);
-			reservice.review(dto);
-			System.out.println("review write");
-			return "redirect:/review";
+	@RequestMapping(value = "/review_write", method = RequestMethod.POST)
+	public String reviewWrite(ReviewDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
+		String Path = req.getSession().getServletContext().getRealPath("resources/image/review/");
+		System.out.println(Path);
+		String fileName = null;
+
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName = UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());
 		}
-		
-		@Inject
-		PaletteService myservice;
-		
-		@RequestMapping(value = "admin/mypalette_op", method = RequestMethod.POST)
-		public String MypalettePhotoAdd(PaletteDTO vo ,MultipartFile file, HttpServletRequest req, Model model) throws Exception {
-			String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
-			System.out.println(Path);
-			String fileName=null;
-			
-			if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
-				fileName =  UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());	
-			}
-			vo.setMy_main_stored_img(fileName);
-					
-			myservice.AddPalette(vo);
-			return "/admin/mypalette_add";
+		dto.setRe_stored_file(fileName);
+		reservice.review(dto);
+		System.out.println("review write");
+		return "redirect:/review";
+	}
+
+	@Inject
+	PaletteService myservice;
+
+	@RequestMapping(value = "admin/mypalette_op", method = RequestMethod.POST)
+	public String MypalettePhotoAdd(PaletteDTO vo, MultipartFile file, HttpServletRequest req, Model model)
+			throws Exception {
+		String Path = req.getSession().getServletContext().getRealPath("resources/image/product/");
+		System.out.println(Path);
+		String fileName = null;
+
+		if (file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			fileName = UploadFileUtils.fileUpload(Path, file.getOriginalFilename(), file.getBytes());
 		}
-		
-		@RequestMapping(value = "admin/pd_index", method = RequestMethod.GET)
-		public String StockList(Model model) throws Exception {
-			List<ProductDTO> stocklist = prservice.ProductStockList();
-			model.addAttribute("StockList", stocklist);
-			return "admin/pd_index";
-		}
-		
-		
-		@Inject
-		CartService cartservice;
-		
-		//CART  장바구니 controller
-		/*@RequestMapping(value ="/cart", method = RequestMethod.GET)
-		public String delete(CartDTO dto) throws Exception {
-			cartservice.delete(dto);
-			return "rediret:/index";
-		}
-		*/
-		@RequestMapping(value = "/mypalette_4", method = RequestMethod.GET)
-		public String EyeOptionList(Model model) throws Exception {
-			List<PaletteDTO> eyeoplist =myservice.EyesOptionlist();
-			model.addAttribute("EyesList", eyeoplist);
-			List<PaletteDTO> blusheroplist=myservice.BlusherOptionList();
-			model.addAttribute("BlusherList",blusheroplist);
-			return "/mypalette_4";
-		}
-		
-		@RequestMapping(value = "/cartadd", method = RequestMethod.POST)
-		public void AddCart(CartDTO dto,HttpServletResponse response) throws Exception {
-			// service.memberJoinMethod(dto);
-			cartservice.AddCart(dto);
-			System.out.println("add cart");
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('장바구니에 상품이 담겼습니다.');history.go(-1);</script>");
-			out.flush();
-		}
-		
-		@RequestMapping(value = "/cart", method = RequestMethod.GET)
-		public String CartList(Model model, CartDTO dto,HttpSession session, MemberDTO mdto) throws Exception {
-			MemberDTO member = (MemberDTO)session.getAttribute("member");
-		    String sessionpass = member.getmem_id();
-			List<CartDTO> cartlist = cartservice.CartList(sessionpass);
-			System.out.println("cart list");
-			model.addAttribute("CartList", cartlist);
-			return "/cart";
-		}
-		
-		@RequestMapping(value="/delete", method=RequestMethod.GET)
-		public String delete(CartDTO dto,HttpServletResponse response,Model model,HttpSession session, MemberDTO mdto) throws Exception{
-			cartservice.delete(dto);
-			MemberDTO member = (MemberDTO)session.getAttribute("member");
-		    String sessionpass = member.getmem_id();
-			List<CartDTO> cartlist = cartservice.CartList(sessionpass);
-			System.out.println("cart list");
-			model.addAttribute("CartList", cartlist);
-			return "/cart";
-		}
- 
+		vo.setMy_main_stored_img(fileName);
+
+		myservice.AddPalette(vo);
+		return "/admin/mypalette_add";
+	}
+
+	@RequestMapping(value = "admin/pd_index", method = RequestMethod.GET)
+	public String StockList(Model model) throws Exception {
+		List<ProductDTO> stocklist = prservice.ProductStockList();
+		model.addAttribute("StockList", stocklist);
+		return "admin/pd_index";
+	}
+
+	@Inject
+	CartService cartservice;
+
+	// CART 장바구니 controller
+	/*
+	 * @RequestMapping(value ="/cart", method = RequestMethod.GET) public String
+	 * delete(CartDTO dto) throws Exception { cartservice.delete(dto); return
+	 * "rediret:/index"; }
+	 */
+	@RequestMapping(value = "/mypalette_4", method = RequestMethod.GET)
+	public String EyeOptionList(Model model) throws Exception {
+		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+		model.addAttribute("EyesList", eyeoplist);
+		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+		model.addAttribute("BlusherList", blusheroplist);
+		return "/mypalette_4";
+	}
+
+	@RequestMapping(value = "/cartadd", method = RequestMethod.POST)
+	public void AddCart(CartDTO dto, HttpServletResponse response) throws Exception {
+		// service.memberJoinMethod(dto);
+		cartservice.AddCart(dto);
+		System.out.println("add cart");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('장바구니에 상품이 담겼습니다.');history.go(-1);</script>");
+		out.flush();
+	}
+
+	@RequestMapping(value = "/cart", method = RequestMethod.GET)
+	public String CartList(Model model, CartDTO dto, HttpSession session, MemberDTO mdto) throws Exception {
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		String sessionpass = member.getmem_id();
+		List<CartDTO> cartlist = cartservice.CartList(sessionpass);
+		System.out.println("cart list");
+		model.addAttribute("CartList", cartlist);
+		return "/cart";
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(CartDTO dto, HttpServletResponse response, Model model, HttpSession session, MemberDTO mdto)
+			throws Exception {
+		cartservice.delete(dto);
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		String sessionpass = member.getmem_id();
+		List<CartDTO> cartlist = cartservice.CartList(sessionpass);
+		System.out.println("cart list");
+		model.addAttribute("CartList", cartlist);
+		return "/cart";
+	}
+
 }
