@@ -61,7 +61,7 @@
           <a href="#"><img class="card-img-top" src="resources/image/palette4.jpg" alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">마이 팔레트 4구</span></a>
+            <a href="mypalette_4"><span style="color:black; font-size:15pt">마이 팔레트 4구</span></a>
             </h5>
             <p class="card-text"><span style="color:black; font-size:10pt">다양한 조합으로 나만의 팔레트를 만들어보세요</span><br/>
             7000원</p>
@@ -77,7 +77,7 @@
           <a href="#"><img class="card-img-top" src="resources/image/palette6.png" alt=""></a><br/><br/><br/>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">마이 팔레트 6구</span></a>
+            <a href="mypalette_6"><span style="color:black; font-size:15pt">마이 팔레트 6구</span></a>
             </h5>
             <p class="card-text"><span style="color:black; font-size:10pt">다양한 조합으로 나만의 팔레트를 만들어보세요</span><br/>
             9000원</p>
@@ -93,7 +93,7 @@
           <a href="#"><img class="card-img-top" src="resources/image/palette9.png" alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">마이 팔레트 9구</span></a>
+            <a href="mypalette_9"><span style="color:black; font-size:15pt">마이 팔레트 9구</span></a>
             </h5>
             <p class="card-text"><span style="color:black; font-size:10pt">다양한 조합으로 나만의 팔레트를 만들어보세요</span><br/>
             12000원</p>
