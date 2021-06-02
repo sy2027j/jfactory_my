@@ -11,5 +11,7 @@
 		<typeAlias type="com.spring.ex.Mypalette.PaletteDTO" alias="PaletteDTO"/>
 		<typeAlias type="com.spring.ex.cart.CartDTO" alias="CartDTO"/>
 		<typeAlias type="com.spring.ex.joinout.JoinoutDTO" alias="JoinoutDTO"/>
+		<typeAlias type="com.spring.ex.order.OrderDTO" alias="OrderDTO"/>
+		<typeAlias type="com.spring.ex.order.OrderDetailDTO" alias="OrderDetailDTO"/>
 	</typeAliases>
 </configuration>

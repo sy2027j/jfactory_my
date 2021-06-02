@@ -45,4 +45,19 @@ public class CartServiceImpl implements CartService {
 	public void cartAllDelete(String mem_id)throws Exception{
 		dao.cartAllDelete(mem_id);
 	}
+	
+	@Override
+	public List<OrderDTO> orderList(OrderDTO dto) throws Exception{
+		return dao.orderList(dto);
+	}
+	
+	@Override
+	public List<OrderDetailDTO> orderdetailList(OrderDetailDTO dto) throws Exception{
+		return dao.orderdetailList(dto);
+	}
+	
+	@Override
+	public OrderDTO OrdermemDetail(OrderDTO dto) throws Exception{
+		return dao.OrdermemDetail(dto);
+	}
 }

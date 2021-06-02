@@ -20,10 +20,23 @@
 	</insert>
 	
 	<insert id="orderdetailInfo">
-		insert into jfactory_order_detail(or_id, pd_name, pd_amount) select #{or_id}, pd_name, pd_amount from jfactory_cart where jfactory_cart.mem_id=#{mem_id}
+		insert into jfactory_order_detail(or_id, pd_name, pd_amount, pd_price, pd_img) select #{or_id}, pd_name, pd_amount, pd_price, pd_img from jfactory_cart where jfactory_cart.mem_id=#{mem_id}
 	</insert>
 	
 	<delete id="cartAllDelete">
 		DELETE FROM jfactory_cart WHERE mem_id=#{mem_id}
 	</delete>
+	
+	<select id="orderList" resultType="OrderDTO">
+		select * from jfactory_order where mem_id=#{mem_id}
+	</select>
+	
+	<select id="OrderDetail" resultType="OrderDetailDTO">
+		select * from jfactory_order_detail where or_id=#{or_id}
+	</select>
+	
+	<select id="OrdermemDetail" resultType="OrderDTO">
+		select * from jfactory_order where or_id=#{or_id}
+	</select>
+	
 </mapper>

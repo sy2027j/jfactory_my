@@ -606,5 +606,30 @@ public class MemberController {
 	 System.out.println("check5"); 
 	 return "redirect:/index";  
 	}
-
+	
+	
+	@RequestMapping(value = "/mypage_order", method = RequestMethod.GET)
+	public String getOrderList(HttpSession session, OrderDTO order, Model model) throws Exception {
+	 MemberDTO member = (MemberDTO)session.getAttribute("member");
+	 String userId = member.getmem_id();
+	 
+	 order.setMem_id(userId);
+	 
+	 List<OrderDTO> orderList = cartservice.orderList(order);
+	 
+	 model.addAttribute("orderList", orderList);
+	
+	 return "/mypage_order";
+	}
+	
+	@RequestMapping(value = "/mypage_orderdetail", method = RequestMethod.GET)
+	public String getOrderList(OrderDTO dto,OrderDetailDTO order, Model model) throws Exception {
+	 List<OrderDetailDTO> orderdetailList=cartservice.orderdetailList(order);
+	 OrderDTO odto =cartservice.OrdermemDetail(dto);
+	 System.out.println("buy detail");
+	 model.addAttribute("orderdetailList", orderdetailList);
+	 model.addAttribute("ordermemdetail", odto);
+	 return "/mypage_orderdetail";
+	}
+	
 }

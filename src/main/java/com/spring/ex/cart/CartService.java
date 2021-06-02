@@ -22,4 +22,10 @@ public interface CartService {
 	
 	public void cartAllDelete(String mem_id)throws Exception;
 	
+	public List<OrderDTO> orderList(OrderDTO dto) throws Exception;
+	
+	public List<OrderDetailDTO> orderdetailList(OrderDetailDTO dto) throws Exception;
+	
+	public OrderDTO OrdermemDetail(OrderDTO dto) throws Exception;
+	
 }

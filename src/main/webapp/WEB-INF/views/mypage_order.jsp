@@ -31,28 +31,30 @@
       </ul>
       <hr class="d-sm-none">
     </div>
- <div class="col-sm-8">
-      <h2>주문내역</h2>
-      <hr>
-       <div class="mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                	주문내역 
-                            </div>
+ <div class="col-sm-10">
+      <h2>주문내역</h2><br/>
+       <div class="mb-5">
                             <div class="memberManager">    
 								<table class="table table-hover" id="memberList">  
 									<thead>
 										<tr>
-											<th>구매날짜</th>
-											<th>상품명</th>
-											<th>수량</th>  
-											<th>금액</th>
-											<th>주문상태</th>
+											<th>주문일자</th>
+											<th>주문번호</th> 
+											<th>결제금액</th>
+											<th>처리현황</th>
 											
 										</tr>
 									</thead>
 										<tbody>
-											
+											<c:forEach items="${orderList}" var="orderList">
+							<tr onClick="location.href='mypage_orderdetail?or_id=${orderList.getOr_id()}'">
+								<td><c:out value="${orderList.getOr_datetime()}"/></td>
+								<td><c:out value="${orderList.getOr_id() }"/></td>
+								<td><c:out value="${orderList.getOr_price() }"/> 원</td>
+								<td><c:if test="${orderList.getOr_cancel_state() eq 1}">배송중</c:if>
+									<c:if test="${orderList.getOr_cancel_state() eq 0}">결제완료</c:if></td>
+							</tr>
+						</c:forEach>
 									</tbody>
 								</table>
 							</div>
