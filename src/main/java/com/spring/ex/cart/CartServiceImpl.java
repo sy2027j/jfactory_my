@@ -6,6 +6,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.order.OrderDTO;
+import com.spring.ex.order.OrderDetailDTO;
+
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -26,5 +29,20 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public List<CartDTO> CartList(String mem_id) throws Exception{
 		return dao.CartList(mem_id);
+	}
+	
+	@Override
+	public void orderInfo(OrderDTO dto) throws Exception{
+		dao.orderInfo(dto);
+	}
+	
+	@Override
+	public void orderdetailInfo(OrderDetailDTO dto) throws Exception{
+		dao.orderdetailInfo(dto);
+	}
+	
+	@Override
+	public void cartAllDelete(String mem_id)throws Exception{
+		dao.cartAllDelete(mem_id);
 	}
 }

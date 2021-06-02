@@ -1,6 +1,8 @@
 package com.spring.ex;
 
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,6 +33,8 @@ import com.spring.ex.cart.CartDTO;
 import com.spring.ex.cart.CartService;
 import com.spring.ex.joinout.JoinoutDTO;
 import com.spring.ex.joinout.JoinoutService;
+import com.spring.ex.order.OrderDTO;
+import com.spring.ex.order.OrderDetailDTO;
 import com.spring.ex.product.ProductDTO;
 import com.spring.ex.product.ProductSer;
 import com.spring.ex.qna.MemberqnaDTO;
@@ -567,6 +571,40 @@ public class MemberController {
 		System.out.println("cart list");
 		model.addAttribute("CartList", cartlist);
 		return "/cart";
+	}
+	
+	@RequestMapping(value = "/orderlist", method = RequestMethod.POST)
+	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail) throws Exception {
+	 System.out.println("check0");
+	 MemberDTO member = (MemberDTO)session.getAttribute("member");  
+	 String mem_id = member.getmem_id();
+	 System.out.println("check1");
+	 Calendar cal = Calendar.getInstance();
+	 int year = cal.get(Calendar.YEAR);
+	 String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
+	 String ymd = ym + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+	 String subNum = "";
+	 
+	 for(int i = 1; i <= 6; i ++) {
+	  subNum += (int)(Math.random() * 10);
+	 }
+	 System.out.println("check2");
+	 String or_id = ymd + "_" + subNum;
+	 
+	 order.setOr_id(or_id);
+	 order.setMem_id(mem_id);
+	 
+	 cartservice.orderInfo(order);  
+	 System.out.println("check3");
+	 orderDetail.setOr_id(or_id); 
+	 orderDetail.setMem_id(mem_id);
+	 System.out.println(mem_id);
+	 System.out.println("check2");
+	 cartservice.orderdetailInfo(orderDetail); 
+	 System.out.println("check4");
+	 cartservice.cartAllDelete(mem_id);
+	 System.out.println("check5"); 
+	 return "redirect:/index";  
 	}
 
 }

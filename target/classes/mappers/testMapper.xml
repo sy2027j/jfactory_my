@@ -181,6 +181,8 @@
 	<select id="getinformation" resultType="MemberDTO">
          SELECT * FROM jfactory_member WHERE mem_id=#{mem_id}
 	</select>
+	
+	
 
 </mapper>
 

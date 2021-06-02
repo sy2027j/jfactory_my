@@ -1,8 +1,9 @@
-package com.spring.ex.cart;
+package com.spring.ex.order;
 
 import java.sql.Date;
 
-public class CartDTO {
+public class OrderDetailDTO {
+	
 	private int cart_id;
 	private String mem_id;
 	private int pd_no;
@@ -11,6 +12,7 @@ public class CartDTO {
 	private String pd_img;
 	private int pd_price;
 	private String pd_name;
+	private String or_id;
 	
 	public int getCart_id() {
 		return cart_id;
@@ -60,6 +62,11 @@ public class CartDTO {
 	public void setPd_name(String pd_name) {
 		this.pd_name = pd_name;
 	}
-	
+	public String getOr_id() {
+		return or_id;
+	}
+	public void setOr_id(String or_id) {
+		this.or_id = or_id;
+	}
 	
 }

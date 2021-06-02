@@ -419,4 +419,10 @@ public class MyController {
 		return("admin/mypalette_add");
 	}
 	
+	@RequestMapping("/orderlist")
+	public String orderlist() {
+		return("/orderlist");
+	}
+	
+	
 }

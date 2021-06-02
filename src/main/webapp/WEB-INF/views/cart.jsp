@@ -32,15 +32,18 @@
 		</script> 
   	
   	</c:if>
-  	
+  	<form id="orderlist" name="orderlist" method="POST" action='orderlist' autocomplete="off">
   	<c:if test="${member != null }">
   		<input type="hidden" name="mem_id" id="mem_id" value="${member.mem_id}">
-  		<input type="hidden" name="mem_realname" id="mem_realname" value="${member.mem_realname}">
-  		<input type="hidden" name="mem_phone" id="mem_phone" value="${member.mem_phone}-${member.mem_phone1}-${member.mem_phone2}">
+  		<input type="hidden" name="buy_realname" id="buy_realname" value="${member.mem_realname}">
+  		<input type="hidden" name="buy_phone" id="buy_phone" value="${member.mem_phone}-${member.mem_phone1}-${member.mem_phone2}">
   		<input type="hidden" name="mem_email" id="mem_email" value="${member.mem_email}">
-  		<input type="hidden" name="mem_zipcode" id="mem_zipcode" value="${member.mem_zipcode}">
+  		<input type="hidden" name="buy_zipcode" id="buy_zipcode" value="${member.mem_zipcode}">
+  		<input type="hidden" name="buy_address1" id="buy_address1" value="${member.mem_address1}">
+  		<input type="hidden" name="buy_address2" id="buy_address2" value="${member.mem_address2}">
   		<input type="hidden" name="mem_address" id="mem_address" value="${member.mem_address1} ${member.mem_address2}">
   	</c:if>
+  	
   	
             <div id="layoutSidenav_content">
                 <main><br/>
@@ -81,21 +84,22 @@
                      <hr>
                      <input type="hidden" id="allllprice" name="allllprice" value="">
                      <input type="hidden" id="dellllprice" name="dellllprice" value="2500">
-                     <input type="hidden" id="totalllprice" name="" value="">
+                     <input type="hidden" id="totalllprice" name="totalllprice" value="">
+                     <input type="hidden" id="or_price" name="or_price" value="">
                      <div class="form-inline" align="right" style=" width: 100%; height: 25px; font-weight: bold;">
                      <label id="allprice"></label><label>원 + </label><label>&nbsp;배송비&nbsp;</label><label id="delprice" for="2500">2500</label><label>원</label><label>= 총&nbsp;</label><label id="totalprice"></label><label>원</label>
                      </div>
                      <hr>
                      </div>
-                     
+                    
                      <br/>
                      
 	<div  align="center">
       <button style="border-color:white; background-color:#e6e6fa; font-size:20px; color:black; WIDTH: 200pt; HEIGHT: 50pt" type="button" class="btn btn-secondary btn-lg" id="check_module">주문 결제하기</button>
-      <button style="border-color:white; background-color:black; font-size:20px; color:white; WIDTH: 200pt; HEIGHT: 50pt " type="button" class="btn btn-secondary btn-lg" onclick="location.href='eye_product_list'">계속 쇼핑하기</button>
+      <button style="border-color:white; background-color:black; font-size:20px; color:white; WIDTH: 200pt; HEIGHT: 50pt " type="button" class="btn btn-secondary btn-lg" onclick="location.href='index'">계속 쇼핑하기</button>
     </div>
                      </main>
-                        </div>
+                        </div></form>
                     </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             
@@ -132,16 +136,17 @@ $(document).ready(function() {
 	  let price = allprice+delprice;
 	  document.getElementById('totalprice').innerText = price;
 	  $("#totalllprice").attr("value", price);
+	  $("#or_price").attr("value", price);
 	});
 
 </script>
 <script>
 $("#check_module").click(function () {
 var IMP = window.IMP; 
-var mem_realname=document.getElementById("mem_realname");
-var mem_phone=document.getElementById("mem_phone");
+var buy_realname=document.getElementById("buy_realname");
+var buy_phone=document.getElementById("buy_phone");
 var mem_email=document.getElementById("mem_email");
-var mem_zipcode=document.getElementById("mem_zipcode");
+var buy_zipcode=document.getElementById("buy_zipcode");
 var mem_address=document.getElementById("mem_address");
 var total = parseInt(document.getElementById("totalllprice").value);
 IMP.init('imp44772017');
@@ -150,13 +155,13 @@ pg: 'inicis',
 pay_method: 'card',
 merchant_uid: 'merchant_' + new Date().getTime(),
 name: 'JFACTORY',
-amount: total,
+amount: '1000',
 buyer_email: mem_email.value,
-buyer_name: mem_realname.value,
-buyer_tel: mem_phone.value,
+buyer_name: buy_realname.value,
+buyer_tel: buy_phone.value,
 buyer_addr: mem_address.value,
-buyer_postcode: mem_zipcode.value,
-m_redirect_url: 'https://www.yourdomain.com/payments/complete'
+buyer_postcode: buy_zipcode.value,
+m_redirect_url: '/orderList'
 /*
 모바일 결제시,
 결제가 끝나고 랜딩되는 URL을 지정
@@ -166,6 +171,7 @@ m_redirect_url: 'https://www.yourdomain.com/payments/complete'
 console.log(rsp);
 if (rsp.success) {
 var msg = '결제가 완료되었습니다.';
+document.orderlist.submit();
 } else {
 var msg = '결제에 실패하였습니다.';
 msg += '에러내용 : ' + rsp.error_msg;

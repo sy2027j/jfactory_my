@@ -8,10 +8,22 @@
     </delete>
     
     <insert id="AddCart">
-    	INSERT INTO jfactory_cart values(DEFAULT,#{mem_id},#{pd_name},#{pd_amount},DEFAULT,#{pd_img},#{pd_price})
+    	INSERT INTO jfactory_cart values(DEFAULT,#{mem_id},#{pd_no},#{pd_name},#{pd_amount},DEFAULT,#{pd_img},#{pd_price})
     </insert>
 	
 	<select id="CartList" resultType="CartDTO">
 		SELECT * FROM jfactory_cart WHERE mem_id=#{mem_id} ORDER BY cart_datetime DESC
 	</select>
+	
+	<insert id="orderInfo">
+		insert into jfactory_order(or_id, mem_id, buy_realname, buy_zipcode, buy_address1, buy_address2, buy_phone, or_price, or_cancel_state, or_datetime, re_check) values(#{or_id}, #{mem_id}, #{buy_realname},#{buy_zipcode}, #{buy_address1}, #{buy_address2}, #{buy_phone},#{or_price},DEFAULT,DEFAULT,DEFAULT)
+	</insert>
+	
+	<insert id="orderdetailInfo">
+		insert into jfactory_order_detail(or_id, pd_name, pd_amount) select #{or_id}, pd_name, pd_amount from jfactory_cart where jfactory_cart.mem_id=#{mem_id}
+	</insert>
+	
+	<delete id="cartAllDelete">
+		DELETE FROM jfactory_cart WHERE mem_id=#{mem_id}
+	</delete>
 </mapper>

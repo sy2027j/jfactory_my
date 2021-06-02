@@ -52,7 +52,7 @@
 		</div>
 		<hr><br/><br/>
 		<div  align="right">
-		 
+		 <input type="hidden" id="pd_no" name="pd_no" value="${ProductDetail.getPd_no()}">
 		 <input type="hidden" id="pd_name" name="pd_name" value="${ProductDetail.getPd_name()}">
 		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 		 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
