@@ -154,7 +154,7 @@
 			
 			    <h3 class="my-4">팔레트 구 선택</h3><br/>
 			</div>
-			<div class="container">
+			<div class="container"> 
 			
 			 <!-- Page Heading/Breadcrumbs -->
 			
