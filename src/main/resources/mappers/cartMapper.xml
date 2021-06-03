@@ -28,15 +28,27 @@
 	</delete>
 	
 	<select id="orderList" resultType="OrderDTO">
-		select * from jfactory_order where mem_id=#{mem_id}
+		select * from jfactory_order where mem_id=#{mem_id} ORDER BY or_datetime DESC
 	</select>
 	
 	<select id="OrderDetail" resultType="OrderDetailDTO">
 		select * from jfactory_order_detail where or_id=#{or_id}
 	</select>
 	
-	<select id="OrdermemDetail" resultType="OrderDTO">
-		select * from jfactory_order where or_id=#{or_id}
+	<select id="Order_Detail" resultType="OrderDetailDTO">
+		select * from jfactory_order_detail where or_id=#{or_id} and re_check=0
 	</select>
+	
+	<select id="OrdermemDetail" resultType="OrderDTO">
+		select * from jfactory_order where or_id=#{or_id} and re_check=0
+	</select>
+	
+	<update id="OrderCancel" parameterType="OrderDTO">
+		UPDATE jfactory_order SET or_cancel_state=1 WHERE or_id=#{or_id}
+	</update>
+	
+	<update id="ReviewOk" parameterType="OrderDetailDTO">
+		update jfactory_order_detail set re_check=1 where or_id=#{or_id} and pd_name=#{pd_name}
+	</update>
 	
 </mapper>

@@ -27,5 +27,11 @@ public interface CartDAO {
 	
 	public List<OrderDetailDTO> orderdetailList(OrderDetailDTO dto) throws Exception;
 	
+	public List<OrderDetailDTO> order_detailList(OrderDetailDTO dto) throws Exception;
+	
 	public OrderDTO OrdermemDetail(OrderDTO dto) throws Exception;
+	
+	public void OrderCancel(OrderDTO dto) throws Exception;
+	
+	public void ReviewOk(OrderDetailDTO dto) throws Exception;
 }

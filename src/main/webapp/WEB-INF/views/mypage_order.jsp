@@ -8,7 +8,7 @@
 <body>
 <div class="container">
 <div class="row" >
-    <div class="col-sm-2">
+    <div class="col-sm-2"><br/>
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a style="color:black; text-decoration:none "class="nav-link" href="mypage_order">주문내역</a>
@@ -32,7 +32,7 @@
       <hr class="d-sm-none">
     </div>
  <div class="col-sm-10">
-      <h2>주문내역</h2><br/>
+      <br/><h4><strong>주문내역</strong></h4><br/>
        <div class="mb-5">
                             <div class="memberManager">    
 								<table class="table table-hover" id="memberList">  
@@ -51,8 +51,8 @@
 								<td><c:out value="${orderList.getOr_datetime()}"/></td>
 								<td><c:out value="${orderList.getOr_id() }"/></td>
 								<td><c:out value="${orderList.getOr_price() }"/> 원</td>
-								<td><c:if test="${orderList.getOr_cancel_state() eq 1}">배송중</c:if>
-									<c:if test="${orderList.getOr_cancel_state() eq 0}">결제완료</c:if></td>
+								<td><c:if test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if>
+									<c:if test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
 							</tr>
 						</c:forEach>
 									</tbody>

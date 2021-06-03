@@ -61,8 +61,22 @@ public class CartDAOImpl implements CartDAO {
 	}
 	
 	@Override
+	public List<OrderDetailDTO> order_detailList(OrderDetailDTO dto) throws Exception{
+		return sqlSession.selectList(namespace+".Order_Detail",dto);
+	}
+	
+	@Override
 	public OrderDTO OrdermemDetail(OrderDTO dto) throws Exception{
 		return sqlSession.selectOne(namespace+".OrdermemDetail",dto);
 	}
 	
+	@Override
+	public void OrderCancel(OrderDTO dto) throws Exception{
+		sqlSession.update(namespace+".OrderCancel",dto);
+	}
+	
+	@Override
+	public void ReviewOk(OrderDetailDTO dto) throws Exception{
+		sqlSession.update(namespace+".ReviewOk",dto);
+	}
 }

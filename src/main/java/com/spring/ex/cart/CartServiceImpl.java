@@ -57,7 +57,22 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
+	public List<OrderDetailDTO> order_detailList(OrderDetailDTO dto) throws Exception{
+		return dao.order_detailList(dto);
+	}
+	
+	@Override
 	public OrderDTO OrdermemDetail(OrderDTO dto) throws Exception{
 		return dao.OrdermemDetail(dto);
+	}
+	
+	@Override
+	public void OrderCancel(OrderDTO dto) throws Exception{
+		dao.OrderCancel(dto);
+	}
+	
+	@Override
+	public void ReviewOk(OrderDetailDTO dto) throws Exception{
+		dao.ReviewOk(dto);
 	}
 }

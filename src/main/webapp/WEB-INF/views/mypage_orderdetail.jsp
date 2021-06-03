@@ -17,8 +17,7 @@ table {
 <div class="container">
 <div class="row" >
 
-    <div class="col-sm-2">
-    <br/>
+    <div class="col-sm-2"><br/>
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a style="color:black; text-decoration:none "class="nav-link" href="mypage_order">주문내역</a>
@@ -47,6 +46,8 @@ table {
       	String or_id=request.getParameter("or_id");
       %>
        <div class="mb-5">
+       <form id="cancelform" name="cancelform" action="order_cancel" method="post">
+       <input type="hidden" id="or_id" name="or_id" value="<%=or_id %>">
                             <div class="memberManager">    
 								<table class="t1" style="width:920px" >
 							<colgroup>
@@ -64,11 +65,13 @@ table {
 								</tr>
 								<tr>
 									<th scope="row" style="font-weight: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;주문상태</th>
-									<td><c:out value="${ordermemdetail.getOr_cancel_state() }"/></td>
+									<td><c:if test="${ordermemdetail.getOr_cancel_state() eq 1}">주문 취소</c:if>
+									<c:if test="${ordermemdetail.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
 								</tr>
 							</tbody>
 						</table>
 		  </div>
+		  </form>
 		  <br/><br/>
 		  <h4 class="subTitle2"><strong>주문 상품 정보</strong></h4><br/>
 					<div class="tableType noLine noPdg">
@@ -84,7 +87,6 @@ table {
 									<th scope="col" style="text-align:center;font-weight: normal">제품명</th>
 									<th scope="col"style="text-align:center;font-weight: normal">수량</th>
 									<th scope="col"style="text-align:center;font-weight: normal">판매가</th>
-									<th scope="col"style="text-align:center;font-weight: normal">구매후기</th>
 								</tr>
 							</thead>
 							<tbody class="center">
@@ -100,15 +102,16 @@ table {
 									</td>
 									<td style="text-align:center"><c:out value="${ordetailList.getPd_amount() }"/></td>
 									<td style="text-align:center"><c:out value="${ordetailList.getPd_price() }"/></td>
-									<td style="text-align:center">
-										
-											<button type="button" class="btn"style="border-color:white; background-color:white; font-size:15px; color:black;" onclick="">구매후기</button>
-										
-									</td>
 								</tr>
 								</c:forEach>
 							</tbody>
-						</table>
+						</table><br/>
+						<c:if test="${ordermemdetail.getOr_cancel_state() eq 0}">
+						<form id="reform" name="reform" action="review_write_or" method="post">
+						<input type="hidden" id="or_id" name="or_id" value="<%= or_id%>">
+						<div align="right">
+						<button type="submit" class="button btn"style="border-color:white; background-color:#e6e6fa; font-size:15px; color:black;">구매후기</button>
+						</div></form></c:if>
 		</div>
 		<br/><br/>
 		<input type="hidden" id="or_price" name="or_price" value="${ordermemdetail.getOr_price() }">
@@ -168,7 +171,8 @@ table {
 	</div><br/>
 	<div  align="center">
       <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 150pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="location.href='mypage_order'">목록보기</button>
-      <button style="border-color:white; background-color:black; color:white; WIDTH: 150pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg" onclick="cancel(<%=or_id %>)">주문취소</button>
+      <c:if test="${ordermemdetail.getOr_cancel_state() eq 0}">
+      <button style="border-color:white; background-color:black; color:white; WIDTH: 150pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg" onclick="cancel(<%=or_id %>)">주문취소</button></c:if>
    <br/><br/><br/><br/>
     </div>
 	</div></div>
@@ -180,7 +184,7 @@ table {
 	function cancel(or_id) {
 		var chk = confirm("주문을 취소하시겠습니까?");
 		if (chk) {
-			location.href='ggg?or_id='+or_id;
+			 document.cancelform.submit();
 		}
 	}	
 </script>

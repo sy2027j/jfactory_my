@@ -493,7 +493,7 @@ public class MemberController {
 
 	// review write insert
 	@RequestMapping(value = "/review_write", method = RequestMethod.POST)
-	public String reviewWrite(ReviewDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
+	public String reviewWrite(OrderDetailDTO oddto,ReviewDTO dto, MultipartFile file, HttpServletRequest req) throws Exception {
 		String Path = req.getSession().getServletContext().getRealPath("resources/image/review/");
 		System.out.println(Path);
 		String fileName = null;
@@ -504,6 +504,12 @@ public class MemberController {
 		dto.setRe_stored_file(fileName);
 		reservice.review(dto);
 		System.out.println("review write");
+		String or_id=oddto.getOr_id();
+		System.out.println(or_id);
+		String pd_name=oddto.getPd_name();
+		System.out.println(pd_name);
+		cartservice.ReviewOk(oddto);
+		System.out.println("order review write");
 		return "redirect:/review";
 	}
 
@@ -625,7 +631,8 @@ public class MemberController {
 	 String userId = member.getmem_id();
 	 
 	 order.setMem_id(userId);
-	 
+	 String ord=order.getMem_id();
+	 System.out.println(ord);
 	 List<OrderDTO> orderList = cartservice.orderList(order);
 	 
 	 model.addAttribute("orderList", orderList);
@@ -641,6 +648,28 @@ public class MemberController {
 	 model.addAttribute("orderdetailList", orderdetailList);
 	 model.addAttribute("ordermemdetail", odto);
 	 return "/mypage_orderdetail";
+	}
+	
+	@RequestMapping(value="/order_cancel", method=RequestMethod.POST)
+	public String OrderCancel(OrderDTO dto,HttpSession session, Model model)throws Exception{
+		cartservice.OrderCancel(dto);
+		String id=dto.getOr_id();
+		System.out.println(id);
+		System.out.println("order cancel");
+		MemberDTO member = (MemberDTO)session.getAttribute("member");
+		String userId=member.getmem_id();
+		dto.setMem_id(userId);
+		List<OrderDTO> orderList = cartservice.orderList(dto);
+		model.addAttribute("orderList", orderList);
+		return "/mypage_order";
+	}
+	
+	@RequestMapping(value = "/review_write_or", method = RequestMethod.POST)
+	public String reviewWriteOr(OrderDetailDTO dto, HttpServletRequest req, Model model) throws Exception {
+		List<OrderDetailDTO> order_detailList=cartservice.order_detailList(dto);
+		model.addAttribute("order_detailList", order_detailList);
+		System.out.println("review order list write");
+		return "review_write";
 	}
 	
 }

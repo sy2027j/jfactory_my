@@ -16,11 +16,11 @@
    			<div class="col-sm-12" style="background-color:#e6e6fa" >
       			  <div class="container">
 		    <div class="col-sm-10">
-			      <hr style="size: 100%; background-color:#f5f5f5"><br/>
+			      <hr style="size: 100%; background-color:white"><br/>
 			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${member.mem_realname }님은 <strong>${member.mem_level }&nbsp;</strong>회원입니다.<br>
 			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;다음등급까지 <strong>100,000 원</strong>부족 (다음 등급 산정일 2021.06.04)<br>
 			      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;당월포함 직전 6개월 구매금액 <strong>${member.mem_total_cash }</strong><br>
-			      <br/><hr>
+			      <br/><hr style="size: 100%; background-color:white">
 				</div>
 				</div>
             </div>

@@ -23,7 +23,11 @@
                         <h1 class="mt-4">REVIEW</h1> <br/>
                       </div>
             <div class="col-lg-12"> 
-            <form role="form" id="writeForm" name="writeForm" method="post" action="review_write" enctype="multipart/form-data"> 
+            <%
+            	String or_id=request.getParameter("or_id");
+            %>
+            <form role="form" id="writeForm" name="writeForm" method="post" action="review_write" enctype="multipart/form-data">
+            <input type="hidden" id="or_id" name="or_id" value="<%= or_id%>"> 
             <div class="card"> <div class="card-header"> 
             <h3 class="card-title">리뷰 작성</h3> </div> <div class="card-body"> 
             <div class="form-group">
@@ -33,11 +37,10 @@
             <div class="form-group"> <label for="writer">제품명</label> <br/>
           
 			<select id="pd_name" name="pd_name" size="1" style="width:1030px;height:40px;" class="form-control">
-			<option value="정렬">제품을 선택해주세요</option>
-			<option value="dkddsda">구매한 제품 리스트</option>
-			<option value="리뷰 많은 순">배송 문의</option>
-			<option value="가격 높은 순">반품 문의</option>
-			<option value="가격 낮은 순">기타 문의</option>
+			<option value="">제품을 선택하세요.</option>
+			<c:forEach var="orlist" items="${order_detailList}">
+		         					<option value="${orlist.getPd_name()}">${orlist.getPd_name()}</option>
+		     					</c:forEach>
 			</select>
 			</div> 
 			<div class="form-group"> <label for="title">만족도</label> <br/>
@@ -115,10 +118,17 @@
       }}
   
   var re_score=document.getElementById("re_score");
+  var pd_name=document.getElementById("pd_name");
   
   if(re_title.value==""){
 	  alert("제목을 입력하세요.");
 	  re_title.focus();
+	  return false;
+  };
+  
+  if(pd_name.value==""){
+	  alert("제품을 선택하세요.");
+	  pd_name.focus();
 	  return false;
   };
   
