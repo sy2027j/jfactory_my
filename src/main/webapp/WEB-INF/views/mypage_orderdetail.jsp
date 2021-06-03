@@ -19,7 +19,7 @@ table {
 
     <div class="col-sm-2">
     <br/>
-      <ul class="nav nav-pills flex-column"style="background-color:#e6e6fa;">
+      <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a style="color:black; text-decoration:none "class="nav-link" href="mypage_order">주문내역</a>
         </li>
