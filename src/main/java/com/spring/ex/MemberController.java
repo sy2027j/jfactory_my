@@ -699,4 +699,17 @@ public class MemberController {
 	
 	 return "/mypage_ask";
 	}
+	
+	@RequestMapping(value = "/mypage_review", method = RequestMethod.GET)
+	public String getQnaList(HttpSession session, ReviewDTO dto, Model model) throws Exception {
+	 MemberDTO member = (MemberDTO)session.getAttribute("member");
+	 String userId = member.getmem_id();
+	 
+	 dto.setMem_id(userId);
+	 List<ReviewDTO> myreList = reservice.myreList(dto);
+	 
+	 model.addAttribute("myreList", myreList);
+	
+	 return "/mypage_review";
+	}
 }

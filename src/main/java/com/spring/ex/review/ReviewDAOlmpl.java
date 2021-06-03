@@ -42,4 +42,9 @@ public class ReviewDAOlmpl implements ReviewDAO {
 		sqlSession.update(namespace+".Review_count", re_no);
 	}
 	
+	@Override
+	public List<ReviewDTO> myreList(ReviewDTO dto) throws Exception{
+		return sqlSession.selectList(namespace+".MyReviewList",dto);
+	}
+	
 }

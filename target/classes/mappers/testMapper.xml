@@ -215,6 +215,10 @@
 	<select id="MyQnaList" resultType="MemberqnaDTO">
 		SELECT * FROM jfactory_qna WHERE mem_id=#{mem_id}
 	</select>
+	
+	<select id="MyReviewList" resultType="ReviewDTO">
+		SELECT * FROM jfactory_review WHERE mem_id=#{mem_id}
+	</select>
 
 </mapper>
 

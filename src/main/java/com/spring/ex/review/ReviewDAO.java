@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.qna.MemberqnaDTO;
+
 
 @Repository
 public interface ReviewDAO {
@@ -18,5 +20,7 @@ public interface ReviewDAO {
 	public List<ReviewDTO> bestlist() throws Exception;
 
 	public void Review_count(int re_no) throws Exception;
+	
+	public List<ReviewDTO> myreList(ReviewDTO dto) throws Exception;
 
 }
