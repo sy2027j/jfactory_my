@@ -27,4 +27,7 @@ public interface MemberService {
 	
 	public void mypage_information(MemberDTO dto) throws Exception;
 
+	public void cancelCount(MemberDTO dto)throws Exception;
+	
+	public void OrderCount(MemberDTO dto)throws Exception;
 }

@@ -67,5 +67,15 @@ public class MemberDAOImpl implements MemberDAO {
 	public void mypage_information(MemberDTO dto) throws Exception { 
 		sqlSession.update(namespace + ".Mypage_information", dto); 
 		}
+	
+	@Override
+	public void cancelCount(MemberDTO dto)throws Exception{
+		sqlSession.update(namespace+".CancelCount",dto);
+	}
+	
+	@Override
+	public void OrderCount(MemberDTO dto)throws Exception{
+		sqlSession.update(namespace+".OrderCount",dto);
+	}
 
 }

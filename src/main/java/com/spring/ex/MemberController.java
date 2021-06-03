@@ -591,7 +591,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/orderlist", method = RequestMethod.POST)
-	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail) throws Exception {
+	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto) throws Exception {
 	 System.out.println("check0");
 	 MemberDTO member = (MemberDTO)session.getAttribute("member");  
 	 String mem_id = member.getmem_id();
@@ -611,6 +611,9 @@ public class MemberController {
 	 order.setOr_id(or_id);
 	 order.setMem_id(mem_id);
 	 
+	 int or_price=order.getOr_price();
+	 System.out.println(or_price);
+	 
 	 cartservice.orderInfo(order);  
 	 System.out.println("check3");
 	 orderDetail.setOr_id(or_id); 
@@ -621,6 +624,11 @@ public class MemberController {
 	 System.out.println("check4");
 	 cartservice.cartAllDelete(mem_id);
 	 System.out.println("check5"); 
+	 mdto.setmem_id(mem_id);
+	 mdto.setMem_total_cash(or_price);
+	 System.out.println("check6"); 
+	 service.OrderCount(mdto);
+	 System.out.println("check7"); 
 	 return "redirect:/index";  
 	}
 	
@@ -651,14 +659,21 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/order_cancel", method=RequestMethod.POST)
-	public String OrderCancel(OrderDTO dto,HttpSession session, Model model)throws Exception{
+	public String OrderCancel(OrderDTO dto,HttpSession session, Model model,MemberDTO mdto)throws Exception{
 		cartservice.OrderCancel(dto);
 		String id=dto.getOr_id();
 		System.out.println(id);
 		System.out.println("order cancel");
 		MemberDTO member = (MemberDTO)session.getAttribute("member");
 		String userId=member.getmem_id();
+		int or_price=dto.getOr_price();
+		System.out.println(or_price);
 		dto.setMem_id(userId);
+		mdto.setmem_id(userId);
+		mdto.setMem_total_cash(or_price);
+		System.out.println("check order cancel");
+		service.cancelCount(mdto);
+		System.out.println("ok order cancel");
 		List<OrderDTO> orderList = cartservice.orderList(dto);
 		model.addAttribute("orderList", orderList);
 		return "/mypage_order";

@@ -62,6 +62,15 @@ public class MemberServiceImpl implements MemberService {
 	public void mypage_information(MemberDTO dto) throws Exception {
 		dao.mypage_information(dto); 
 		}
+	
+	@Override
+	public void cancelCount(MemberDTO dto)throws Exception{
+		dao.cancelCount(dto);
+	}
 
+	@Override
+	public void OrderCount(MemberDTO dto)throws Exception{
+		dao.OrderCount(dto);
+	}
 
 }

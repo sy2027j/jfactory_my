@@ -85,7 +85,7 @@
 			</div>
             
             </div> <div class="card-footer">
-            <div class="float-right"> <button type="button" class="btn btn-warning cancelBtn"><i class="fa fa-trash"></i> 취소</button> 
+            <div class="float-right"> <button type="button" class="btn btn-warning cancelBtn" onclick="history.go(-1)"><i class="fa fa-trash"></i> 취소</button> 
             <button type="button" class="btn btn-success modBtn" onclick="getGender();"><i class="fa fa-save"></i>등록</button>
             
              </div> </div> </div> </form>

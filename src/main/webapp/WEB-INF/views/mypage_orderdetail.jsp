@@ -48,6 +48,7 @@ table {
        <div class="mb-5">
        <form id="cancelform" name="cancelform" action="order_cancel" method="post">
        <input type="hidden" id="or_id" name="or_id" value="<%=or_id %>">
+       <input type="hidden" id="or_price" name="or_price" value="${ordermemdetail.getOr_price() }">
                             <div class="memberManager">    
 								<table class="t1" style="width:920px" >
 							<colgroup>
