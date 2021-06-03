@@ -14,7 +14,7 @@
 		    	border:solid #ff953e;
 		    	border-spacing:50px;
 		    	table-layout:fixed;
-		    	border-collapse:separate;
+		    	border-collapse:separate;  
 		    }
 		</style>
 </head>	
@@ -28,16 +28,15 @@
 		    <div class="row">
 		    	<div class="col-lg-6"> 
 				    		<script>
-							         function onClickCheckBox(eye1){
+							         function onClickCheckBox(eye1, bl1){ 
+							        	 
 							            var tableValue = document.getElementById('tableId');
+							            
 							            tableValue.rows[0].cells[0].innerHTML = eye1.value;
+							            tableValue.rows[0].cells[0].innerHTML = bl1.value;
 
 							         }
 		      				</script>
-						      <input type="checkbox" onclick="onClickCheckBox(this)" value="1">1
-						      <input type="checkbox" onclick="onClickCheckBox(this)" value="2">2
-						      <input type="checkbox" onclick="onClickCheckBox(this)" value="3">3
-								    	
 						    <table id="tableId" name="tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
 						    
 							    <tbody>
@@ -70,7 +69,7 @@
 		         					<option value="${eyelist.getMy_name()}" data-image='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
-							<select id="bl1" name="bl1" style="width:540px;height:50px;display: none;">
+							<select id="bl1" name="bl1" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox(this)">
 								<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 		         					<option value="${blusherlist.getMy_name()}" data-img='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 		     					</c:forEach>
@@ -211,8 +210,6 @@
 			  </div>
 
 <%@ include file="./footer.jsp" %>
-
-<script src='<c:url value="/resources/js/dd.js"/>'></script>
 
 <!-- 카테고리 선택 -->
 <script>
