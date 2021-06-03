@@ -5,8 +5,8 @@
 <html lang="en">
 <hr>
 <head>
-	<!-- SCRIPT -->
-	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/dd.css"/>'>
+<!-- SCRIPT -->
+<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/dd.css"/>'>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		
 		<style>
@@ -27,53 +27,7 @@
    		<div class="container">
 		    <div class="row">
 		    	<div class="col-lg-6"> 
-				    		<script>
-							         function onClickCheckBox(eye1, bl1){ 
-							        	 
-							            var tableValue = document.getElementById('tableId');
-							            
-							            tableValue.rows[0].cells[0].innerHTML = eye1.value;
-							            tableValue.rows[0].cells[0].innerHTML = bl1.value;
-										
-							            tableValue.rows[0].cells[1].innerHTML = eye2.value;
-							            tableValue.rows[0].cells[1].innerHTML = bl2.value;
-
-							         }
-		      				</script>
-		      				
-		      				<script>
-							         function onClickCheckBox2(eye2, bl2){ 
-							        	 
-							            var tableValue = document.getElementById('tableId');
-							            
-							            tableValue.rows[0].cells[1].innerHTML = eye2.value;
-							            tableValue.rows[0].cells[1].innerHTML = bl2.value;
-
-							         }
-		      				</script> 
-		      				
-		      				<script>
-							         function onClickCheckBox3(eye3, bl3){ 
-							        	 
-							            var tableValue = document.getElementById('tableId');
-							            
-							            tableValue.rows[1].cells[0].innerHTML = eye3.value;
-							            tableValue.rows[1].cells[0].innerHTML = bl3.value;
-
-							         }
-		      				</script>
-						    
-						    <script>
-							         function onClickCheckBox4(eye4, bl4){ 
-							        	 
-							            var tableValue = document.getElementById('tableId');
-							            
-							            tableValue.rows[1].cells[1].innerHTML = eye4.value;
-							            tableValue.rows[1].cells[1].innerHTML = bl4.value;
-
-							         }
-		      				</script>
-						    <table id="tableId" name="tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
+					<table id="tableId" name="tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
 						    
 							    <tbody>
 							    <tr>
@@ -90,16 +44,14 @@
         
       			</div>
 	
-
-      
-				<!-- 상품 선택 -->
+		<!-- 상품 선택 -->
 
 				<div class="col-lg-6">
 					    <select id="sel1" name="sel1" style="width:540px;height:50px;" onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
-						</select> <br>
+						</select> <br> <br>
 							<select id="eye1" name="eye1" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox(this)">
 								<c:forEach var="eyelist" items="${EyesList}">
 		         					<option value="${eyelist.getMy_name()}" data-image='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
@@ -116,7 +68,7 @@
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option> 
-						</select> <br>
+						</select> <br> <br>
 							<select id="eye2" name="eye2" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox2(this)">
 								<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 		         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
@@ -166,14 +118,8 @@
 					
 			      </div>
 			  </div>
-			    
-			    
-			   
 
-				
-				
-   				<br/><br/>
-  				<hr>
+   		<br/><br/><hr>
 					    <div class="container" style="text-align : center;">
 					        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
 					    </div>
@@ -184,11 +130,11 @@
     
     
     
-			<!-- Page Content -->
-			<div class="container">
+<!-- Page Content -->
+	<div class="container">
 			
-			    <h3 class="my-4">팔레트 구 선택</h3><br/>
-			</div>
+		<h3 class="my-4">팔레트 구 선택</h3><br/>
+		</div>
 			<div class="container"> 
 			
 			 <!-- Page Heading/Breadcrumbs -->
@@ -246,6 +192,47 @@
 			  </div>
 
 <%@ include file="./footer.jsp" %>
+<!-- 마이 팔레트 테이블  -->
+<script>
+	function onClickCheckBox(eye1, bl1){ 
+							        	 
+		 var tableValue = document.getElementById('tableId');
+							            
+			 tableValue.rows[0].cells[0].innerHTML = eye1.value;
+	         tableValue.rows[0].cells[0].innerHTML = bl1.value;
+
+      }							        
+</script>
+<script>
+	function onClickCheckBox2(eye2, bl2){ 
+							        	 
+		 var tableValue = document.getElementById('tableId');
+							            
+	         tableValue.rows[0].cells[1].innerHTML = eye2.value;
+	         tableValue.rows[0].cells[1].innerHTML = bl2.value;
+
+      }							        
+</script>
+<script>
+	function onClickCheckBox3(eye3, bl3){ 
+							        	 
+		 var tableValue = document.getElementById('tableId');
+							            
+	         tableValue.rows[1].cells[0].innerHTML = eye3.value;
+	         tableValue.rows[1].cells[0].innerHTML = bl3.value;
+
+      }							        
+</script>
+<script>
+	function onClickCheckBox4(eye4, bl4){ 
+							        	 
+		 var tableValue = document.getElementById('tableId');
+							            
+	         tableValue.rows[1].cells[1].innerHTML = eye4.value;
+	         tableValue.rows[1].cells[1].innerHTML = bl4.value;
+
+      }							        
+</script>
 
 <!-- 카테고리 선택 -->
 <script>
