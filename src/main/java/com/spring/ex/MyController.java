@@ -424,5 +424,10 @@ public class MyController {
 		return("/orderlist");
 	}
 	
+	@RequestMapping("admin/chart")
+	public String chart() {
+		return("admin/chart");
+	}
+	
 	
 }

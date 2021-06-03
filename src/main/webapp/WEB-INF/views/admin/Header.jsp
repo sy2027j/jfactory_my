@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +87,7 @@
                                    리뷰
                                  </a>   
                               <div class="sb-sidenav-menu-heading">통계</div>
-                               <a class="nav-link" href="charts.html">
+                               <a class="nav-link" href="chart">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                    판매현황   
                                </a>
