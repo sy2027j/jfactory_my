@@ -34,6 +34,42 @@
 							            
 							            tableValue.rows[0].cells[0].innerHTML = eye1.value;
 							            tableValue.rows[0].cells[0].innerHTML = bl1.value;
+										
+							            tableValue.rows[0].cells[1].innerHTML = eye2.value;
+							            tableValue.rows[0].cells[1].innerHTML = bl2.value;
+
+							         }
+		      				</script>
+		      				
+		      				<script>
+							         function onClickCheckBox2(eye2, bl2){ 
+							        	 
+							            var tableValue = document.getElementById('tableId');
+							            
+							            tableValue.rows[0].cells[1].innerHTML = eye2.value;
+							            tableValue.rows[0].cells[1].innerHTML = bl2.value;
+
+							         }
+		      				</script>
+		      				
+		      				<script>
+							         function onClickCheckBox3(eye3, bl3){ 
+							        	 
+							            var tableValue = document.getElementById('tableId');
+							            
+							            tableValue.rows[1].cells[0].innerHTML = eye3.value;
+							            tableValue.rows[1].cells[0].innerHTML = bl3.value;
+
+							         }
+		      				</script>
+						    
+						    <script>
+							         function onClickCheckBox4(eye4, bl4){ 
+							        	 
+							            var tableValue = document.getElementById('tableId');
+							            
+							            tableValue.rows[1].cells[1].innerHTML = eye4.value;
+							            tableValue.rows[1].cells[1].innerHTML = bl4.value;
 
 							         }
 		      				</script>
@@ -81,12 +117,12 @@
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option> 
 						</select> <br>
-							<select id="eye2" name="eye2" style="width:540px;height:50px;display: none;">
+							<select id="eye2" name="eye2" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox2(this)">
 								<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 		         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
-							<select id="bl2" name="bl2" style="width:540px;height:50px;display: none;">
+							<select id="bl2" name="bl2" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox2(this)">
 								<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 		         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 		     					</c:forEach>
@@ -99,12 +135,12 @@
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select> <br> </form> <br>
-							<select id="eye3" name="eye3" style="width:540px;height:50px;display: none;">
+							<select id="eye3" name="eye3" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox3(this)">
 								<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 		         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
-							<select id="bl3" name="bl3" style="width:540px;height:50px;display: none;">
+							<select id="bl3" name="bl3" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox3(this)">
 								<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 		         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 		     					</c:forEach>
@@ -117,12 +153,12 @@
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select> <br> </form> <br/>
-								<select id="eye4" name="eye4" style="width:540px;height:50px;display: none;">
+								<select id="eye4" name="eye4" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox4(this)">
 									<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 			         					<option value="${eyelist.getMy_name()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 			     					</c:forEach>
 								</select>
-								<select id="bl4" name="bl4" style="width:540px;height:50px;display: none;">
+								<select id="bl4" name="bl4" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox4(this)">
 									<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 			         					<option value="${blusherlist.getMy_name()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 			     					</c:forEach>
