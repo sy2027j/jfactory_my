@@ -309,14 +309,21 @@ public class MemberController {
 	}
 
 	// review list -select
-	@RequestMapping(value = "/review", method = RequestMethod.GET)
-	public String ReviewList(Model model) throws Exception {
-		List<ReviewDTO> relist = reservice.reviewList();
-		List<ReviewDTO> bedto = reservice.bestlist();
-		model.addAttribute("ReviewList", relist);
-		model.addAttribute("BestReview", bedto);
-		return "/review";
-	}
+	   @RequestMapping(value = "/review", method = RequestMethod.GET)
+	   public String ReviewList(Model model, Criteria cri) throws Exception {
+	      List<ReviewDTO> bedto = reservice.bestlist();
+	      model.addAttribute("ReviewList", reservice.reviewList(cri));
+	      model.addAttribute("BestReview", bedto);
+	      PageMaker pm = new PageMaker();
+	      pm.setDisplayPageNum(15);
+	      pm.setCri(cri);
+	      pm.setTotalCount(reservice.reviewpageCount()); //DB의 전체ROW수 입력
+
+	      // 뷰페이지로 전달 
+	      model.addAttribute("pm", pm);
+	      return "/review";
+	   }
+
 
 	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
 	public String findpw(Model model, MemberDTO dto, HttpServletRequest request) throws Exception {

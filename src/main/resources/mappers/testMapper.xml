@@ -24,14 +24,16 @@
 
 	<!-- 페이지정보를 10개씩 가져오기 -->
 	<select id="qnaListPage" resultType="MemberqnaDTO">
-		SELECT * FROM jfactory_qna ORDER
+		SELECT * FROM jfactory_qna
+		ORDER
 		BY qna_pin DESC, qna_datetime DESC
 		LIMIT #{page}, 15
 	</select>
 
 
 	<select id="pageCount" resultType="int">
-		SELECT count(*) FROM jfactory_qna
+		SELECT count(*) FROM
+		jfactory_qna
 	</select>
 
 	<!-- 회원가입 -->
@@ -87,10 +89,25 @@
 		where re_no = #{re_no}
 	</update>
 
+
 	<select id="ReviewList" resultType="ReviewDTO">
 		SELECT * FROM jfactory_review
 		ORDER BY re_datetime DESC
+		LIMIT #{pageStart},#{pageSize}
 	</select>
+
+	<!-- 페이지정보를 10개씩 가져오기 -->
+	<select id="reviewListPage" resultType="MemberqnaDTO">
+		SELECT * FROM jfactory_review
+		ORDER BY re_datetime DESC
+		LIMIT #{page}, 15
+	</select>
+
+
+	<select id="reviewpageCount" resultType="int">
+		SELECT count(*) FROM jfactory_review
+	</select>
+
 
 	<!-- 비밀번호 찾기 -->
 	<select id="findPw" resultType="MemberDTO">
@@ -176,8 +193,10 @@
 	<update id="Mypage_information" parameterType="MemberDTO">
 		UPDATE
 		jfactory_member
-		SET mem_realname = #{mem_realname}, mem_zipcode = #{mem_zipcode},
-		mem_address1 = #{mem_address1}, mem_address2 = #{mem_address2},
+		SET mem_realname = #{mem_realname}, mem_zipcode =
+		#{mem_zipcode},
+		mem_address1 = #{mem_address1}, mem_address2 =
+		#{mem_address2},
 		mem_birth_year = #{mem_birth_year}, mem_birth_month =
 		#{mem_birth_month}, mem_birth_day = #{mem_birth_day}, mem_phone =
 		#{mem_phone}, mem_phone1 = #{mem_phone1}, mem_phone2 = #{mem_phone2},
@@ -188,7 +207,7 @@
 	</update>
 
 	<delete id="Joinout" parameterType="MemberDTO">
-		DELETE * FROM jfactory_member
+		DELETE FROM jfactory_member
 		WHERE mem_id = #{mem_id}
 		AND mem_password = #{mem_password}
 	</delete>
@@ -201,23 +220,30 @@
 	</insert>
 
 	<select id="getinformation" resultType="MemberDTO">
-		SELECT * FROM jfactory_member WHERE mem_id=#{mem_id}
+		SELECT * FROM
+		jfactory_member WHERE mem_id=#{mem_id}
 	</select>
 
 	<update id="CancelCount" parameterType="MemberDTO">
-		UPDATE jfactory_member SET mem_count=mem_count-1, mem_total_cash=mem_total_cash-#{mem_total_cash} where mem_id=#{mem_id}
+		UPDATE jfactory_member
+		SET mem_count=mem_count-1,
+		mem_total_cash=mem_total_cash-#{mem_total_cash} where mem_id=#{mem_id}
 	</update>
-	
+
 	<update id="OrderCount" parameterType="MemberDTO">
-		UPDATE jfactory_member SET mem_count=mem_count+1, mem_total_cash=mem_total_cash+#{mem_total_cash} where mem_id=#{mem_id}
+		UPDATE jfactory_member SET
+		mem_count=mem_count+1, mem_total_cash=mem_total_cash+#{mem_total_cash}
+		where mem_id=#{mem_id}
 	</update>
-	
+
 	<select id="MyQnaList" resultType="MemberqnaDTO">
-		SELECT * FROM jfactory_qna WHERE mem_id=#{mem_id}
+		SELECT * FROM jfactory_qna
+		WHERE mem_id=#{mem_id}
 	</select>
-	
+
 	<select id="MyReviewList" resultType="ReviewDTO">
-		SELECT * FROM jfactory_review WHERE mem_id=#{mem_id}
+		SELECT * FROM
+		jfactory_review WHERE mem_id=#{mem_id}
 	</select>
 
 </mapper>
