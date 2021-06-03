@@ -142,7 +142,7 @@
 					    <div class="container" style="text-align : center;">
 					        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
 					    </div>
-			 </div>
+			 </div> 
     
 <br/>
     
