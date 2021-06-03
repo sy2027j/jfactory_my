@@ -50,7 +50,7 @@
 							            tableValue.rows[0].cells[1].innerHTML = bl2.value;
 
 							         }
-		      				</script>
+		      				</script> 
 		      				
 		      				<script>
 							         function onClickCheckBox3(eye3, bl3){ 
