@@ -6,6 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.util.Criteria;
+
 @Service
 public class MemberqnaServicelmpl implements MemberqnaService {
 
@@ -13,8 +15,14 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	private MemberqnaDAO dao;
 	
 	@Override
-	public List<MemberqnaDTO> qnaList() throws Exception {
-		return dao.qnaList();
+	public List<MemberqnaDTO> qnaList(Criteria cri) throws Exception {
+		return dao.qnaList(cri);
+	}
+	
+	//DB 테이블에 있는 모든 글 개수 계산 후 리턴
+	@Override
+	public int pageCount() throws Exception {
+		return dao.pageCount();
 	}
 
 	@Override

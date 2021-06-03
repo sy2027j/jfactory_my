@@ -41,6 +41,8 @@ import com.spring.ex.qna.MemberqnaDTO;
 import com.spring.ex.qna.MemberqnaService;
 import com.spring.ex.review.ReviewDTO;
 import com.spring.ex.review.ReviewService;
+import com.spring.ex.util.Criteria;
+import com.spring.ex.util.PageMaker;
 import com.spring.ex.util.UploadFileUtils;
 
 @Controller
@@ -102,14 +104,18 @@ public class MemberController {
 	@Inject
 	MemberqnaService qnaservice;
 
-	// qna list -select
+	
 	@RequestMapping(value = "/community_qna", method = RequestMethod.GET)
-	public String QnaList(Model model) throws Exception {
+	public String QnaList(Criteria cri, Model model) throws Exception{
+		model.addAttribute("QnaList", qnaservice.qnaList(cri));
 
-		List<MemberqnaDTO> qnalist = qnaservice.qnaList();
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(qnaservice.pageCount()); //DB의 전체ROW수 입력
 
-		model.addAttribute("QnaList", qnalist);
-
+		// 뷰페이지로 전달 
+		model.addAttribute("pm", pm);
+		
 		return "/community_qna";
 	}
 
@@ -411,12 +417,16 @@ public class MemberController {
 
 	// admin qna list
 	@RequestMapping(value = "admin/cm_qna", method = RequestMethod.GET)
-	public String AdminQnaList(Model model) throws Exception {
+	public String AdminQnaList(Criteria cri, Model model) throws Exception {
 
-		List<MemberqnaDTO> qnalist = qnaservice.qnaList();
+		model.addAttribute("QnaList", qnaservice.qnaList(cri));
 
-		model.addAttribute("QnaList", qnalist);
-		System.out.println("admin qna list");
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(qnaservice.pageCount()); //DB의 전체ROW수 입력
+
+		// 뷰페이지로 전달 
+		model.addAttribute("pm", pm);
 		return "admin/cm_qna";
 	}
 

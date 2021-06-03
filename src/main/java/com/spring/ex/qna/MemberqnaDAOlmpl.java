@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.util.Criteria;
+
 @Repository
 public class MemberqnaDAOlmpl implements MemberqnaDAO {
 
@@ -15,8 +17,25 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	private static final String namespace="com.spring.ex.mappers.testMapper";
 	
 	@Override
-	public List<MemberqnaDTO> qnaList() throws Exception {
-		return sqlSession.selectList(namespace+".QnaList");
+	public List<MemberqnaDTO> qnaList(Criteria cri) throws Exception {
+		System.out.println("DAO: listPageCri 호출");
+		return sqlSession.selectList(namespace+".QnaList", cri);
+	}
+	
+	//페이징
+	@Override
+	public List<MemberqnaDTO> qnaListPage(int page) throws Exception {
+		if(page <= 0) {
+			page = 1;
+		}
+		page = (page - 1)*10;
+		return sqlSession.selectList(namespace+".qnaListPage", page);
+	}
+
+	//DB 테이블에 있는 모든 글 개수 계산 후 리턴
+	@Override
+	public int pageCount() throws Exception{
+		return sqlSession.selectOne(namespace+".pageCount");
 	}
 
 	@Override
