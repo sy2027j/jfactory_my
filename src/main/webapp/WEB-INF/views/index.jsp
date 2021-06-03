@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
 <script>
     //쿠키설정   
     

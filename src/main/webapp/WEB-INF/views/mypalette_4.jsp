@@ -7,7 +7,7 @@
 <head>
 	<!-- SCRIPT -->
 	<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/dd.css"/>'>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		
 		<style>
 		    table{
@@ -27,7 +27,17 @@
    		<div class="container">
 		    <div class="row">
 		    	<div class="col-lg-6">
-		    	
+				    		<script>
+							         function onClickCheckBox(eye1){
+							            var tableValue = document.getElementById('tableId');
+							            tableValue.rows[0].cells[0].innerHTML = eye1.value;
+
+							         }
+		      				</script>
+						      <input type="checkbox" onclick="onClickCheckBox(this)" value="1">1
+						      <input type="checkbox" onclick="onClickCheckBox(this)" value="2">2
+						      <input type="checkbox" onclick="onClickCheckBox(this)" value="3">3
+								    	
 						    <table id="tableId" name="tableId" border="20px"  width="500" height="500"  bordercolor=lightblue>
 						    
 							    <tbody>
@@ -55,9 +65,9 @@
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select> <br>
-							<select id="eye1" name="eye1" style="width:540px;height:50px;display: none;">
+							<select id="eye1" name="eye1" style="width:540px;height:50px;display: none;" onchange="onClickCheckBox(this)">
 								<c:forEach var="eyelist" items="${EyesList}">
-		         					<option value="${eyelist.getMy_name()}" data-img='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
+		         					<option value="${eyelist.getMy_name()}" data-image='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
 							<select id="bl1" name="bl1" style="width:540px;height:50px;display: none;">
@@ -123,26 +133,8 @@
 			  </div>
 			    
 			    
-			    <script src='<c:url value="/resources/js/dd.js"/>'></script>
-				<script>
-					document.addEventListener("DOMContentLoaded", function() {
-						var demo1 = new BVSelect({
-							selector: "#eye1",
-							searchbox: false,
-							offset: false
-					});
-				});
-				</script>
-				
-				<script>
-					document.addEventListener("DOMContentLoaded", function() {
-						var demo2 = new BVSelect({
-							selector: "#bl1",
-							searchbox: false,
-							offset: false
-					});
-				});
-				</script>
+			   
+
 				
 				
    				<br/><br/>
@@ -220,7 +212,7 @@
 
 <%@ include file="./footer.jsp" %>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src='<c:url value="/resources/js/dd.js"/>'></script>
 
 <!-- 카테고리 선택 -->
 <script>
