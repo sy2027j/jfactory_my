@@ -12,7 +12,7 @@ public interface MemberqnaService {
 
 	public List<MemberqnaDTO> qnaList(Criteria cri) throws Exception;
 
-	//DB Å×ÀÌºí¿¡ ÀÖ´Â ¸ðµç ±Û °³¼ö °è»ê ÈÄ ¸®ÅÏ
+	//DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public int pageCount() throws Exception;
 	
 	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception;
@@ -22,4 +22,6 @@ public interface MemberqnaService {
 	public void ReplyQna(MemberqnaDTO dto) throws Exception;
 	
 	public void NoticeWrite(MemberqnaDTO dto) throws Exception;
+	
+	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception;
 }

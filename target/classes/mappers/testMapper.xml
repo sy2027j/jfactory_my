@@ -211,6 +211,10 @@
 	<update id="OrderCount" parameterType="MemberDTO">
 		UPDATE jfactory_member SET mem_count=mem_count+1, mem_total_cash=mem_total_cash+#{mem_total_cash} where mem_id=#{mem_id}
 	</update>
+	
+	<select id="MyQnaList" resultType="MemberqnaDTO">
+		SELECT * FROM jfactory_qna WHERE mem_id=#{mem_id}
+	</select>
 
 </mapper>
 

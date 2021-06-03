@@ -49,7 +49,7 @@
             
             <div class="inputArea">
  			<label for="gdsImg">이미지</label><br/>
- 			<img src = '<c:url value="/resources/image/123/${Redetail.getRe_stored_file() }"/>' width="453px" height="253px">
+ 			<img src = '<c:url value="/resources/image/review/${Redetail.getRe_stored_file() }"/>' width="500px" >
 			</div>
             
             </div> <div class="card-footer">

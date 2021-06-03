@@ -19,7 +19,7 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 		return dao.qnaList(cri);
 	}
 	
-	//DB Å×ÀÌºí¿¡ ÀÖ´Â ¸ðµç ±Û °³¼ö °è»ê ÈÄ ¸®ÅÏ
+	//DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int pageCount() throws Exception {
 		return dao.pageCount();
@@ -43,5 +43,10 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	@Override
 	public void NoticeWrite(MemberqnaDTO dto) throws Exception{
 		dao.NoticeWrite(dto);
+	}
+	
+	@Override
+	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception{
+		return dao.myqnaList(dto);
 	}
 }

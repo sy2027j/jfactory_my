@@ -18,11 +18,11 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	
 	@Override
 	public List<MemberqnaDTO> qnaList(Criteria cri) throws Exception {
-		System.out.println("DAO: listPageCri È£Ãâ");
+		System.out.println("DAO: listPageCri È£ï¿½ï¿½");
 		return sqlSession.selectList(namespace+".QnaList", cri);
 	}
 	
-	//ÆäÀÌÂ¡
+	//ï¿½ï¿½ï¿½ï¿½Â¡
 	@Override
 	public List<MemberqnaDTO> qnaListPage(int page) throws Exception {
 		if(page <= 0) {
@@ -32,7 +32,7 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 		return sqlSession.selectList(namespace+".qnaListPage", page);
 	}
 
-	//DB Å×ÀÌºí¿¡ ÀÖ´Â ¸ðµç ±Û °³¼ö °è»ê ÈÄ ¸®ÅÏ
+	//DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int pageCount() throws Exception{
 		return sqlSession.selectOne(namespace+".pageCount");
@@ -56,5 +56,10 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	@Override
 	public void NoticeWrite(MemberqnaDTO dto) throws Exception{
 		sqlSession.insert(namespace+".WriteNotice",dto);
+	}
+	
+	@Override
+	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception{
+		return sqlSession.selectList(namespace+".MyQnaList",dto);
 	}
 }

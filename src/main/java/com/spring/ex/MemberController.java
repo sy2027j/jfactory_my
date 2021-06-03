@@ -687,4 +687,16 @@ public class MemberController {
 		return "review_write";
 	}
 	
+	@RequestMapping(value = "/mypage_ask", method = RequestMethod.GET)
+	public String getQnaList(HttpSession session, MemberqnaDTO dto, Model model) throws Exception {
+	 MemberDTO member = (MemberDTO)session.getAttribute("member");
+	 String userId = member.getmem_id();
+	 
+	 dto.setmem_id(userId);
+	 List<MemberqnaDTO> askList = qnaservice.myqnaList(dto);
+	 
+	 model.addAttribute("askList", askList);
+	
+	 return "/mypage_ask";
+	}
 }
