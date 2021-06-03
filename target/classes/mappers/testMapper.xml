@@ -26,7 +26,7 @@
 	<select id="qnaListPage" resultType="MemberqnaDTO">
 		SELECT * FROM jfactory_qna ORDER
 		BY qna_pin DESC, qna_datetime DESC
-		LIMIT #{page},10
+		LIMIT #{page}, 15
 	</select>
 
 

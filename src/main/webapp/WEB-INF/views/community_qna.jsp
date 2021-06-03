@@ -4,7 +4,19 @@
 <%@ include file="./header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <hr>
+<style>
+p {
+	margin: 20px 0px;
+}
+div.box-footer{
+    position: absolute;
+    bottom: -40%;
+    left: 45%;
+}
+</style>
 <style>
 table {
 	width: 100%;
@@ -60,22 +72,27 @@ td {
 						<ul class="pagination">
 							<!-- 이전prev -->
 							<c:if test="${pm.prev }">
-								<li><a href="community_qna?page=${pm.startPage-1}">&laquo;</a></li>
+								<li class="page-item"><a class="page-link"
+									href="community_qna?page=${pm.startPage-1}">&laquo;</a></li>
 							</c:if>
 							<!-- 페이지블럭 -->
 							<c:forEach var="idx" begin="${pm.startPage }"
 								end="${pm.endPage }">
-								<!-- 삼항연산자를 사용해서 class로 스타일적용  -->
-								<li ${pm.cri.page == idx? 'class=active':''}><a
-									href="community_qna?page=${idx }">${idx}</a></li>
+								<li class="page-item"><a class="page-link" href="community_qna?page=${idx }">${idx}</a></li>
 							</c:forEach>
 							<!-- 다음next -->
 							<c:if test="${pm.next && pm.endPage > 0}">
-								<li><a href="community_qna?page=${pm.endPage+1}">&raquo;</a></li>
+								<li class="page-item"><a class="page-link" href="community_qna?page=${pm.endPage+1}">&raquo;</a></li>
 							</c:if>
 						</ul>
 					</div>
 				</div>
+
+				<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+				<script
+					src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+				<script
+					src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 			</div>
 	</div>

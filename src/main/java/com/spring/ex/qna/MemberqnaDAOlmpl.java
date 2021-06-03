@@ -28,7 +28,7 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 		if(page <= 0) {
 			page = 1;
 		}
-		page = (page - 1)*10;
+		page = (page - 1)*15;
 		return sqlSession.selectList(namespace+".qnaListPage", page);
 	}
 

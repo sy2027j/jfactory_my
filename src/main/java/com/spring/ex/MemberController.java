@@ -110,6 +110,7 @@ public class MemberController {
 		model.addAttribute("QnaList", qnaservice.qnaList(cri));
 
 		PageMaker pm = new PageMaker();
+		pm.setDisplayPageNum(15);
 		pm.setCri(cri);
 		pm.setTotalCount(qnaservice.pageCount()); //DB의 전체ROW수 입력
 

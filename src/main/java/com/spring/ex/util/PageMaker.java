@@ -11,7 +11,7 @@ public class PageMaker {
 	private Criteria cri;
 	
 	//화면에 보여지는 페이지블럭의 수
-	private int displayPageNum = 10;
+	private int displayPageNum = 5;
 
 	public PageMaker() {}
 	public PageMaker(int totalCount, int startPage, int endPage, boolean prev, boolean next, Criteria cri,
