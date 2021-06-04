@@ -44,6 +44,7 @@
 		<br/>
 		-->
 		<hr><form id="addcart" name="addcart" action="cartadd" method="POST">
+		<input type="hidden" id="my_memo" name="my_memo" value="">
 		<div>
 		수량을 선택해주세요. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="pd_amount" id="pd_amount" style="width:100px"><option value="">수량</option>
                               <c:forEach var="i" begin="1" end="10">
@@ -57,11 +58,21 @@
 		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 		 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
 		 <input type="hidden" id="pd_price" name="pd_price" value="${ProductDetail.getPd_price()}">
-		 <c:if test="${member != null }">
-      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button></c:if>
-      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로구매</button>
+		 
+      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
+	      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" form="loginForm" class="btn btn-secondary btn-lg" onclick="auth();">바로구매</button>
    <br/><br/><br/><br/>
     </div></form>
+    
+    <form action="order_info" method="get" id="loginForm" name="loginForm">
+    	 <input type="hidden" id="pd_no" name="pd_no" value="${ProductDetail.getPd_no()}">
+		 <input type="hidden" id="pd_name" name="pd_name" value="${ProductDetail.getPd_name()}">
+		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
+		 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
+		 <input type="text" id="pd_price1" name="pd_price" value="${ProductDetail.getPd_price()}">
+		 <input type="text" id="pd_amount1" name="pd_amount" value="">
+		 <input type="text" id="or_price1" name="or_price" value="">
+	</form>
     </div></div>
     <hr>
     <!-- /.row -->
@@ -126,6 +137,13 @@
   </div>
   <script>
   function Cart_check(){
+	  
+	  <c:if test="${member eq null }">
+  	alert('로그인 해주세요');
+  	location.href = '/ex/index'
+  </c:if>
+  	
+  	<c:if test="${member ne null }">
 	     var pd_amount=document.getElementById("pd_amount");
 	     
   if(pd_amount.value==""){
@@ -135,9 +153,40 @@
    };
    
    document.addcart.submit();
+  </c:if>
   }
-  </script>
+  
+  function auth(){
+	    <c:if test="${member eq null }">
+	    	alert('로그인 해주세요');
+	    	location.href = '/ex/index'
+	    </c:if>
+	    	
+	    	<c:if test="${member ne null }">
+		     var pd_amount=document.getElementById("pd_amount");
+		     
+	  if(pd_amount.value==""){
+	      alert("수량을 선택하세요.");
+	      pd_amount.focus();
+	      return false;
+	   };
+	   
+	  var allprice = parseInt(document.getElementById("pd_price1").value);
+	  var delprice = parseInt(document.getElementById("pd_amount1").value);
 
+			  let price = allprice*delprice;
+			  $("#or_price1").attr("value", price);
+			
+	   document.loginForm.submit();
+	  </c:if>
+}
+  </script>
+<script>
+$("select[id='pd_amount']").on("change", function(){
+	var option = $("#pd_amount option:selected").val();
+		$("#pd_amount1").attr("value", option);
+})						        
+</script>
 <%@ include file="./footer.jsp" %>
 </body>
 </html>

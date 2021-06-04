@@ -429,5 +429,10 @@ public class MyController {
 		return("admin/chart");
 	}
 	
+	@RequestMapping("/order_info")
+	public String order_info() {
+		return("/order_info");
+	}
+	
 	
 }

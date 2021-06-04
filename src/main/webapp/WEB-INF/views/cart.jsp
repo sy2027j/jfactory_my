@@ -24,16 +24,9 @@
 </style>
   
   	<div class="container">
-  	
-  	<c:if test="${member == null }">
-  		<script type="text/javascript">
-  			alert("로그인 하세요.");
-  			window.location = '/ex/login';
-		</script> 
-  	
-  	</c:if>
   	<form id="orderlist" name="orderlist" method="POST" action='orderlist' autocomplete="off">
-  	<c:if test="${member != null }">
+  	<c:choose>
+  		<c:when test="${member != null }">
   		<input type="hidden" name="mem_id" id="mem_id" value="${member.mem_id}">
   		<input type="hidden" name="buy_realname" id="buy_realname" value="${member.mem_realname}">
   		<input type="hidden" name="buy_phone" id="buy_phone" value="${member.mem_phone}-${member.mem_phone1}-${member.mem_phone2}">
@@ -42,8 +35,13 @@
   		<input type="hidden" name="buy_address1" id="buy_address1" value="${member.mem_address1}">
   		<input type="hidden" name="buy_address2" id="buy_address2" value="${member.mem_address2}">
   		<input type="hidden" name="mem_address" id="mem_address" value="${member.mem_address1} ${member.mem_address2}">
-  	</c:if>
-  	
+  		</c:when>
+  		<c:otherwise>
+  			<script>
+  				location.href = '/ex/login';
+  			</script>
+  		</c:otherwise>
+  	</c:choose>
   	
             <div id="layoutSidenav_content">
                 <main><br/>

@@ -598,7 +598,10 @@ public class MemberController {
    @RequestMapping(value = "/cart", method = RequestMethod.GET)
    public String CartList(Model model, CartDTO dto, HttpSession session, MemberDTO mdto) throws Exception {
       MemberDTO member = (MemberDTO) session.getAttribute("member");
-      String sessionpass = member.getmem_id();
+      String sessionpass = null;
+      if (member != null) {
+    	  sessionpass = member.getmem_id();
+      }
       List<CartDTO> cartlist = cartservice.CartList(sessionpass);
       System.out.println("cart list");
       model.addAttribute("CartList", cartlist);
@@ -738,5 +741,47 @@ public class MemberController {
     model.addAttribute("myreList", myreList);
    
     return "/mypage_review";
+   }
+   
+   @RequestMapping(value = "/directorder", method = RequestMethod.POST)
+   public String directorder(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto) throws Exception {
+    System.out.println("check0");
+    MemberDTO member = (MemberDTO)session.getAttribute("member");  
+    String mem_id = member.getmem_id();
+    System.out.println("check1");
+    Calendar cal = Calendar.getInstance();
+    int year = cal.get(Calendar.YEAR);
+    String ym = year + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
+    String ymd = ym + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+    String subNum = "";
+    
+    for(int i = 1; i <= 6; i ++) {
+     subNum += (int)(Math.random() * 10);
+    }
+    System.out.println("check2");
+    String or_id = ymd + "_" + subNum;
+    
+    order.setOr_id(or_id);
+    order.setMem_id(mem_id);
+    
+    int or_price=order.getOr_price();
+    System.out.println(or_price);
+    System.out.println("check***");
+    cartservice.orderInfo(order);  
+    System.out.println("check3");
+    orderDetail.setOr_id(or_id); 
+    orderDetail.setMem_id(mem_id);
+    System.out.println(mem_id);
+    System.out.println("check2");
+    cartservice.orderdetailInfo(orderDetail); 
+    System.out.println("check4");
+    //cartservice.cartAllDelete(mem_id);
+    System.out.println("check5"); 
+    mdto.setmem_id(mem_id);
+    mdto.setMem_total_cash(or_price);
+    System.out.println("check6"); 
+    service.OrderCount(mdto);
+    System.out.println("check7"); 
+    return "redirect:/index";  
    }
 }

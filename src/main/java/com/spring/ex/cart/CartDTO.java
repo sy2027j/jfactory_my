@@ -11,6 +11,7 @@ public class CartDTO {
 	private String pd_img;
 	private int pd_price;
 	private String pd_name;
+	private String my_memo;
 	
 	public int getCart_id() {
 		return cart_id;
@@ -59,6 +60,12 @@ public class CartDTO {
 	}
 	public void setPd_name(String pd_name) {
 		this.pd_name = pd_name;
+	}
+	public String getMy_memo() {
+		return my_memo;
+	}
+	public void setMy_memo(String my_memo) {
+		this.my_memo = my_memo;
 	}
 	
 	

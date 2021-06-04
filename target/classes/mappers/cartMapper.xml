@@ -8,7 +8,7 @@
     </delete>
     
     <insert id="AddCart">
-    	INSERT INTO jfactory_cart values(DEFAULT,#{mem_id},#{pd_no},#{pd_name},#{pd_amount},DEFAULT,#{pd_img},#{pd_price})
+    	INSERT INTO jfactory_cart values(DEFAULT,#{mem_id},#{pd_no},#{pd_name},#{pd_amount},DEFAULT,#{pd_img},#{pd_price},#{my_memo})
     </insert>
 	
 	<select id="CartList" resultType="CartDTO">
