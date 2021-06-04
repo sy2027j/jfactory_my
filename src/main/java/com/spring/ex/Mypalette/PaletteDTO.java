@@ -6,7 +6,6 @@ public class PaletteDTO {
 	private String my_category;
 	private String my_main_stored_img;
 	
-	
 	public String getMy_name() {
 		return my_name;
 	}

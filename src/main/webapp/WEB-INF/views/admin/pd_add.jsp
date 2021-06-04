@@ -55,15 +55,16 @@
                   </select> <br><br/>
                   
                   <select id="pd_tag1" name="pd_tag1" size="1" style="width:540px;height:40px;">
-                     <option value="">날씨 태그</option>
-                     <option value="#맑음">맑음</option>
-                     <option value="#흐림">흐림</option>
+                     <option value="">날씨 태그</option> 
+                     <option value="#맑음">맑음</option> 
+                     <option value="#흐림">흐림</option> 
                      <option value="#구름많음">구름 많음</option>
                      <option value="#비">비</option>
                      <option value="#눈">눈</option>
                   </select> <br><br/>
                   
                   <select id="pd_tag2" name="pd_tag2" size="1" style="width:540px;height:40px;">
+                     <!-- 15 이하 추워 15-24 쾌적 25이상 더워 -->
                      <option value="">온도 태그</option>
                      <option value="#더워">더워</option>
                      <option value="#추워">추워</option>
@@ -71,9 +72,10 @@
                   </select> <br><br/>
                   
                   <select id="pd_tag3" name="pd_tag3" size="1" style="width:540px;height:40px;">
+                     <!-- 40 이하 건조 40-60 쾌적 70이상 꿉꿉 -->
                      <option value="">습도 태그</option>
                      <option value="#꿉꿉">꿉꿉</option>
-                     <option value="#보습">보습</option>
+                     <option value="#쾌적">쾌적</option>
                      <option value="#건조">건조</option>
                   </select> <br><br/>
                   

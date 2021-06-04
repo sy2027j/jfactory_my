@@ -9,15 +9,15 @@
 $(document).ready(function() { 
    
    let weatherIcon = { 
-         '01' : 'fas fa-sun', 
-         '02' : 'fas fa-cloud-sun', 
-         '03' : 'fas fa-cloud', 
-         '04' : 'fas fa-cloud-meatball', 
+         '01' : 'fas fa-sun',  //맑음
+         '02' : 'fas fa-cloud-sun', //흐림
+         '03' : 'fas fa-cloud', //흐림
+         '04' : 'fas fa-cloud-meatball', // 
          '09' : 'fas fa-cloud-sun-rain', 
-         '10' : 'fas fa-cloud-showers-heavy', 
-         '11' : 'fas fa-poo-storm', 
-         '13' : 'far fa-snowflake', 
-         '50' : 'fas fa-smog' }; 
+         '10' : 'fas fa-cloud-showers-heavy', //장마
+         '11' : 'fas fa-poo-storm',  //번개
+         '13' : 'far fa-snowflake', //눈
+         '50' : 'fas fa-smog' //안개}; 
    
    $.ajax({ 
       url:'http://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f819f3ac4b0076eb8e81c19dac977945&units=metric', 

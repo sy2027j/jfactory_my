@@ -558,13 +558,31 @@ public class MemberController {
     * "rediret:/index"; }
     */
    @RequestMapping(value = "/mypalette_4", method = RequestMethod.GET)
-   public String EyeOptionList(Model model) throws Exception {
-      List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
-      model.addAttribute("EyesList", eyeoplist);
-      List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
-      model.addAttribute("BlusherList", blusheroplist);
-      return "/mypalette_4";
-   }
+	public String EyeOptionList(Model model) throws Exception {
+		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+		model.addAttribute("EyesList", eyeoplist);
+		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+		model.addAttribute("BlusherList", blusheroplist);
+		return "/mypalette_4";
+	}
+	
+	@RequestMapping(value = "/mypalette_6", method = RequestMethod.GET)
+	public String EyeOptionList1(Model model) throws Exception {
+		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+		model.addAttribute("EyesList", eyeoplist);
+		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+		model.addAttribute("BlusherList", blusheroplist);
+		return "/mypalette_6";
+	}
+	
+	@RequestMapping(value = "/mypalette_9", method = RequestMethod.GET)
+	public String EyeOptionList2(Model model) throws Exception {
+		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+		model.addAttribute("EyesList", eyeoplist);
+		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+		model.addAttribute("BlusherList", blusheroplist);
+		return "/mypalette_9";
+	}
 
    @RequestMapping(value = "/cartadd", method = RequestMethod.POST)
    public void AddCart(CartDTO dto, HttpServletResponse response) throws Exception {
