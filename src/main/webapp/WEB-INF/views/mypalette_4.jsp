@@ -31,13 +31,13 @@
 						    
 							    <tbody>
 							    <tr>
-							    <td></td>
-							    <td></td>
+							    <td style="width:180px; height:180px"><img id="myimage" class="myimage" src="" style="width:180px"></td>
+							    <td style="width:180px; height:180px"> </td>
 							    </tr>
 							    
 							    <tr>
-							    <td></td>
-							    <td></td>
+							    <td style="width:180px; height:180px"></td>
+							    <td style="width:180px; height:180px"></td>
 							    </tr>
 							    </tbody>
 						    </table>
@@ -54,7 +54,7 @@
 						</select> <br> <br>
 							<select id="eye1" name="eye1" style="width:540px;height:50px;display: none;" onchange="onSelectBox(this)">
 								<c:forEach var="eyelist" items="${EyesList}">
-		         					<option value="${eyelist.getMy_name()}" data-image='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
+		         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}">${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
 							<select id="bl1" name="bl1" style="width:540px;height:50px;display: none;" onchange="onSelectBox(this)">
@@ -131,14 +131,11 @@
 <%@ include file="./footer.jsp" %>
 <!-- 마이 팔레트 테이블  -->
 <script>
-	function onSelectBox(eye1, bl1){ 
-							        	 
-		 var tableValue = document.getElementById('tableId');
-							            
-		 	 tableValue.rows[0].cells[0].innerHTML = eye1.value;
-	         tableValue.rows[0].cells[0].innerHTML = bl1.value;
-
-      }							        
+$("select[id='eye1']").on("change", function(){
+	var option = $("#eye1 option:selected").val();
+	 var tableValue = document.getElementById('tableId');
+		$("#myimage").attr("src", option);
+})						        
 </script>
 <script>
 	function onSelectBox2(eye2, bl2){ 
