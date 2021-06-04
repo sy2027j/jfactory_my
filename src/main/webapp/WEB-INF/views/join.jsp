@@ -390,7 +390,7 @@
  
   //회원가입 검사...
   function join_check(){
-     var mem_id=document.getElementById("mem_id");
+     var mem_id=document.getElementById("mem_id1");
      var mem_password=document.getElementById("mem_password");
      var mem_realname=document.getElementById("mem_realname");
      var mem_password2=document.getElementById("mem_password2");
