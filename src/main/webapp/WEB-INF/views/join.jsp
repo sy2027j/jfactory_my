@@ -198,7 +198,7 @@
                         <input type="radio" name="mem_sex1" value="0">여성 &nbsp;
                         <input type="radio" name="mem_sex1" value="1">남성
                      </div>
-                     <input type="hidden" name="mem_sex" id="mem_sex" value="">
+                     <input type="hidden" name="mem_sex" id="mem_sex" value="2">
                      <br />
                      <div>
                         <h5>

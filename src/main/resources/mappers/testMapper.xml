@@ -200,7 +200,7 @@
       mem_birth_year = #{mem_birth_year}, mem_birth_month =
       #{mem_birth_month}, mem_birth_day = #{mem_birth_day}, mem_phone =
       #{mem_phone}, mem_phone1 = #{mem_phone1}, mem_phone2 = #{mem_phone2},
-      mem_email = #{mem_email}, mem_skintype = #{mem_skintype},
+      mem_email = #{mem_email}, mem_sex = #{mem_sex}, mem_skintype = #{mem_skintype},
       mem_skintrouble1 = #{mem_skintrouble1}, mem_skintrouble2 =
       #{mem_skintrouble2}
       WHERE mem_id=#{mem_id}

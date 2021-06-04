@@ -29,7 +29,7 @@
                <tr>
                <tr>
                   <td><b>성별</b></td>
-                  <td class="data_td"><c:if test="${memdetaildto.getMem_sex()eq 1}">남성</c:if><c:if test="${memdetaildto.getMem_sex()eq 0}">여성</c:if></td>
+                  <td class="data_td"><c:if test="${memdetaildto.getMem_sex()eq 0}">여성</c:if><c:if test="${memdetaildto.getMem_sex()eq 1}">남성</c:if><c:if test="${memdetaildto.getMem_sex()eq 2}"></c:if></td>
                <tr>
                <tr>
                   <td><b>생년월일</b></td>
