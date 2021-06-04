@@ -36,13 +36,11 @@
                      <div class="form-group">
                         <label for="MEMBER_ID">아이디 *</label>
                         <div class="form-inline">
-                           <input type="text" class="form-control" id="mem_id"
-                              name="mem_id" placeholder="아이디를 입력하세요" style="width: 410px">
+                           <input type="text" class="form-control" id="mem_id1" name="mem_id" placeholder="아이디를 입력하세요" style="width: 410px">
                            &nbsp;
                            <button type="button" class="btn btn-default" id="idChk"
                               style="border-color: white; background-color: #e6e6fa; color: black;"
                               onclick="fn_idChk();">인증</button>
-                           <input type="hidden" name="isIdCheck" id="isIdCheck" value="n">
                         </div>
                         <div id="id_check"></div>
                      </div>
@@ -311,8 +309,8 @@
           //}}
     
   }
-  </script>
-   <script type="text/javascript">
+
+  
   var key;
   
   function Email_send(){
@@ -367,8 +365,6 @@
       } //keyup 
    
   
-  </script>
-   <script type="text/javascript">
    
    //아이디 중복 체크
    function fn_idChk(){
@@ -376,13 +372,13 @@
          url : "/ex/idChk",
          type : "POST",
          dataType : "json",
-         data : {"mem_id" : $("#mem_id").val()},
+         data : {"mem_id" : $("#mem_id1").val()},
          success : function(data){
             if(data == 1){
                alert("사용 불가능한 아이디입니다.");
             }else if(data == 0){
                $("#isIdCheck").attr("value", "Y");
-               
+               console.log(data + "  " + $("#mem_id").val());
                alert("사용 가능한 아이디입니다.");
             }
          },error:function(request,status,error){
@@ -390,10 +386,7 @@
              }
       })
    }
-  
-   </script>
-
-   <script type="text/javascript">
+ 
  
   //회원가입 검사...
   function join_check(){
@@ -559,8 +552,6 @@
      document.signUp.submit();
   }
 
-  </script>
-   <script>
 
 
 //주소 찾기
