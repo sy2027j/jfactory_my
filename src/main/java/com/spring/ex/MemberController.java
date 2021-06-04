@@ -405,8 +405,8 @@ public class MemberController {
          }
 
          subject = "jfactory에서 발송된 인증번호 입니다.";
-         content = "안녕하세요 고객님 jfactory를 찾아주셔서 감사합니다. jfactory 인증번호를 다음과 같이 알려드립니다." + "<br><br>" + "인증번호는"
-               + authCodes + "입니다." + "<br><br>" + "회원가입 창으로 돌아가 인증번호란에 입력해주세요.";
+         content = "안녕하세요 고객님 jfactory를 찾아주셔서 감사합니다. jfactory 인증번호를 다음과 같이 알려드립니다." + "<br><br>" + "인증번호는    "
+               + authCodes + "    입니다." + "<br><br>" + "회원가입 창으로 돌아가 인증번호란에 입력해주세요.";
          receiver = mem_Email;
          sender = "jfactorykm@gmail.com";
       }
