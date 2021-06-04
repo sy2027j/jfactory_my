@@ -11,71 +11,71 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MemberDAOImpl implements MemberDAO {
 
-	@Inject
-	private SqlSession sqlSession;
-	private static final String namespace = "com.spring.ex.mappers.testMapper";
-	
-	@Override
-	public List<MemberDTO> memberList() throws Exception {
-		return sqlSession.selectList(namespace + ".MemberList");
-	}
-	
-	@Override
-	public void memberJoinMethod(MemberDTO dto) throws Exception{
-		sqlSession.insert(namespace+".Join",dto);
-	}
-	
-	@Override
-	public int idChk(MemberDTO dto) throws Exception{
-		int result = sqlSession.selectOne(namespace+".IdChk",dto);
-		return result;
-	}
-	
-	@Override
-	public MemberDTO Login(MemberDTO dto) throws Exception{
-		return sqlSession.selectOne(namespace+".Login", dto);
-		
-		
-	}
-	
-	@Override
-	public MemberDTO findid(MemberDTO dto) throws Exception{
-		return sqlSession.selectOne(namespace+".FindId", dto);
-	}
-	
-	@Override
+   @Inject
+   private SqlSession sqlSession;
+   private static final String namespace = "com.spring.ex.mappers.testMapper";
+   
+   @Override
+   public List<MemberDTO> memberList() throws Exception {
+      return sqlSession.selectList(namespace + ".MemberList");
+   }
+   
+   @Override
+   public void memberJoinMethod(MemberDTO dto) throws Exception{
+      sqlSession.insert(namespace+".Join",dto);
+   }
+   
+   @Override
+   public int idChk(MemberDTO dto) throws Exception{
+      int result = sqlSession.selectOne(namespace+".IdChk",dto);
+      return result;
+   }
+   
+   @Override
+   public MemberDTO Login(MemberDTO dto) throws Exception{
+      return sqlSession.selectOne(namespace+".Login", dto);
+      
+      
+   }
+   
+   @Override
+   public MemberDTO findid(MemberDTO dto) throws Exception{
+      return sqlSession.selectOne(namespace+".FindId", dto);
+   }
+   
+   @Override
     public MemberDTO findpw(MemberDTO dto) throws Exception{
-		return sqlSession.selectOne(namespace+".findPw", dto);
-	}
-	
-	@Override
-	public void setPw(MemberDTO dto) throws Exception{
-		sqlSession.update(namespace+".setPw",dto);
-	}
+      return sqlSession.selectOne(namespace+".findPw", dto);
+   }
+   
+   @Override
+   public void setPw(MemberDTO dto) throws Exception{
+      sqlSession.update(namespace+".setPw",dto);
+   }
 
-	@Override
+   @Override
     public void Joinout(MemberDTO dto) throws Exception{
-		sqlSession.delete(namespace+".Joinout", dto);
-	}
-	
-	@Override
-	public MemberDTO getinformation(MemberDTO dto) throws Exception{
-		return sqlSession.selectOne(namespace + ".getinformation", dto);
-	}
-	
-	@Override
-	public void mypage_information(MemberDTO dto) throws Exception { 
-		sqlSession.update(namespace + ".Mypage_information", dto); 
-		}
-	
-	@Override
-	public void cancelCount(MemberDTO dto)throws Exception{
-		sqlSession.update(namespace+".CancelCount",dto);
-	}
-	
-	@Override
-	public void OrderCount(MemberDTO dto)throws Exception{
-		sqlSession.update(namespace+".OrderCount",dto);
-	}
+      sqlSession.delete(namespace+".Joinout", dto);
+   }
+   
+   @Override
+   public MemberDTO getinformation(MemberDTO dto) throws Exception{
+      return sqlSession.selectOne(namespace + ".getinformation", dto);
+   }
+   
+   @Override
+   public void mypage_information(MemberDTO dto) throws Exception { 
+      sqlSession.update(namespace + ".Mypage_information", dto); 
+      }
+   
+   @Override
+   public void cancelCount(MemberDTO dto)throws Exception{
+      sqlSession.update(namespace+".CancelCount",dto);
+   }
+   
+   @Override
+   public void OrderCount(MemberDTO dto)throws Exception{
+      sqlSession.update(namespace+".OrderCount",dto);
+   }
 
 }

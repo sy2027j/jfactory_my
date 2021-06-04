@@ -3,248 +3,247 @@
 
 <mapper namespace="com.spring.ex.mappers.testMapper">
 
-	<!-- 회원 리스트 불러오기 -->
-	<select id="MemberList" resultType="MemberDTO">
-		SELECT * FROM jfactory_member
-		where mem_is_admin=0
-	</select>
+   <!-- 회원 리스트 불러오기 -->
+   <select id="MemberList" resultType="MemberDTO">
+      SELECT * FROM jfactory_member
+      where mem_is_admin=0
+   </select>
 
-	<!-- 관리자 리스트 불러오기 -->
-	<select id="AdminList" resultType="AdminDTO">
-		SELECT * FROM jfactory_member
-		where mem_is_admin=1 or mem_is_admin=2
-	</select>
+   <!-- 관리자 리스트 불러오기 -->
+   <select id="AdminList" resultType="AdminDTO">
+      SELECT * FROM jfactory_member
+      where mem_is_admin=1 or mem_is_admin=2
+   </select>
 
-	<!-- qna 글 공지 우선 불러오고 최신순으로 불러오기 -->
-	<select id="QnaList" resultType="MemberqnaDTO">
-		SELECT * FROM jfactory_qna ORDER
-		BY qna_pin DESC, qna_datetime DESC
-		LIMIT #{pageStart},#{pageSize}
-	</select>
+   <!-- qna 글 공지 우선 불러오고 최신순으로 불러오기 -->
+   <select id="QnaList" resultType="MemberqnaDTO">
+      SELECT * FROM jfactory_qna ORDER
+      BY qna_pin DESC, qna_datetime DESC
+      LIMIT #{pageStart},#{pageSize}
+   </select>
 
-	<!-- 페이지정보를 10개씩 가져오기 -->
-	<select id="qnaListPage" resultType="MemberqnaDTO">
-		SELECT * FROM jfactory_qna
-		ORDER
-		BY qna_pin DESC, qna_datetime DESC
-		LIMIT #{page}, 15
-	</select>
-
-
-	<select id="pageCount" resultType="int">
-		SELECT count(*) FROM
-		jfactory_qna
-	</select>
-
-	<!-- 회원가입 -->
-	<insert id="Join" parameterType="MemberDTO">
-		INSERT INTO jfactory_member
-		values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},DEFAULT,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,#{mem_email_cert},DEFAULT,0,null,#{mem_sex},#{mem_skintype},#{mem_skintrouble1},#{mem_skintrouble2},0,0,0)
-	</insert>
-
-	<!-- 로그인 -->
-	<select id="Login" resultType="MemberDTO">
-		SELECT * FROM jfactory_member
-		where mem_id=#{mem_id} AND mem_password = #{mem_password}
-	</select>
-
-	<!-- qna 문의 남기기 -->
-	<insert id="QnaWrite" parameterType="MemberqnaDTO">
-		INSERT INTO jfactory_qna
-		values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,#{qna_category},0)
-	</insert>
-
-	<!-- qna 상세 내용 보기 -->
-	<select id="QnaDetail" resultType="MemberqnaDTO">
-		SELECT qna_no, mem_id,
-		qna_title, qna_content, qna_reply_content, qna_category FROM
-		jfactory_qna where qna_no=#{qna_no}
-	</select>
-
-	<!-- id 중복체크 -->
-	<select id="IdChk" resultType="int">
-		SELECT COUNT(*) FROM
-		jfactory_member WHERE mem_id=#{mem_id}
-	</select>
-
-	<!-- review insert -->
-	<insert id="Reiew">
-		INSERT INTO jfactory_review
-		values(DEFAULT,#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,#{re_org_file},#{re_stored_file},#{pd_name})
-	</insert>
-
-	<select id="FindId" resultType="MemberDTO">
-		SELECT * FROM jfactory_member
-		WHERE mem_realname=#{mem_realname} AND mem_email=#{mem_email}
-	</select>
-
-	<select id="ReviewView" resultType="ReviewDTO">
-		SELECT * FROM jfactory_review
-		WHERE re_no=#{re_no}
-	</select>
-
-	<!-- 조회수 올리기 -->
-	<update id="Review_count">
-		UPDATE jfactory_review SET re_count = re_count + 1
-		where re_no = #{re_no}
-	</update>
+   <!-- 페이지정보를 10개씩 가져오기 -->
+   <select id="qnaListPage" resultType="MemberqnaDTO">
+      SELECT * FROM jfactory_qna
+      ORDER
+      BY qna_pin DESC, qna_datetime DESC
+      LIMIT #{page}, 15
+   </select>
 
 
-	<select id="ReviewList" resultType="ReviewDTO">
-		SELECT * FROM jfactory_review
-		ORDER BY re_datetime DESC
-		LIMIT #{pageStart},#{pageSize}
-	</select>
+   <select id="pageCount" resultType="int">
+      SELECT count(*) FROM
+      jfactory_qna
+   </select>
 
-	<!-- 페이지정보를 10개씩 가져오기 -->
-	<select id="reviewListPage" resultType="MemberqnaDTO">
-		SELECT * FROM jfactory_review
-		ORDER BY re_datetime DESC
-		LIMIT #{page}, 15
-	</select>
+   <!-- 회원가입 -->
+   <insert id="Join" parameterType="MemberDTO">
+      INSERT INTO jfactory_member
+      values(#{mem_id},#{mem_email},#{mem_password},#{mem_realname},DEFAULT,0,#{mem_phone},#{mem_phone1},#{mem_phone2},#{mem_birth_year},#{mem_birth_month},#{mem_birth_day},#{mem_zipcode},#{mem_address1},#{mem_address2},0,0,#{mem_email_cert},DEFAULT,0,null,#{mem_sex},#{mem_skintype},#{mem_skintrouble1},#{mem_skintrouble2},0,0,0)
+   </insert>
+
+   <!-- 로그인 -->
+   <select id="Login" resultType="MemberDTO">
+      SELECT * FROM jfactory_member
+      where mem_id=#{mem_id} AND mem_password = #{mem_password}
+   </select>
+
+   <!-- qna 문의 남기기 -->
+   <insert id="QnaWrite" parameterType="MemberqnaDTO">
+      INSERT INTO jfactory_qna
+      values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,null,#{qna_category},0)
+   </insert>
+
+   <!-- qna 상세 내용 보기 -->
+   <select id="QnaDetail" resultType="MemberqnaDTO">
+      SELECT qna_no, mem_id,
+      qna_title, qna_content, qna_reply_content, qna_category FROM
+      jfactory_qna where qna_no=#{qna_no}
+   </select>
+
+   <!-- id 중복체크 -->
+   <select id="IdChk" resultType="int">
+      SELECT COUNT(*) FROM
+      jfactory_member WHERE mem_id=#{mem_id}
+   </select>
+
+   <!-- review insert -->
+   <insert id="Reiew">
+      INSERT INTO jfactory_review
+      values(DEFAULT,#{mem_id},#{re_title},#{re_score},#{re_content},DEFAULT,DEFAULT,#{re_org_file},#{re_stored_file},#{pd_name})
+   </insert>
+
+   <select id="FindId" resultType="MemberDTO">
+      SELECT * FROM jfactory_member
+      WHERE mem_realname=#{mem_realname} AND mem_email=#{mem_email}
+   </select>
+
+   <select id="ReviewView" resultType="ReviewDTO">
+      SELECT * FROM jfactory_review
+      WHERE re_no=#{re_no}
+   </select>
+
+   <!-- 조회수 올리기 -->
+   <update id="Review_count">
+      UPDATE jfactory_review SET re_count = re_count + 1
+      where re_no = #{re_no}
+   </update>
 
 
-	<select id="reviewpageCount" resultType="int">
-		SELECT count(*) FROM jfactory_review
-	</select>
+   <select id="ReviewList" resultType="ReviewDTO">
+      SELECT * FROM jfactory_review
+      ORDER BY re_datetime DESC
+      LIMIT #{pageStart},#{pageSize}
+   </select>
+
+   <!-- 페이지정보를 10개씩 가져오기 -->
+   <select id="reviewListPage" resultType="MemberqnaDTO">
+      SELECT * FROM jfactory_review
+      ORDER BY re_datetime DESC
+      LIMIT #{page}, 15
+   </select>
 
 
-	<!-- 비밀번호 찾기 -->
-	<select id="findPw" resultType="MemberDTO">
-		SELECT * FROM jfactory_member
-		WHERE mem_realname=#{mem_realname} AND mem_email=#{mem_email} AND
-		mem_id=#{mem_id}
-	</select>
-
-	<!-- 비밀번호 입력 -->
-	<update id="setPw" parameterType="MemberDTO">
-		UPDATE jfactory_member SET
-		mem_password=#{mem_password} WHERE mem_id=#{mem_id}
-	</update>
-
-	<insert id="AddProduct">
-		INSERT INTO jfactory_product
-		values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},#{pd_main_file},#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
-	</insert>
-
-	<select id="ProductView" resultType="ProductDTO">
-		SELECT * FROM
-		jfactory_product WHERE pd_name=#{pd_name}
-	</select>
-
-	<update id="AddDetail" parameterType="ProductDTO">
-		UPDATE jfactory_product SET
-		pd_con_file=#{pd_con_file}, pd_con_stored_file=#{pd_con_stored_file}
-		WHERE pd_name=#{pd_name}
-	</update>
+   <select id="reviewpageCount" resultType="int">
+      SELECT count(*) FROM jfactory_review
+   </select>
 
 
-	<select id="ProductListView" resultType="ProductDTO">
-		SELECT * FROM
-		jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_datetime
-		DESC
-	</select>
+   <!-- 비밀번호 찾기 -->
+   <select id="findPw" resultType="MemberDTO">
+      SELECT * FROM jfactory_member
+      WHERE mem_realname=#{mem_realname} AND mem_email=#{mem_email} AND
+      mem_id=#{mem_id}
+   </select>
 
-	<select id="BestReview" resultType="ReviewDTO">
-		SELECT * FROM jfactory_review
-		ORDER BY re_count DESC LIMIT 4
-	</select>
+   <!-- 비밀번호 입력 -->
+   <update id="setPw" parameterType="MemberDTO">
+      UPDATE jfactory_member SET
+      mem_password=#{mem_password} WHERE mem_id=#{mem_id}
+   </update>
 
-	<update id="ReplyQna" parameterType="MemberqnaDTO">
-		UPDATE jfactory_qna SET
-		qna_reply_content=#{qna_reply_content}, qna_replay_datetime=DEFAULT,
-		qna_response=1 WHERE qna_no=#{qna_no}
-	</update>
+   <insert id="AddProduct">
+      INSERT INTO jfactory_product
+      values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},#{pd_main_file},#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
+   </insert>
 
-	<insert id="WriteNotice" parameterType="MemberqnaDTO">
-		INSERT INTO jfactory_qna
-		values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,2,null,1)
-	</insert>
+   <select id="ProductView" resultType="ProductDTO">
+      SELECT * FROM
+      jfactory_product WHERE pd_name=#{pd_name}
+   </select>
 
-	<insert id="ProductPhotoWrite" parameterType="hashMap">
-		INSERT INTO
-		jfactory_product
-		values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},null,#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
-	</insert>
+   <update id="AddDetail" parameterType="ProductDTO">
+      UPDATE jfactory_product SET
+      pd_con_file=#{pd_con_file}, pd_con_stored_file=#{pd_con_stored_file}
+      WHERE pd_name=#{pd_name}
+   </update>
 
-	<insert id="AddMypalette" parameterType="hashMap">
-		INSERT INTO
-		jfactory_mypalette
-		values(#{my_category},#{my_main_stored_img},#{my_name})
-	</insert>
 
-	<select id="ProductStockList" resultType="ProductDTO">
-		SELECT * FROM
-		jfactory_product
-		ORDER BY pd_datetime DESC
-	</select>
+   <select id="ProductListView" resultType="ProductDTO">
+      SELECT * FROM
+      jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_datetime
+      DESC
+   </select>
 
-	<select id="MypaletteEyes" resultType="PaletteDTO">
-		SELECT * FROM
-		jfactory_mypalette WHERE my_category="아이"
-	</select>
+   <select id="BestReview" resultType="ReviewDTO">
+      SELECT * FROM jfactory_review
+      ORDER BY re_count DESC LIMIT 4
+   </select>
 
-	<select id="MypaletteBlusher" resultType="PaletteDTO">
-		SELECT * FROM
-		jfactory_mypalette WHERE my_category="블러셔"
-	</select>
+   <update id="ReplyQna" parameterType="MemberqnaDTO">
+      UPDATE jfactory_qna SET
+      qna_reply_content=#{qna_reply_content}, qna_replay_datetime=DEFAULT,
+      qna_response=1 WHERE qna_no=#{qna_no}
+   </update>
 
-	<!-- 회원정보 수정 -->
-	<update id="Mypage_information" parameterType="MemberDTO">
-		UPDATE
-		jfactory_member
-		SET mem_realname = #{mem_realname}, mem_zipcode =
-		#{mem_zipcode},
-		mem_address1 = #{mem_address1}, mem_address2 =
-		#{mem_address2},
-		mem_birth_year = #{mem_birth_year}, mem_birth_month =
-		#{mem_birth_month}, mem_birth_day = #{mem_birth_day}, mem_phone =
-		#{mem_phone}, mem_phone1 = #{mem_phone1}, mem_phone2 = #{mem_phone2},
-		mem_email = #{mem_email}, mem_skintype = #{mem_skintype},
-		mem_skintrouble1 = #{mem_skintrouble1}, mem_skintrouble2 =
-		#{mem_skintrouble2}
-		WHERE mem_id=#{mem_id}
-	</update>
+   <insert id="WriteNotice" parameterType="MemberqnaDTO">
+      INSERT INTO jfactory_qna
+      values(DEFAULT,#{mem_id},#{qna_title},#{qna_content},null,null,DEFAULT,null,2,null,1)
+   </insert>
 
-	<delete id="Joinout" parameterType="MemberDTO">
-		DELETE FROM jfactory_member
-		WHERE mem_id = #{mem_id}
-		AND mem_password = #{mem_password}
-	</delete>
+   <insert id="ProductPhotoWrite" parameterType="hashMap">
+      INSERT INTO
+      jfactory_product
+      values(DEFAULT,#{pd_name},#{pd_simplecontent},#{pd_price},null,#{pd_main_stored_file},null,null,DEFAULT,DEFAULT,DEFAULT,DEFAULT,DEFAULT,#{pd_category},#{pd_tag1},#{pd_tag2},#{pd_tag3},#{pd_tag4},#{pd_tag5})
+   </insert>
 
-	<!-- 회원 탈퇴 사유 등록 -->
-	<insert id="joinout_input" parameterType="JoinoutDTO">
-		INSERT INTO
-		jfactory_joinout
-		values(#{joinout_opinion},#{joinout_reason})
-	</insert>
+   <insert id="AddMypalette" parameterType="hashMap">
+      INSERT INTO
+      jfactory_mypalette
+      values(#{my_category},#{my_main_stored_img},#{my_name})
+   </insert>
 
-	<select id="getinformation" resultType="MemberDTO">
-		SELECT * FROM
-		jfactory_member WHERE mem_id=#{mem_id}
-	</select>
+   <select id="ProductStockList" resultType="ProductDTO">
+      SELECT * FROM
+      jfactory_product
+      ORDER BY pd_datetime DESC
+   </select>
 
-	<update id="CancelCount" parameterType="MemberDTO">
-		UPDATE jfactory_member
-		SET mem_count=mem_count-1,
-		mem_total_cash=mem_total_cash-#{mem_total_cash} where mem_id=#{mem_id}
-	</update>
+   <select id="MypaletteEyes" resultType="PaletteDTO">
+      SELECT * FROM
+      jfactory_mypalette WHERE my_category="아이"
+   </select>
 
-	<update id="OrderCount" parameterType="MemberDTO">
-		UPDATE jfactory_member SET
-		mem_count=mem_count+1, mem_total_cash=mem_total_cash+#{mem_total_cash}
-		where mem_id=#{mem_id}
-	</update>
+   <select id="MypaletteBlusher" resultType="PaletteDTO">
+      SELECT * FROM
+      jfactory_mypalette WHERE my_category="블러셔"
+   </select>
 
-	<select id="MyQnaList" resultType="MemberqnaDTO">
-		SELECT * FROM jfactory_qna
-		WHERE mem_id=#{mem_id}
-	</select>
+   <!-- 회원정보 수정 -->
+   <update id="Mypage_information" parameterType="MemberDTO">
+      UPDATE
+      jfactory_member
+      SET mem_realname = #{mem_realname}, mem_zipcode =
+      #{mem_zipcode},
+      mem_address1 = #{mem_address1}, mem_address2 =
+      #{mem_address2},
+      mem_birth_year = #{mem_birth_year}, mem_birth_month =
+      #{mem_birth_month}, mem_birth_day = #{mem_birth_day}, mem_phone =
+      #{mem_phone}, mem_phone1 = #{mem_phone1}, mem_phone2 = #{mem_phone2},
+      mem_email = #{mem_email}, mem_skintype = #{mem_skintype},
+      mem_skintrouble1 = #{mem_skintrouble1}, mem_skintrouble2 =
+      #{mem_skintrouble2}
+      WHERE mem_id=#{mem_id}
+   </update>
 
-	<select id="MyReviewList" resultType="ReviewDTO">
-		SELECT * FROM
-		jfactory_review WHERE mem_id=#{mem_id}
-	</select>
+   <delete id="Joinout" parameterType="MemberDTO">
+      DELETE FROM jfactory_member
+      WHERE mem_id = #{mem_id}
+      AND mem_password = #{mem_password}
+   </delete>
+
+   <!-- 회원 탈퇴 사유 등록 -->
+   <insert id="joinout_input" parameterType="JoinoutDTO">
+      INSERT INTO
+      jfactory_joinout
+      values(#{joinout_opinion},#{joinout_reason})
+   </insert>
+
+   <select id="getinformation" resultType="MemberDTO">
+      SELECT * FROM
+      jfactory_member WHERE mem_id=#{mem_id}
+   </select>
+
+   <update id="CancelCount" parameterType="MemberDTO">
+      UPDATE jfactory_member
+      SET mem_count=mem_count-1,
+      mem_total_cash=mem_total_cash-#{mem_total_cash} where mem_id=#{mem_id}
+   </update>
+
+   <update id="OrderCount" parameterType="MemberDTO">
+      UPDATE jfactory_member SET
+      mem_count=mem_count+1, mem_total_cash=mem_total_cash+#{mem_total_cash}
+      where mem_id=#{mem_id}
+   </update>
+
+   <select id="MyQnaList" resultType="MemberqnaDTO">
+      SELECT * FROM jfactory_qna
+      WHERE mem_id=#{mem_id}
+   </select>
+
+   <select id="MyReviewList" resultType="ReviewDTO">
+      SELECT * FROM
+      jfactory_review WHERE mem_id=#{mem_id}
+   </select>
 
 </mapper>
-
