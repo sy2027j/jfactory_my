@@ -23,7 +23,7 @@
 	    <div class="col-lg-12">
 	    	<h3 align="center"> 4구 팔레트 조합하기</h3><br/>
 	    </div>
-	    
+	    <br/>
    		<div class="container">
 		    <div class="row">
 		    	<div class="col-lg-6"> 
@@ -86,7 +86,7 @@
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
-						</select> <br> </form> <br>
+						</select> <br><br>
 							<select id="eye3" name="eye3" style="width:540px;height:50px;display: none;" onchange="onSelectBox3(this)">
 								<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 		         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
@@ -104,7 +104,7 @@
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
-						</select> <br> </form> <br/>
+						</select> <br> <br/>
 								<select id="eye4" name="eye4" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 			         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
@@ -120,30 +120,40 @@
 			      </div>
  		
    						<br/><br/><hr>
+   						<form id="addcart" name="addcart" action="cartadd" method="post">
    						<div class="col-lg-12">
-   							<h3 align="RIGHT">4구 MY PALETTE</h3>
-        					<h3 align="RIGHT">7000원</h3><br/>
+   							<h4 align="RIGHT">4구 MY PALETTE</h4>
+        					<h4 align="RIGHT">7000원</h4><br/>
+        					<div align="right">
+		수량을 선택해주세요. &nbsp;&nbsp;&nbsp;&nbsp;<select name="pd_amount" id="pd_amount" style="width:100px"><option value="">수량</option>
+                              <c:forEach var="i" begin="1" end="10">
+                                 <option value="${i }">${i }</option>
+                              </c:forEach></select>
+		</div>
       				
-							<hr><form id="addcart" name="addcart" action="cartadd" method="POST">
+							<hr>
 		
 							<br/><br/>
 							<div  align="right">
-									 <input type="hidden" id="my_no" name="my_no" value="${ProductDetail.getPd_no()}">
-									 <input type="hidden" id="pd_name" name="pd_name" value="${ProductDetail.getPd_name()}">
-									 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
-									 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
-									 <input type="hidden" id="pd_price" name="pd_price" value="${ProductDetail.getPd_price()}">
-									 <c:if test="${member != null }">
-									      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button></c:if>
-									      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로구매</button>
+									 <input type="text" id="pd_no" name="pd_no" value="167">
+									 <input type="text" id="hidden_value1" name="hidden_value1" value="" />
+									 <input type="text" id="hidden_value2" name="hidden_value2" value="" />
+									 <input type="text" id="hidden_value3" name="hidden_value3" value="" />
+									 <input type="text" id="hidden_value4" name="hidden_value4" value="" />
+									 <input type="text" id="pd_name" name="pd_name" value="마이 팔레트 4구">
+									 <input type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
+									 <input type="text" id="pd_img" name="pd_img" value="aa909089-88cb-45e7-9768-22fc537d3f25_palette4.jpg">
+									 <input type="text" id="pd_price" name="pd_price" value="7000">
+									 <input type="text" id="my" name="my_memo" value="" />
+									      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
+	      								  <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" form="loginForm" class="btn btn-secondary btn-lg" onclick="auth();">바로구매</button>
 									   <br/><br/><br/><br/>
-					   		 </div></form>
-					    </div></div>
+					   		 </div>
+					    </div> </form></div>
    		
 					    <div class="container" style="text-align : center;">
 					        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
 					    </div>
-			 </div> 
     
 <br/>
  
@@ -156,6 +166,8 @@ $("select[id='eye1']").on("change", function(){
 	var option = $("#eye1 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img1").attr("src", option);
+		var value=$("#eye1 option:checked").text()
+		$("#hidden_value1").attr("value", value);
 })						        
 </script>
 <script>
@@ -163,6 +175,8 @@ $("select[id='bl1']").on("change", function(){
 	var option = $("#bl1 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img1").attr("src", option);
+		var value=$("#bl1 option:checked").text()
+		$("#hidden_value1").attr("value", value);
 })						        
 </script>
 
@@ -172,6 +186,8 @@ $("select[id='eye2']").on("change", function(){
 	var option = $("#eye2 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img2").attr("src", option);
+		var value=$("#eye2 option:checked").text()
+		$("#hidden_value2").attr("value", value);
 })						        
 </script>
 <script>
@@ -179,6 +195,8 @@ $("select[id='bl2']").on("change", function(){
 	var option = $("#bl2 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img2").attr("src", option);
+		var value=$("#bl2 option:checked").text()
+		$("#hidden_value2").attr("value", value);
 })						        
 </script>
 
@@ -188,6 +206,8 @@ $("select[id='eye3']").on("change", function(){
 	var option = $("#eye3 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img3").attr("src", option);
+		var value=$("#eye3 option:checked").text()
+		$("#hidden_value3").attr("value", value);
 })						        
 </script>
 <script>
@@ -195,6 +215,8 @@ $("select[id='bl3']").on("change", function(){
 	var option = $("#bl3 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img3").attr("src", option);
+		var value=$("#bl3 option:checked").text()
+		$("#hidden_value3").attr("value", value);
 })						        
 </script>
 
@@ -204,6 +226,8 @@ $("select[id='eye4']").on("change", function(){
 	var option = $("#eye4 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img4").attr("src", option);
+		var value=$("#eye4 option:checked").text()
+		$("#hidden_value4").attr("value", value);
 })						        
 </script>
 <script>
@@ -211,9 +235,11 @@ $("select[id='bl4']").on("change", function(){
 	var option = $("#bl4 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img4").attr("src", option);
+		var value=$("#bl4 option:checked").text()
+		$("#hidden_value4").attr("value", value);
+	
 })						        
 </script>
-
 
 <!-- 카테고리 선택 -->
 <script>
@@ -370,6 +396,85 @@ $( document ).ready(function(){
 });
 
 </script>
+<script>
+  function Cart_check(){
+	  
+	  <c:if test="${member eq null }">
+  	alert('로그인 해주세요');
+  	location.href = '/ex/index'
+  </c:if>
+  	
+  	<c:if test="${member ne null }">
+	     var pd_amount=document.getElementById("pd_amount");
+	     
+  if(pd_amount.value==""){
+      alert("수량을 선택하세요.");
+      pd_amount.focus();
+      return false;
+   };
+   
+   var value1=document.getElementById("hidden_value1").value
+	 var value2=document.getElementById("hidden_value2").value
+	 var value3=document.getElementById("hidden_value3").value
+	 var value4=document.getElementById("hidden_value4").value
+	 
+	 if(value1.value==""){
+	      alert("옵션을 선택하세요.");
+	      value1.focus();
+	      return false;
+	   };
+	   
+	   if(value2.value==""){
+		      alert("옵션을 선택하세요.");
+		      value2.focus();
+		      return false;
+		   };
+		   
+		   if(value3.value==""){
+			      alert("옵션을 선택하세요.");
+			      value3.focus();
+			      return false;
+			   };
+			   
+			   if(value4.value==""){
+				      alert("옵션을 선택하세요.");
+				      value4.focus();
+				      return false;
+				   };
+	 var memo=value1+', '+value2+', '+value3+', '+value4
+	 $("#my").attr("value", memo);
+   
+   document.addcart.submit();
+  </c:if>
+  }
+  
+  function auth(){
+	    <c:if test="${member eq null }">
+	    	alert('로그인 해주세요');
+	    	location.href = '/ex/index'
+	    </c:if>
+	    	
+	    	<c:if test="${member ne null }">
+		     var pd_amount=document.getElementById("pd_amount");
+		     
+		     
+	  if(pd_amount.value==""){
+	      alert("수량을 선택하세요.");
+	      pd_amount.focus();
+	      return false;
+	   };
+	   
+	   var value1=document.getElementById("hidden_value1").value
+		 var value2=document.getElementById("hidden_value2").value
+		 var value3=document.getElementById("hidden_value3").value
+		 var value4=document.getElementById("hidden_value4").value
+		 var memo=value1+', '+value2+', '+value3+', '+value4
+		 $("#my").attr("value", memo);
+	   
+	    
+	  </c:if>
+}
+  </script>
 
 </body>
 </html>

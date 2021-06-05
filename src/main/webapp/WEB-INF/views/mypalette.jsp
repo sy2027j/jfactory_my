@@ -58,12 +58,12 @@
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="mypalette_4"><img class="card-img-top" src="resources/image/palette4.jpg" alt=""></a>
+          <a href="mypalette_4"><img class="card-img-top" src="resources/image/palette4.jpg" alt="" onclick="location.href='mypalette_4'"></a>
           <div class="card-body">
             <h5 class="card-title">
             <a href="mypalette_4"><span style="color:black; font-size:15pt">마이 팔레트 4구</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다양한 조합으로 나만의 팔레트를 만들어보세요</span><br/>
+            <p class="card-text"><span style="color:black; font-size:10pt" onclick="location.href='mypalette_4'">다양한 조합으로 나만의 팔레트를 만들어보세요</span><br/>
             7000원</p>
             <hr>
             <div align="center">
