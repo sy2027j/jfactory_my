@@ -10,13 +10,14 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		
 		<style>
-		    table{
-		    	border:solid #ff953e;
-		    	border-spacing:50px;
-		    	table-layout:fixed;
-		    	border-collapse:separate;  
-		    }
-		</style>
+    
+    table{
+    	border:solid black;
+    	border-spacing:40px;
+    	table-layout:fixed;
+    	border-collapse:separate;
+    }
+    </style>
 </head>	
 <body>
     <br><br>
@@ -27,19 +28,21 @@
    		<div class="container">
 		    <div class="row">
 		    	<div class="col-lg-6"> 
-					<table id="tableId" name="tableId" border="15px"  width="400" height="400"  bordercolor=lightblue>
+					 <br/><br/>
+        						<table border="20px"  width="500" height="350"  bordercolor=lightblue>
+
 						    
 							    <tbody>
 							    <tr>
-							    <td style="width:180px; height:180px"><img id="img1" class="img1" src="" style="width:180px"></td>
-							    <td style="width:180px; height:180px"><img id="img2" class="img2" src="" style="width:180px"> </td>
-							    <td style="width:180px; height:180px"><img id="img3" class="img3" src="" style="width:180px"> </td>
+							    <td style="width:120px; height:120px"><img id="img1" class="img1" src="" style="width:120px"></td>
+							    <td style="width:120px; height:120px"><img id="img2" class="img2" src="" style="width:120px"> </td>
+							    <td style="width:120px; height:120px"><img id="img3" class="img3" src="" style="width:120px"> </td>
 							    </tr>
 							    
 							    <tr>
-							    <td style="width:180px; height:180px"><img id="img4" class="img4" src="" style="width:180px"></td>
-							    <td style="width:180px; height:180px"><img id="img5" class="img5" src="" style="width:180px"></td>
-							    <td style="width:180px; height:180px"><img id="img6" class="img6" src="" style="width:180px"> </td>
+							    <td style="width:120px; height:120px"><img id="img4" class="img4" src="" style="width:120px"></td>
+							    <td style="width:120px; height:120px"><img id="img5" class="img5" src="" style="width:120px"></td>
+							    <td style="width:120px; height:120px"><img id="img6" class="img6" src="" style="width:120px"> </td>
 							    </tr>
 							    </tbody>
 						    </table>
@@ -49,34 +52,34 @@
 		<!-- 상품 선택 -->
 
 				<div class="col-lg-6" align="right">
-					    <select id="sel1" name="sel1" style="width:300px;height:30px;" onchange="categoryChange(this)">
+					    <select id="sel1" name="sel1" style="width:540px;height:50px;" onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select> <br> <br>
-							<select id="eye1" name="eye1" style="width:300px;height:30px;display: none;" onchange="onSelectBox(this)">
+							<select id="eye1" name="eye1" style="width:540px;height:50px;display: none;" onchange="onSelectBox(this)">
 								<c:forEach var="eyelist" items="${EyesList}">
 		         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}">${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
-							<select id="bl1" name="bl1" style="width:300px;height:30px;display: none;" onchange="onSelectBox(this)">
+							<select id="bl1" name="bl1" style="width:540px;height:50px;display: none;" onchange="onSelectBox(this)">
 								<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 		         					<option value="resources/image/product/${blusherlist.getMy_main_stored_img()}" data-img='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
 					<br><br>
 					
-						<select id="sel2" name="sel2" style="width:300px;height:30px;" onchange="categoryChange(this)">
+						<select id="sel2" name="sel2" style="width:540px;height:50px;" onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option> 
 						</select> <br> <br>
-							<select id="eye2" name="eye2" style="width:300px;height:30px;display: none;" onchange="onSelectBox2(this)">
+							<select id="eye2" name="eye2" style="width:540px;height:50px;display: none;" onchange="onSelectBox2(this)">
 								<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 		         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 		     					</c:forEach> 
 							</select>
-							<select id="bl2" name="bl2" style="width:300px;height:30px;display: none;" onchange="onSelectBox2(this)">
+							<select id="bl2" name="bl2" style="width:540px;height:50px;display: none;" onchange="onSelectBox2(this)">
 								<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 		         					<option value="resources/image/product/${blusherlist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 		     					</c:forEach>
@@ -84,17 +87,17 @@
 						<br><br>
 						
 						
-						 <select id="sel3" name="sel3" style="width:300px;height:30px;" onchange="categoryChange(this)">
+						 <select id="sel3" name="sel3" style="width:540px;height:50px;"onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select><br> <br>
-							<select id="eye3" name="eye3" style="width:300px;height:30px;display: none;" onchange="onSelectBox3(this)">
+							<select id="eye3" name="eye3" style="width:540px;height:50px;display: none;" onchange="onSelectBox3(this)">
 								<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 		         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 		     					</c:forEach>
 							</select>
-							<select id="bl3" name="bl3" style="width:300px;height:30px;display: none;" onchange="onSelectBox3(this)">
+							<select id="bl3" name="bl3" style="width:540px;height:50px;display: none;" onchange="onSelectBox3(this)">
 								<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 		         					<option value="resources/image/product/${blusherlist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 		     					</c:forEach>
@@ -102,51 +105,51 @@
 						<br><br>
 						
 						
-						<select id="sel4" name="sel4" style="width:300px;height:30px;" onchange="categoryChange(this)">
+						<select id="sel4" name="sel4" style="width:540px;height:50px;" onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select><br> <br>
-								<select id="eye4" name="eye4" style="width:300px;height:30px;display: none;" onchange="onSelectBox4(this)">
+								<select id="eye4" name="eye4" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 			         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 			     					</c:forEach>
 								</select>
-								<select id="bl4" name="bl4" style="width:300px;height:30px;display: none;" onchange="onSelectBox4(this)">
+								<select id="bl4" name="bl4" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 			         					<option value="resources/image/product/${blusherlist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 			     					</c:forEach>
 						</select>
 						<br><br>
 						
-						<select id="sel5" name="sel5" style="width:300px;height:30px;" onchange="categoryChange(this)">
+						<select id="sel5" name="sel5" style="width:540px;height:50px;" onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select><br> <br>
-								<select id="eye5" name="eye5" style="width:300px;height:30px;display: none;" onchange="onSelectBox4(this)">
+								<select id="eye5" name="eye5" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 			         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 			     					</c:forEach>
 								</select>
-								<select id="bl5" name="bl5" style="width:300px;height:30px;display: none;" onchange="onSelectBox4(this)">
+								<select id="bl5" name="bl5" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 			         					<option value="resources/image/product/${blusherlist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 			     					</c:forEach>
 						</select>
 						<br><br>
 						
-						<select id="sel6" name="sel6" style="width:300px;height:30px;" onchange="categoryChange(this)">
+						<select id="sel6" name="sel6" style="width:540px;height:50px;" onchange="categoryChange(this)">
 							<option>제품 종류를 선택해주세요.</option>
 							<option value="아이">아이</option>
 							<option value="블러셔">블러셔</option>
 						</select><br> <br>
-								<select id="eye6" name="eye6" style="width:300px;height:30px;display: none;" onchange="onSelectBox4(this)">
+								<select id="eye6" name="eye6" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="eyelist" items="${EyesList}" varStatus="i">
 			         					<option value="resources/image/product/${eyelist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${eyelist.getMy_main_stored_img()}"/>'>${eyelist.getMy_name()}</option>
 			     					</c:forEach>
 								</select>
-								<select id="bl6" name="bl6" style="width:300px;height:30px;display: none;" onchange="onSelectBox4(this)">
+								<select id="bl6" name="bl6" style="width:540px;height:50px;display: none;" onchange="onSelectBox4(this)">
 									<c:forEach var="blusherlist" items="${BlusherList}" varStatus="i">
 			         					<option value="resources/image/product/${blusherlist.getMy_main_stored_img()}" title='<c:url value="/resources/image/product/${blusherlist.getMy_main_stored_img()}"/>'>${blusherlist.getMy_name()}</option>
 			     					</c:forEach>
