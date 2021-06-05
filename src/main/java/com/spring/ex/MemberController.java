@@ -59,11 +59,19 @@ public class MemberController {
 
    // 관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
    @RequestMapping(value = "admin/index", method = RequestMethod.GET)
-   public String memberList(Model model) throws Exception {
+   public String memberList(Model model, Criteria cri) throws Exception {
 
-      List<MemberDTO> memberlist = service.memberList();
+      List<MemberDTO> memberlist = service.memberList(cri);
 
       model.addAttribute("List", memberlist);
+      
+      PageMaker pm = new PageMaker();
+      pm.setDisplayPageNum(15);
+      pm.setCri(cri);
+      pm.setTotalCount(service.memberpageCount()); //DB의 전체ROW수 입력
+
+      // 뷰페이지로 전달 
+      model.addAttribute("pm", pm);
 
       return "admin/index";
    }
@@ -92,14 +100,34 @@ public class MemberController {
    }
 
    @RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
-   public String memberaddList(Model model) throws Exception {
+   public String memberaddList(Model model, Criteria cri) throws Exception {
 
-      List<MemberDTO> memberlist2 = service.memberList();
-
+      List<MemberDTO> memberlist2 = service.memberList(cri);
+      
       model.addAttribute("List2", memberlist2);
 
+      PageMaker pm = new PageMaker();
+      pm.setDisplayPageNum(15);
+      pm.setCri(cri);
+      pm.setTotalCount(service.memberpageCount()); //DB의 전체ROW수 입력
+
+      // 뷰페이지로 전달 
+      model.addAttribute("pm", pm);
+      
       return "admin/admin_addlist";
    }
+   
+   @RequestMapping(value = "admin/admin_addcheck", method = RequestMethod.POST)
+   public void admin_addcheck(Model model, HttpServletResponse response, Object handler, MemberDTO dto) throws Exception {
+      System.out.println("dddd");
+      service.admin_addcheck(dto);
+      response.setContentType("text/html; charset=UTF-8");
+      PrintWriter out = response.getWriter();
+      out.print("<script>alert('관리자가 추가되었습니다.');history.go(-1);</script>");
+      out.flush();
+      out.close();
+   }
+
 
    @Inject
    MemberqnaService qnaservice;
@@ -558,31 +586,31 @@ public class MemberController {
     * "rediret:/index"; }
     */
    @RequestMapping(value = "/mypalette_4", method = RequestMethod.GET)
-	public String EyeOptionList(Model model) throws Exception {
-		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
-		model.addAttribute("EyesList", eyeoplist);
-		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
-		model.addAttribute("BlusherList", blusheroplist);
-		return "/mypalette_4";
-	}
-	
-	@RequestMapping(value = "/mypalette_6", method = RequestMethod.GET)
-	public String EyeOptionList1(Model model) throws Exception {
-		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
-		model.addAttribute("EyesList", eyeoplist);
-		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
-		model.addAttribute("BlusherList", blusheroplist);
-		return "/mypalette_6";
-	}
-	
-	@RequestMapping(value = "/mypalette_9", method = RequestMethod.GET)
-	public String EyeOptionList2(Model model) throws Exception {
-		List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
-		model.addAttribute("EyesList", eyeoplist);
-		List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
-		model.addAttribute("BlusherList", blusheroplist);
-		return "/mypalette_9";
-	}
+   public String EyeOptionList(Model model) throws Exception {
+      List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+      model.addAttribute("EyesList", eyeoplist);
+      List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+      model.addAttribute("BlusherList", blusheroplist);
+      return "/mypalette_4";
+   }
+   
+   @RequestMapping(value = "/mypalette_6", method = RequestMethod.GET)
+   public String EyeOptionList1(Model model) throws Exception {
+      List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+      model.addAttribute("EyesList", eyeoplist);
+      List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+      model.addAttribute("BlusherList", blusheroplist);
+      return "/mypalette_6";
+   }
+   
+   @RequestMapping(value = "/mypalette_9", method = RequestMethod.GET)
+   public String EyeOptionList2(Model model) throws Exception {
+      List<PaletteDTO> eyeoplist = myservice.EyesOptionlist();
+      model.addAttribute("EyesList", eyeoplist);
+      List<PaletteDTO> blusheroplist = myservice.BlusherOptionList();
+      model.addAttribute("BlusherList", blusheroplist);
+      return "/mypalette_9";
+   }
 
    @RequestMapping(value = "/cartadd", method = RequestMethod.POST)
    public void AddCart(CartDTO dto, HttpServletResponse response) throws Exception {
@@ -600,7 +628,7 @@ public class MemberController {
       MemberDTO member = (MemberDTO) session.getAttribute("member");
       String sessionpass = null;
       if (member != null) {
-    	  sessionpass = member.getmem_id();
+         sessionpass = member.getmem_id();
       }
       List<CartDTO> cartlist = cartservice.CartList(sessionpass);
       System.out.println("cart list");

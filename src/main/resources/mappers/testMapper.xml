@@ -7,6 +7,20 @@
    <select id="MemberList" resultType="MemberDTO">
       SELECT * FROM jfactory_member
       where mem_is_admin=0
+      LIMIT #{pageStart},#{pageSize}
+   </select>
+
+   <!-- 페이지정보를 10개씩 가져오기 -->
+   <select id="memberListPage" resultType="MemberqnaDTO">
+      SELECT * FROM jfactory_member
+      where mem_is_admin=0
+      LIMIT #{page}, 15
+   </select>
+
+
+   <select id="memberpageCount" resultType="int">
+      SELECT count(*) FROM
+      jfactory_member
    </select>
 
    <!-- 관리자 리스트 불러오기 -->
@@ -203,6 +217,13 @@
       mem_email = #{mem_email}, mem_sex = #{mem_sex}, mem_skintype = #{mem_skintype},
       mem_skintrouble1 = #{mem_skintrouble1}, mem_skintrouble2 =
       #{mem_skintrouble2}
+      WHERE mem_id=#{mem_id}
+   </update>
+   
+   <update id="admin_addcheck" parameterType="MemberDTO">
+      UPDATE
+      jfactory_member
+      SET mem_is_admin = 2
       WHERE mem_id=#{mem_id}
    </update>
 

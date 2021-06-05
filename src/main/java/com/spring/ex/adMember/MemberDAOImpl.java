@@ -8,6 +8,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.qna.MemberqnaDTO;
+import com.spring.ex.util.Criteria;
+
 @Repository
 public class MemberDAOImpl implements MemberDAO {
 
@@ -16,8 +19,23 @@ public class MemberDAOImpl implements MemberDAO {
    private static final String namespace = "com.spring.ex.mappers.testMapper";
    
    @Override
-   public List<MemberDTO> memberList() throws Exception {
-      return sqlSession.selectList(namespace + ".MemberList");
+   public List<MemberDTO> memberList(Criteria cri) throws Exception {
+      return sqlSession.selectList(namespace + ".MemberList", cri);
+   }
+   
+   @Override
+   public List<MemberDTO> memberListPage(int page) throws Exception {
+      if(page <= 0) {
+         page = 1;
+      }
+      page = (page - 1)*15;
+      return sqlSession.selectList(namespace+".memberListPage", page);
+   }
+
+   //DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+   @Override
+   public int memberpageCount() throws Exception{
+      return sqlSession.selectOne(namespace+".memberpageCount");
    }
    
    @Override
@@ -67,6 +85,11 @@ public class MemberDAOImpl implements MemberDAO {
    public void mypage_information(MemberDTO dto) throws Exception { 
       sqlSession.update(namespace + ".Mypage_information", dto); 
       }
+   
+   @Override
+   public void admin_addcheck(MemberDTO dto) throws Exception { 
+      sqlSession.update(namespace + ".admin_addcheck", dto); 
+   }
    
    @Override
    public void cancelCount(MemberDTO dto)throws Exception{

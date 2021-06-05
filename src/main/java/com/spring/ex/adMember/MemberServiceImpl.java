@@ -6,6 +6,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.qna.MemberqnaDTO;
+import com.spring.ex.util.Criteria;
+
 @Service
 public class MemberServiceImpl implements MemberService {
 
@@ -13,8 +16,13 @@ public class MemberServiceImpl implements MemberService {
    MemberDAO dao;
    
    @Override
-   public List<MemberDTO> memberList() throws Exception {
-      return dao.memberList();
+   public List<MemberDTO> memberList(Criteria cri) throws Exception {
+      return dao.memberList(cri);
+   }
+   
+   @Override
+   public int memberpageCount() throws Exception {
+      return dao.memberpageCount();
    }
    
    @Override
@@ -62,6 +70,11 @@ public class MemberServiceImpl implements MemberService {
    public void mypage_information(MemberDTO dto) throws Exception {
       dao.mypage_information(dto); 
       }
+   
+   @Override 
+   public void admin_addcheck(MemberDTO dto) throws Exception {
+      dao.admin_addcheck(dto); 
+   }
    
    @Override
    public void cancelCount(MemberDTO dto)throws Exception{
