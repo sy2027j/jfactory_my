@@ -21,6 +21,8 @@ public interface CartDAO {
 	
 	public void orderdetailInfo(OrderDetailDTO dto) throws Exception;
 	
+	public void orderdetailInfo_d(OrderDetailDTO dto) throws Exception;
+	
 	public void cartAllDelete(String mem_id)throws Exception;
 	
 	public List<OrderDTO> orderList(OrderDTO dto) throws Exception;

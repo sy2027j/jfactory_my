@@ -23,6 +23,10 @@
 		insert into jfactory_order_detail(or_id, pd_name, pd_amount, pd_price, pd_img) select #{or_id}, pd_name, pd_amount, pd_price, pd_img from jfactory_cart where jfactory_cart.mem_id=#{mem_id}
 	</insert>
 	
+	<insert id="orderdetailInfo_d">
+		insert into jfactory_order_detail(or_id, pd_name, pd_amount, pd_price, pd_img) values(#{or_id}, #{pd_name}, #{pd_amount}, #{pd_price}, #{pd_img})
+	</insert>
+	
 	<delete id="cartAllDelete">
 		DELETE FROM jfactory_cart WHERE mem_id=#{mem_id}
 	</delete>

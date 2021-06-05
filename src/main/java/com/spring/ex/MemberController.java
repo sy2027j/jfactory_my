@@ -770,10 +770,9 @@ public class MemberController {
     cartservice.orderInfo(order);  
     System.out.println("check3");
     orderDetail.setOr_id(or_id); 
-    orderDetail.setMem_id(mem_id);
     System.out.println(mem_id);
     System.out.println("check2");
-    cartservice.orderdetailInfo(orderDetail); 
+    cartservice.orderdetailInfo_d(orderDetail); 
     System.out.println("check4");
     //cartservice.cartAllDelete(mem_id);
     System.out.println("check5"); 

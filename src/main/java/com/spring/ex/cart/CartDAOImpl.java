@@ -46,6 +46,11 @@ public class CartDAOImpl implements CartDAO {
 	}
 	
 	@Override
+	public void orderdetailInfo_d(OrderDetailDTO dto) throws Exception{
+		sqlSession.insert(namespace+".orderdetailInfo_d",dto);
+	}
+	
+	@Override
 	public void cartAllDelete(String mem_id)throws Exception{
 		sqlSession.delete(namespace+".cartAllDelete",mem_id);
 	}
