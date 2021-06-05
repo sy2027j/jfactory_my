@@ -124,7 +124,7 @@ public class MemberController {
 		service.admin_addcheck(dto);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print("<script>alert('관리자가 추가되었습니다.');history.go(-1);</script>");
+		out.print("<script>alert('관리자가 추가되었습니다.');self.close(); window.close(); window.opener.close(); window.opener.opener.location.reload();</script>");
 		out.flush();
 		out.close();
 	}
@@ -317,13 +317,15 @@ public class MemberController {
 
 	// logout session remove
 	@RequestMapping(value = "/admin/logout", method = RequestMethod.GET)
-	public void admin_logout(HttpSession session, HttpServletResponse response) throws Exception{
+	public void admin_logout(HttpSession session, HttpServletResponse response) throws Exception {
+
 		session.invalidate();
 
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<script>window.open('','_self').close();</script>");
 		out.flush();
+
 	}
 
 	@RequestMapping(value = "/findId", method = RequestMethod.POST)

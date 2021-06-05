@@ -25,10 +25,12 @@
                <span style="font-size: 15pt">검색</span>
             </button>
             &nbsp;
+            <c:if test="${ superadmin != null }">
             <button class="btn btn-secondary" type="button"
                onclick="window.open('admin_addlist','회원 목록','width=500, height=600');">
                <span style="font-size: 15pt">불러오기</span>
             </button>
+            </c:if>
             &nbsp;
             <button class="btn btn-secondary" type="submit">
                <span style="font-size: 15pt">삭제</span>
