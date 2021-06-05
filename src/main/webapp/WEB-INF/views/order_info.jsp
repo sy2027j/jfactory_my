@@ -55,13 +55,14 @@
   	</c:choose>
   	
      <form id="orderrr" name="orderrr" method="post" action="directorder">
-  		<input type="text" name="pd_no" id="pd_no" value="<%=pd_no %>">
-  		<input type="text" name="pd_name" id="pd_name" value="<%=pd_name %>">
-  		<input type="text" name="mem_id" id="mem_id" value="<%=mem_id %>">
-  		<input type="text" name="pd_img" id="pd_img" value="<%= pd_img%>">
-  		<input type="text" name="pd_price" id="pd_price" value="<%=pd_price %>">
-  		<input type="text" name="pd_amount" id="pd_amount" value="<%= pd_amount%>">
-  		<input type="text" name="or_price" id="or_price" value="<%= or_price%>">
+  		<input type="hidden" name="pd_no" id="pd_no" value="<%=pd_no %>">
+  		<input type="hidden" name="pd_name" id="pd_name" value="<%=pd_name %>">
+  		<input type="hidden" name="mem_id" id="mem_id" value="<%=mem_id %>">
+  		<input type="hidden" name="pd_img" id="pd_img" value="<%= pd_img%>">
+  		<input type="hidden" name="pd_price" id="pd_price" value="<%=pd_price %>">
+  		<input type="hidden" name="pd_amount" id="pd_amount" value="<%= pd_amount%>">
+  		<input type="hidden" name="or_price2" id="or_price2" value="<%= or_price%>">
+  		<input type="hidden" name="or_price" id="or_price" value="<%= or_price%>">
       <div class="row">
          <div id="header">
             <div id="wrapper">
@@ -133,8 +134,7 @@
                      <div align="center">
                         <button
                            style="border-color: white; background-color: #e6e6fa; color: black; WIDTH: 80pt; HEIGHT: 30pt"
-                           type="button" class="btn" id="signUpBtn"
-                           onclick="join_check();">결제</button>
+                           type="button" class="btn btn-secondary btn-lg" id="check_module">결제</button>
                         <button
                            style="border-color: white; background-color: black; color: white; WIDTH: 80pt; HEIGHT: 30pt"
                            type="button" class="btn center"
@@ -161,7 +161,16 @@
    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
    <script type="text/javascript"
       src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+      <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script>
+$(document).ready(function() {
+	  var allprice = parseInt(document.getElementById("or_price2").value);
 
+	  let price = allprice+2500;
+	  $("#or_price").attr("value", price);
+	});
+
+</script>
    <script type="text/javascript">
    $(document).ready(function(){
 	    $("#chorder").change(function(){
@@ -177,6 +186,45 @@
 	        }
 	    });
 	});
+   
+   $("#check_module").click(function () {
+	   var IMP = window.IMP; 
+	   var buy_realname=document.getElementById("buy_realname");
+	   var buy_phone=document.getElementById("buy_phone");
+	   var mem_email=document.getElementById("mem_email");
+	   var buy_zipcode=document.getElementById("buy_zipcode");
+	   var mem_address1=document.getElementById("buy_address1");
+	   var total = parseInt(document.getElementById("or_price").value);
+	   IMP.init('imp44772017');
+	   IMP.request_pay({
+	   pg: 'inicis', 
+	   pay_method: 'card',
+	   merchant_uid: 'merchant_' + new Date().getTime(),
+	   name: 'JFACTORY',
+	   amount: '1000',
+	   buyer_email: mem_email.value,
+	   buyer_name: buy_realname.value,
+	   buyer_tel: buy_phone.value,
+	   buyer_addr: mem_address1.value,
+	   buyer_postcode: buy_zipcode.value,
+	   /*
+	   모바일 결제시,
+	   결제가 끝나고 랜딩되는 URL을 지정
+	   (카카오페이, 페이코, 다날의 경우는 필요없음. PC와 마찬가지로 callback함수로 결과가 떨어짐)
+	   */
+	   }, function (rsp) {
+	   console.log(rsp);
+	   if (rsp.success) {
+	   var msg = '결제가 완료되었습니다.';
+	   document.orderrr.submit();
+	   } else {
+	   var msg = '결제에 실패하였습니다.';
+	   msg += '에러내용 : ' + rsp.error_msg;
+	   }
+	   alert(msg);
+	   });
+	   });
+   
   //회원가입 검사...
   function join_check(){
      var buy_realname=document.getElementById("buy_realname");

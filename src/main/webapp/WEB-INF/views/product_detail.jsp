@@ -69,9 +69,9 @@
 		 <input type="hidden" id="pd_name" name="pd_name" value="${ProductDetail.getPd_name()}">
 		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 		 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
-		 <input type="text" id="pd_price1" name="pd_price" value="${ProductDetail.getPd_price()}">
-		 <input type="text" id="pd_amount1" name="pd_amount" value="">
-		 <input type="text" id="or_price1" name="or_price" value="">
+		 <input type="hidden" id="pd_price1" name="pd_price" value="${ProductDetail.getPd_price()}">
+		 <input type="hidden" id="pd_amount1" name="pd_amount" value="">
+		 <input type="hidden" id="or_price1" name="or_price" value="">
 	</form>
     </div></div>
     <hr>
