@@ -26,9 +26,12 @@
             <!-- Navbar-->
             
             <ul class="navbar-nav ml-auto ml-md-0">
-            <c:if test="${ member != null }">
+            <c:if test="${ superadmin != null or admin != null }">
             	<button type="button" class="btn btn-link disabled" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
-                 <button type="button" class="btn btn-link" onclick="location.href='../index'"><span style="color:black; font-size:10pt">로그아웃</span></button>
+                 <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>
+			</c:if>
+			<c:if test="${ admin == null and superadmin == null}">
+            	<% response.sendRedirect("../index");%>	
 			</c:if>
 
             </ul>
@@ -116,5 +119,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <link href='<c:url value="/resources/assets/demo/datatables-demo.js"/>' rel="stylesheet">
+        
     </body>
 </html>
