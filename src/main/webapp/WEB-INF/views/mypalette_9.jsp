@@ -218,30 +218,44 @@
 			      </div>
  		
    						<br/><br/><hr>
+   						<form id="addcart" name="addcart" action="cartadd" method="post">
    						<div class="col-lg-12">
    							<h3 align="RIGHT">9구 MY PALETTE</h3>
         					<h3 align="RIGHT">12000원</h3><br/>
-      				
-							<hr><form id="addcart" name="addcart" action="cartadd" method="POST">
-		
+      				<div align="right">
+		수량을 선택해주세요. &nbsp;&nbsp;&nbsp;&nbsp;<select name="pd_amount" id="pd_amount" style="width:100px"><option value="">수량</option>
+                              <c:forEach var="i" begin="1" end="10">
+                                 <option value="${i }">${i }</option>
+                              </c:forEach></select>
+		</div>
+							<hr>
 							<br/><br/>
 							<div  align="right">
-									 <input type="hidden" id="my_no" name="my_no" value="${ProductDetail.getPd_no()}">
-									 <input type="hidden" id="pd_name" name="pd_name" value="${ProductDetail.getPd_name()}">
-									 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
-									 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
-									 <input type="hidden" id="pd_price" name="pd_price" value="${ProductDetail.getPd_price()}">
-									 <c:if test="${member != null }">
-									      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button></c:if>
-									      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" class="btn btn-secondary btn-lg">바로구매</button>
+									 <input type="text" id="pd_no" name="pd_no" value="167">
+									 <input type="text" id="hidden_value1" name="hidden_value1" value="" />
+									 <input type="text" id="hidden_value2" name="hidden_value2" value="" />
+									 <input type="text" id="hidden_value3" name="hidden_value3" value="" />
+									 <input type="text" id="hidden_value4" name="hidden_value4" value="" />
+									 <input type="text" id="hidden_value5" name="hidden_value5" value="" />
+									 <input type="text" id="hidden_value6" name="hidden_value6" value="" />
+									 <input type="text" id="hidden_value7" name="hidden_value7" value="" />
+									 <input type="text" id="hidden_value8" name="hidden_value8" value="" />
+									 <input type="text" id="hidden_value9" name="hidden_value9" value="" />
+									 <input type="text" id="pd_name" name="pd_name" value="마이 팔레트 9구">
+									 <input type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
+									 <input type="text" id="pd_img" name="pd_img" value="db3c3837-00f6-4303-9601-79e9ea6273d2_palette9.png">
+									 <input type="text" id="pd_price" name="pd_price" value="12000">
+									 <input type="text" id="my" name="my_memo" value="" />
+									 
+									      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
+	      								  <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" form="loginForm" class="btn btn-secondary btn-lg" onclick="auth();">바로구매</button>
 									   <br/><br/><br/><br/>
-					   		 </div></form>
-					    </div></div>
+					   		 </div></div></form>
+					    </div>
    		
 					    <div class="container" style="text-align : center;">
 					        <img  src="https://img.clubclio.co.kr/uploadFolder/smarte/se2021331152645.jpg" alt=""><br/>
 					    </div>
-			 </div> 
     
 <br/>
  
@@ -254,6 +268,8 @@ $("select[id='eye1']").on("change", function(){
 	var option = $("#eye1 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img1").attr("src", option);
+		var value=$("#eye1 option:checked").text()
+		$("#hidden_value1").attr("value", value);
 })						        
 </script>
 <script>
@@ -261,6 +277,8 @@ $("select[id='bl1']").on("change", function(){
 	var option = $("#bl1 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img1").attr("src", option);
+		var value=$("#bl1 option:checked").text()
+		$("#hidden_value1").attr("value", value);
 })						        
 </script>
 
@@ -270,6 +288,8 @@ $("select[id='eye2']").on("change", function(){
 	var option = $("#eye2 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img2").attr("src", option);
+		var value=$("#eye2 option:checked").text()
+		$("#hidden_value2").attr("value", value);
 })						        
 </script>
 <script>
@@ -277,6 +297,8 @@ $("select[id='bl2']").on("change", function(){
 	var option = $("#bl2 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img2").attr("src", option);
+		var value=$("#bl2 option:checked").text()
+		$("#hidden_value2").attr("value", value);
 })						        
 </script>
 
@@ -286,6 +308,8 @@ $("select[id='eye3']").on("change", function(){
 	var option = $("#eye3 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img3").attr("src", option);
+		var value=$("#eye3 option:checked").text()
+		$("#hidden_value3").attr("value", value);
 })						        
 </script>
 <script>
@@ -293,6 +317,8 @@ $("select[id='bl3']").on("change", function(){
 	var option = $("#bl3 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img3").attr("src", option);
+		var value=$("#bl3 option:checked").text()
+		$("#hidden_value3").attr("value", value);
 })						        
 </script>
 
@@ -302,6 +328,8 @@ $("select[id='eye4']").on("change", function(){
 	var option = $("#eye4 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img4").attr("src", option);
+		var value=$("#eye4 option:checked").text()
+		$("#hidden_value4").attr("value", value);
 })						        
 </script>
 <script>
@@ -309,6 +337,8 @@ $("select[id='bl4']").on("change", function(){
 	var option = $("#bl4 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img4").attr("src", option);
+		var value=$("#bl4 option:checked").text()
+		$("#hidden_value4").attr("value", value);
 })						        
 </script>
 
@@ -318,6 +348,8 @@ $("select[id='eye5']").on("change", function(){
 	var option = $("#eye5 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img5").attr("src", option);
+		var value=$("#eye5 option:checked").text()
+		$("#hidden_value5").attr("value", value);
 })						        
 </script>
 <script>
@@ -325,6 +357,8 @@ $("select[id='bl5']").on("change", function(){
 	var option = $("#bl5 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img5").attr("src", option);
+		var value=$("#bl5 option:checked").text()
+		$("#hidden_value5").attr("value", value);
 })						        
 </script>
 
@@ -334,6 +368,8 @@ $("select[id='eye6']").on("change", function(){
 	var option = $("#eye6 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img6").attr("src", option);
+		var value=$("#eye6 option:checked").text()
+		$("#hidden_value6").attr("value", value);
 })						        
 </script>
 <script>
@@ -341,6 +377,8 @@ $("select[id='bl6']").on("change", function(){
 	var option = $("#bl6 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img6").attr("src", option);
+		var value=$("#bl6 option:checked").text()
+		$("#hidden_value6").attr("value", value);
 })						        
 </script>
 
@@ -350,6 +388,8 @@ $("select[id='eye7']").on("change", function(){
 	var option = $("#eye7 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img7").attr("src", option);
+		var value=$("#eye7 option:checked").text()
+		$("#hidden_value7").attr("value", value);
 })						        
 </script>
 <script>
@@ -357,6 +397,8 @@ $("select[id='bl7']").on("change", function(){
 	var option = $("#bl7 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img7").attr("src", option);
+		var value=$("#bl7 option:checked").text()
+		$("#hidden_value7").attr("value", value);
 })						        
 </script>
 
@@ -366,6 +408,8 @@ $("select[id='eye8']").on("change", function(){
 	var option = $("#eye8 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img8").attr("src", option);
+		var value=$("#eye8 option:checked").text()
+		$("#hidden_value8").attr("value", value);
 })						        
 </script>
 <script>
@@ -373,6 +417,8 @@ $("select[id='bl8']").on("change", function(){
 	var option = $("#bl8 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img8").attr("src", option);
+		var value=$("#bl8 option:checked").text()
+		$("#hidden_value8").attr("value", value);
 })						        
 </script>
 
@@ -382,6 +428,8 @@ $("select[id='eye9']").on("change", function(){
 	var option = $("#eye9 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img9").attr("src", option);
+		var value=$("#eye9 option:checked").text()
+		$("#hidden_value9").attr("value", value);
 })						        
 </script>
 <script>
@@ -389,6 +437,8 @@ $("select[id='bl9']").on("change", function(){
 	var option = $("#bl9 option:selected").val();
 	 var tableValue = document.getElementById('tableId');
 		$("#img9").attr("src", option);
+		var value=$("#bl9 option:checked").text()
+		$("#hidden_value9").attr("value", value);
 })						        
 </script>
 
@@ -742,7 +792,118 @@ $( document ).ready(function(){
 });
 
 </script>
-
+<script>
+  function Cart_check(){
+	  
+	  <c:if test="${member eq null }">
+  	alert('로그인 해주세요');
+  	location.href = '/ex/index'
+  </c:if>
+  	
+  	<c:if test="${member ne null }">
+	     var pd_amount=document.getElementById("pd_amount");
+	     
+  if(pd_amount.value==""){
+      alert("수량을 선택하세요.");
+      pd_amount.focus();
+      return false;
+   };
+   
+     var value1=document.getElementById("hidden_value1").value
+	 var value2=document.getElementById("hidden_value2").value
+	 var value3=document.getElementById("hidden_value3").value
+	 var value4=document.getElementById("hidden_value4").value
+	 var value5=document.getElementById("hidden_value5").value
+	 var value6=document.getElementById("hidden_value6").value
+	 var value7=document.getElementById("hidden_value7").value
+	 var value8=document.getElementById("hidden_value8").value
+	 var value9=document.getElementById("hidden_value9").value
+	 
+	 
+	 if(value1==""){
+	      alert("옵션을 선택하세요.");
+	      value1.focus();
+	      return false;
+	   };
+	   if(value2==""){
+		      alert("옵션을 선택하세요.");
+		      value2.focus();
+		      return false;
+		   };  
+		   if(value3==""){
+			      alert("옵션을 선택하세요.");
+			      value3.focus();
+			      return false;
+			   };  
+			   if(value4==""){
+				      alert("옵션을 선택하세요.");
+				      value4.focus();
+				      return false;
+				   };
+				   if(value5==""){
+					      alert("옵션을 선택하세요.");
+					      value5.focus();
+					      return false;
+					   };
+					   if(value6==""){
+						      alert("옵션을 선택하세요.");
+						      value6.focus();
+						      return false;
+						   };
+						   if(value7==""){
+							      alert("옵션을 선택하세요.");
+							      value7.focus();
+							      return false;
+							   };
+							   if(value8==""){
+								      alert("옵션을 선택하세요.");
+								      value8.focus();
+								      return false;
+								   };
+								   if(value9==""){
+									      alert("옵션을 선택하세요.");
+									      value9.focus();
+									      return false;
+									   };
+     var memo=value1+', '+value2+', '+value3+', '+value4+', '+value5+', '+value6+', '+value7+', '+value8+', '+value9
+	 $("#my").attr("value", memo);
+   
+   document.addcart.submit();
+  </c:if>
+  }
+  
+  function auth(){
+	    <c:if test="${member eq null }">
+	    	alert('로그인 해주세요');
+	    	location.href = '/ex/login'
+	    </c:if>
+	    	
+	    	<c:if test="${member ne null }">
+		     var pd_amount=document.getElementById("pd_amount");
+		     
+		     
+	  if(pd_amount.value==""){
+	      alert("수량을 선택하세요.");
+	      pd_amount.focus();
+	      return false;
+	   };
+	   
+	   var value1=document.getElementById("hidden_value1").value
+		 var value2=document.getElementById("hidden_value2").value
+		 var value3=document.getElementById("hidden_value3").value
+		 var value4=document.getElementById("hidden_value4").value
+		 var value5=document.getElementById("hidden_value5").value
+		 var value6=document.getElementById("hidden_value6").value
+		 var value7=document.getElementById("hidden_value7").value
+		 var value8=document.getElementById("hidden_value8").value
+		 var value9=document.getElementById("hidden_value9").value
+		 var memo=value1+', '+value2+', '+value3+', '+value4+', '+value5+', '+value6+', '+value7+', '+value8+', '+value9
+		 $("#my").attr("value", memo);
+	   
+	    
+	  </c:if>
+}
+  </script>
 
 </body>
 </html>

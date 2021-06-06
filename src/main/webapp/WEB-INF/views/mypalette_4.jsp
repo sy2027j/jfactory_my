@@ -418,25 +418,25 @@ $( document ).ready(function(){
 	 var value3=document.getElementById("hidden_value3").value
 	 var value4=document.getElementById("hidden_value4").value
 	 
-	 if(value1.value==""){
+	 if(value1==""){
 	      alert("옵션을 선택하세요.");
 	      value1.focus();
 	      return false;
 	   };
 	   
-	   if(value2.value==""){
+	   if(value2==""){
 		      alert("옵션을 선택하세요.");
 		      value2.focus();
 		      return false;
 		   };
 		   
-		   if(value3.value==""){
+		   if(value3==""){
 			      alert("옵션을 선택하세요.");
 			      value3.focus();
 			      return false;
 			   };
 			   
-			   if(value4.value==""){
+			   if(value4==""){
 				      alert("옵션을 선택하세요.");
 				      value4.focus();
 				      return false;
