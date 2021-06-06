@@ -1,5 +1,7 @@
 package com.spring.ex.util;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 public class PageMaker {
 	private int totalCount;
 	private int startPage;
@@ -45,6 +47,19 @@ public class PageMaker {
 		prev = (startPage == 1? false:true);
 		next = (endPage * cri.getPageSize() >= totalCount? false:true);
 		System.out.println("페이징처리정보 계산");
+	}
+	
+	public String makeQuery(int page, boolean needSearch) {
+		UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.newInstance()
+			.queryParam("page", page)
+			.queryParam("pageSize", this.cri.getPageSize());
+		//검색 한 경우		
+		if (this.cri.getSearchType() != null) {
+			uriComponentsBuilder
+				.queryParam("searchType", this.cri.getSearchType())
+				.queryParam("keyword", this.cri.getKeyword());
+		}
+		return uriComponentsBuilder.build().encode().toString();
 	}
 
 	public int getStartPage() {

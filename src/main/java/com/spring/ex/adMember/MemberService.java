@@ -11,7 +11,7 @@ import com.spring.ex.util.Criteria;
 public interface MemberService {
 
    public List<MemberDTO> memberList(Criteria cri) throws Exception;
-
+   
    public int memberpageCount() throws Exception;
 
    public void memberJoinMethod(MemberDTO dto) throws Exception;

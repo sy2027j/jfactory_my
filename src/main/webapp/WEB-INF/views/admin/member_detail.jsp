@@ -27,6 +27,9 @@
                   <td><b>이름</b></td>
                   <td class="data_td">${memdetaildto.getMem_realname()}</td>
                <tr>
+                  <td><b>이메일</b></td>
+                  <td class="data_td">${memdetaildto.getMem_email()}</td>
+               <tr>
                <tr>
                   <td><b>성별</b></td>
                   <td class="data_td"><c:if test="${memdetaildto.getMem_sex()eq 0}">여성</c:if><c:if test="${memdetaildto.getMem_sex()eq 1}">남성</c:if><c:if test="${memdetaildto.getMem_sex()eq 2}"></c:if></td>

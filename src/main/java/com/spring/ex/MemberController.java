@@ -59,7 +59,7 @@ public class MemberController {
 
 	// 관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
 	@RequestMapping(value = "admin/index", method = RequestMethod.GET)
-	public String memberList(Model model, Criteria cri) throws Exception {
+	public String memberList(Model model, Criteria cri, RedirectAttributes rttr) throws Exception {
 
 		List<MemberDTO> memberlist = service.memberList(cri);
 
@@ -69,7 +69,7 @@ public class MemberController {
 		pm.setDisplayPageNum(15);
 		pm.setCri(cri);
 		pm.setTotalCount(service.memberpageCount()); // DB의 전체ROW수 입력
-
+		
 		// 뷰페이지로 전달
 		model.addAttribute("pm", pm);
 
