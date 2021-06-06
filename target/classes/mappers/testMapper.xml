@@ -287,5 +287,14 @@
 		SELECT * FROM
 		jfactory_review WHERE mem_id=#{mem_id}
 	</select>
-
+	
+	<!-- 제품 온도 태그 매퍼  -->
+	<select id="ProductTag2" resultType="ProductDTO">
+		SELECT * FROM jfactory_product WHERE pd_tag2=#{pd_tag2} ORDER BY RAND() LIMIT 1;
+	</select>
+	
+	<select id="ProductTag3" resultType="ProductDTO">
+		SELECT * FROM jfactory_product WHERE pd_tag3=#{pd_tag3} ORDER BY RAND() LIMIT 1;
+	</select>
+	
 </mapper>

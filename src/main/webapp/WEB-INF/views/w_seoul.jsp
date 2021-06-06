@@ -17,7 +17,14 @@ $(document).ready(function() {
          '10' : 'fas fa-cloud-showers-heavy', //장마
          '11' : 'fas fa-poo-storm',  //번개
          '13' : 'far fa-snowflake', //눈
-         '50' : 'fas fa-smog' //안개}; 
+         '50' : 'fas fa-smog' //안개
+         }; 
+   
+   
+   //습도 꿉꿉 쾌적 건조
+   //온도 더워 추워 적당
+   //날씨 맑음 흐림 구름 많음 눈 비 
+   
    
    $.ajax({ 
       url:'http://api.openweathermap.org/data/2.5/weather?q=seoul&APPID=f819f3ac4b0076eb8e81c19dac977945&units=metric', 

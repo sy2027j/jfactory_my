@@ -428,6 +428,15 @@ public class MemberController {
 		System.out.println("product detail view");
 		return "/product_detail";
 	}
+	
+	@RequestMapping(value= "/w_seoul", method = RequestMethod.GET)
+	public String ProuductTag2(Model model, ProductDTO dto) {
+		ProductDTO pddto = prservice.ProductTag2(dto);
+		model.addAttribute("ProductTag2" , pddto);
+		return "/w_seoul";
+	}
+	
+	
 
 	// emailSend는 컨트롤러, sendMail은 emailSender
 	@RequestMapping(value = "/emailSend", method = RequestMethod.POST)
@@ -832,4 +841,7 @@ public class MemberController {
 		System.out.println("check7");
 		return "redirect:/index";
 	}
+	
+	
+	
 }

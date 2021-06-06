@@ -54,5 +54,10 @@ public class ProductSerlmpl implements ProductSer {
 	public List<ProductDTO> ProductStockList() throws Exception{
 		return dao.ProductStockList();
 	}
+	
+	@Override
+	public ProductDTO ProductTag2(ProductDTO dto) throws Exception{
+		return dao.ProductTag2(dto);
+	}
 
 }

@@ -19,5 +19,8 @@ public interface ProductDAO {
 	public void ProductPhotoWrite(ProductDTO dto) throws Exception;
 	
 	public List<ProductDTO> ProductStockList() throws Exception;
-
+	
+	public ProductDTO ProductTag2(ProductDTO dto) throws Exception;
+	
+	
 }

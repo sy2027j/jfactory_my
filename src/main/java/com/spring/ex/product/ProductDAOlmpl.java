@@ -45,4 +45,10 @@ public class ProductDAOlmpl implements ProductDAO {
 	public List<ProductDTO> ProductStockList() throws Exception{
 		return sqlSession.selectList(namespace+".ProductStockList");
 	}
+	
+	@Override
+	public ProductDTO ProductTag2(ProductDTO dto) throws Exception {
+		return sqlSession.selectOne(namespace + ".ProductTag2", dto);
+	}
+	
 }
