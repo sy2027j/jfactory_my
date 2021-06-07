@@ -56,6 +56,11 @@ public class ProductSerlmpl implements ProductSer {
 	}
 	
 	@Override
+	public ProductDTO ProductTag1(String pd_tag1) throws Exception {
+		return dao.ProductTag1(pd_tag1);
+	}
+	
+	@Override
 	public ProductDTO ProductTag2(String pd_tag2) throws Exception{
 		return dao.ProductTag2(pd_tag2);
 	}

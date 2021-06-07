@@ -44,24 +44,41 @@ $(document).ready(function() {
       type:'GET', 
       success:function(data){ 
          var $Icon = (data.weather[0].icon).substr(0,2); 
-         var $Temp = Math.floor(data.main.temp) + 'º'; 
+         var $temp = Math.floor(data.main.temp) + 'º'; 
          var $city = data.name; 
          var $humidity = data.main.humidity;
 
          $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>'); 
-         $('.CurrTemp').prepend($Temp); 
+         $('.CurrTemp').prepend($temp); 
          $('.City').append($city); 
          $('.humidity').append('습도 : ' + $humidity + "%");
          
          humidity_tag($humidity);
-         CurrTemp_tag($Temp);
+         Temp_tag($temp);
       }
    });
    
    
-	 function CurrTemp_tag(Temp) {
+	 function Icon_tag(Icon) {
 		   
-		   var CurrTemp_value = {'Temp' : Temp};
+		   var Icon_value = {'Icon' : Icon};
+		   
+		   $.ajax({
+			      url:'getProductTag1', 
+			      dataType:'json',
+			      type:'POST',
+			      data: Icon_value,
+			      success:function(data){ 
+			    	  $("#product_name1").append(data.pd_name);
+			    	  $("#product_img1").html("<img src='<c:url value='/resources/image/product/" + data.pd_main_stored_file + "'/>'>")
+			      }
+			});
+		}
+   
+   
+	 function Temp_tag(temp) {
+		   
+		   var Temp_value = {'temp' : temp};
 		   
 		   $.ajax({
 			      url:'getProductTag2', 
@@ -121,15 +138,16 @@ div.weather_info{font-size: 120%;}
 <div class="container px-4 px-lg-5"> 
 <h3 style="text-align:center">B E S T</h3>
   <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4 mb-5">
+              <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">Card One</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                        </div>
+                            <h2 id="product_name1" class="card-title"></h2>
+                            <p id="product_img1" class="card-text"></p>	
+                          </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
                 </div>
+                
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">

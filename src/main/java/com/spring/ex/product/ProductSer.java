@@ -22,6 +22,8 @@ public interface ProductSer {
 	
 	public List<ProductDTO> ProductStockList() throws Exception;
 	
+	public ProductDTO ProductTag1(String pd_tag1) throws Exception;
+	
 	public ProductDTO ProductTag2(String pd_tag2) throws Exception;
 	
 	public ProductDTO ProductTag3(String pd_tag3) throws Exception;
