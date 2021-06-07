@@ -4,20 +4,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
 <script type="text/javascript"> 
 $(document).ready(function() { 
    
    let weatherIcon = { 
-         '01' : 'fas fa-sun',  //맑음
-         '02' : 'fas fa-cloud-sun', //흐림
-         '03' : 'fas fa-cloud', //흐림
-         '04' : 'fas fa-cloud-meatball', // 
-         '09' : 'fas fa-cloud-sun-rain', 
-         '10' : 'fas fa-cloud-showers-heavy', //장마
-         '11' : 'fas fa-poo-storm',  //번개
-         '13' : 'far fa-snowflake', //눈
-         '50' : 'fas fa-smog' //안개
+         '01' : 'wi-day-sunny',  //맑음
+         '02' : 'wi-day-cloudy', //흐림
+         '03' : 'wi-cloud', //흐림
+         '04' : 'wi-day-sunny-overcast', // 
+         '09' : 'wi-rain', 
+         '10' : 'wi-umbrella', //장마
+         '11' : 'wi-lightning',  //번개
+         '13' : 'wi-snow', //눈
+         '50' : 'wi-fog' //안개
          }; 
    
    
@@ -47,7 +48,6 @@ $(document).ready(function() {
          var $temp = Math.floor(data.main.temp) + 'º'; 
          var $city = data.name; 
          var $humidity = data.main.humidity;
-         
          var $temp2 = Math.floor(data.main.temp);
 
          $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>'); 
@@ -55,30 +55,12 @@ $(document).ready(function() {
          $('.City').append($city); 
          $('.humidity').append('습도 : ' + $humidity + "%");
          
-         Icon_tag($Icon);
          humidity_tag($humidity);
          Temp_tag($temp2);
       }
    });
    
-   
-	 function Icon_tag(Icon) {
-		   
-		   var Icon_value = {'Icon' : Icon};
-		   
-		   $.ajax({
-			      url:'getProductTag1', 
-			      dataType:'json',
-			      type:'POST',
-			      data: Icon_value,
-			      success:function(data){ 
-			    	  $("#product_name1").append(data.pd_name);
-			    	  $("#product_img1").html("<img src='<c:url value='/resources/image/product/" + data.pd_main_stored_file + "'/>'>")
-			      }
-			});
-		}
-   
-   
+
 	 function Temp_tag(temp) {
 		   
 		   var Temp_value = {'temp' : temp};
@@ -141,15 +123,6 @@ div.weather_info{font-size: 120%;}
 <div class="container px-4 px-lg-5"> 
 <h3 style="text-align:center">B E S T</h3>
   <div class="row gx-4 gx-lg-5">
-              <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 id="product_name1" class="card-title"></h2>
-                            <p id="product_img1" class="card-text"></p>	
-                          </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-                    </div>
-                </div>
                 
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
