@@ -349,60 +349,12 @@ public class MyController {
 		return("/weather");
 	}
 	
-	@RequestMapping("/w_seoul")
-	public String w_seoul() {
-		return("/w_seoul");
-	}
-	
-	@RequestMapping("/w_busan")
-	public String w_busan() {
-		return("/w_busan");
-	}
 
-	@RequestMapping("/w_cheongju")
-	public String w_cheongju() {
-		return("/w_cheongju");
+	@RequestMapping("/localWeather")
+	public String localWeather() {
+		return("/localWeather");
 	}
 	
-	@RequestMapping("/w_chuncheon")
-	public String w_chuncheon() {
-		return("/w_chuncheon");
-	}
-	
-	@RequestMapping("/w_daegu")
-	public String w_daegu() {
-		return("/w_daegu");
-	}
-	
-	@RequestMapping("/w_daejeon")
-	public String w_daejeon() {
-		return("/w_daejeon");
-	}
-	
-	@RequestMapping("/w_dokdo")
-	public String w_dokdo() {
-		return("/w_dokdo");
-	}
-	
-	@RequestMapping("/w_gangneung")
-	public String w_gangneung() {
-		return("/w_gangneung");
-	}
-	
-	@RequestMapping("/w_gwangju")
-	public String w_gwangju() {
-		return("/w_gwangju");
-	}
-	
-	@RequestMapping("/w_jeju")
-	public String w_jeju() {
-		return("/w_jeju");
-	}
-	
-	@RequestMapping("/w_jeonju")
-	public String w_jeonju() {
-		return("/w_jeonju");
-	}
 	
 	@RequestMapping("admin/admin_cm_qna_view")
 	public String admin_cm_qna_view() {
