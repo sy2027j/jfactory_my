@@ -57,7 +57,8 @@ $(document).ready(function() {
 			      data: Temp_value,
 			      success:function(data){ 
 			    	  $("#product_name2").append(data.pd_name);
-			    	  $("#product_img2").html("<img src='<c:url value='/resources/image/product/" + data.pd_main_stored_file + "'/>'>")
+			    	  $("#product_a").attr("href", "product_detail?pd_name="+data.pd_name);
+			    	  $("#product_img2").attr("src","resources/image/product/"+data.pd_main_stored_file)
 			      }
 			});
 		}
@@ -74,7 +75,8 @@ $(document).ready(function() {
 		      data: humidity_value,
 		      success:function(data){ 
 		    	  $("#product_name3").append(data.pd_name);
-		    	  $("#product_img3").html("<img src='<c:url value='/resources/image/product/" + data.pd_main_stored_file + "'/>'>")
+		    	  $("#product_b").attr("href", "product_detail?pd_name="+data.pd_name);
+		    	  $("#product_img3").attr("src","resources/image/product/"+ data.pd_main_stored_file)
 		      }
 		});
 	}
@@ -107,24 +109,31 @@ div.weather_info{font-size: 120%;}
    <hr>
    
 <div class="container px-4 px-lg-5"> 
-<h3 style="text-align:center">B E S T</h3>
-  <div class="row gx-4 gx-lg-5">
-		                <div class="col-md-4 mb-5">
-		                    <div class="card ">
-		                            <div id="product_name2" class="card-header"></div>
-		                            	<div id="product_img2" class="card-body"></div>
-		                        			<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">상세정보</a></div>
-		                    	</div>
-		               		</div>
-		                <div class="col-md-4 mb-5">
-		                    <div class="card">
-		                            <div id="product_name3" class="card-header"></div>
-		                            	<div id="product_img3" class="card-body"></div>
-		                       				<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">상세정보</a></div>
-		                    </div>
-		                </div>
-                
-           		 </div>
+<h4 style="text-align:center">오늘같은 날씨엔. . .</h4><br/>
+  <div class="row" style="text-align:center">
+  <div class="col-lg-3 col-md-2 col-sm-2 portfolio-item" align="center">
+      </div>
+      <div class="col-lg-3 col-md-2 col-sm-2 portfolio-item" align="center">
+        <div class="card h-100">
+          <a id="product_a" href=""><img id="product_img2" class="card-img-top" src="" alt=""></a>
+          <div class="card-body">
+            <h5 class="card-title">
+            <span style="color:black; font-size:15pt" id="product_name2" ></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a id="product_b" href=""><img id="product_img3" class="card-img-top" src="" alt=""></a>
+          <div class="card-body">
+            <h5 class="card-title">
+            <span style="color:black; font-size:15pt" id="product_name3"></span>
+            </h5>
+          </div>
+        </div>
+      </div>
+</div>
         </div>
   
 <br>
