@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<script defer src="https://use.fontawesome.com/releases/v5.15.2/js/all.js" integrity="sha384-vuFJ2JiSdUpXLKGK+tDteQZBqNlMwAjhZ3TvPaDfN9QmbPb7Q8qUpbSNapQev3YF" crossorigin="anonymous"></script>
+<link href="resources/css/weather-icons.min.css" rel="stylesheet">
+<link href="resources/css/weather-icons.css" rel="stylesheet">
+<link href="resources/css/weather-icons-wind.css" rel="stylesheet">
+<link href="resources/css/weather-icons-wind.min.css" rel="stylesheet">
 <script type="text/javascript"> 
 $(document).ready(function() { 
    
@@ -21,23 +23,6 @@ $(document).ready(function() {
          '50' : 'wi-fog' //안개
          }; 
    
-   
-   //습도 꿉꿉 쾌적 건조 (pd_tag3)
-   //건조 : 40% 미만
-   //쾌적 : 40% -60%
-   //꿉꿉 : 60% 초과 
-   
-   //온도 더워 추워 적당 (pd_tag2)
-   //더워 : 22도 초과
-   //적당 : 17-22도
-   //추워 : 17 미만
-   
-   //날씨 맑음 흐림 구름많음 눈 비 (pd_tag1)
-  //맑음 : 01
-  //흐림 : 02,03
-  //구름많음 : 04 , 50
-  //눈 : 13
-  //비 : 09, 10, 11
    
    $.ajax({
       url:'http://api.openweathermap.org/data/2.5/weather?q=${param.city}&APPID=f819f3ac4b0076eb8e81c19dac977945&units=metric', 
@@ -103,6 +88,7 @@ $(document).ready(function() {
 <style>
 div.CurrIcon{font-size: 600%;}
 div.weather_info{font-size: 120%;}
+
 </style>
   <div class="container">
    <br/><br/>
