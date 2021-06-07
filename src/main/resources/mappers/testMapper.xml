@@ -3,42 +3,58 @@
 
 <mapper namespace="com.spring.ex.mappers.testMapper">
 
-	<!-- 회원 리스트 불러오기 -->
-	<select id="MemberList" resultType="MemberDTO">
-		SELECT * FROM jfactory_member
-		where mem_is_admin=0
-		<if test="searchType != null">
-			<if test="searchType == 'mem_id'.toString()">
-				and mem_id like CONCAT('%', #{keyword}, '%')
-			</if>
-			<if test="searchType == 'mem_realname'.toString()">
-				and mem_realname like CONCAT('%', #{keyword}, '%')
-			</if>
-			<if test="searchType == 'mem_email'.toString()">
-				and mem_email like CONCAT('%', #{keyword}, '%')
-			</if>
-			<if test="searchType == 'all'.toString()">
-				and (mem_id like CONCAT('%', #{keyword}, '%')
-					or mem_realname like CONCAT('%', #{keyword}, '%')
-					or mem_email like CONCAT('%', #{keyword}, '%'))
-			</if>
-		</if>
-		LIMIT #{pageStart},#{pageSize}
-	</select>
+   <!-- 회원 리스트 불러오기 -->
+   <select id="MemberList" resultType="MemberDTO">
+      SELECT * FROM jfactory_member
+      where mem_is_admin=0
+      <if test="searchType != null">
+         <if test="searchType == 'mem_id'.toString()">
+            and mem_id like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'mem_realname'.toString()">
+            and mem_realname like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'mem_email'.toString()">
+            and mem_email like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'all'.toString()">
+            and (mem_id like CONCAT('%', #{keyword}, '%')
+               or mem_realname like CONCAT('%', #{keyword}, '%')
+               or mem_email like CONCAT('%', #{keyword}, '%'))
+         </if>
+      </if>
+      LIMIT #{pageStart},#{pageSize}
+   </select>
 
-	<!-- 페이지정보를 10개씩 가져오기 -->
-	<select id="memberListPage" resultType="MemberqnaDTO">
-		SELECT * FROM
-		jfactory_member
-		where mem_is_admin=0
-		LIMIT #{page}, 15
-	</select>
+   <!-- 페이지정보를 10개씩 가져오기 -->
+   <select id="memberListPage" resultType="MemberqnaDTO">
+      SELECT * FROM
+      jfactory_member
+      where mem_is_admin=0
+      LIMIT #{page}, 15
+   </select>
 
 
-	<select id="memberpageCount" resultType="int">
-		SELECT count(*) FROM
-		jfactory_member
-	</select>
+   <select id="memberpageCount" resultType="int">
+      SELECT count(*) FROM
+      jfactory_member
+   </select>
+   
+      <!-- 상품 검색 리스트 불러오기 -->
+   <select id="searchProductlist" resultType="ProductDTO">
+      SELECT * FROM jfactory_product
+      where pd_name like CONCAT('%', #{keyword}, '%')
+      or pd_simplecontent like CONCAT('%', #{keyword}, '%')
+      LIMIT #{pageStart},#{pageSize}
+   </select>
+   
+   <!-- 상품 검색 리스트 불러오기 -->
+   <select id="searchreviewlist" resultType="ReviewDTO">
+      SELECT * FROM jfactory_review
+      where re_content like CONCAT('%', #{keyword}, '%')
+      or pd_name like CONCAT('%', #{keyword}, '%')
+      LIMIT #{pageStart},#{pageSize}
+   </select>
 
 	<!-- 관리자 리스트 불러오기 -->
 	<select id="AdminList" resultType="AdminDTO">
