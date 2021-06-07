@@ -374,7 +374,7 @@ public class MemberController {
 		model.addAttribute("pm", pm);
 		return "/review";
 	}
-	
+
 	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
 	public String findpw(Model model, MemberDTO dto, HttpServletRequest request) throws Exception {
 		System.out.println("ddd");
@@ -542,17 +542,17 @@ public class MemberController {
 		model.addAttribute("pm", pm);
 		return "admin/cm_qna";
 	}
-	
+
 	// admin qna list
 	@RequestMapping(value = "admin/cm_review", method = RequestMethod.GET)
 	public String AdminReviewList(Criteria cri, Model model) throws Exception {
-		
+
 		model.addAttribute("ReviewList", reservice.reviewList(cri));
-		
+
 		PageMaker pm = new PageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(reservice.reviewpageCount()); // DB의 전체ROW수 입력
-		
+
 		// 뷰페이지로 전달
 		model.addAttribute("pm", pm);
 		return "admin/cm_review";
@@ -566,7 +566,7 @@ public class MemberController {
 		System.out.println("qna detail view");
 		return "admin/admin_cm_qna_view";
 	}
-	
+
 	// admin qna detail view
 	@RequestMapping(value = "admin/admin_cm_review_view", method = RequestMethod.GET)
 	public String AdminreviewDetail(Model model, int re_no) {
@@ -931,6 +931,12 @@ public class MemberController {
 	public String DelProduct(ProductDTO dto, Model model) throws Exception {
 		prservice.ProductDelete(dto);
 		return "redirect:/admin/pd_index";
+	}
+
+	@RequestMapping(value = "admin/delete_review", method = RequestMethod.GET)
+	public String DelReview(ReviewDTO dto, Model model) throws Exception {
+		reservice.ReviewDelete(dto);
+		return "redirect:/admin/cm_review";
 	}
 
 }
