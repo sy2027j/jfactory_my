@@ -18,14 +18,6 @@
       <li class="breadcrumb-item active"><span style="color:black">페이스</span></li>
     </ol>
   
-    <form method="get" action="SelectServlet">
-		<select id="select" name="select" size="1">
-			<option value="정렬">최신순</option>
-			<option value="주문 많은 순">주문 많은 순</option>
-			<option value="리뷰 많은 순">리뷰 많은 순</option>
-			<option value="가격 높은 순">가격 높은 순</option>
-			<option value="가격 낮은 순">가격 낮은 순</option>
-		</select> <br> </form>
 		<br/>
 
     <div class="row">
