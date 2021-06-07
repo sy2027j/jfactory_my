@@ -444,7 +444,8 @@ public class MemberController {
 		prservice.ProductReviewCount(pddto);
 		return "/product_detail";
 	}
-	//product list
+
+	// product list
 	@RequestMapping(value = "/localWeather", method = RequestMethod.GET)
 	public String weatherpdlist(Model model, String pd_name) throws Exception {
 		List<ProductDTO> pddto = prservice.productlist(pd_name);
@@ -671,9 +672,18 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "admin/pd_index", method = RequestMethod.GET)
-	public String StockList(Model model) throws Exception {
-		List<ProductDTO> stocklist = prservice.ProductStockList();
+	public String StockList(Model model, Criteria cri) throws Exception {
+		List<ProductDTO> stocklist = prservice.ProductStockList(cri);
 		model.addAttribute("StockList", stocklist);
+
+		PageMaker pm = new PageMaker();
+		pm.setDisplayPageNum(15);
+		pm.setCri(cri);
+		pm.setTotalCount(prservice.adminproductpageCount()); // DB의 전체ROW수 입력
+
+		// 뷰페이지로 전달
+		model.addAttribute("pm", pm);
+
 		return "admin/pd_index";
 	}
 

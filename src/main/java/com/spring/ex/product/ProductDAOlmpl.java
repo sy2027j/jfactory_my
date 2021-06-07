@@ -48,8 +48,22 @@ public class ProductDAOlmpl implements ProductDAO {
 	}
 
 	@Override
-	public List<ProductDTO> ProductStockList() throws Exception {
-		return sqlSession.selectList(namespace + ".ProductStockList");
+	public List<ProductDTO> ProductStockList(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".ProductStockList", cri);
+	}
+
+	@Override
+	public List<ProductDTO> ProductStockListPage(int page) throws Exception {
+		if (page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 15;
+		return sqlSession.selectList(namespace + ".ProductStockListPage", page);
+	}
+
+	@Override
+	public int adminproductpageCount() throws Exception {
+		return sqlSession.selectOne(namespace + ".adminproductpageCount");
 	}
 
 	@Override

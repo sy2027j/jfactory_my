@@ -57,8 +57,13 @@ public class ProductSerlmpl implements ProductSer {
 	}
 
 	@Override
-	public List<ProductDTO> ProductStockList() throws Exception {
-		return dao.ProductStockList();
+	public List<ProductDTO> ProductStockList(Criteria cri) throws Exception {
+		return dao.ProductStockList(cri);
+	}
+
+	@Override
+	public int adminproductpageCount() throws Exception {
+		return dao.adminproductpageCount();
 	}
 
 	@Override

@@ -4,6 +4,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html lang="en">
+<style>
+#adminheader{
+padding-left: 79%;
+}
+</style>
     <head>
         <title>JFactory 관리자</title>
         <link href='<c:url value="/resources/css/styles.css"/>' rel="stylesheet">
@@ -14,27 +19,20 @@
         <nav class="sb-topnav navbar navbar-expand navbar-light" style="background-color:#E6E6FA; " >
             <a class="navbar-brand" href="index.html">JFACTORY</a>
             <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto ">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="검색창" aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+            
             
             <!-- Navbar-->
-            
+            <div id="adminheader">
             <ul class="navbar-nav ml-auto ml-md-0">
             <c:if test="${ superadmin != null or admin != null }">
-            	<button type="button" class="btn btn-link disabled" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
-                 <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>
-			</c:if>
-			<c:if test="${ admin == null and superadmin == null}">
-            	<% response.sendRedirect("../index");%>	
-			</c:if>
-
+               <button type="button" class="btn btn-link disabled" onclick="location.href='mypage_order'"><span style="color:black; font-size:10pt">${member.mem_realname }님</span></button>
+                 <button type="button" class="btn btn-link" onclick="location.href='logout'"><span style="color:black; font-size:10pt">로그아웃</span></button>   
+         </c:if>
+         <c:if test="${ admin == null and superadmin == null}">
+               <% response.sendRedirect("../index");%>   
+         </c:if>
             </ul>
+             </div>
         </nav>
         
         
