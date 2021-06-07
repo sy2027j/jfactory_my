@@ -453,28 +453,8 @@ public class MemberController {
 		return "/localWeather";
 	}
 
-	@RequestMapping(value = "/getProductTag1", method = RequestMethod.POST)
-	public @ResponseBody ProductDTO ProductTag1(int Icon) throws Exception {
-
-		System.out.println(Icon + "cc");
-
-		ProductDTO pdto;
-
-		if (Icon < 17) {
-			pdto = prservice.ProductTag2("#추워");
-		} else if (Icon < 25) {
-			pdto = prservice.ProductTag2("#적당");
-		} else {
-			pdto = prservice.ProductTag2("#더워");
-		}
-
-		return pdto;
-	}
-
 	@RequestMapping(value = "/getProductTag2", method = RequestMethod.POST)
 	public @ResponseBody ProductDTO ProductTag2(int temp) throws Exception {
-		System.out.println("AA");
-		System.out.println(temp + "aa");
 
 		ProductDTO pdto;
 
@@ -491,8 +471,6 @@ public class MemberController {
 
 	@RequestMapping(value = "/getProductTag3", method = RequestMethod.POST)
 	public @ResponseBody ProductDTO ProductTag3(int humidity) throws Exception {
-
-		System.out.println(humidity + "z");
 
 		ProductDTO pdto;
 

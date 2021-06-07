@@ -31,6 +31,10 @@ public interface ProductDAO {
 	public ProductDTO ProductTag2(String pd_tag2) throws Exception;
 
 	public ProductDTO ProductTag3(String pd_tag3) throws Exception;
+	
+	public ProductDTO ProductTag4(String pd_tag4) throws Exception;
+	
+	public ProductDTO ProductTag5(String pd_tag5) throws Exception;
 
 	public void ProductReviewCount(ProductDTO dto) throws Exception;
 
