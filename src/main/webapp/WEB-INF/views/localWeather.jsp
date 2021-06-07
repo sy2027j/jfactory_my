@@ -21,12 +21,24 @@ $(document).ready(function() {
          }; 
    
    
-   //습도 꿉꿉 쾌적 건조
-   //온도 더워 추워 적당
-   //날씨 맑음 흐림 구름 많음 눈 비 
+   //습도 꿉꿉 쾌적 건조 (pd_tag3)
+   //건조 : 40% 미만
+   //쾌적 : 40% -60%
+   //꿉꿉 : 60% 초과 
    
+   //온도 더워 추워 적당 (pd_tag2)
+   //더워 : 22도 초과
+   //적당 : 17-22도
+   //추워 : 17 미만
    
-   $.ajax({ 
+   //날씨 맑음 흐림 구름많음 눈 비 (pd_tag1)
+  //맑음 : 01
+  //흐림 : 02,03
+  //구름많음 : 04 , 50
+  //눈 : 13
+  //비 : 09, 10, 11
+   
+   $.ajax({
       url:'http://api.openweathermap.org/data/2.5/weather?q=${param.city}&APPID=f819f3ac4b0076eb8e81c19dac977945&units=metric', 
       dataType:'json', 
       type:'GET', 
@@ -35,20 +47,53 @@ $(document).ready(function() {
          var $Temp = Math.floor(data.main.temp) + 'º'; 
          var $city = data.name; 
          var $humidity = data.main.humidity;
-         
+
          $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>'); 
          $('.CurrTemp').prepend($Temp); 
          $('.City').append($city); 
          $('.humidity').append('습도 : ' + $humidity + "%");
-      
-      } 
-      
-   }) 
+         
+         humidity_tag($humidity);
+         CurrTemp_tag($Temp);
+      }
+   });
+   
+   
+	 function CurrTemp_tag(Temp) {
+		   
+		   var CurrTemp_value = {'Temp' : Temp};
+		   
+		   $.ajax({
+			      url:'getProductTag2', 
+			      dataType:'json',
+			      type:'POST',
+			      data: Temp_value,
+			      success:function(data){ 
+			    	  $("#product_name2").append(data.pd_name);
+			    	  $("#product_img2").html("<img src='<c:url value='/resources/image/product/" + data.pd_main_stored_file + "'/>'>")
+			      }
+			});
+		}
+	   
+
+   function humidity_tag(humidity) {
+	   
+	   var humidity_value = {'humidity' : humidity};
+	   
+	   $.ajax({
+		      url:'getProductTag3', 
+		      dataType:'json',
+		      type:'POST',
+		      data: humidity_value,
+		      success:function(data){ 
+		    	  $("#product_name3").append(data.pd_name);
+		    	  $("#product_img3").html("<img src='<c:url value='/resources/image/product/" + data.pd_main_stored_file + "'/>'>")
+		      }
+		});
+	}
    
 }); 
- 
 </script>
-   
 
 </head>
 
@@ -58,7 +103,6 @@ div.CurrIcon{font-size: 600%;}
 div.weather_info{font-size: 120%;}
 </style>
   <div class="container">
-
    <br/><br/>
     <h3 align="center"> ★ ${param.cityName }의 날씨 ★</h3>
     <h6 align="center">제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</h6>
@@ -89,25 +133,25 @@ div.weather_info{font-size: 120%;}
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">Card Two</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
-                        </div>
+                            <h2 id="product_name2" class="card-title"></h2>
+                            <p id="product_img2" class="card-text"></p>	
+                          </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h2 class="card-title">Card Three</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                            <h2 id="product_name3" class="card-title"></h2>
+                            <p id="product_img3" class="card-text"></p>
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                     </div>
                 </div>
             </div>
         </div>
+  
 <br>
-
 <%@ include file="./footer.jsp" %>
 </body>
 </html>

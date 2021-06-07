@@ -20,7 +20,9 @@ public interface ProductDAO {
 	
 	public List<ProductDTO> ProductStockList() throws Exception;
 	
-	public ProductDTO ProductTag2(ProductDTO dto) throws Exception;
+	public ProductDTO ProductTag2(String pd_tag2) throws Exception;
+	
+	public ProductDTO ProductTag3(String pd_tag3) throws Exception;
 	
 	public void ProductReviewCount(ProductDTO dto) throws Exception;
 	

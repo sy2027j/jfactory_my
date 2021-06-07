@@ -433,13 +433,48 @@ public class MemberController {
 		return "/product_detail";
 	}
 	
-	@RequestMapping(value= "/localWeather", method = RequestMethod.GET)
-	public String ProuductTag2(Model model, ProductDTO dto) throws Exception{
-		ProductDTO pddto = prservice.ProductTag2(dto);
-		model.addAttribute("ProductTag2" , pddto);
-		return "/localWeather";
+	
+	
+
+	@RequestMapping(value= "/getProductTag2", method = RequestMethod.POST)
+	public @ResponseBody ProductDTO ProductTag2(int Temp) throws Exception {
+		
+		System.out.println(Temp + "z");
+		
+		ProductDTO pdto;
+		
+		if (Temp < 17) {
+			pdto = prservice.ProductTag2("#추워");
+		}
+		else if (Temp < 22) {
+			pdto = prservice.ProductTag2("#적당");
+		}
+		else {
+			pdto = prservice.ProductTag2("#더워");
+		}
+		
+		return pdto;
 	}
 	
+	@RequestMapping(value= "/getProductTag3", method = RequestMethod.POST)
+	public @ResponseBody ProductDTO ProductTag3(int humidity) throws Exception {
+		
+		System.out.println(humidity + "z");
+		
+		ProductDTO pdto;
+		
+		if (humidity < 40) {
+			pdto = prservice.ProductTag3("#건조");
+		}
+		else if (humidity < 60) {
+			pdto = prservice.ProductTag3("#쾌적");
+		}
+		else {
+			pdto = prservice.ProductTag3("#꿉꿉");
+		}
+		
+		return pdto;
+	}
 	
 
 	// emailSend는 컨트롤러, sendMail은 emailSender
