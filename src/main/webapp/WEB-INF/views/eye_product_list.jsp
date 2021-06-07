@@ -31,7 +31,7 @@
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${pdlist.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="product_detail"><span style="color:black; font-size:15pt">${pdlist.getPd_name() }</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${pdlist.getPd_name() }</span></a>
             </h5>
             ${pdlist.getPd_price() }원
           </div>
