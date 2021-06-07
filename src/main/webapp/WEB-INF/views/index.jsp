@@ -126,19 +126,28 @@
     </div>
   </header>
 
+
+
   <!-- Page Content -->
+  <c:if test="${ member != null }">
   <div class="container">
    <br/>
-    <h2 class="my-4" align="center">이 제품은 어떠세요 ?</h2>
+    <h2 class="my-4" align="center"> 이 제품은 어떠세요 ?</h2>
     <br/>
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
-     <input size=60 maxlength=255 style="width:1050px;height:30px;text-align:center;" type="text" placeholder="#20대  #여성  #수분부족  #산뜻" size=10>
+     <input size=60 maxlength=255 style="width:1050px;height:50px;text-align:center;" type="text" placeholder="#20대  #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" size=10>
      &nbsp;<input type=submit name=btnG value="검색" />
      <input class="form-control" type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
+     <input class="form-control" type="text" id="mem_skintype" name="mem_skintype" value="${member.mem_skintype }">
+     <input class="form-control" type="text" id="mem_skintrouble1" name="mem_skintrouble1" value="${member.mem_skintrouble1 }">
+     <input class="form-control" type="text" id="mem_skintrouble2" name="mem_skintrouble2" value="${member.mem_skintrouble2 }">
     </div>
+    
     <br>
 
     <!-- Marketing Icons Section -->
+    
+    <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
@@ -188,11 +197,44 @@
           </div>
         </div>
       </div>
+      
     </div>
+    </c:if>
     <!-- /.row -->
 
+
+<c:if test="${member == null }">
+ <div class="container">
+		<div class="row" >
+		    <div class="col-sm-2"></div>
+		</div>
+</div>
+   			<div class="col-sm-12" style="background-color:#e6e6fa" >
+      			  <div class="container">
+		    <div class="col-sm-12">
+			      <hr style="size: 100%; background-color:white" ><br/>
+			      <h3 style="color:black; text-align:center"> 로그인 하시면 <strong>JFACTORY</strong>에서 고객님께 딱! 맞는 제품을 추천해드립니다.</h3><br>
+			      <br/>
+			           <div align="center">
+                        <button
+                           style="border-color: white; background-color: #e6e6fa; color: black; WIDTH: 100pt; HEIGHT: 50pt"
+                           type="button" class="btn" id="signUpBtn"
+                           onclick="location.href='join'">회원가입</button>
+                        <button
+                           style="border-color: white; background-color: black; color: white; WIDTH: 100pt; HEIGHT: 50pt"
+                           type="button" class="btn center"
+                           onclick="location.href='login'">로그인</button>
+                     </div>
+			      <hr style="size: 100%; background-color:white">
+				</div>
+				</div>
+            </div>
+   </c:if>
     <!-- Portfolio Section -->
+    <br>
+    
     <h2 align="center">B E S T</h2>
+     <div class="container">
    <br/>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
@@ -291,6 +333,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
     <!-- /.row -->
 
