@@ -126,10 +126,10 @@ table.t1 {border: #d3d3d3 solid; border-width: 1px 0px 1px 0px}
 			</colgroup>
 			<thead>
 				<tr>
-					<th>주문일자</th>
-					<th>주문번호</th>
-					<th>결제금액</th>
-					<th>처리현황</th>
+					<th>주문제품</th>
+					<th>주문날짜</th>
+					<th>가격</th>
+					<th>사유</th>
 
 				</tr>
 			</thead>
@@ -152,6 +152,37 @@ table.t1 {border: #d3d3d3 solid; border-width: 1px 0px 1px 0px}
 	<h3>${memdetaildto.getMem_total_cash()}원</h3>
 	<br>
 	<h2>1:1 문의 내역</h2>
+	<div class="memberManager">
+		<table class="t1" id="memberList" style="width: 730px">
+			<colgroup>
+				<col style="width: 25%;">
+				<col style="width: 25%;">
+				<col style="width: 25%;">
+				<col style="width: 25%;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+					<th>답변상태</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${orderList}" var="orderList">
+					<tr
+						onClick="window.open('admin_order_detail?or_id=${orderList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
+						<td style="text-align: center;"><c:out value="${orderList.getOr_datetime()}" /></td>
+						<td style="text-align: center;"><c:out value="${orderList.getOr_id() }" /></td>
+						<td style="text-align: center;"><c:out value="${orderList.getOr_price() }" /> 원</td>
+						<td style="text-align: center;"><c:if test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if>
+							<c:if test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 	<br>
 	<h2>메모</h2>
 	<textarea rows="5" cols="50" id="gdsDes" name="gdsDes">${memdetaildto.getMem_adminmemo()}</textarea>
