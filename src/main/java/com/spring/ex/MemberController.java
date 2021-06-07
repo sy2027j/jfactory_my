@@ -579,7 +579,7 @@ public class MemberController {
 		int result = reservice.PdReviewCount(dto);
 		System.out.println(result);
 		pddto.setPd_review_count(result);
-		prservice.ProductReviewCount(pddto);
+		//prservice.ProductReviewCount(pddto);
 		return "redirect:/review";
 	}
 

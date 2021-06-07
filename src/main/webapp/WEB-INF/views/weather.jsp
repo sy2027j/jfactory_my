@@ -184,15 +184,15 @@ button.jeju {
 <div id="testImg">
 
   <button class="seoul" type="button"  onclick="location.href='localWeather?city=Seoul&cityName=서울'">서울</button> 
-  <button class="chuncheon" type="button" onclick="location.href='localWeather?city=chuncheon'">춘천</button>
-  <button class="gangneung" type="button" onclick="location.href='localWeather?city=gangneung'">강릉</button>
-  <button class="cheongju" type="button" onclick="location.href='localWeather?city=cheongju'">청주</button>
-  <button class="daejeon" type="button" onclick="location.href='localWeather?city=daejeon'">대전</button>
-  <button class="jeonju" type="button" onclick="location.href='localWeather?city=jeonju'">전주</button>
-  <button class="daegu" type="button" onclick="location.href='localWeather?city=daegu'">대구</button>
-  <button class="gwangju" type="button" onclick="location.href='localWeather?city=gwangju'">광주</button>
-  <button class="busan" type="button" onclick="location.href='localWeather?city=busan'">부산</button>
-  <button class="jeju" type="button" onclick="location.href='localWeather?city=jeju'">제주</button>
+  <button class="chuncheon" type="button" onclick="location.href='localWeather?city=chuncheon&cityName=춘천'">춘천</button>
+  <button class="gangneung" type="button" onclick="location.href='localWeather?city=gangneung&cityName=강릉'">강릉</button>
+  <button class="cheongju" type="button" onclick="location.href='localWeather?city=cheongju&cityName=청주'">청주</button>
+  <button class="daejeon" type="button" onclick="location.href='localWeather?city=daejeon&cityName=대전'">대전</button>
+  <button class="jeonju" type="button" onclick="location.href='localWeather?city=jeonju&cityName=전주'">전주</button>
+  <button class="daegu" type="button" onclick="location.href='localWeather?city=daegu&cityName=대구'">대구</button>
+  <button class="gwangju" type="button" onclick="location.href='localWeather?city=gwangju&cityName=광주'">광주</button>
+  <button class="busan" type="button" onclick="location.href='localWeather?city=busan&cityName=부산'">부산</button>
+  <button class="jeju" type="button" onclick="location.href='localWeather?city=jeju&cityName=제주'">제주</button>
 
 </div>
 
