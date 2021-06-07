@@ -74,7 +74,7 @@
       </div>
      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="mypalette_6"><img class="card-img-top" src="resources/image/palette6.png" alt=""></a><br/><br/><br/>
+          <a href="mypalette_6"><img class="card-img-top" src="resources/image/palette6구.jpg" alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
             <a href="mypalette_6"><span style="color:black; font-size:15pt">마이 팔레트 6구</span></a>

@@ -97,7 +97,7 @@ table {
 									<a style="color:black; text-decoration:none "href="product_detail?pd_name=${ordetailList.getPd_name()}">
 											<img src = '<c:url value="/resources/image/product/${ordetailList.getPd_img() }"/>' alt="" width="90px">
 											<span class="name">
-												&nbsp;<c:out value="${ordetailList.getPd_name() }"/>
+												&nbsp;<c:out value="${ordetailList.getPd_name() }"/><br/><c:out value="${ordetailList.getMy_memo() }"/>
 											</span>
 										</a>
 									</td>

@@ -28,11 +28,11 @@ public class ReviewDAOlmpl implements ReviewDAO {
 
 	@Override
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception {
-		System.out.println("DAO: listPageCri È£Ãâ");
+		System.out.println("DAO: listPageCri È£ï¿½ï¿½");
 		return sqlSession.selectList(namespace + ".ReviewList", cri);
 	}
 
-	// ÆäÀÌÂ¡
+	// ï¿½ï¿½ï¿½ï¿½Â¡
 	@Override
 	public List<ReviewDTO> reviewListPage(int page) throws Exception {
 		if (page <= 0) {
@@ -42,7 +42,7 @@ public class ReviewDAOlmpl implements ReviewDAO {
 		return sqlSession.selectList(namespace + ".reviewListPage", page);
 	}
 
-	// DB Å×ÀÌºí¿¡ ÀÖ´Â ¸ðµç ±Û °³¼ö °è»ê ÈÄ ¸®ÅÏ
+	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int reviewpageCount() throws Exception {
 		return sqlSession.selectOne(namespace + ".reviewpageCount");
@@ -61,6 +61,12 @@ public class ReviewDAOlmpl implements ReviewDAO {
 	@Override
 	public List<ReviewDTO> myreList(ReviewDTO dto) throws Exception {
 		return sqlSession.selectList(namespace + ".MyReviewList", dto);
+	}
+	
+	@Override
+	public int PdReviewCount(ReviewDTO dto) throws Exception{
+		int result = sqlSession.selectOne(namespace+".reviewCount",dto);
+	    return result;
 	}
 
 }

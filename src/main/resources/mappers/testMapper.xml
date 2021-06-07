@@ -297,4 +297,8 @@
 		SELECT * FROM jfactory_product WHERE pd_tag3=#{pd_tag3} ORDER BY RAND() LIMIT 1;
 	</select>
 	
+	<select id="reviewCount" resultType="int">
+		SELECT COUNT(case when pd_name=#{pd_name} then 1 end) FROM jfactory_review
+	</select>
+	
 </mapper>

@@ -66,10 +66,10 @@
 		                              <tbody id="cart" class="table-body-row" style="text-align: center; vertical-align: middle;">
 		                               <c:forEach items="${CartList}" var="cartlist">
 										<tr>
-											<td class="product_name" style="vertical-align: middle"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}<br/>${cartlist.getMy_memo() }</td>
+											<td class="product_name" style="vertical-align: middle"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}<br/><span style="font-size:12px">${cartlist.getMy_memo() }</span></td>
 											<td class="Quantity" style="vertical-align: middle"><c:out value="${cartlist.getPd_amount() }"/>개</td>
 											<td class="Price" style="vertical-align: middle">${cartlist.getPd_price() * cartlist.getPd_amount()}원</td>
-											<td><button style="border-color:white; background-color:white; font-size:15px; color:black; WIDTH: 50pt; HEIGHT: 70pt" onclick="del(${cartlist.getCart_id()})" type="button" class="btn btn-secondary btn-lg">삭제</button></td>
+											<td style="vertical-align:middle"><button style="border-color:white; background-color:white; font-size:15px; color:black; WIDTH: 50pt; HEIGHT: 70pt" onclick="del(${cartlist.getCart_id()})" type="button" class="btn btn-secondary btn-lg">삭제</button></td>
 											
 										</tr>
 										</c:forEach>

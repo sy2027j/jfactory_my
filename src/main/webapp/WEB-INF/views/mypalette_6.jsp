@@ -182,7 +182,7 @@
 									 <input type="text" id="hidden_value6" name="hidden_value6" value="" />
 									 <input type="text" id="pd_name" name="pd_name" value="마이 팔레트 6구">
 									 <input type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
-									 <input type="text" id="pd_img" name="pd_img" value="927fd9a8-3715-4710-a91a-ee8003fd93d7_palette6.png">
+									 <input type="text" id="pd_img" name="pd_img" value="6a489704-a0f9-490e-8cf2-8a40b5d56169_palette6구.jpg">
 									 <input type="text" id="pd_price" name="pd_price" value="9000">
 									 <input type="text" id="my" name="my_memo" value="" />
 									 <c:if test="${member != null }">

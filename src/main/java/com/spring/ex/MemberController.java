@@ -430,7 +430,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value= "/w_seoul", method = RequestMethod.GET)
-	public String ProuductTag2(Model model, ProductDTO dto) {
+	public String ProuductTag2(Model model, ProductDTO dto) throws Exception{
 		ProductDTO pddto = prservice.ProductTag2(dto);
 		model.addAttribute("ProductTag2" , pddto);
 		return "/w_seoul";
@@ -576,6 +576,8 @@ public class MemberController {
 		System.out.println(pd_name);
 		cartservice.ReviewOk(oddto);
 		System.out.println("order review write");
+		int result = reservice.PdReviewCount(dto);
+		System.out.println(result);
 		return "redirect:/review";
 	}
 
