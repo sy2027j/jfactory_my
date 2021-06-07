@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.product.ProductDTO;
 import com.spring.ex.util.Criteria;
 import com.spring.ex.util.FileUtils;
 
@@ -39,7 +40,6 @@ public class ReviewServicelmpl implements ReviewService {
 		return dao.searchreviewlist(cri);
 	}
 
-	// DB 占쏙옙占싱븝옙 占쌍댐옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙
 	@Override
 	public int reviewpageCount() throws Exception {
 		return dao.reviewpageCount();
@@ -64,5 +64,10 @@ public class ReviewServicelmpl implements ReviewService {
 	public int PdReviewCount(ReviewDTO dto) throws Exception {
 		int result = dao.PdReviewCount(dto);
 		return result;
+	}
+	
+	@Override
+	public void ReviewDelete(ReviewDTO dto) throws Exception {
+		dao.ReviewDelete(dto);
 	}
 }

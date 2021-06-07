@@ -75,6 +75,16 @@ public class ProductDAOlmpl implements ProductDAO {
 	public ProductDTO ProductTag3(String pd_tag3) throws Exception {
 		return sqlSession.selectOne(namespace + ".ProductTag3", pd_tag3);
 	}
+	
+	@Override
+	public ProductDTO ProductTag4(String pd_tag4) throws Exception {
+		return sqlSession.selectOne(namespace + ".ProductTag4", pd_tag4);
+	}
+	
+	@Override
+	public ProductDTO ProductTag5(String pd_tag5) throws Exception {
+		return sqlSession.selectOne(namespace + ".ProductTag5", pd_tag5);
+	}
 
 	@Override
 	public void ProductReviewCount(ProductDTO dto) throws Exception {

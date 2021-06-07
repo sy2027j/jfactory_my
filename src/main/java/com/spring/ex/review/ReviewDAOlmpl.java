@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.product.ProductDTO;
 import com.spring.ex.util.Criteria;
 
 @Repository
@@ -28,17 +29,17 @@ public class ReviewDAOlmpl implements ReviewDAO {
 
 	@Override
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception {
-		System.out.println("DAO: listPageCri 호占쏙옙");
+		System.out.println("DAO: listPageCri �샇�뜝�룞�삕");
 		return sqlSession.selectList(namespace + ".ReviewList", cri);
 	}
 
 	@Override
 	public List<ReviewDTO> searchreviewlist(Criteria cri) throws Exception {
-		System.out.println("DAO: listPageCri 호占쏙옙");
+		System.out.println("DAO: listPageCri �샇�뜝�룞�삕");
 		return sqlSession.selectList(namespace + ".searchreviewlist", cri);
 	}
 
-	// 占쏙옙占쏙옙징
+	// �뜝�룞�삕�뜝�룞�삕吏�
 	@Override
 	public List<ReviewDTO> reviewListPage(int page) throws Exception {
 		if (page <= 0) {
@@ -48,7 +49,6 @@ public class ReviewDAOlmpl implements ReviewDAO {
 		return sqlSession.selectList(namespace + ".reviewListPage", page);
 	}
 
-	// DB 占쏙옙占싱븝옙 占쌍댐옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙
 	@Override
 	public int reviewpageCount() throws Exception {
 		return sqlSession.selectOne(namespace + ".reviewpageCount");
@@ -74,5 +74,9 @@ public class ReviewDAOlmpl implements ReviewDAO {
 		int result = sqlSession.selectOne(namespace + ".reviewCount", dto);
 		return result;
 	}
-
+	
+	@Override
+	public void ReviewDelete(ReviewDTO dto) throws Exception {
+		sqlSession.delete(namespace + ".ReviewDelete", dto);
+	}
 }

@@ -93,8 +93,6 @@ div.row {
                </div> 
             </div>
          </div>
-         <button type="button" class="btn btn-primary">변경</button>
-         <button type="button" class="btn btn-danger">삭제</button>
    </div>
 </body>
 </html>

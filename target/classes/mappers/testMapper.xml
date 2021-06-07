@@ -372,4 +372,9 @@
 		DELETE FROM
 		jfactory_product WHERE pd_name=#{pd_name}
 	</delete>
+	
+	<delete id="ReviewDelete" parameterType="ReviewDTO">
+		DELETE FROM
+		jfactory_review WHERE re_no=#{re_no}
+	</delete>
 </mapper>

@@ -44,6 +44,7 @@ div.box-footer {
 									<th style="width: 150px">작성일</th>
 									<th style="width: 100px">조회수</th>
 									<th style="width: 100px">만족도</th>
+									<th style="width: 70px">삭제</th>
 								</tr>
 
 								<c:forEach items="${ReviewList}" var="reviewlist">
@@ -56,6 +57,8 @@ div.box-footer {
 										<td><c:out value="${reviewlist.getRe_datetime() }" /></td>
 										<td><c:out value="${reviewlist.getRe_count() }회" /></td>
 										<td><c:out value="${reviewlist.getRe_score() }점" /></td>
+										<td style="text-align: center; vertical-align: middle"><a
+											href="delete_review?re_no=${reviewlist.getRe_no()}">삭제</a></td>
 									</tr>
 								</c:forEach>
 

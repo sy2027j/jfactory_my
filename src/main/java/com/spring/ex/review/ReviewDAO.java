@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.product.ProductDTO;
 import com.spring.ex.util.Criteria;
 
 @Repository
@@ -19,7 +20,6 @@ public interface ReviewDAO {
 
 	public List<ReviewDTO> reviewListPage(int page) throws Exception;
 
-	// DB 占쏙옙占싱븝옙 占쌍댐옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙
 	public int reviewpageCount() throws Exception;
 
 	public List<ReviewDTO> bestlist() throws Exception;
@@ -29,5 +29,6 @@ public interface ReviewDAO {
 	public List<ReviewDTO> myreList(ReviewDTO dto) throws Exception;
 
 	public int PdReviewCount(ReviewDTO dto) throws Exception;
-
+	
+	public void ReviewDelete(ReviewDTO dto) throws Exception;
 }
