@@ -22,7 +22,11 @@ public interface ProductDAO {
 
 	public void ProductPhotoWrite(ProductDTO dto) throws Exception;
 
-	public List<ProductDTO> ProductStockList() throws Exception;
+	public List<ProductDTO> ProductStockList(Criteria cri) throws Exception;
+
+	public List<ProductDTO> ProductStockListPage(int page) throws Exception;
+
+	public int adminproductpageCount() throws Exception;
 
 	public ProductDTO ProductTag2(String pd_tag2) throws Exception;
 
