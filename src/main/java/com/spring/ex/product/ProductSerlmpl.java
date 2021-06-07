@@ -74,4 +74,9 @@ public class ProductSerlmpl implements ProductSer {
 	public void CancelProductSellCount(ProductDTO dto) throws Exception{
 		dao.CancelProductSellCount(dto);
 	}
+	
+	@Override
+	public void ProductDelete(ProductDTO dto) throws Exception{
+		dao.ProductDelete(dto);
+	}
 }

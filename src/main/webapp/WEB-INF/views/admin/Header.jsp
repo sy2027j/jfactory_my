@@ -74,7 +74,7 @@
                                </a>
                                <a class="nav-link" href="pd_index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                   재고관리
+                                   상품관리
                                  </a>
                                  <a class="nav-link" href="mypalette_add">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

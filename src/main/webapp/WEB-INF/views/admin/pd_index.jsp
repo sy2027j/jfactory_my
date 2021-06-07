@@ -7,7 +7,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">재고관리</h1> 
+                        <h1 class="mt-4">상품 관리</h1> 
                         	    <form method="get" action="SelectServlet" class="form-inline" style="font-size:15pt">
 								      <select id="select" name="select" size="1">
 								         <option value="정렬">카테고리</option>
@@ -26,20 +26,20 @@
                             <div class="memberManager">    
 								<table class="table table-hover" id="memberList">  
 									<thead>
-										<tr>
-											<th>등록날짜</th>
-											<th>카테고리</th>
-											<th>제품명</th>  
-											<th>재고수</th>
+										<tr style="text-align:center">
+											<th style="text-align:center">등록날짜</th>
+											<th style="text-align:center">카테고리</th>
+											<th style="text-align:center">제품명</th>  
+											<th style="text-align:center">삭제</th>  
 										</tr>
 									</thead>
 										<tbody>
 										<c:forEach items="${StockList}" var="stocklist"> 
 										<tr>
-											<td><c:out value="${stocklist.getPd_datetime() }"/></td>
-											<td><c:out value="${stocklist.getPd_category() }"/></td>
-											<td><c:out value="${stocklist.getPd_name() }"/></td>
-											<td><c:out value="${stocklist.getPd_stock() }"/></td>
+											<td style="text-align:center"onClick="window.open('/ex/product_detail?pd_name=${stocklist.getPd_name()}', '상품 관리');"><c:out value="${stocklist.getPd_datetime() }"/></td>
+											<td style="text-align:center"onClick="window.open('/ex/product_detail?pd_name=${stocklist.getPd_name()}', '상품 관리');"><c:out value="${stocklist.getPd_category() }"/></td>
+											<td style="text-align:center"onClick="window.open('/ex/product_detail?pd_name=${stocklist.getPd_name()}', '상품 관리');"><c:out value="${stocklist.getPd_name() }"/></td>
+											<td style="text-align:center; vertical-align:middle"><a href="delete_product?pd_name=${stocklist.getPd_name()}">삭제</a></td>
 										</tr>	
 										</c:forEach>
 									</tbody>

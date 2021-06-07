@@ -850,6 +850,10 @@ public class MemberController {
 		return "redirect:/index";
 	}
 	
-	
+	@RequestMapping(value = "admin/delete_product", method = RequestMethod.GET)
+	public String DelProduct(ProductDTO dto, Model model) throws Exception {
+		prservice.ProductDelete(dto);
+		return "redirect:/admin/pd_index";
+	}
 	
 }

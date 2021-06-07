@@ -313,4 +313,7 @@
 		UPDATE jfactory_product SET pd_sell_count=#{pd_sell_count}-#{pd_amount} select (#{pd_amount}, #{pd_name}) from jfactory_cart WHERE pd_name=#{pd_name}
 	</update>
 	
+	<delete id="ProductDelete" parameterType="ProductDTO">
+		DELETE FROM jfactory_product WHERE pd_name=#{pd_name}
+	</delete>
 </mapper>

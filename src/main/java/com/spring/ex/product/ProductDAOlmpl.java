@@ -65,4 +65,9 @@ public class ProductDAOlmpl implements ProductDAO {
 	public void CancelProductSellCount(ProductDTO dto) throws Exception{
 		sqlSession.update(namespace+".CancelProductSellCount",dto);
 	}
+	
+	@Override
+	public void ProductDelete(ProductDTO dto) throws Exception{
+		sqlSession.delete(namespace+".ProductDelete", dto);
+	}
 }

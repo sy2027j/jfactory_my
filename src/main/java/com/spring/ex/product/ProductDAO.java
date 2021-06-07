@@ -27,4 +27,6 @@ public interface ProductDAO {
 	public void OrderProductSellCount(ProductDTO dto) throws Exception;
 	
 	public void CancelProductSellCount(ProductDTO dto) throws Exception;
+	
+	public void ProductDelete(ProductDTO dto) throws Exception;
 }
