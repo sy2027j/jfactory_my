@@ -51,4 +51,18 @@ public class ProductDAOlmpl implements ProductDAO {
 		return sqlSession.selectOne(namespace + ".ProductTag2", dto);
 	}
 	
+	@Override
+	public void ProductReviewCount(ProductDTO dto) throws Exception{
+		sqlSession.update(namespace+".ProductReviewCount",dto);
+	}
+	
+	@Override
+	public void OrderProductSellCount(ProductDTO dto) throws Exception{
+		sqlSession.update(namespace+".OrderProductSellCount",dto);
+	}
+	
+	@Override
+	public void CancelProductSellCount(ProductDTO dto) throws Exception{
+		sqlSession.update(namespace+".CancelProductSellCount",dto);
+	}
 }

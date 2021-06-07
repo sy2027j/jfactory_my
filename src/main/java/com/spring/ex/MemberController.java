@@ -422,10 +422,14 @@ public class MemberController {
 
 	// product detail
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String ProductDetailView(Model model, String pd_name) {
+	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto) throws Exception{
 		ProductDTO pddetaildto = prservice.AddDetail(pd_name);
 		model.addAttribute("ProductDetail", pddetaildto);
 		System.out.println("product detail view");
+		int result = reservice.PdReviewCount(dto);
+		System.out.println(result);
+		pddto.setPd_review_count(result);
+		prservice.ProductReviewCount(pddto);
 		return "/product_detail";
 	}
 	
@@ -579,7 +583,7 @@ public class MemberController {
 		int result = reservice.PdReviewCount(dto);
 		System.out.println(result);
 		pddto.setPd_review_count(result);
-		//prservice.ProductReviewCount(pddto);
+		prservice.ProductReviewCount(pddto);
 		return "redirect:/review";
 	}
 
@@ -682,7 +686,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/orderlist", method = RequestMethod.POST)
-	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto)
+	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto, ProductDTO pddto)
 			throws Exception {
 		System.out.println("check0");
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
@@ -750,7 +754,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/order_cancel", method = RequestMethod.POST)
-	public String OrderCancel(OrderDTO dto, HttpSession session, Model model, MemberDTO mdto) throws Exception {
+	public String OrderCancel(OrderDTO dto, HttpSession session, Model model, MemberDTO mdto, ProductDTO pddto) throws Exception {
 		cartservice.OrderCancel(dto);
 		String id = dto.getOr_id();
 		System.out.println(id);

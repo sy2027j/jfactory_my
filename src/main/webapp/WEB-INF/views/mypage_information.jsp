@@ -8,23 +8,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-2">
-				<ul class="nav nav-pills flex-column"
-					style="background-color: #e6e6fa;">
+				<ul class="nav nav-pills flex-column">
 					<li class="nav-item"><a
 						style="color: black; text-decoration: none" class="nav-link"
 						href="mypage_order">주문내역</a></li>
-					<li class="nav-item"><a
-						style="color: black; text-decoration: none" class="nav-link"
-						href="mypage_view">최근 본 상품</a></li>
 					<li class="nav-item"><a
 						style="color: black; text-decoration: none" class="nav-link"
 						href="mypage_review">내가 작성한 리뷰</a></li>
 					<li class="nav-item"><a
 						style="color: black; text-decoration: none" class="nav-link"
 						href="mypage_ask">문의내역</a></li>
-					<li class="nav-item"><a
-						style="color: black; text-decoration: none" class="nav-link"
-						href="mypage_coupon">보유쿠폰</a></li>
 					<li class="nav-item"><a
 						style="color: black; text-decoration: none" class="nav-link"
 						href="mypage_information">회원정보수정</a></li>
@@ -43,12 +36,9 @@
 							<div class="myForm-group">
 								<div class="form-group">
 									<label for="MEMBER_ID">아이디 *</label>
-									<div class="form-inline">
 										<input type="text" class="form-control" id="mem_id"
 											name="mem_id" placeholder="${member.mem_id }"
-											value="${member.mem_id }" readonly="readonly"
-											style="width: 410px"> &nbsp;
-									</div>
+											value="${member.mem_id }" readonly="readonly"> &nbsp;
 								</div>
 
 								<div class="form-group">

@@ -59,5 +59,19 @@ public class ProductSerlmpl implements ProductSer {
 	public ProductDTO ProductTag2(ProductDTO dto) throws Exception{
 		return dao.ProductTag2(dto);
 	}
-
+	
+	@Override
+	public void ProductReviewCount(ProductDTO dto) throws Exception{
+		dao.ProductReviewCount(dto);
+	}
+	
+	@Override
+	public void OrderProductSellCount(ProductDTO dto) throws Exception{
+		dao.OrderProductSellCount(dto);
+	}
+	
+	@Override
+	public void CancelProductSellCount(ProductDTO dto) throws Exception{
+		dao.CancelProductSellCount(dto);
+	}
 }

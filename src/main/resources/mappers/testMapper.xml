@@ -301,4 +301,16 @@
 		SELECT COUNT(case when pd_name=#{pd_name} then 1 end) FROM jfactory_review
 	</select>
 	
+	<update id="ProductReviewCount" parameterType="ProductDTO">
+		UPDATE jfactory_product SET pd_review_count=#{pd_review_count} WHERE pd_name=#{pd_name}
+	</update>
+	
+	<update id="OrderProductSellCount" parameterType="ProductDTO">
+		UPDATE jfactory_product SET pd_sell_count=#{pd_sell_count}+#{pd_amount} select #{pd_amount}, #{pd_name} from jfactory_cart WHERE or_id=#{or_id} AND pd_name=#{pd_name}
+	</update>
+	
+	<update id="CancelProductSellCount" parameterType="ProductDTO">
+		UPDATE jfactory_product SET pd_sell_count=#{pd_sell_count}-#{pd_amount} select (#{pd_amount}, #{pd_name}) from jfactory_cart WHERE pd_name=#{pd_name}
+	</update>
+	
 </mapper>

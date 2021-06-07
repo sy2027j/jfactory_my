@@ -23,6 +23,9 @@ public class ProductDTO {
 	private String pd_tag3;
 	private String pd_tag4;
 	private String pd_tag5;
+	private int pd_amount;
+	private String or_id;
+	
 	public int getPd_no() {
 		return pd_no;
 	}
@@ -137,7 +140,17 @@ public class ProductDTO {
 	public void setPd_tag5(String pd_tag5) {
 		this.pd_tag5 = pd_tag5;
 	}
+	public int getPd_amount() {
+		return pd_amount;
+	}
+	public void setPd_amount(int pd_amount) {
+		this.pd_amount = pd_amount;
+	}
+	public String getOr_id() {
+		return or_id;
+	}
+	public void setOr_id(String or_id) {
+		this.or_id = or_id;
+	}
 	
-	
-
 }

@@ -22,5 +22,9 @@ public interface ProductDAO {
 	
 	public ProductDTO ProductTag2(ProductDTO dto) throws Exception;
 	
+	public void ProductReviewCount(ProductDTO dto) throws Exception;
 	
+	public void OrderProductSellCount(ProductDTO dto) throws Exception;
+	
+	public void CancelProductSellCount(ProductDTO dto) throws Exception;
 }
