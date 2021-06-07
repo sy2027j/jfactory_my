@@ -34,7 +34,12 @@ public class ReviewServicelmpl implements ReviewService {
 		return dao.reviewList(cri);
 	}
 
-	// DB ���̺� �ִ� ��� �� ���� ��� �� ����
+	@Override
+	public List<ReviewDTO> searchreviewlist(Criteria cri) throws Exception {
+		return dao.searchreviewlist(cri);
+	}
+
+	// DB 占쏙옙占싱븝옙 占쌍댐옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙
 	@Override
 	public int reviewpageCount() throws Exception {
 		return dao.reviewpageCount();
@@ -54,10 +59,10 @@ public class ReviewServicelmpl implements ReviewService {
 	public List<ReviewDTO> myreList(ReviewDTO dto) throws Exception {
 		return dao.myreList(dto);
 	}
-	
+
 	@Override
-	public int PdReviewCount(ReviewDTO dto) throws Exception{
-		int result=dao.PdReviewCount(dto);
-	    return result;
+	public int PdReviewCount(ReviewDTO dto) throws Exception {
+		int result = dao.PdReviewCount(dto);
+		return result;
 	}
 }

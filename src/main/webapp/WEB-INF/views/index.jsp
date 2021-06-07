@@ -25,7 +25,7 @@
             var y = (x+obj.length); 
             if ( document.cookie.substring( x, y ) == obj ) 
             { 
-            	
+               
                 if ((endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) 
                     endOfCookie = document.cookie.length;
                 
@@ -51,7 +51,7 @@
     $(function(){    
         if(getCookie("divpop1") !="Y"){
 
-        	
+           
             $("#divpop1").show();
         }
     });
@@ -128,7 +128,7 @@
 
   <!-- Page Content -->
   <div class="container">
-	<br/>
+   <br/>
     <h2 class="my-4" align="center">이 제품은 어떠세요 ?</h2>
     <br/>
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
@@ -193,7 +193,7 @@
 
     <!-- Portfolio Section -->
     <h2 align="center">B E S T</h2>
-	<br/>
+   <br/>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">

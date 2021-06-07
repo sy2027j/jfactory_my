@@ -15,7 +15,9 @@ public interface ReviewService {
 
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception;
 
-	// DB ���̺� �ִ� ��� �� ���� ��� �� ����
+	public List<ReviewDTO> searchreviewlist(Criteria cri) throws Exception;
+
+	// DB 占쏙옙占싱븝옙 占쌍댐옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙
 	public int reviewpageCount() throws Exception;
 
 	public List<ReviewDTO> bestlist() throws Exception;

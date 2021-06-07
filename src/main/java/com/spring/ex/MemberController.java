@@ -69,7 +69,7 @@ public class MemberController {
 		pm.setDisplayPageNum(15);
 		pm.setCri(cri);
 		pm.setTotalCount(service.memberpageCount()); // DB의 전체ROW수 입력
-		
+
 		// 뷰페이지로 전달
 		model.addAttribute("pm", pm);
 
@@ -124,7 +124,8 @@ public class MemberController {
 		service.admin_addcheck(dto);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print("<script>alert('관리자가 추가되었습니다.');self.close(); window.close(); window.opener.close(); window.opener.opener.location.reload();</script>");
+		out.print(
+				"<script>alert('관리자가 추가되었습니다.');self.close(); window.close(); window.opener.close(); window.opener.opener.location.reload();</script>");
 		out.flush();
 		out.close();
 	}
@@ -420,9 +421,20 @@ public class MemberController {
 		return "/eye_product_list";
 	}
 
+	// product list
+	@RequestMapping(value = "/MainSearch", method = RequestMethod.GET)
+	public String MainSearch(Model model, Criteria cri) throws Exception {
+		List<ProductDTO> pddto = prservice.searchprolist(cri);
+		model.addAttribute("searchProductlist", pddto);
+		List<ReviewDTO> redto = reservice.searchreviewlist(cri);
+		model.addAttribute("searchreviewlist", redto);
+		System.out.println("searchproduct list select");
+		return "/MainSearch";
+	}
+
 	// product detail
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto) throws Exception{
+	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto) throws Exception {
 		ProductDTO pddetaildto = prservice.AddDetail(pd_name);
 		model.addAttribute("ProductDetail", pddetaildto);
 		System.out.println("product detail view");
@@ -432,70 +444,60 @@ public class MemberController {
 		prservice.ProductReviewCount(pddto);
 		return "/product_detail";
 	}
-	
-	@RequestMapping(value= "/getProductTag1", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/getProductTag1", method = RequestMethod.POST)
 	public @ResponseBody ProductDTO ProductTag1(int Icon) throws Exception {
-		
+
 		System.out.println(Icon + "cc");
-		
+
 		ProductDTO pdto;
-		
+
 		if (Icon < 17) {
 			pdto = prservice.ProductTag2("#추워");
-		}
-		else if (Icon < 25) {
+		} else if (Icon < 25) {
 			pdto = prservice.ProductTag2("#적당");
-		}
-		else {
+		} else {
 			pdto = prservice.ProductTag2("#더워");
 		}
-		
+
 		return pdto;
 	}
-	
-	
-	
 
-	@RequestMapping(value= "/getProductTag2", method = RequestMethod.POST)
+	@RequestMapping(value = "/getProductTag2", method = RequestMethod.POST)
 	public @ResponseBody ProductDTO ProductTag2(int temp) throws Exception {
 		System.out.println("AA");
 		System.out.println(temp + "aa");
-		
+
 		ProductDTO pdto;
-		
+
 		if (temp < 15) {
 			pdto = prservice.ProductTag2("#추워");
-		}
-		else if (temp < 25) {
+		} else if (temp < 25) {
 			pdto = prservice.ProductTag2("#적당");
-		}
-		else {
+		} else {
 			pdto = prservice.ProductTag2("#더워");
 		}
-		
+
 		return pdto;
 	}
-	
-	@RequestMapping(value= "/getProductTag3", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/getProductTag3", method = RequestMethod.POST)
 	public @ResponseBody ProductDTO ProductTag3(int humidity) throws Exception {
-		
+
 		System.out.println(humidity + "z");
-		
+
 		ProductDTO pdto;
-		
+
 		if (humidity < 40) {
 			pdto = prservice.ProductTag3("#건조");
-		}
-		else if (humidity < 60) {
+		} else if (humidity < 60) {
 			pdto = prservice.ProductTag3("#쾌적");
-		}
-		else {
+		} else {
 			pdto = prservice.ProductTag3("#꿉꿉");
 		}
-		
+
 		return pdto;
 	}
-	
 
 	// emailSend는 컨트롤러, sendMail은 emailSender
 	@RequestMapping(value = "/emailSend", method = RequestMethod.POST)
@@ -617,8 +619,8 @@ public class MemberController {
 
 	// review write insert
 	@RequestMapping(value = "/review_write", method = RequestMethod.POST)
-	public String reviewWrite(OrderDetailDTO oddto, ReviewDTO dto, MultipartFile file, HttpServletRequest req,ProductDTO pddto)
-			throws Exception {
+	public String reviewWrite(OrderDetailDTO oddto, ReviewDTO dto, MultipartFile file, HttpServletRequest req,
+			ProductDTO pddto) throws Exception {
 		String Path = req.getSession().getServletContext().getRealPath("resources/image/review/");
 		System.out.println(Path);
 		String fileName = null;
@@ -741,8 +743,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/orderlist", method = RequestMethod.POST)
-	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto, ProductDTO pddto)
-			throws Exception {
+	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto,
+			ProductDTO pddto) throws Exception {
 		System.out.println("check0");
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		String mem_id = member.getmem_id();
@@ -809,7 +811,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/order_cancel", method = RequestMethod.POST)
-	public String OrderCancel(OrderDTO dto, HttpSession session, Model model, MemberDTO mdto, ProductDTO pddto) throws Exception {
+	public String OrderCancel(OrderDTO dto, HttpSession session, Model model, MemberDTO mdto, ProductDTO pddto)
+			throws Exception {
 		cartservice.OrderCancel(dto);
 		String id = dto.getOr_id();
 		System.out.println(id);
@@ -904,11 +907,11 @@ public class MemberController {
 		System.out.println("check7");
 		return "redirect:/index";
 	}
-	
+
 	@RequestMapping(value = "admin/delete_product", method = RequestMethod.GET)
 	public String DelProduct(ProductDTO dto, Model model) throws Exception {
 		prservice.ProductDelete(dto);
 		return "redirect:/admin/pd_index";
 	}
-	
+
 }

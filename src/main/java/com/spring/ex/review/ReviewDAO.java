@@ -15,9 +15,11 @@ public interface ReviewDAO {
 
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception;
 
+	public List<ReviewDTO> searchreviewlist(Criteria cri) throws Exception;
+
 	public List<ReviewDTO> reviewListPage(int page) throws Exception;
 
-	// DB ���̺� �ִ� ��� �� ���� ��� �� ����
+	// DB 占쏙옙占싱븝옙 占쌍댐옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙 占쏙옙占� 占쏙옙 占쏙옙占쏙옙
 	public int reviewpageCount() throws Exception;
 
 	public List<ReviewDTO> bestlist() throws Exception;
@@ -25,7 +27,7 @@ public interface ReviewDAO {
 	public void Review_count(int re_no) throws Exception;
 
 	public List<ReviewDTO> myreList(ReviewDTO dto) throws Exception;
-	
+
 	public int PdReviewCount(ReviewDTO dto) throws Exception;
 
 }
