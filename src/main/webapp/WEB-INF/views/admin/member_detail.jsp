@@ -14,7 +14,12 @@
 table {
 	font-size: 100%;
 }
-table.t1 {border: #d3d3d3 solid; border-width: 1px 0px 1px 0px}
+
+table.t1 {
+	border: #d3d3d3 solid;
+	border-width: 1px 0px 1px 0px;
+	overflow: auto;
+}
 
 .data_td {
 	text-align: left;
@@ -104,11 +109,15 @@ table.t1 {border: #d3d3d3 solid; border-width: 1px 0px 1px 0px}
 				<c:forEach items="${orderList}" var="orderList">
 					<tr
 						onClick="window.open('admin_order_detail?or_id=${orderList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
-						<td style="text-align: center;"><c:out value="${orderList.getOr_datetime()}" /></td>
-						<td style="text-align: center;"><c:out value="${orderList.getOr_id() }" /></td>
-						<td style="text-align: center;"><c:out value="${orderList.getOr_price() }" /> 원</td>
-						<td style="text-align: center;"><c:if test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if>
-							<c:if test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
+						<td style="text-align: center;"><c:out
+								value="${orderList.getOr_datetime()}" /></td>
+						<td style="text-align: center;"><c:out
+								value="${orderList.getOr_id() }" /></td>
+						<td style="text-align: center;"><c:out
+								value="${orderList.getOr_price() }" /> 원</td>
+						<td style="text-align: center;"><c:if
+								test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if> <c:if
+								test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -116,37 +125,6 @@ table.t1 {border: #d3d3d3 solid; border-width: 1px 0px 1px 0px}
 	</div>
 	<br>
 	<h2>주문취소한 상품</h2>
-	<div class="memberManager">
-		<table class="t1" id="memberList" style="width: 730px">
-			<colgroup>
-				<col style="width: 25%;">
-				<col style="width: 25%;">
-				<col style="width: 25%;">
-				<col style="width: 25%;">
-			</colgroup>
-			<thead>
-				<tr>
-					<th>주문제품</th>
-					<th>주문날짜</th>
-					<th>가격</th>
-					<th>사유</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${orderList}" var="orderList">
-					<tr
-						onClick="window.open('admin_order_detail?or_id=${orderList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
-						<td style="text-align: center;"><c:out value="${orderList.getOr_datetime()}" /></td>
-						<td style="text-align: center;"><c:out value="${orderList.getOr_id() }" /></td>
-						<td style="text-align: center;"><c:out value="${orderList.getOr_price() }" /> 원</td>
-						<td style="text-align: center;"><c:if test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if>
-							<c:if test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
 	<br>
 	<h2>총 구매 금액</h2>
 	<h3>${memdetaildto.getMem_total_cash()}원</h3>
@@ -170,14 +148,21 @@ table.t1 {border: #d3d3d3 solid; border-width: 1px 0px 1px 0px}
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${orderList}" var="orderList">
+				<c:forEach items="${QnaList}" var="qnalist">
 					<tr
-						onClick="window.open('admin_order_detail?or_id=${orderList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
-						<td style="text-align: center;"><c:out value="${orderList.getOr_datetime()}" /></td>
-						<td style="text-align: center;"><c:out value="${orderList.getOr_id() }" /></td>
-						<td style="text-align: center;"><c:out value="${orderList.getOr_price() }" /> 원</td>
-						<td style="text-align: center;"><c:if test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if>
-							<c:if test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
+						onClick="window.open('admin_cm_qna_view?qna_no=${qnalist.getQna_no()}')">
+						<td style="text-align: center;"><c:out
+								value="${qnalist.getQna_title()}" /></td>
+						<td style="text-align: center;"><c:out
+								value="${qnalist.getmem_id()}" /></td>
+						<td style="text-align: center;"><c:out
+								value="${qnalist.getQna_datetime() }" /></td>
+						<td style="text-align: center;"><c:if
+								test="${qnalist.getQna_response() eq 1}">
+								<span style="color: blue">답변완료</span>
+							</c:if> <c:if test="${qnalist.getQna_response() eq 0}">
+								<span style="color: red">답변아직</span>
+							</c:if></td>
 					</tr>
 				</c:forEach>
 			</tbody>

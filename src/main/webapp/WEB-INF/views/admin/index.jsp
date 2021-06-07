@@ -61,7 +61,7 @@ div.row {
 						<tbody>
 							<c:forEach items="${List}" var="member">
 								<tr
-									onClick="window.open('member_detail?mem_id=${member.getmem_id()}', '회원 상세 정보', 'width=600, height=700, left=100, top=50');">
+									onClick="window.open('member_detail?mem_id=${member.getmem_id()}', '회원 상세 정보', 'width=500, height=700, left=100, top=50');">
 									<td><c:out value="${member.getMem_level()}" /></td>
 									<td><c:out value="${member.getmem_id()}" /></td>
 									<td><c:out value="${member.getMem_realname() }" /></td>
