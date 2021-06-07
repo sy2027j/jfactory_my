@@ -77,13 +77,20 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
-	public String member_detail(Model model, AdminDTO dto) throws Exception {
+	public String member_detail(OrderDTO order, Model model, AdminDTO dto) throws Exception {
 
 		System.out.println("find id");
 		AdminDTO memdetaildto = adminservice.member_detail(dto);
 		System.out.println("find id");
 		model.addAttribute("memdetaildto", memdetaildto);
 		System.out.println("find id");
+		
+		String userId = memdetaildto.getmem_id();
+		order.setMem_id(userId);
+		String ord = order.getMem_id();
+		System.out.println(ord);
+		List<OrderDTO> orderList = cartservice.orderList(order);
+		model.addAttribute("orderList", orderList);
 
 		return "admin/member_detail";
 	}
@@ -827,6 +834,16 @@ public class MemberController {
 		model.addAttribute("orderdetailList", orderdetailList);
 		model.addAttribute("ordermemdetail", odto);
 		return "/mypage_orderdetail";
+	}
+	
+	@RequestMapping(value = "admin/admin_order_detail", method = RequestMethod.GET)
+	public String admin_order_detail(OrderDTO dto, OrderDetailDTO order, Model model) throws Exception {
+		List<OrderDetailDTO> orderdetailList = cartservice.orderdetailList(order);
+		OrderDTO odto = cartservice.OrdermemDetail(dto);
+		System.out.println("buy detail");
+		model.addAttribute("orderdetailList", orderdetailList);
+		model.addAttribute("ordermemdetail", odto);
+		return "admin/admin_order_detail";
 	}
 
 	@RequestMapping(value = "/order_cancel", method = RequestMethod.POST)

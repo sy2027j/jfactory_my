@@ -41,7 +41,7 @@
 									</thead>
 										<tbody>
 											<c:forEach items="${orderList}" var="orderList">
-							<tr onClick="location.href='mypage_orderdetail?or_id=${orderList.getOr_id()}'">
+							<tr onClick="window.open('/ex/mypage_orderdetail?or_id=${orderList.getOr_id()}', '주문 상세');">
 								<td><c:out value="${orderList.getOr_datetime()}"/></td>
 								<td><c:out value="${orderList.getOr_id() }"/></td>
 								<td><c:out value="${orderList.getOr_price() }"/> 원</td>

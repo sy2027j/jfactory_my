@@ -26,7 +26,7 @@
                                 	주문차트
                             </div>
                             <div class="memberManager">    
-								<table class="table table-hover" id="memberList">  
+								<table class="table table-hover" id="orderList">  
 									<thead>
 										<tr>
 											<th>ID</th>
