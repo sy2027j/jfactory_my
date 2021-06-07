@@ -105,11 +105,11 @@ div.weather_info{font-size: 120%;}
 	      <div class="City"></div> 
 	      <div class="humidity"></div>
     	</div>
-   </div>
+   </div><br/><br/>
    <hr>
    
 <div class="container px-4 px-lg-5"> 
-<h4 style="text-align:center">오늘같은 날씨엔. . .</h4><br/>
+<br/><h4 style="text-align:center">오늘같은 날씨엔. . .</h4><br/>
   <div class="row" style="text-align:center">
   <div class="col-lg-3 col-md-2 col-sm-2 portfolio-item" align="center">
       </div>
