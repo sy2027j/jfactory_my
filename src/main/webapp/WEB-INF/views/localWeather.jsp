@@ -47,14 +47,17 @@ $(document).ready(function() {
          var $temp = Math.floor(data.main.temp) + 'º'; 
          var $city = data.name; 
          var $humidity = data.main.humidity;
+         
+         var $temp2 = Math.floor(data.main.temp);
 
          $('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>'); 
          $('.CurrTemp').prepend($temp); 
          $('.City').append($city); 
          $('.humidity').append('습도 : ' + $humidity + "%");
          
+         Icon_tag($Icon);
          humidity_tag($humidity);
-         Temp_tag($temp);
+         Temp_tag($temp2);
       }
    });
    

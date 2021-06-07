@@ -289,6 +289,11 @@
 	</select>
 	
 	<!-- 제품 온도 태그 매퍼  -->
+	<select id="ProductTag1" resultType="ProductDTO">
+		SELECT * FROM jfactory_product WHERE pd_tag1=#{pd_tag1} ORDER BY RAND() LIMIT 1;
+	</select>
+
+	<!-- 제품 온도 태그 매퍼  -->
 	<select id="ProductTag2" resultType="ProductDTO">
 		SELECT * FROM jfactory_product WHERE pd_tag2=#{pd_tag2} ORDER BY RAND() LIMIT 1;
 	</select>

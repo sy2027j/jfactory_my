@@ -458,12 +458,12 @@ public class MemberController {
 
 	@RequestMapping(value= "/getProductTag2", method = RequestMethod.POST)
 	public @ResponseBody ProductDTO ProductTag2(int temp) throws Exception {
-		
+		System.out.println("AA");
 		System.out.println(temp + "aa");
 		
 		ProductDTO pdto;
 		
-		if (temp < 17) {
+		if (temp < 15) {
 			pdto = prservice.ProductTag2("#추워");
 		}
 		else if (temp < 25) {
