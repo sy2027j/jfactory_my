@@ -183,16 +183,16 @@ button.jeju {
 </p>
 <div id="testImg">
 
-  <button class="seoul" type="button"  onclick="location.href='w_seoul'">서울</button> 
-  <button class="chuncheon" type="button" onclick="location.href='w_chuncheon'">춘천</button>
-  <button class="gangneung" type="button" onclick="location.href='w_gangneung'">강릉</button>
-  <button class="cheongju" type="button" onclick="location.href='w_cheongju'">청주</button>
-  <button class="daejeon" type="button" onclick="location.href='w_daejeon'">대전</button>
-  <button class="jeonju" type="button" onclick="location.href='w_jeonju'">전주</button>
-  <button class="daegu" type="button" onclick="location.href='w_daegu'">대구</button>
-  <button class="gwangju" type="button" onclick="location.href='w_gwangju'">광주</button>
-  <button class="busan" type="button" onclick="location.href='w_busan'">부산</button>
-  <button class="jeju" type="button" onclick="location.href='w_jeju'">제주</button>
+  <button class="seoul" type="button"  onclick="location.href='localWeather?city=Seoul&cityName=서울'">서울</button> 
+  <button class="chuncheon" type="button" onclick="location.href='localWeather?city=chuncheon'">춘천</button>
+  <button class="gangneung" type="button" onclick="location.href='localWeather?city=gangneung'">강릉</button>
+  <button class="cheongju" type="button" onclick="location.href='localWeather?city=cheongju'">청주</button>
+  <button class="daejeon" type="button" onclick="location.href='localWeather?city=daejeon'">대전</button>
+  <button class="jeonju" type="button" onclick="location.href='localWeather?city=jeonju'">전주</button>
+  <button class="daegu" type="button" onclick="location.href='localWeather?city=daegu'">대구</button>
+  <button class="gwangju" type="button" onclick="location.href='localWeather?city=gwangju'">광주</button>
+  <button class="busan" type="button" onclick="location.href='localWeather?city=busan'">부산</button>
+  <button class="jeju" type="button" onclick="location.href='localWeather?city=jeju'">제주</button>
 
 </div>
 

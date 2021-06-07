@@ -429,11 +429,11 @@ public class MemberController {
 		return "/product_detail";
 	}
 	
-	@RequestMapping(value= "/w_seoul", method = RequestMethod.GET)
+	@RequestMapping(value= "/localWeather", method = RequestMethod.GET)
 	public String ProuductTag2(Model model, ProductDTO dto) throws Exception{
 		ProductDTO pddto = prservice.ProductTag2(dto);
 		model.addAttribute("ProductTag2" , pddto);
-		return "/w_seoul";
+		return "/localWeather";
 	}
 	
 	
@@ -558,7 +558,7 @@ public class MemberController {
 
 	// review write insert
 	@RequestMapping(value = "/review_write", method = RequestMethod.POST)
-	public String reviewWrite(OrderDetailDTO oddto, ReviewDTO dto, MultipartFile file, HttpServletRequest req)
+	public String reviewWrite(OrderDetailDTO oddto, ReviewDTO dto, MultipartFile file, HttpServletRequest req,ProductDTO pddto)
 			throws Exception {
 		String Path = req.getSession().getServletContext().getRealPath("resources/image/review/");
 		System.out.println(Path);
@@ -578,6 +578,8 @@ public class MemberController {
 		System.out.println("order review write");
 		int result = reservice.PdReviewCount(dto);
 		System.out.println(result);
+		pddto.setPd_review_count(result);
+		prservice.ProductReviewCount(pddto);
 		return "redirect:/review";
 	}
 
