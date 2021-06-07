@@ -433,27 +433,13 @@ public class MemberController {
 		return "/product_detail";
 	}
 	
-	@RequestMapping(value= "/getProductTag1", method = RequestMethod.POST)
-	public @ResponseBody ProductDTO ProductTag1(int Icon) throws Exception {
-		
-		System.out.println(Icon + "cc");
-		
-		ProductDTO pdto;
-		
-		if (Icon < 17) {
-			pdto = prservice.ProductTag2("#추워");
-		}
-		else if (Icon < 25) {
-			pdto = prservice.ProductTag2("#적당");
-		}
-		else {
-			pdto = prservice.ProductTag2("#더워");
-		}
-		
-		return pdto;
+	//product list
+	@RequestMapping(value = "/localWeather", method = RequestMethod.GET)
+	public String weatherpdlist(Model model, String pd_name) throws Exception {
+		List<ProductDTO> pddto = prservice.productlist(pd_name);
+		model.addAttribute("Productlist", pddto);
+		return "/localWeather";
 	}
-	
-	
 	
 
 	@RequestMapping(value= "/getProductTag2", method = RequestMethod.POST)

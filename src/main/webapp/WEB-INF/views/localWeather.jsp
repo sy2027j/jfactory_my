@@ -123,26 +123,22 @@ div.weather_info{font-size: 120%;}
 <div class="container px-4 px-lg-5"> 
 <h3 style="text-align:center">B E S T</h3>
   <div class="row gx-4 gx-lg-5">
+		                <div class="col-md-4 mb-5">
+		                    <div class="card ">
+		                            <div id="product_name2" class="card-header"></div>
+		                            	<div id="product_img2" class="card-body"></div>
+		                        			<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">상세정보</a></div>
+		                    	</div>
+		               		</div>
+		                <div class="col-md-4 mb-5">
+		                    <div class="card">
+		                            <div id="product_name3" class="card-header"></div>
+		                            	<div id="product_img3" class="card-body"></div>
+		                       				<div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">상세정보</a></div>
+		                    </div>
+		                </div>
                 
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 id="product_name2" class="card-title"></h2>
-                            <p id="product_img2" class="card-text"></p>	
-                          </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h2 id="product_name3" class="card-title"></h2>
-                            <p id="product_img3" class="card-text"></p>
-                        </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
-                    </div>
-                </div>
-            </div>
+           		 </div>
         </div>
   
 <br>
