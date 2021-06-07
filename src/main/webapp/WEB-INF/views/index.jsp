@@ -135,8 +135,9 @@
     <h2 class="my-4" align="center"> 이 제품은 어떠세요 ?</h2>
     <br/>
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
-     <input size=60 maxlength=255 style="width:1050px;height:50px;text-align:center;" type="text" placeholder="#20대  #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" size=10>
-     &nbsp;<input type=submit name=btnG value="검색" />
+     <input size=60 maxlength=255 style="width:900px;height:50px;text-align:center;" type="text" placeholder="#20대  #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" size=10>&nbsp;&nbsp;&nbsp;
+      <input style="border-color: white; background-color: black; color: white; WIDTH: 100pt; HEIGHT: 40pt"
+          type="submit" name=btnG value="검색"/>
      <input class="form-control" type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
      <input class="form-control" type="text" id="mem_skintype" name="mem_skintype" value="${member.mem_skintype }">
      <input class="form-control" type="text" id="mem_skintrouble1" name="mem_skintrouble1" value="${member.mem_skintrouble1 }">
@@ -199,8 +200,7 @@
       </div>
       
     </div>
-    </c:if>
-    <!-- /.row -->
+</c:if>
 
 
 <c:if test="${member == null }">
@@ -218,19 +218,16 @@
 			           <div align="center">
                         <button
                            style="border-color: white; background-color: #e6e6fa; color: black; WIDTH: 100pt; HEIGHT: 50pt"
-                           type="button" class="btn" id="signUpBtn"
-                           onclick="location.href='join'">회원가입</button>
+                           type="button" class="btn"onclick="location.href='join'">회원가입</button>
                         <button
                            style="border-color: white; background-color: black; color: white; WIDTH: 100pt; HEIGHT: 50pt"
-                           type="button" class="btn center"
-                           onclick="location.href='login'">로그인</button>
+                           type="button" class="btn center" onclick="location.href='login'">로그인</button>
                      </div>
 			      <hr style="size: 100%; background-color:white">
 				</div>
 				</div>
             </div>
    </c:if>
-    <!-- Portfolio Section -->
     <br>
     
     <h2 align="center">B E S T</h2>
@@ -335,30 +332,7 @@
       </div>
     </div>
     </div>
-    <!-- /.row -->
-
-    <!-- Features Section -->
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
-        <ul>
-          <li>
-            <strong>Bootstrap v4</strong>
-          </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      </div>
-      <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-      </div>
-    </div>
-
-  </div>
+ 
 <br/><br/>
 <%@ include file="./footer.jsp" %>
 
