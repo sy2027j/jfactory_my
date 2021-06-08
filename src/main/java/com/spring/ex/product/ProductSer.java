@@ -45,4 +45,6 @@ public interface ProductSer {
 	public void ProductDelete(ProductDTO dto) throws Exception;
 	
 	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception;
+	
+	public List<ProductDTO> IndexBest() throws Exception;
 }

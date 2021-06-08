@@ -73,7 +73,9 @@ public class MemberController {
 		System.out.println(skintype);
 		
 		model.addAttribute("skintype", skintype);
-		
+		List<ProductDTO> indexbest = prservice.IndexBest();
+		model.addAttribute("indexbest", indexbest);
+		System.out.println("check");
 		return "index";
 	}
 

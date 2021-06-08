@@ -139,7 +139,7 @@
      <input class="form-control" type="text" id="mem_skintrouble1" name="mem_skintrouble1" value="${member.mem_skintrouble1 }">
      <input class="form-control" type="text" id="mem_skintrouble2" name="mem_skintrouble2" value="${member.mem_skintrouble2 }">
     </div>
-    
+    </div>
     <br>
 
     <!-- Marketing Icons Section -->
@@ -184,7 +184,7 @@
           </div>
         </div>
       </div>
-      
+      </div>
     </div>
 </c:if>
 
@@ -220,104 +220,23 @@
      <div class="container">
    <br/>
     <div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+   	<c:forEach items="${indexbest}" var="indexbest">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${indexbest.getPd_name()}'">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/DD0MVWC242CLX361R9Y3.jpg" alt=""></a>
+          <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${indexbest.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${indexbest.getPd_name() }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            ${indexbest.getPd_price() }원
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/VZLKDHJ1NU04ZQAXJKKV.jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/MSNMNSC891IO7MT7TNYZ.gif" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/I6IKJ4SHKW0GDJ4ZEXYU.jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">오투 딥 클렌징 워터</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">상쾌한 원스텝 딥 클렌징 워터</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaWOisb3h34HYzVcSZY3HMpviLEB7WeZ-qKI2Wj_TEVXsyNIQqzt31ZYSQISM&usqp=CAc" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC9_9zeL2CsjnlCg1tckNKzIKY9M2v4ygDGAjZl_nsPOgQ3kCAx4IkV83qiDKfg6X8NPMlGiQ&usqp=CAc" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcQAPOvLNoz_Wqa3_XXjCmknhozMDi-EXhINggEHd3r5Rs7TUBo-ccPpcFzdH_sFkZPPUM_6A&usqp=CAc" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0N6YUdE1Dt5YNz5K2jIHOaPYMFH_LD_ib5T41ROEq1b4xmT6m7QS2pxR9c0s&usqp=CAc" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
+      </c:forEach>
     </div>
     </div>
+    
+    
  
 <br/><br/>
 <%@ include file="./footer.jsp" %>

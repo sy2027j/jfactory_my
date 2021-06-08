@@ -355,7 +355,7 @@
 	</update>
 	
 	<select id="ProductReviewScore" resultType="hashmap">
-		SELECT ROUND(AVG(re_score)) AS Score FROM jfactory_review WHERE pd_name = '글로우 온 베이스 하이드라';
+		SELECT ROUND(AVG(re_score)) AS Score FROM jfactory_review WHERE pd_name = #{pd_name}
 	</select>
 
 	<update id="OrderProductSellCount" parameterType="ProductDTO">
@@ -377,4 +377,10 @@
 		DELETE FROM
 		jfactory_review WHERE re_no=#{re_no}
 	</delete>
+	
+	<select id="IndexBest" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product ORDER BY pd_sell_count DESC LIMIT 8;
+	</select>
+	
 </mapper>

@@ -111,4 +111,9 @@ public class ProductSerlmpl implements ProductSer {
 	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception {
 		return dao.ProductReviewScore(pd_name);
 	}
+	
+	@Override
+	public List<ProductDTO> IndexBest() throws Exception{
+		return dao.IndexBest();
+	}
 }

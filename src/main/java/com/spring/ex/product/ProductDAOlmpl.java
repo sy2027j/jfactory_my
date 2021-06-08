@@ -111,4 +111,9 @@ public class ProductDAOlmpl implements ProductDAO {
 	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception {
 		return sqlSession.selectList(namespace + ".ProductReviewScore", pd_name);
 	}
+	
+	@Override
+	public List<ProductDTO> IndexBest() throws Exception{
+		return sqlSession.selectList(namespace+".IndexBest");
+	}
 }

@@ -135,16 +135,16 @@
 		
 							<br/><br/>
 							<div  align="right">
-									 <input type="text" id="pd_no" name="pd_no" value="167">
-									 <input type="text" id="hidden_value1" name="hidden_value1" value="" />
-									 <input type="text" id="hidden_value2" name="hidden_value2" value="" />
-									 <input type="text" id="hidden_value3" name="hidden_value3" value="" />
-									 <input type="text" id="hidden_value4" name="hidden_value4" value="" />
-									 <input type="text" id="pd_name" name="pd_name" value="마이 팔레트 4구">
-									 <input type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
-									 <input type="text" id="pd_img" name="pd_img" value="aa909089-88cb-45e7-9768-22fc537d3f25_palette4.jpg">
-									 <input type="text" id="pd_price" name="pd_price" value="7000">
-									 <input type="text" id="my" name="my_memo" value="" />
+									 <input type="hidden" id="pd_no" name="pd_no" value="167">
+									 <input type="hidden" id="hidden_value1" name="hidden_value1" value="" />
+									 <input type="hidden" id="hidden_value2" name="hidden_value2" value="" />
+									 <input type="hidden" id="hidden_value3" name="hidden_value3" value="" />
+									 <input type="hidden" id="hidden_value4" name="hidden_value4" value="" />
+									 <input type="hidden" id="pd_name" name="pd_name" value="마이 팔레트 4구">
+									 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
+									 <input type="hidden" id="pd_img" name="pd_img" value="aa909089-88cb-45e7-9768-22fc537d3f25_palette4.jpg">
+									 <input type="hidden" id="pd_price" name="pd_price" value="7000">
+									 <input type="hidden" id="my" name="my_memo" value="" />
 									      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
 	      								  <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" form="loginForm" class="btn btn-secondary btn-lg" onclick="auth();">바로구매</button>
 									   <br/><br/><br/><br/>
