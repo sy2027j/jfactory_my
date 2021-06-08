@@ -13,13 +13,17 @@
 	<br/><br/></div><hr>
 	<br/><br/>
 	
+	<%
+		String category = request.getParameter("pd_category");
+	%>
+	
 	<div class="container">
 	<ol class="breadcrumb"  style="background-color:#e6e6fa;">
       <li class="breadcrumb-item">
         <a href="index.html"><span style="color:gray">JFactory</span></a>
       </li>
       <li class="breadcrumb-item active"><span style="color:gray">베스트</span></li>
-      <li class="breadcrumb-item active"><span style="color:black">전체</span></li>
+      <li class="breadcrumb-item active"><span style="color:black"><%= category %></span></li>
     </ol>
 	<br/><br/><br/>
     <!-- Marketing Icons Section -->

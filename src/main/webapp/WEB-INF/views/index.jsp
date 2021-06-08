@@ -141,7 +141,7 @@
     <div class="container">
     <div class="row">
     <c:forEach items="${skintypepd }" var="skintype">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${skintype.getPd_name()}'">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${skintype.getPd_name()}&pd_category=${skintype.getPd_category() }'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${skintype.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
@@ -154,7 +154,7 @@
         </div>
       </div>
     </c:forEach>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${troubleo.getPd_name()}'">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${troubleo.getPd_name()}&pd_category=${troubleo.getPd_category() }'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${troubleo.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
@@ -166,7 +166,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${troublet.getPd_name()}'">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${troublet.getPd_name()}&pd_category=${troublet.getPd_category() }'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${troublet.getPd_main_stored_file() }"/>'  alt=""></a>
           <div class="card-body">
@@ -184,6 +184,7 @@
 
 
 <c:if test="${member == null }">
+<br/><br/>
  <div class="container">
 		<div class="row" >
 		    <div class="col-sm-2"></div>
@@ -193,16 +194,16 @@
       			  <div class="container">
 		    <div class="col-sm-12">
 			      <hr style="size: 100%; background-color:white" ><br/>
-			      <h3 style="color:black; text-align:center"> 로그인 하시면 <strong>JFACTORY</strong>에서 고객님께 딱! 맞는 제품을 추천해드립니다.</h3><br>
+			      <h5 style="color:black; text-align:center"> 로그인 하시면 <strong>JFACTORY</strong>에서 고객님께 딱! 맞는 제품을 추천해드립니다.</h5><br>
 			      <br/>
 			           <div align="center">
                         <button
-                           style="border-color: white; background-color: #e6e6fa; color: black; WIDTH: 100pt; HEIGHT: 50pt"
-                           type="button" class="btn"onclick="location.href='join'">회원가입</button>
+                           style="border-color: white; background-color: white; font-size:15px; color: black; WIDTH: 80pt; HEIGHT: 30pt"
+                           type="button" class="btn btn-secondary btn-lg"onclick="location.href='join'">회원가입</button>&nbsp;&nbsp;&nbsp;
                         <button
-                           style="border-color: white; background-color: black; color: white; WIDTH: 100pt; HEIGHT: 50pt"
-                           type="button" class="btn center" onclick="location.href='login'">로그인</button>
-                     </div>
+                           style="border-color: black; background-color: black; font-size:15px; color: white; WIDTH: 80pt; HEIGHT: 30pt"
+                           type="button" class="btn btn-secondary btn-lg" onclick="location.href='login'">로그인</button>
+                     </div><br/>
 			      <hr style="size: 100%; background-color:white">
 				</div>
 				</div>
@@ -215,7 +216,7 @@
    <br/>
     <div class="row">
    	<c:forEach items="${indexbest}" var="indexbest">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${indexbest.getPd_name()}'">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${indexbest.getPd_name()}&pd_category=${indexbest.getPd_category() }'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${indexbest.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
