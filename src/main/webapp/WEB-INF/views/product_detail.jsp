@@ -27,7 +27,24 @@
         <h3>${ProductDetail.getPd_price()}원</h3><br/>
         <h5>
         <c:forEach items="${ProductReviewScore }" var="ProductReviewScore">
-			${ProductReviewScore.Score }
+        <div class="form-group">
+			<span class="star-input">
+  				<span class="input">
+  					<c:if test="${ProductReviewScore.Score eq '1'}"><input type="radio" name="starscore" id="p1" value="1" <c:if test="${ProductReviewScore.Score eq '1'}">checked</c:if>><label for="p1"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '2'}"><input type="radio" name="starscore" id="p2" value="2" <c:if test="${ProductReviewScore.Score eq '2'}">checked</c:if>><label for="p2"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '3'}"><input type="radio" name="starscore" id="p3" value="3" <c:if test="${ProductReviewScore.Score eq '3'}">checked</c:if>><label for="p3"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '4'}"><input type="radio" name="starscore" id="p4" value="4" <c:if test="${ProductReviewScore.Score eq '4'}">checked</c:if>><label for="p4"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '5'}"><input type="radio" name="starscore" id="p5" value="5" <c:if test="${ProductReviewScore.Score eq '5'}">checked</c:if>><label for="p5"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '6'}"><input type="radio" name="starscore" id="p6" value="6" <c:if test="${ProductReviewScore.Score eq '6'}">checked</c:if>><label for="p6"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '7'}"><input type="radio" name="starscore" id="p7" value="7" <c:if test="${ProductReviewScore.Score eq '7'}">checked</c:if>><label for="p7"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '8'}"><input type="radio" name="starscore" id="p8" value="8" <c:if test="${ProductReviewScore.Score eq '8'}">checked</c:if>><label for="p8"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '9'}"><input type="radio" name="starscore" id="p9" value="9" <c:if test="${ProductReviewScore.Score eq '9'}">checked</c:if>><label for="p9"></label></c:if>
+  					<c:if test="${ProductReviewScore.Score eq '10'}"><input type="radio" name="starscore" id="p10" value="10" <c:if test="${ProductReviewScore.Score eq '10'}">checked</c:if>><label for="p10"></label></c:if>
+
+  				</span>
+  					<output for="star-input">${ProductReviewScore.Score}점</output>
+			</span>
+            </div>  
 		</c:forEach>
         </h5>
         
@@ -138,6 +155,10 @@
       </div>
     </div>
   </div>
+  <script src="resources/vendor/jquery/jquery.min.js"></script>
+  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="resources/js/jquery-1.11.3.min.js"></script>
+  <script src="resources/js/star.js"></script>
   <script>
   function Cart_check(){
 	  
