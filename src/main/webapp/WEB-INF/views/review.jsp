@@ -52,7 +52,7 @@ padding-bottom: 5%;
          <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
             <div class="card h-100">
                <a href="review_view?re_no=${bestre.getRe_no() }"><img
-                  src='<c:url value="/resources/image/123/${bestre.getRe_stored_file() }"/>'
+                  src='<c:url value="/resources/image/review/${bestre.getRe_stored_file() }"/>'
                   width="253px" height="253px"></a>
                <div class="card-body">
                   <h5 class="card-title">
