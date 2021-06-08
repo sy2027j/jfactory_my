@@ -101,53 +101,60 @@ $(document).ready(function() {
 
 <body>
 <style>
-div.CurrIcon{font-size: 600%;}
-div.weather_info{font-size: 120%;}
-
+div.CurrIcon{font-size: 700%;}
+div.weather_info{font-size: 100%;}
 </style>
-  <div class="container">
-   <br/><br/>
-    <h3 align="center"> ★ ${param.cityName }의 날씨 ★</h3>
-    <h6 align="center">제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</h6>
-   <br/></div><hr>
 
-    <div class="weather" align="center"> 
-   	 <div class="CurrIcon" ></div> 
-    	<div class="weather_info">
-    	  <div class="CurrTemp"></div> 
-	      <div class="City"></div> 
-	      <div class="humidity"></div>
-    	</div>
-   </div><br/><br/>
-   <hr>
-   
+	<div  class="container" > <br/>
+	    <h3 align="center"> ★ <strong>${param.cityName }의 날씨</strong> ★</h3><br>
+	  	<h6 align="center"><strong>제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</strong></h6>
+	   <br/>
+	</div>
+
+<div style="background-image: url('https://lh3.googleusercontent.com/proxy/Q3XlD8KePRWxPxOURjcVw_WXFwcJxyiKLuqXtGGIp0pxaBYMJNjrH690Xn4qwtgq7BupxG7z8C8F7WKE5UghnOcSSbq0dM2YzRDUehHtIzUmmgGQl-O88_f9gK1Y=w1200-h630-p-k-no-nu')" >
+<br>
+	<div align="center" >
+	   	  <div class="weather" align="center"> 
+			   	 <div class="CurrIcon" ></div> 
+			    	<div class="weather_info">
+			    	  <div class="CurrTemp" style="font-weight: bold ; font-size: 140%;"></div> 
+				      <div class="City" style="font-weight: bold ; font-size: 140%;"></div> 
+				      <div class="humidity" style="font-weight: bold ; font-size: 140%;"></div>
+			    	</div>
+		  </div>
+	</div>
+	<br><br>
+</div>
+
+
 <div class="container px-4 px-lg-5"> 
-<br/><h4 style="text-align:center">오늘같은 날씨엔. . .</h4><br/>
-  <div class="row" style="text-align:center">
+<br/><h4 style="text-align:center">오늘같은 날씨에는</h4><br/>
+<div class="row" style="text-align:center">
   <div class="col-lg-3 col-md-2 col-sm-2 portfolio-item" align="center">
       </div>
-      <div class="col-lg-3 col-md-2 col-sm-2 portfolio-item" align="center">
-        <div class="card h-100">
-          <a id="product_a" href=""><img id="product_img2" class="card-img-top" src="" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <span style="color:black; font-size:15pt" id="product_name2" ></span>
-            </h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a id="product_b" href=""><img id="product_img3" class="card-img-top" src="" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <span style="color:black; font-size:15pt" id="product_name3"></span>
-            </h5>
-          </div>
-        </div>
-      </div>
+	      <div class="col-lg-3 col-md-2 col-sm-2 portfolio-item" align="center">
+	        <div class="card h-100">
+	          <a id="product_a" href=""><img id="product_img2" class="card-img-top" src="" alt=""></a>
+	          <div class="card-body">
+	            <h5 class="card-title">
+	            <span style="color:black; font-size:15pt" id="product_name2" ></span>
+	            </h5>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+	        <div class="card h-100">
+	          <a id="product_b" href=""><img id="product_img3" class="card-img-top" src="" alt=""></a>
+	          <div class="card-body">
+	            <h5 class="card-title">
+	            <span style="color:black; font-size:15pt" id="product_name3"></span>
+	            </h5>
+	          </div>
+	        </div>
+	      </div>
 </div>
-        </div>
+<h4 style="text-align:center">제품을 추천드립니다</h4><br/>
+</div>
   
 <br>
 <%@ include file="./footer.jsp" %>
