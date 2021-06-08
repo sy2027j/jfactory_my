@@ -63,16 +63,26 @@ public class MemberController {
 	public String index(HttpSession session, Model model) throws Exception {
 		
 		MemberDTO mdto = (MemberDTO)session.getAttribute("member");
-		
-		List<ProductDTO> skintype = null;
-		
 		if (mdto != null) {
-			skintype = prservice.ProductTag4(mdto.getMem_skintype());
+			MemberDTO member = (MemberDTO) session.getAttribute("member");
+			String mem_id = member.getmem_id();
+			System.out.println(mem_id);
+			String mem_skintype=member.getMem_skintype();
+			List<ProductDTO> pdto = prservice.ProductTag4("#"+mem_skintype);
+			model.addAttribute("skintypepd",pdto);
+			System.out.println(mem_skintype);
+			
+			String mem_skintrouble1 = member.getMem_skintrouble1();
+			System.out.println(mem_skintrouble1);
+			ProductDTO trouble1 = prservice.ProductTag5('#'+mem_skintrouble1);
+			model.addAttribute("troubleo",trouble1);
+			
+			String mem_skintrouble2=member.getMem_skintrouble2();
+			System.out.println(mem_skintrouble2);
+			ProductDTO trouble2 = prservice.ProductTag5('#'+mem_skintrouble2);
+			model.addAttribute("troublet",trouble2);
 		}
 		
-		System.out.println(skintype);
-		
-		model.addAttribute("skintype", skintype);
 		List<ProductDTO> indexbest = prservice.IndexBest();
 		model.addAttribute("indexbest", indexbest);
 		System.out.println("check");
@@ -245,7 +255,7 @@ public class MemberController {
 		}
 
 		session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
-		return "/index";
+		return "redirect:/index";
 
 	}
 

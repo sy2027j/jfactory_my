@@ -128,16 +128,10 @@
   <c:if test="${ member != null }">
   <div class="container">
    <br/>
-    <h2 class="my-4" align="center"> 이 제품은 어떠세요 ?</h2>
+    <h2 class="my-4" align="center"> ${member.mem_id }님! 이 제품은 어떠세요 ?</h2>
     <br/>
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
-     <input size=60 maxlength=255 style="width:900px;height:50px;text-align:center;" type="text" placeholder="#20대  #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" size=10>&nbsp;&nbsp;&nbsp;
-      <input style="border-color: white; background-color: black; color: white; WIDTH: 100pt; HEIGHT: 40pt"
-          type="submit" name=btnG value="검색"/>
-     <input class="form-control" type="text" id="mem_id" name="mem_id" value="${member.mem_id }">
-     <input class="form-control" type="text" id="mem_skintype" name="mem_skintype" value="${member.mem_skintype }">
-     <input class="form-control" type="text" id="mem_skintrouble1" name="mem_skintrouble1" value="${member.mem_skintrouble1 }">
-     <input class="form-control" type="text" id="mem_skintrouble2" name="mem_skintrouble2" value="${member.mem_skintrouble2 }">
+     <input size=60 maxlength=255 style="width:1100px;height:50px;text-align:center;" type="text" value="#20대  #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" readonly size=10>&nbsp;&nbsp;&nbsp;
     </div>
     </div>
     <br>
@@ -146,41 +140,41 @@
     
     <div class="container">
     <div class="row">
-    <c:forEach items="${skintype }" var="skintype">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+    <c:forEach items="${skintypepd }" var="skintype">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${skintype.getPd_name()}'">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToInib2bl8F2RFgzod2SHmFz6WVDFlo-LnbA&usqp=CAU" alt=""></a>
+          <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${skintype.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">${skintype.pd_name }</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${skintype.getPd_name() }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">${skintype.pd_simplecontent }</span><br/>
-            ${skintype.pd_price }</p>
+            <p class="card-text"><span style="color:black; font-size:10pt">${skintype.getPd_simplecontent() }</span><br/>
+            ${skintype.getPd_price() }원</p>
           </div>
         </div>
       </div>
     </c:forEach>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${troubleo.getPd_name()}'">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/BG3A1CRKUQ953E01ZYNZ.jpg" alt=""></a>
+          <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${troubleo.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${troubleo.getPd_name() }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            <p class="card-text"><span style="color:black; font-size:10pt">${troubleo.getPd_simplecontent() }</span><br/>
+            ${troublet.getPd_price() }원</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${troublet.getPd_name()}'">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/F9VJYD36635FWBCO071P.jpg" alt=""></a>
+          <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${troublet.getPd_main_stored_file() }"/>'  alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프리즘 하이라이터 듀오</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${troublet.getPd_name() }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">쉬머 글로우와 펄 글로우를 하나에</span><br/>
-            13000원</p>
+            <p class="card-text"><span style="color:black; font-size:10pt">${troublet.getPd_name() }</span><br/>
+            ${troublet.getPd_price() }원</p>
           </div>
         </div>
       </div>
