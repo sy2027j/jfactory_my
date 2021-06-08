@@ -214,7 +214,7 @@ public class MemberController {
 
 	/* 로그인 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr,
+	public void loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr,
 			HttpServletResponse response) throws Exception {
 
 		// System.out.println("login 메서드 진입");
@@ -226,7 +226,6 @@ public class MemberController {
 
 		HttpSession session = request.getSession();
 		MemberDTO lvo = service.Login(dto);
-
 		if (lvo == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
 
 			int result = 0;
@@ -251,11 +250,13 @@ public class MemberController {
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('서브 관리자 권한으로 로그인 되었습니다.');window.open('admin/admin_index','_blanck');</script>");
 			out.flush();
-			;
 		}
 
 		session.setAttribute("member", lvo); // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
-		return "redirect:/index";
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>window.location.href='/ex/index';</script>");
+		out.flush();
 
 	}
 

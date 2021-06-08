@@ -128,7 +128,7 @@
   <c:if test="${ member != null }">
   <div class="container">
    <br/>
-    <h2 class="my-4" align="center"> ${member.mem_id }님! 이 제품은 어떠세요 ?</h2>
+    <h2 class="my-4" align="center"> ${member.mem_realname }님! 이 제품은 어떠세요 ?</h2>
     <br/>
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
      <input size=60 maxlength=255 style="width:1100px;height:50px;text-align:center;" type="text" value="#20대  #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" readonly size=10>&nbsp;&nbsp;&nbsp;
