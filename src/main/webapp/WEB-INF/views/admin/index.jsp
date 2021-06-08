@@ -26,16 +26,16 @@ div.row {
 		<main>
 			<div class="container-fluid">
 				<h1 class="mt-4">회원조회</h1>
-				<form method="get" id="mem_Search" name="mem_Search"
-					action="index" class="form-inline" style="font-size: 15pt">
+				<form method="get" id="mem_Search" name="mem_Search" action="index"
+					class="form-inline" style="font-size: 15pt">
 					<select id="searchType" name="searchType" size="1">
 						<option value="mem_id">ID</option>
 						<option value="mem_realname">이름</option>
 						<option value="mem_email">이메일</option>
 						<option value="all">전체</option>
 					</select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
-						id="keyword" name="keyword" value="${pageMaker.cri.keyword}"
-						style="width: 500px; height: 35px;" type="text" placeholder="검색창">&nbsp;
+						id="keyword" name="keyword" style="width: 500px; height: 35px;"
+						type="text" placeholder="검색창">&nbsp;
 					<button class="btn btn-secondary" type="submit">
 						<span style="font-size: 15pt">검색</span>
 					</button>
@@ -75,28 +75,57 @@ div.row {
 
 						</tbody>
 					</table>
-					<div class="box-footer">
-						<div class="text-center">
-							<ul class="pagination">
-								<!-- 이전prev -->
-								<c:if test="${pm.prev }">
-									<li class="page-item"><a class="page-link"
-										href="index?page=${pm.startPage-1}">&laquo;</a></li>
-								</c:if>
-								<!-- 페이지블럭 -->
-								<c:forEach var="idx" begin="${pm.startPage }"
-									end="${pm.endPage }">
-									<li class="page-item"><a class="page-link"
-										href="index?page=${idx }">${idx}</a></li>
-								</c:forEach>
-								<!-- 다음next -->
-								<c:if test="${pm.next && pm.endPage > 0}">
-									<li class="page-item"><a class="page-link"
-										href="index?page=${pm.endPage+1}">&raquo;</a></li>
-								</c:if>
-							</ul>
-						</div>
-					</div>
+
+					<c:choose>
+						<c:when test="${searchType ne null && keyword ne null}">
+						<div class="box-footer">
+								<div class="text-center">
+									<ul class="pagination">
+										<!-- 이전prev -->
+										<c:if test="${pm.prev }">
+											<li class="page-item"><a class="page-link"
+												href="index?searchType=${searchType}&keyword=${keyword}?page=${pm.startPage-1}">&laquo;</a></li>
+										</c:if>
+										<!-- 페이지블럭 -->
+										<c:forEach var="idx" begin="${pm.startPage }"
+											end="${pm.endPage }">
+											<li class="page-item"><a class="page-link"
+												href="index?searchType=${searchType}&keyword=${keyword}?page=${idx }">${idx}</a></li>
+										</c:forEach>
+										<!-- 다음next -->
+										<c:if test="${pm.next && pm.endPage > 0}">
+											<li class="page-item"><a class="page-link"
+												href="index?searchType=${searchType}&keyword=${keyword}?page=${pm.endPage+1}">&raquo;</a></li>
+										</c:if>
+									</ul>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="box-footer">
+								<div class="text-center">
+									<ul class="pagination">
+										<!-- 이전prev -->
+										<c:if test="${pm.prev }">
+											<li class="page-item"><a class="page-link"
+												href="index?page=${pm.startPage-1}">&laquo;</a></li>
+										</c:if>
+										<!-- 페이지블럭 -->
+										<c:forEach var="idx" begin="${pm.startPage }"
+											end="${pm.endPage }">
+											<li class="page-item"><a class="page-link"
+												href="index?page=${idx }">${idx}</a></li>
+										</c:forEach>
+										<!-- 다음next -->
+										<c:if test="${pm.next && pm.endPage > 0}">
+											<li class="page-item"><a class="page-link"
+												href="index?page=${pm.endPage+1}">&raquo;</a></li>
+										</c:if>
+									</ul>
+								</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
 
 					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 					<script
@@ -107,6 +136,6 @@ div.row {
 			</div>
 	</div>
 	</main>
-	
+
 </body>
 </html>

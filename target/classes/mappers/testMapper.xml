@@ -9,51 +9,76 @@
 		where mem_is_admin=0
 		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
-				and mem_id like CONCAT('%', #{keyword}, '%')
+				and mem_id = #{keyword}
 			</if>
 			<if test="searchType == 'mem_realname'.toString()">
-				and mem_realname like CONCAT('%', #{keyword}, '%')
+				and mem_realname = #{keyword}
 			</if>
 			<if test="searchType == 'mem_email'.toString()">
-				and mem_email like CONCAT('%', #{keyword}, '%')
+				and mem_email = #{keyword}
 			</if>
 			<if test="searchType == 'all'.toString()">
-				and (mem_id like CONCAT('%', #{keyword}, '%')
-				or mem_realname like CONCAT('%', #{keyword}, '%')
-				or mem_email like CONCAT('%', #{keyword}, '%'))
+				and mem_id = #{keyword}
+				or mem_realname = #{keyword}
+				or
+				mem_email = #{keyword}
 			</if>
 		</if>
 		LIMIT #{pageStart},#{pageSize}
 	</select>
 
 	<!-- 페이지정보를 10개씩 가져오기 -->
-	<select id="memberListPage" resultType="MemberqnaDTO">
+	<select id="memberListPage" resultType="MemberDTO">
 		SELECT * FROM
 		jfactory_member
 		where mem_is_admin=0
-		LIMIT #{page}, 15
+		LIMIT #{page}, 16
 	</select>
 
 
 	<select id="memberpageCount" resultType="int">
 		SELECT count(*) FROM
 		jfactory_member
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				where mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'mem_realname'.toString()">
+				where mem_realname = #{keyword}
+			</if>
+			<if test="searchType == 'mem_email'.toString()">
+				where mem_email = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				where mem_id = #{keyword}
+				or mem_realname = #{keyword}
+				or
+				mem_email = #{keyword}
+			</if>
+		</if>
 	</select>
+
 
 	<!-- 상품 검색 리스트 불러오기 -->
 	<select id="searchProductlist" resultType="ProductDTO">
-		SELECT * FROM jfactory_product
+		SELECT * FROM
+		jfactory_product
 		where pd_name like CONCAT('%', #{keyword}, '%')
-		or pd_simplecontent like CONCAT('%', #{keyword}, '%')
-		LIMIT #{pageStart},#{pageSize}
+		or
+		pd_simplecontent like CONCAT('%', #{keyword}, '%')
+		LIMIT
+		#{pageStart},#{pageSize}
 	</select>
 
 	<!-- 상품 검색 리스트 불러오기 -->
 	<select id="searchreviewlist" resultType="ReviewDTO">
-		SELECT * FROM jfactory_review
+		SELECT * FROM
+		jfactory_review
 		where re_content like CONCAT('%', #{keyword}, '%')
-		or pd_name like CONCAT('%', #{keyword}, '%')
-		LIMIT #{pageStart},#{pageSize}
+		or
+		pd_name like CONCAT('%', #{keyword}, '%')
+		LIMIT
+		#{pageStart},#{pageSize}
 	</select>
 
 	<!-- 관리자 리스트 불러오기 -->
@@ -226,7 +251,8 @@
 		SELECT * FROM
 		jfactory_product
 		ORDER BY pd_datetime DESC
-		LIMIT #{pageStart},#{pageSize}
+		LIMIT
+		#{pageStart},#{pageSize}
 	</select>
 
 	<!-- 페이지정보를 10개씩 가져오기 -->
@@ -239,7 +265,8 @@
 
 
 	<select id="adminproductpageCount" resultType="int">
-		SELECT count(*) FROM
+		SELECT count(*)
+		FROM
 		jfactory_product
 	</select>
 
@@ -330,19 +357,19 @@
 		SELECT * FROM
 		jfactory_product WHERE pd_tag3=#{pd_tag3} ORDER BY RAND() LIMIT 1;
 	</select>
-	
+
 	<!-- 스킨 타입 -->
 	<select id="ProductTag4" resultType="ProductDTO">
 		SELECT * FROM
 		jfactory_product WHERE pd_tag4=#{pd_tag4} ORDER BY RAND() LIMIT 2;
 	</select>
-	
-	<!--  스킨 트러블 -->
+
+	<!-- 스킨 트러블 -->
 	<select id="ProductTag5" resultType="ProductDTO">
 		SELECT * FROM
 		jfactory_product WHERE pd_tag5=#{pd_tag5} ORDER BY RAND() LIMIT 1;
 	</select>
-	
+
 	<select id="reviewCount" resultType="int">
 		SELECT COUNT(case when
 		pd_name=#{pd_name} then 1 end) FROM jfactory_review
@@ -353,49 +380,56 @@
 		jfactory_product SET pd_review_count=#{pd_review_count} WHERE
 		pd_name=#{pd_name}
 	</update>
-	
+
 	<select id="ProductReviewScore" resultType="hashmap">
-		SELECT ROUND(AVG(re_score)) AS Score FROM jfactory_review WHERE pd_name = #{pd_name}
+		SELECT
+		ROUND(AVG(re_score)) AS Score FROM jfactory_review WHERE pd_name =
+		#{pd_name}
 	</select>
 
 	<update id="OrderProductSellCount" parameterType="ProductDTO">
 		UPDATE
-		jfactory_product SET pd_sell_count= pd_sell_count + #{pd_amount} WHERE pd_name=#{pd_name}
+		jfactory_product SET pd_sell_count= pd_sell_count + #{pd_amount} WHERE
+		pd_name=#{pd_name}
 	</update>
 
 	<update id="CancelProductSellCount">
 		UPDATE
-		jfactory_product SET pd_sell_count= pd_sell_count - #{pd_amount} WHERE pd_name=#{pd_name}
+		jfactory_product SET pd_sell_count=
+		pd_sell_count - #{pd_amount} WHERE pd_name=#{pd_name}
 	</update>
 
 	<delete id="ProductDelete" parameterType="ProductDTO">
 		DELETE FROM
 		jfactory_product WHERE pd_name=#{pd_name}
 	</delete>
-	
+
 	<delete id="ReviewDelete" parameterType="ReviewDTO">
 		DELETE FROM
 		jfactory_review WHERE re_no=#{re_no}
 	</delete>
-	
+
 	<select id="IndexBest" resultType="ProductDTO">
 		SELECT * FROM
-		jfactory_product ORDER BY pd_sell_count DESC LIMIT 8;
+		jfactory_product
+		ORDER BY pd_sell_count DESC LIMIT 8;
 	</select>
-	
+
 	<select id="BestProduct" resultType="ProductDTO">
 		SELECT * FROM
-		jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_sell_count DESC LIMIT 4;
+		jfactory_product WHERE pd_category=#{pd_category} ORDER BY
+		pd_sell_count DESC LIMIT 4;
 	</select>
-	
+
 	<select id="BestProductAll" resultType="ProductDTO">
 		SELECT * FROM
 		jfactory_product ORDER BY pd_sell_count DESC LIMIT 4;
 	</select>
-	
+
 	<select id="CategoryProduct" resultType="ProductDTO">
 		SELECT * FROM
-		jfactory_product WHERE pd_category=#{pd_category} ORDER BY RAND() LIMIT 4;
+		jfactory_product WHERE pd_category=#{pd_category} ORDER BY RAND()
+		LIMIT 4;
 	</select>
-	
+
 </mapper>

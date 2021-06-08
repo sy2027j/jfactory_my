@@ -9,7 +9,7 @@ p {
 }
 div.box-footer{
     position: absolute;
-    left: 50%;
+    left: 38%;
 }
 div.row{
 padding-bottom: 5%;

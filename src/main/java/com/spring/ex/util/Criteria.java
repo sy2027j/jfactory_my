@@ -12,7 +12,7 @@ public class Criteria {
 	
 	public Criteria() {
 		this.page = 1;
-		this.pageSize = 15;
+		this.pageSize = 16;
 		this.setSearchType(null);
 		this.setKeyword(null);
 	}
