@@ -74,11 +74,11 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
               <a class="dropdown-item" href="best_all">전체</a>
-              <a class="dropdown-item" href="best_eye">아이</a>
-              <a class="dropdown-item" href="best_lip">립</a>
-              <a class="dropdown-item" href="best_face">페이스</a>
-              <a class="dropdown-item" href="best_skin">스킨케어</a>
-              <a class="dropdown-item" href="best_clean">클렌징</a>
+              <a class="dropdown-item" href="best_eye?pd_category=아이">아이</a>
+              <a class="dropdown-item" href="best_eye?pd_category=립">립</a>
+              <a class="dropdown-item" href="best_eye?pd_category=페이스">페이스</a>
+              <a class="dropdown-item" href="best_eye?pd_category=스킨케어">스킨케어</a>
+              <a class="dropdown-item" href="best_eye?pd_category=클렌징">클렌징</a>
             </div>
           </li>
            <li class="nav-item">

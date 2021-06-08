@@ -465,7 +465,7 @@ public class MemberController {
 
 	// product detail
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto) throws Exception {
+	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, String pd_category) throws Exception {
 		ProductDTO pddetaildto = prservice.AddDetail(pd_name);
 		model.addAttribute("ProductDetail", pddetaildto);
 		System.out.println("product detail view");
@@ -476,6 +476,10 @@ public class MemberController {
 		
 		System.out.println(prservice.ProductReviewScore(pd_name).get(0));
 		model.addAttribute("ProductReviewScore", prservice.ProductReviewScore(pd_name));
+		
+		List<ProductDTO> pddtos = prservice.CategoryProduct(pd_category);
+		model.addAttribute("randompro", pddtos);
+		System.out.println("category random product list");
 		
 		return "/product_detail";
 	}
@@ -995,6 +999,22 @@ public class MemberController {
 	public String DelReview(ReviewDTO dto, Model model) throws Exception {
 		reservice.ReviewDelete(dto);
 		return "redirect:/admin/cm_review";
+	}
+	
+	@RequestMapping(value = "/best_eye", method = RequestMethod.GET)
+	public String bestproductlist(Model model, String pd_category) throws Exception {
+		List<ProductDTO> pddtos = prservice.BestProduct(pd_category);
+		model.addAttribute("bestlist", pddtos);
+		System.out.println("best list select");
+		return "/best_eye";
+	}
+	
+	@RequestMapping(value = "/best_all", method = RequestMethod.GET)
+	public String bestproductlistall(Model model, String pd_category) throws Exception {
+		List<ProductDTO> pddtos = prservice.BestProductAll();
+		model.addAttribute("bestlist", pddtos);
+		System.out.println("best list select all");
+		return "/best_all";
 	}
 
 }

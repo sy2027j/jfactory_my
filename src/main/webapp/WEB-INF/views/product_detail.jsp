@@ -105,54 +105,19 @@
     <h5>연관 상품 추천</h5>
     <hr><br/>
     <div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+    <c:forEach items="${randompro}" var="randompro">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${randompro.getPd_name()}'">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb28hLOK9wd2exWnwg5k3ssZgQ2UKivXoAA9FHg1Qqd8jXoFiOP5W1h9EStQ&usqp=CAc" alt=""></a>
+          <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${randompro.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="product_detail"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${randompro.getPd_name() }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            ${randompro.getPd_price() }원
           </div>
         </div>
       </div>
-     <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/MEZ8WLMDBM4YXB5XHKA5(1).jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/BG3A1CRKUQ953E01ZYNZ.jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://static.mynunc.com/ext/images/goods/top/20/07/30/11/BO00084570/0000034294.png" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
+      </c:forEach>
     </div>
   </div>
   <script src="resources/vendor/jquery/jquery.min.js"></script>

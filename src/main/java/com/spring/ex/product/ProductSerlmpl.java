@@ -116,4 +116,19 @@ public class ProductSerlmpl implements ProductSer {
 	public List<ProductDTO> IndexBest() throws Exception{
 		return dao.IndexBest();
 	}
+	
+	@Override
+	public List<ProductDTO> BestProduct(String pd_category) throws Exception{
+		return dao.BestProduct(pd_category);
+	}
+	
+	@Override
+	public List<ProductDTO> BestProductAll() throws Exception{
+		return dao.BestProductAll();
+	}
+	
+	@Override
+	public List<ProductDTO> CategoryProduct(String pd_category) throws Exception{
+		return dao.CategoryProduct(pd_category);
+	}
 }

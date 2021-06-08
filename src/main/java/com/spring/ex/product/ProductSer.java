@@ -47,4 +47,10 @@ public interface ProductSer {
 	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception;
 	
 	public List<ProductDTO> IndexBest() throws Exception;
+	
+	public List<ProductDTO> BestProduct(String pd_category) throws Exception;
+	
+	public List<ProductDTO> BestProductAll() throws Exception;
+	
+	public List<ProductDTO> CategoryProduct(String pd_category) throws Exception;
 }

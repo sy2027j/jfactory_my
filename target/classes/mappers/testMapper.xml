@@ -383,4 +383,19 @@
 		jfactory_product ORDER BY pd_sell_count DESC LIMIT 8;
 	</select>
 	
+	<select id="BestProduct" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product WHERE pd_category=#{pd_category} ORDER BY pd_sell_count DESC LIMIT 4;
+	</select>
+	
+	<select id="BestProductAll" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product ORDER BY pd_sell_count DESC LIMIT 4;
+	</select>
+	
+	<select id="CategoryProduct" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product WHERE pd_category=#{pd_category} ORDER BY RAND() LIMIT 4;
+	</select>
+	
 </mapper>

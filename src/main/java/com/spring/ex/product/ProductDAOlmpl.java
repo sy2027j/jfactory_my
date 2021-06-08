@@ -111,9 +111,25 @@ public class ProductDAOlmpl implements ProductDAO {
 	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception {
 		return sqlSession.selectList(namespace + ".ProductReviewScore", pd_name);
 	}
-	
+
 	@Override
 	public List<ProductDTO> IndexBest() throws Exception{
 		return sqlSession.selectList(namespace+".IndexBest");
 	}
+	
+	@Override
+	public List<ProductDTO> BestProduct(String pd_category) throws Exception{
+		return sqlSession.selectList(namespace+".BestProduct", pd_category);
+	}
+	
+	@Override
+	public List<ProductDTO> BestProductAll() throws Exception{
+		return sqlSession.selectList(namespace+".BestProductAll");
+	}
+	
+	@Override
+	public List<ProductDTO> CategoryProduct(String pd_category) throws Exception{
+		return sqlSession.selectList(namespace+".CategoryProduct", pd_category);
+	}
+	
 }
