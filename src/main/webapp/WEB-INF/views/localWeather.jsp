@@ -4,23 +4,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="resources/css/weather-icons.min.css" rel="stylesheet">
-<link href="resources/css/weather-icons.css" rel="stylesheet">
-<link href="resources/css/weather-icons-wind.css" rel="stylesheet">
-<link href="resources/css/weather-icons-wind.min.css" rel="stylesheet">
+<link href='<c:url value="/resources/css/weather-icons.css"/>' rel="stylesheet">
+<link href='<c:url value="/resources/css/weather-icons-wind.css"/>' rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+
+
 <script type="text/javascript"> 
 $(document).ready(function() { 
    
    let weatherIcon = { 
-         '01' : 'wi-day-sunny',  //맑음
-         '02' : 'wi-day-cloudy', //흐림
-         '03' : 'wi-cloud', //흐림
-         '04' : 'wi-day-sunny-overcast', // 
-         '09' : 'wi-rain', 
-         '10' : 'wi-umbrella', //장마
-         '11' : 'wi-lightning',  //번개
-         '13' : 'wi-snow', //눈
-         '50' : 'wi-fog' //안개
+		   '01d' : 'wi wi-day-sunny',
+	         '02d' : 'wi wi-day-cloudy',
+	         '03d' : 'wi wi-cloud',
+	         '04d' : 'wi wi-cloudy',
+	         '09d' : 'wi wi-day-rain',
+	         '10d' : 'wi wi-showers',
+	         '11d' : 'wi wi-storm-showers',
+	         '13d' : 'wi wi-snow-wind',
+	         '50d' : 'wi wi-sandstorm',
+	         
+	         '01n' : 'wi wi-night-clear',
+	         '02n' : 'wi wi-night-alt-cloudy',
+	         '03n' : 'wi wi-cloudy',
+	         '04n' : 'wi wi-night-alt-snow',
+	         '09n' : 'wi wi-night-rain',
+	         '10n' : 'wi wi-night-showers',
+	         '11n' : 'wi wi-night-alt-storm-showers',
+	         '13n' : 'wi wi-night-alt-snow-wind',
+	         '50n' : 'wi wi-sandstorm'
+
          }; 
    
    
@@ -29,7 +42,7 @@ $(document).ready(function() {
       dataType:'json', 
       type:'GET', 
       success:function(data){ 
-         var $Icon = (data.weather[0].icon).substr(0,2); 
+         var $Icon = (data.weather[0].icon); 
          var $temp = Math.floor(data.main.temp) + 'º'; 
          var $city = data.name; 
          var $humidity = data.main.humidity;

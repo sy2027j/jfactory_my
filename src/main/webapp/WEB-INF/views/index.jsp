@@ -95,10 +95,8 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('https://dt40dm21pj8em.cloudfront.net/uploads/froala/file/4355/%EB%B7%B0%ED%8B%B0%20MD%201.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <h3 style="color:black">JFACTORY</h3>
-          </div>
+        <div class="carousel-item active" style="background-image: url('https://cdn.iconsumer.or.kr/news/photo/201808/7669_9219_3712.jpg')">
+       
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
         <div class="carousel-item" style="background-image: url('https://image.freepik.com/free-vector/blue-sky-with-white-clouds-clear-sunny-day-landscape-background-with-clouds-illustration_210544-16.jpg')" onclick="location.href='weather'">
@@ -108,10 +106,8 @@
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://cdn.iconsumer.or.kr/news/photo/201808/7669_9219_3712.jpg')">
+        <div class="carousel-item" style="background-image: url('https://images.innisfree.co.kr/kr/ko/upload/pdtDetail/makeup/color/myPalette/common01.jpg')" onclick="location.href='mypalette'">
           <div class="carousel-caption d-none d-md-block">
-            <h3 style="color:black">JFACTORY</h3>
-            <p style="color:black">...</p>
           </div>
         </div>
       </div>
