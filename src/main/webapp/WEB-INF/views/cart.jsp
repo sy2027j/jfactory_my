@@ -72,6 +72,8 @@
 											<td style="vertical-align:middle"><button style="border-color:white; background-color:white; font-size:15px; color:black; WIDTH: 50pt; HEIGHT: 70pt" onclick="del(${cartlist.getCart_id()})" type="button" class="btn btn-secondary btn-lg">삭제</button></td>
 											
 										</tr>
+										<input type="hidden" name="pd_name" id="pd_name" value="${cartlist.getPd_name()}">
+										<input type="hidden" name="pd_amount" id="pd_amount" value="${cartlist.getPd_amount()}">
 										</c:forEach>
 		                        </tbody>
 		                        

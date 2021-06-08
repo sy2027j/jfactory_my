@@ -1,5 +1,6 @@
 package com.spring.ex.product;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -92,8 +93,8 @@ public class ProductSerlmpl implements ProductSer {
 	}
 
 	@Override
-	public void OrderProductSellCount(ProductDTO dto) throws Exception {
-		dao.OrderProductSellCount(dto);
+	public void OrderProductSellCount(HashMap<String, Object> OrderProductSellCountMap) throws Exception {
+		dao.OrderProductSellCount(OrderProductSellCountMap);
 	}
 
 	@Override
@@ -104,5 +105,10 @@ public class ProductSerlmpl implements ProductSer {
 	@Override
 	public void ProductDelete(ProductDTO dto) throws Exception {
 		dao.ProductDelete(dto);
+	}
+
+	@Override
+	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception {
+		return dao.ProductReviewScore(pd_name);
 	}
 }

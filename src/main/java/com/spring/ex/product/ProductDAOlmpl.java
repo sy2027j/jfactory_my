@@ -1,5 +1,6 @@
 package com.spring.ex.product;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -92,8 +93,8 @@ public class ProductDAOlmpl implements ProductDAO {
 	}
 
 	@Override
-	public void OrderProductSellCount(ProductDTO dto) throws Exception {
-		sqlSession.update(namespace + ".OrderProductSellCount", dto);
+	public void OrderProductSellCount(HashMap<String, Object> OrderProductSellCountMap) throws Exception {
+		sqlSession.update(namespace + ".OrderProductSellCount", OrderProductSellCountMap);
 	}
 
 	@Override
@@ -104,5 +105,10 @@ public class ProductDAOlmpl implements ProductDAO {
 	@Override
 	public void ProductDelete(ProductDTO dto) throws Exception {
 		sqlSession.delete(namespace + ".ProductDelete", dto);
+	}
+
+	@Override
+	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception {
+		return sqlSession.selectList(namespace + ".ProductReviewScore", pd_name);
 	}
 }

@@ -353,19 +353,19 @@
 		jfactory_product SET pd_review_count=#{pd_review_count} WHERE
 		pd_name=#{pd_name}
 	</update>
+	
+	<select id="ProductReviewScore" resultType="hashmap">
+		SELECT ROUND(AVG(re_score)) AS Score FROM jfactory_review WHERE pd_name = '글로우 온 베이스 하이드라';
+	</select>
 
 	<update id="OrderProductSellCount" parameterType="ProductDTO">
 		UPDATE
-		jfactory_product SET pd_sell_count=#{pd_sell_count}+#{pd_amount}
-		select #{pd_amount}, #{pd_name} from jfactory_cart WHERE
-		or_id=#{or_id} AND pd_name=#{pd_name}
+		jfactory_product SET pd_sell_count= pd_sell_count + #{pd_amount} WHERE pd_name=#{pd_name}
 	</update>
 
-	<update id="CancelProductSellCount" parameterType="ProductDTO">
+	<update id="CancelProductSellCount">
 		UPDATE
-		jfactory_product SET pd_sell_count=#{pd_sell_count}-#{pd_amount}
-		select (#{pd_amount}, #{pd_name}) from jfactory_cart WHERE
-		pd_name=#{pd_name}
+		jfactory_product SET pd_sell_count= pd_sell_count - #{pd_amount} WHERE pd_name=#{pd_name}
 	</update>
 
 	<delete id="ProductDelete" parameterType="ProductDTO">

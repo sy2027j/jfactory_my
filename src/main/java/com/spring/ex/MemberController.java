@@ -3,6 +3,7 @@ package com.spring.ex;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -451,6 +452,10 @@ public class MemberController {
 		System.out.println(result);
 		pddto.setPd_review_count(result);
 		prservice.ProductReviewCount(pddto);
+		
+		System.out.println(prservice.ProductReviewScore(pd_name).get(0));
+		model.addAttribute("ProductReviewScore", prservice.ProductReviewScore(pd_name));
+		
 		return "/product_detail";
 	}
 
@@ -772,7 +777,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/orderlist", method = RequestMethod.POST)
 	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto,
-			ProductDTO pddto) throws Exception {
+			String pd_name, String pd_amount) throws Exception {
 		System.out.println("check0");
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		String mem_id = member.getmem_id();
@@ -794,7 +799,7 @@ public class MemberController {
 
 		int or_price = order.getOr_price();
 		System.out.println(or_price);
-
+		
 		cartservice.orderInfo(order);
 		System.out.println("check3");
 		orderDetail.setOr_id(or_id);
@@ -810,6 +815,18 @@ public class MemberController {
 		System.out.println("check6");
 		service.OrderCount(mdto);
 		System.out.println("check7");
+		
+		HashMap<String, Object> OrderProductSellCountMap = new HashMap<String, Object>();
+		String[] pd_nameArr = pd_name.split(",");
+		String[] pd_amountArr = pd_amount.split(",");
+		for (int i = 0; i < pd_nameArr.length; i++) {
+			System.out.println(pd_nameArr[i]);
+			System.out.println(pd_amountArr[i]);
+			OrderProductSellCountMap.put("pd_name", pd_nameArr[i]);
+			OrderProductSellCountMap.put("pd_amount", Integer.valueOf(pd_amountArr[i]));
+			prservice.OrderProductSellCount(OrderProductSellCountMap);
+		}
+		
 		return "redirect:/index";
 	}
 
@@ -867,6 +884,7 @@ public class MemberController {
 		System.out.println("ok order cancel");
 		List<OrderDTO> orderList = cartservice.orderList(dto);
 		model.addAttribute("orderList", orderList);
+		prservice.CancelProductSellCount(pddto);
 		return "/mypage_order";
 	}
 

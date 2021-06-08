@@ -1,6 +1,8 @@
 package com.spring.ex.product;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -36,9 +38,11 @@ public interface ProductSer {
 	
 	public void ProductReviewCount(ProductDTO dto) throws Exception;
 
-	public void OrderProductSellCount(ProductDTO dto) throws Exception;
+	public void OrderProductSellCount(HashMap<String, Object> OrderProductSellCountMap) throws Exception;
 
 	public void CancelProductSellCount(ProductDTO dto) throws Exception;
 
 	public void ProductDelete(ProductDTO dto) throws Exception;
+	
+	public List<Map<String, Object>> ProductReviewScore(String pd_name) throws Exception;
 }

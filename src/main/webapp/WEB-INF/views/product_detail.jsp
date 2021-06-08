@@ -25,8 +25,11 @@
         <h3>${ProductDetail.getPd_name()}</h3>
         <h6>${ProductDetail.getPd_simplecontent()}</h6><br/>
         <h3>${ProductDetail.getPd_price()}원</h3><br/>
-        <h5>★★★★★ 5점</h5><br/>
-        
+        <h5>
+        <c:forEach items="${ProductReviewScore }" var="ProductReviewScore">
+			${ProductReviewScore.Score }
+		</c:forEach>
+        </h5>
         
         <!-- 
         <hr>
