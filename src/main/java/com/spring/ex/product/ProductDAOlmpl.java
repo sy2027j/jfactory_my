@@ -78,8 +78,8 @@ public class ProductDAOlmpl implements ProductDAO {
 	}
 	
 	@Override
-	public ProductDTO ProductTag4(String pd_tag4) throws Exception {
-		return sqlSession.selectOne(namespace + ".ProductTag4", pd_tag4);
+	public List<ProductDTO> ProductTag4(String pd_tag4) throws Exception {
+		return sqlSession.selectList(namespace + ".ProductTag4", pd_tag4);
 	}
 	
 	@Override

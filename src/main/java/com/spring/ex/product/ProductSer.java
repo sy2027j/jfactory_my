@@ -32,7 +32,7 @@ public interface ProductSer {
 
 	public ProductDTO ProductTag3(String pd_tag3) throws Exception;
 
-	public ProductDTO ProductTag4(String pd_tag4) throws Exception;
+	public List<ProductDTO> ProductTag4(String pd_tag4) throws Exception;
 	
 	public ProductDTO ProductTag5(String pd_tag5) throws Exception;
 	

@@ -17,6 +17,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,6 +58,24 @@ public class MemberController {
 
 	@Inject
 	JoinoutService joinoutservice;
+	
+	@RequestMapping(value = "index", method = RequestMethod.GET)
+	public String index(HttpSession session, Model model) throws Exception {
+		
+		MemberDTO mdto = (MemberDTO)session.getAttribute("member");
+		
+		List<ProductDTO> skintype = null;
+		
+		if (mdto != null) {
+			skintype = prservice.ProductTag4(mdto.getMem_skintype());
+		}
+		
+		System.out.println(skintype);
+		
+		model.addAttribute("skintype", skintype);
+		
+		return "index";
+	}
 
 	// 관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
 	@RequestMapping(value = "admin/index", method = RequestMethod.GET)

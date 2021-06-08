@@ -39,7 +39,7 @@
 <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
-              <h1><a class="navbar-brand " href="index.html">JFactory</a></h1>
+              <h1><a class="navbar-brand " href="index">JFactory</a></h1>
           </ul>
           <form class="form-inline form-navbar-right " action="MainSearch">
       <input class="form-control mr-sm-2" id="keyword" name="keyword" type="text" placeholder="검색창">

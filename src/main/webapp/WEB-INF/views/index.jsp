@@ -146,30 +146,20 @@
     
     <div class="container">
     <div class="row">
+    <c:forEach items="${skintype }" var="skintype">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToInib2bl8F2RFgzod2SHmFz6WVDFlo-LnbA&usqp=CAU" alt=""></a>
           <div class="card-body">
             <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">프로 아이 팔레트</span></a>
+            <a href="#"><span style="color:black; font-size:15pt">${skintype.pd_name }</span></a>
             </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">다재다능한 컬러조합</span><br/>
-            13000원</p>
+            <p class="card-text"><span style="color:black; font-size:10pt">${skintype.pd_simplecontent }</span><br/>
+            ${skintype.pd_price }</p>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/T90CD2YHD4W7EQTZMIC3.jpg" alt=""></a>
-          <div class="card-body">
-            <h5 class="card-title">
-            <a href="#"><span style="color:black; font-size:15pt">멜팅 쉬어 립</span></a>
-            </h5>
-            <p class="card-text"><span style="color:black; font-size:10pt">부드러운 멜팅감</span><br/>
-            13000원</p>
-          </div>
-        </div>
-      </div>
+    </c:forEach>
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="https://img.clubclio.co.kr/uploadFolder/wt_product/300/BG3A1CRKUQ953E01ZYNZ.jpg" alt=""></a>

@@ -105,27 +105,28 @@ div.CurrIcon{font-size: 700%;}
 div.weather_info{font-size: 100%;}
 </style>
 
+<div style="text-align:center">
 	<div  class="container" > <br/>
+	<img id="img2" class="img2" src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https:%2F%2Fblog.kakaocdn.net%2Fdn%2FbaYmDt%2Fbtq6Be6sFtv%2FtPGxhLdwctgiSvwkVkOEo0%2Fimg.gif" style="width:8%"></br>
+	    </div>
 	    <h3 align="center"> ★ <strong>${param.cityName }의 날씨</strong> ★</h3><br>
 	  	<h6 align="center"><strong>제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요!</strong></h6>
 	   <br/>
 	</div>
-
 <div style="background-image: url('https://lh3.googleusercontent.com/proxy/Q3XlD8KePRWxPxOURjcVw_WXFwcJxyiKLuqXtGGIp0pxaBYMJNjrH690Xn4qwtgq7BupxG7z8C8F7WKE5UghnOcSSbq0dM2YzRDUehHtIzUmmgGQl-O88_f9gK1Y=w1200-h630-p-k-no-nu')" >
-<br>
-	<div align="center" >
-	   	  <div class="weather" align="center"> 
-			   	 <div class="CurrIcon" ></div> 
-			    	<div class="weather_info">
-			    	  <div class="CurrTemp" style="font-weight: bold ; font-size: 140%;"></div> 
-				      <div class="City" style="font-weight: bold ; font-size: 140%;"></div> 
-				      <div class="humidity" style="font-weight: bold ; font-size: 140%;"></div>
-			    	</div>
-		  </div>
-	</div>
-	<br><br>
+	<br>
+		<div align="center" >
+		   	  <div class="weather" align="center"> 
+				   	 <div class="CurrIcon" ></div> 
+				    	<div class="weather_info">
+				    	  <div class="CurrTemp" style="font-weight: bold ; font-size: 140%;"></div> 
+					      <div class="City" style="font-weight: bold ; font-size: 140%;"></div> 
+					      <div class="humidity" style="font-weight: bold ; font-size: 140%;"></div>
+				    	</div>
+			  </div>
+		</div>
+	<br>
 </div>
-
 
 <div class="container px-4 px-lg-5"> 
 <br/><h4 style="text-align:center">오늘같은 날씨에는</h4><br/>
