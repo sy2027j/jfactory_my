@@ -150,6 +150,86 @@
 		BY qna_pin DESC, qna_datetime DESC
 		LIMIT #{page}, 15
 	</select>
+	
+	<!-- 검색 리스트 불러오기 -->
+	<select id="qnaSearchList" resultType="MemberqnaDTO">
+		SELECT * FROM jfactory_qna
+		WHERE
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'qna_title'.toString()">
+				qna_title = #{keyword}
+			</if>
+			<if test="searchType == 'qna_response'.toString()">
+			<if test="keyword == '답변완료'">
+				qna_response = 1
+				</if>
+			<if test="keyword == '답변아직'">
+				qna_response = 0
+				</if>
+				</if>
+			<if test="searchType == 'all'.toString()">
+				mem_id = #{keyword}
+				or qna_title = #{keyword}
+				or
+				qna_response = #{keyword}
+			</if>
+		</if>
+		ORDER
+		BY qna_pin DESC, qna_datetime DESC
+		LIMIT #{pageStart},600
+	</select>
+
+	<!-- 페이지정보를 10개씩 가져오기 -->
+	<select id="qnaSearchListPage" resultType="MemberqnaDTO">
+		SELECT * FROM
+		jfactory_qna
+		WHERE
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'qna_title'.toString()">
+				qna_title = #{keyword}
+			</if>
+			<if test="searchType == 'qna_response'.toString()">
+				qna_response = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				mem_id = #{keyword}
+				or qna_title = #{keyword}
+				or
+				qna_response = #{keyword}
+			</if>
+		</if>
+		ORDER
+		BY qna_pin DESC, qna_datetime DESC
+		LIMIT #{page}, 16
+	</select>
+
+
+	<select id="qnaSearchpageCount" resultType="int">
+			SELECT count(*) FROM
+		jfactory_qna
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				WHERE mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'qna_title'.toString()">
+				WHERE qna_title = #{keyword}
+			</if>
+			<if test="searchType == 'qna_response'.toString()">
+				WHERE qna_response = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				WHERE mem_id = #{keyword}
+				or qna_title = #{keyword}
+				or qna_response = #{keyword}
+			</if>
+		</if>
+	</select>
 
 
 	<select id="pageCount" resultType="int">

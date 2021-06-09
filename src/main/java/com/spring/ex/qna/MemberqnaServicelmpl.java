@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.util.Criteria;
 
 @Service
@@ -19,12 +20,21 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 		return dao.qnaList(cri);
 	}
 	
-	//DB ���̺� �ִ� ��� �� ���� ��� �� ����
 	@Override
 	public int pageCount() throws Exception {
 		return dao.pageCount();
 	}
+	
+	@Override
+	public List<AdminDTO> qnaSearchList(Criteria cri) throws Exception {
+		return dao.qnaSearchList(cri);
+	}
 
+	@Override
+	public int qnaSearchpageCount() throws Exception {
+		return dao.qnaSearchpageCount();
+	}
+	
 	@Override
 	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception{
 		dao.qnaWriteMethod(dto);

@@ -6,7 +6,7 @@
 <body>
 	<br />
 	<br />
-	<style>
+<style>
 p {
 	margin: 20px 0px;
 }
@@ -51,45 +51,23 @@ div.box-footer {
 									<th style="width: 60px">답변상태</th>
 								</tr>
 
-								<c:forEach items="${QnaList}" var="qnalist">
+								<c:forEach items="${searchList}" var="searchlist">
 									<tr>
 										<td><a style="color: black; text-decoration: none"
-											href="admin_cm_qna_view?qna_no=${qnalist.getQna_no()}"><c:out
-													value="${qnalist.getQna_title()}" /></a></td>
-										<td><c:out value="${qnalist.getmem_id() }" /></td>
-										<td><c:out value="${qnalist.getQna_datetime() }" /></td>
-										<td><c:if test="${qnalist.getQna_response() eq 1}">
+											href="admin_cm_qna_view?qna_no=${searchlist.getQna_no()}"><c:out
+													value="${searchlist.getQna_title()}" /></a></td>
+										<td><c:out value="${searchlist.getmem_id() }" /></td>
+										<td><c:out value="${searchlist.getQna_datetime() }" /></td>
+										<td><c:if test="${searchlist.getQna_response() eq 1}">
 												<span style="color: blue">답변완료</span>
-											</c:if> <c:if test="${qnalist.getQna_response() eq 0}">
+											</c:if> <c:if test="${searchlist.getQna_response() eq 0}">
 												<span style="color: red">답변아직</span>
 											</c:if></td>
 									</tr>
 								</c:forEach>
 
 							</tbody>
-						</table>
-						<div class="box-footer">
-							<div class="text-center">
-								<ul class="pagination">
-									<!-- 이전prev -->
-									<c:if test="${pm.prev }">
-										<li class="page-item"><a class="page-link"
-											href="cm_qna?page=${pm.startPage-1}">&laquo;</a></li>
-									</c:if>
-									<!-- 페이지블럭 -->
-									<c:forEach var="idx" begin="${pm.startPage }"
-										end="${pm.endPage }">
-										<li class="page-item"><a class="page-link"
-											href="cm_qna?page=${idx }">${idx}</a></li>
-									</c:forEach>
-									<!-- 다음next -->
-									<c:if test="${pm.next && pm.endPage > 0}">
-										<li class="page-item"><a class="page-link"
-											href="cm_qna?page=${pm.endPage+1}">&raquo;</a></li>
-									</c:if>
-								</ul>
-							</div>
-						</div>
+						</table>			
 
 						<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 						<script

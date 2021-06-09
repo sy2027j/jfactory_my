@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.util.Criteria;
 
 @Repository
@@ -13,8 +14,13 @@ public interface MemberqnaDAO {
 	
 	public List<MemberqnaDTO> qnaListPage(int page) throws Exception;
 		
-	//DB ���̺� �ִ� ��� �� ���� ��� �� ����
 	public int pageCount() throws Exception;
+	
+	public List<AdminDTO> qnaSearchList(Criteria cri) throws Exception;
+
+	public List<AdminDTO> qnaSearchListPage(int page) throws Exception;
+
+	public int qnaSearchpageCount() throws Exception;
 	
 	public void qnaWriteMethod(MemberqnaDTO dto) throws Exception;
 	

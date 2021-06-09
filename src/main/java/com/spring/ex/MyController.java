@@ -167,6 +167,11 @@ public class MyController {
 		return("admin/adminSearch");
 	}
 	
+	@RequestMapping("admin/qnaSearch")
+	public String qnaSearch() {
+		return("admin/qnaSearch");
+	}
+	
 	@RequestMapping("admin/Header")
 	public String adHeader() {
 		return("admin/Header");

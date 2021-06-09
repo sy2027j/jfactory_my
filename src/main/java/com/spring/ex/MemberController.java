@@ -197,6 +197,36 @@ public class MemberController {
 
 		return "admin/adminSearch";
 	}
+	
+	@RequestMapping(value = "admin/qnaSearch", method = RequestMethod.GET)
+	public String qnaSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
+			throws Exception {
+		
+		String searchType = request.getParameter("searchType");
+		String keyword = request.getParameter("keyword");
+		
+		System.out.println(searchType);
+		System.out.println(keyword);
+		model.addAttribute("searchList", qnaservice.qnaSearchList(cri));
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
+		
+		
+		PageMaker pm1 = new PageMaker();
+		System.out.println("44444");
+		pm1.setDisplayPageNum(15);
+		System.out.println("3333");
+		pm1.setCri(cri);
+		System.out.println("2222");
+		pm1.setTotalCount(qnaservice.qnaSearchpageCount()); // DB의 전체ROW수 입력
+		System.out.println("1111");
+		
+		// 뷰페이지로 전달
+		model.addAttribute("pm1", pm1);
+		System.out.println("Dd");
+		
+		return "admin/qnaSearch";
+	}
 
 
 	@RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
