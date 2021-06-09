@@ -13,6 +13,10 @@ public interface MemberService {
    public List<MemberDTO> memberList(Criteria cri) throws Exception;
    
    public int memberpageCount() throws Exception;
+   
+   public List<MemberDTO> memberSearchList(Criteria cri) throws Exception;
+   
+   public int memberSearchpageCount() throws Exception;
 
    public void memberJoinMethod(MemberDTO dto) throws Exception;
 

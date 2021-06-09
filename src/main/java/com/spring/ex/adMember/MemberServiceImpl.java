@@ -26,6 +26,16 @@ public class MemberServiceImpl implements MemberService {
    }
    
    @Override
+   public List<MemberDTO> memberSearchList(Criteria cri) throws Exception {
+	   return dao.memberSearchList(cri);
+   }
+   
+   @Override
+   public int memberSearchpageCount() throws Exception {
+	   return dao.memberSearchpageCount();
+   }
+   
+   @Override
    public void memberJoinMethod(MemberDTO dto) throws Exception{
       dao.memberJoinMethod(dto);
    }

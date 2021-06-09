@@ -157,6 +157,16 @@ public class MyController {
 		return("/best_clean");
 	}
 	 
+	@RequestMapping("admin/memberSearch")
+	public String memberSearch() {
+		return("admin/memberSearch");
+	}
+	
+	@RequestMapping("admin/adminSearch")
+	public String adminSearch() {
+		return("admin/adminSearch");
+	}
+	
 	@RequestMapping("admin/Header")
 	public String adHeader() {
 		return("admin/Header");

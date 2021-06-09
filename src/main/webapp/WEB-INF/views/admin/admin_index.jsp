@@ -10,17 +10,17 @@
       <div class="container-fluid">
          <h1 class="mt-4">관리자 조회</h1>
          <div class="input-group">
-            <form method="get" action="SelectServlet" class="form-inline"
+            <form method="get" action="adminSearch" class="form-inline"
                style="font-size: 15pt">
-               <select id="select" name="select" size="1">
-                  <option value="정렬">ID</option>
-                  <option value="ID">ID</option>
-                  <option value="이름">이름</option>
-                  <option value="전화번호">전화번호</option>
-               </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+               <select id="searchType" name="searchType" size="1">
+                  <option value="mem_id">ID</option>
+                  <option value="mem_realname">이름</option>
+                  <option value="mem_email">이메일</option>
+                  <option value="all">전체</option>
+               </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+               <input id="keyword" name="keyword"
                   style="width: 500px; height: 35px;" " type="text"
                   placeholder="검색창">&nbsp;
-            </form>
             <button class="btn btn-secondary" type="submit">
                <span style="font-size: 15pt">검색</span>
             </button>
@@ -35,6 +35,7 @@
             <button class="btn btn-secondary" type="submit">
                <span style="font-size: 15pt">삭제</span>
             </button>
+            </form>
          </div>
       </div>
       <br>
@@ -47,6 +48,7 @@
                   <tr>
                      <th>권한</th>
                      <th>ID</th>
+                     <th>이메일</th>
                      <th>이름</th>
                      <th>생년월일</th>
                      <th>번호</th>
@@ -54,10 +56,11 @@
                   <c:forEach items="${AdminList}" var="admin">
                      <tr>
                         <td><c:out value="${admin.getMem_is_admin()}"/></td>
+                        <td><c:out value="${admin.getmem_id()}"/></td>
                         <td><c:out value="${admin.getMem_email() }"/></td>
                         <td><c:out value="${admin.getMem_realname() }"/></td>
                         <td><c:out value="${admin.getMem_birth_year() }.${admin.getMem_birth_month() }.${admin.getMem_birth_day() }"/></td>
-                        <td><c:out value="${admin.getMem_phone() }-${admin.getMem_phone1() }-${admin.getMem_phone2() }"/></td>
+                        <td><c:out value="0${admin.getMem_phone() }-${admin.getMem_phone1() }-${admin.getMem_phone2() }"/></td>
                      </tr>
                   </c:forEach>
             </table>

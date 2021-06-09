@@ -1,3 +1,4 @@
+<%@page import="javax.print.DocFlavor.STRING"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -25,7 +26,7 @@ div.row {
 	<div id="layoutSidenav_content">
 		<main>
 			<div class="container-fluid">
-				<h1 class="mt-4">회원조회</h1>
+				<h1 class="mt-4">회원검색결과</h1>
 				<form method="get" id="mem_Search" name="mem_Search"
 					action="memberSearch" class="form-inline" style="font-size: 15pt">
 					<select id="searchType" name="searchType" size="1">
@@ -59,44 +60,21 @@ div.row {
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${List}" var="member">
+							<c:forEach items="${searchList}" var="searchlist">
 								<tr
-									onClick="window.open('member_detail?mem_id=${member.getmem_id()}', '회원 상세 정보', 'width=500, height=700, left=100, top=50');">
-									<td><c:out value="${member.getMem_level()}" /></td>
-									<td><c:out value="${member.getmem_id()}" /></td>
-									<td><c:out value="${member.getMem_realname() }" /></td>
+									onClick="window.open('member_detail?mem_id=${searchlist.getmem_id()}', '회원 상세 정보', 'width=500, height=700, left=100, top=50');">
+									<td><c:out value="${searchlist.getMem_level()}" /></td>
+									<td><c:out value="${searchlist.getmem_id()}" /></td>
+									<td><c:out value="${searchlist.getMem_realname() }" /></td>
 									<td><c:out
-											value="${member.getMem_birth_year() }.${member.getMem_birth_month() }.${member.getMem_birth_day() }" /></td>
+											value="${searchlist.getMem_birth_year() }.${searchlist.getMem_birth_month() }.${searchlist.getMem_birth_day() }" /></td>
 									<td><c:out
-											value="${member.getMem_phone() }-${member.getMem_phone1() }-${member.getMem_phone2() }" /></td>
-									<td><c:out value="${member.getMem_count() }" /></td>
+											value="${searchlist.getMem_phone() }-${searchlist.getMem_phone1() }-${searchlist.getMem_phone2() }" /></td>
+									<td><c:out value="${searchlist.getMem_count() }" /></td>
 								</tr>
 							</c:forEach>
-
 						</tbody>
 					</table>
-					<div class="box-footer">
-						<div class="text-center">
-							<ul class="pagination">
-								<!-- 이전prev -->
-								<c:if test="${pm.prev }">
-									<li class="page-item"><a class="page-link"
-										href="index?page=${pm.startPage-1}">&laquo;</a></li>
-								</c:if>
-								<!-- 페이지블럭 -->
-								<c:forEach var="idx" begin="${pm.startPage }"
-									end="${pm.endPage }">
-									<li class="page-item"><a class="page-link"
-										href="index?page=${idx }">${idx}</a></li>
-								</c:forEach>
-								<!-- 다음next -->
-								<c:if test="${pm.next && pm.endPage > 0}">
-									<li class="page-item"><a class="page-link"
-										href="index?page=${pm.endPage+1}">&raquo;</a></li>
-								</c:if>
-							</ul>
-						</div>
-					</div>
 
 					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 					<script

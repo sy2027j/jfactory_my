@@ -5,22 +5,95 @@
 
 	<!-- 회원 리스트 (관리자 제외) 불러오기 -->
 	<select id="adminMemberList" resultType="AdminDTO">
-		SELECT * FROM jfactory_member where mem_is_admin=0
+		SELECT * FROM
+		jfactory_member where mem_is_admin=0
 	</select>
-	
+
 	<!-- 관리자 리스트 불러오기 -->
 	<select id="AdminList" resultType="AdminDTO">
-		SELECT * FROM jfactory_member where mem_is_admin=1 or mem_is_admin=2
+		SELECT * FROM jfactory_member
+		where mem_is_admin=1 or mem_is_admin=2
 	</select>
-	
-	<!-- 관리자 서브 권한 주기 -->   
-	<update id="AddAdmin" >
-      UPDATE jfactory_member SET mem_is_admin=2 WHERE mem_id =#{mem_id}
-   </update>
-   
-   <!-- 회원 상세정보 -->
+
+	<!-- 관리자 서브 권한 주기 -->
+	<update id="AddAdmin">
+		UPDATE jfactory_member SET mem_is_admin=2 WHERE mem_id =#{mem_id}
+	</update>
+
+	<!-- 회원 상세정보 -->
 	<select id="member_detail" resultType="AdminDTO">
-      SELECT * FROM jfactory_member WHERE mem_id=#{mem_id}
-   </select>
-   
-	</mapper>
+		SELECT * FROM jfactory_member WHERE mem_id=#{mem_id}
+	</select>
+
+	<!-- 검색 리스트 불러오기 -->
+	<select id="adminSearchList" resultType="AdminDTO">
+		SELECT * FROM jfactory_member
+		where mem_is_admin != 0
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'mem_realname'.toString()">
+				and mem_realname = #{keyword}
+			</if>
+			<if test="searchType == 'mem_email'.toString()">
+				and mem_email = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or mem_realname = #{keyword}
+				or
+				mem_email = #{keyword}
+			</if>
+		</if>
+		LIMIT #{pageStart},600
+	</select>
+
+	<!-- 페이지정보를 10개씩 가져오기 -->
+	<select id="adminSearchListPage" resultType="AdminDTO">
+		SELECT * FROM jfactory_member
+		where mem_is_admin != 0
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'mem_realname'.toString()">
+				and mem_realname = #{keyword}
+			</if>
+			<if test="searchType == 'mem_email'.toString()">
+				and mem_email = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or mem_realname = #{keyword}
+				or
+				mem_email = #{keyword}
+			</if>
+		</if>
+		LIMIT #{page}, 16
+	</select>
+
+
+	<select id="adminSearchpageCount" resultType="int">
+		SELECT count(*) FROM jfactory_member
+		where mem_is_admin != 0
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'mem_realname'.toString()">
+				and mem_realname = #{keyword}
+			</if>
+			<if test="searchType == 'mem_email'.toString()">
+				and mem_email = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or mem_realname = #{keyword}
+				or
+				mem_email = #{keyword}
+			</if>
+		</if>
+	</select>
+
+</mapper>

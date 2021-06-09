@@ -8,11 +8,12 @@
      String keyword=request.getParameter("keyword");
   %>
   <div class="container">
-    <h3 class="mt-4 mb-3">
+    <h3 class="mt-4 mb-3" style="padding-top: 3%;">
       검색결과: <%=keyword %>
     </h3>
     <br>
     <br>
+    <div id="product" style="margin-top: -3%;">
     <h3 class="mt-4 mb-3">상품</h3>
     <div class="row">
     <c:forEach items="${searchProductlist}" var="searchProductlist">
@@ -29,6 +30,8 @@
       </div>
       </c:forEach>
     </div>
+    </div>
+    <div id=review style="padding-top: 5%; padding-bottom: 10%;">
     <hr>
     <h3 class="mt-4 mb-3">리뷰</h3>
     <div class="row">
@@ -59,6 +62,7 @@
             </div>
          </div>
       </c:forEach>
+    </div>
     </div>
 
   </div>

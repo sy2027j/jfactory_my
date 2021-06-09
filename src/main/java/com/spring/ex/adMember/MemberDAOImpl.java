@@ -20,7 +20,7 @@ public class MemberDAOImpl implements MemberDAO {
    
    @Override
    public List<MemberDTO> memberList(Criteria cri) throws Exception {
-      return sqlSession.selectList(namespace + ".MemberList", cri);
+      return sqlSession.selectList(namespace + ".memberList", cri);
    }
    
    @Override
@@ -36,6 +36,26 @@ public class MemberDAOImpl implements MemberDAO {
    @Override
    public int memberpageCount() throws Exception{
       return sqlSession.selectOne(namespace+".memberpageCount");
+   }
+   
+   @Override
+   public List<MemberDTO> memberSearchList(Criteria cri) throws Exception {
+	   return sqlSession.selectList(namespace + ".memberSearchList", cri);
+   }
+   
+   @Override
+   public List<MemberDTO> memberSearchListPage(int page) throws Exception {
+	   if(page <= 0) {
+		   page = 1;
+	   }
+	   page = (page - 1)*15;
+	   return sqlSession.selectList(namespace+".memberSearchListPage", page);
+   }
+   
+   //DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿  ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+   @Override
+   public int memberSearchpageCount() throws Exception{
+	   return sqlSession.selectOne(namespace+".memberSearchpageCount");
    }
    
    @Override

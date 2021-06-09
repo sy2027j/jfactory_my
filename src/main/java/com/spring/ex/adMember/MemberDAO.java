@@ -17,6 +17,12 @@ public interface MemberDAO {
    
    public int memberpageCount() throws Exception;
    
+   public List<MemberDTO> memberSearchList(Criteria cri) throws Exception;
+   
+   public List<MemberDTO> memberSearchListPage(int page) throws Exception;
+   
+   public int memberSearchpageCount() throws Exception;
+   
    // ȸ
    public void memberJoinMethod(MemberDTO dto) throws Exception;
 

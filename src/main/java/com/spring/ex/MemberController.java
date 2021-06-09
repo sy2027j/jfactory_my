@@ -58,31 +58,31 @@ public class MemberController {
 
 	@Inject
 	JoinoutService joinoutservice;
-	
+
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String index(HttpSession session, Model model) throws Exception {
-		
-		MemberDTO mdto = (MemberDTO)session.getAttribute("member");
+
+		MemberDTO mdto = (MemberDTO) session.getAttribute("member");
 		if (mdto != null) {
 			MemberDTO member = (MemberDTO) session.getAttribute("member");
 			String mem_id = member.getmem_id();
 			System.out.println(mem_id);
-			String mem_skintype=member.getMem_skintype();
-			List<ProductDTO> pdto = prservice.ProductTag4("#"+mem_skintype);
-			model.addAttribute("skintypepd",pdto);
+			String mem_skintype = member.getMem_skintype();
+			List<ProductDTO> pdto = prservice.ProductTag4("#" + mem_skintype);
+			model.addAttribute("skintypepd", pdto);
 			System.out.println(mem_skintype);
-			
+
 			String mem_skintrouble1 = member.getMem_skintrouble1();
 			System.out.println(mem_skintrouble1);
-			ProductDTO trouble1 = prservice.ProductTag5('#'+mem_skintrouble1);
-			model.addAttribute("troubleo",trouble1);
-			
-			String mem_skintrouble2=member.getMem_skintrouble2();
+			ProductDTO trouble1 = prservice.ProductTag5('#' + mem_skintrouble1);
+			model.addAttribute("troubleo", trouble1);
+
+			String mem_skintrouble2 = member.getMem_skintrouble2();
 			System.out.println(mem_skintrouble2);
-			ProductDTO trouble2 = prservice.ProductTag5('#'+mem_skintrouble2);
-			model.addAttribute("troublet",trouble2);
+			ProductDTO trouble2 = prservice.ProductTag5('#' + mem_skintrouble2);
+			model.addAttribute("troublet", trouble2);
 		}
-		
+
 		List<ProductDTO> indexbest = prservice.IndexBest();
 		model.addAttribute("indexbest", indexbest);
 		System.out.println("check");
@@ -108,6 +108,34 @@ public class MemberController {
 		return "admin/index";
 	}
 
+	// 관리자 모드 회원 목록 불러오기 ( 관리자 제외 )
+	@RequestMapping(value = "admin/memberSearch", method = RequestMethod.GET)
+	public String memberSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
+			throws Exception {
+
+		String searchType = request.getParameter("searchType");
+		String keyword = request.getParameter("keyword");
+
+		model.addAttribute("searchList", service.memberSearchList(cri));
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
+		
+		PageMaker pm1 = new PageMaker();
+		System.out.println("44444");
+		pm1.setDisplayPageNum(15);
+		System.out.println("3333");
+		pm1.setCri(cri);
+		System.out.println("2222");
+		pm1.setTotalCount(service.memberSearchpageCount()); // DB의 전체ROW수 입력
+		System.out.println("1111");
+
+		// 뷰페이지로 전달
+		model.addAttribute("pm1", pm1);
+		System.out.println("Dd");
+
+		return "admin/memberSearch";
+	}
+
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
 	public String member_detail(OrderDTO order, Model model, AdminDTO dto, Criteria cri) throws Exception {
 
@@ -116,14 +144,14 @@ public class MemberController {
 		System.out.println("find id");
 		model.addAttribute("memdetaildto", memdetaildto);
 		System.out.println("find id");
-		
+
 		String userId = memdetaildto.getmem_id();
 		order.setMem_id(userId);
 		String ord = order.getMem_id();
 		System.out.println(ord);
 		List<OrderDTO> orderList = cartservice.orderList(order);
 		model.addAttribute("orderList", orderList);
-		
+
 		model.addAttribute("QnaList", qnaservice.qnaList(cri));
 
 		return "admin/member_detail";
@@ -139,6 +167,37 @@ public class MemberController {
 
 		return "admin/admin_index";
 	}
+	
+	@RequestMapping(value = "admin/adminSearch", method = RequestMethod.GET)
+	public String adminSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
+			throws Exception {
+		
+		String searchType = request.getParameter("searchType");
+		String keyword = request.getParameter("keyword");
+		
+		System.out.println(searchType);
+		System.out.println(keyword);
+		model.addAttribute("searchList", adminservice.adminSearchList(cri));
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
+		
+		
+		PageMaker pm1 = new PageMaker();
+		System.out.println("44444");
+		pm1.setDisplayPageNum(15);
+		System.out.println("3333");
+		pm1.setCri(cri);
+		System.out.println("2222");
+		pm1.setTotalCount(adminservice.adminSearchpageCount()); // DB의 전체ROW수 입력
+		System.out.println("1111");
+
+		// 뷰페이지로 전달
+		model.addAttribute("pm1", pm1);
+		System.out.println("Dd");
+
+		return "admin/adminSearch";
+	}
+
 
 	@RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
 	public String memberaddList(Model model, Criteria cri) throws Exception {
@@ -476,7 +535,8 @@ public class MemberController {
 
 	// product detail
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, String pd_category) throws Exception {
+	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, String pd_category)
+			throws Exception {
 		ProductDTO pddetaildto = prservice.AddDetail(pd_name);
 		model.addAttribute("ProductDetail", pddetaildto);
 		System.out.println("product detail view");
@@ -484,14 +544,14 @@ public class MemberController {
 		System.out.println(result);
 		pddto.setPd_review_count(result);
 		prservice.ProductReviewCount(pddto);
-		
+
 		System.out.println(prservice.ProductReviewScore(pd_name).get(0));
 		model.addAttribute("ProductReviewScore", prservice.ProductReviewScore(pd_name));
-		
+
 		List<ProductDTO> pddtos = prservice.CategoryProduct(pd_category);
 		model.addAttribute("randompro", pddtos);
 		System.out.println("category random product list");
-		
+
 		return "/product_detail";
 	}
 
@@ -812,8 +872,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/orderlist", method = RequestMethod.POST)
-	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto,
-			String pd_name, String pd_amount) throws Exception {
+	public String order(HttpSession session, OrderDTO order, OrderDetailDTO orderDetail, MemberDTO mdto, String pd_name,
+			String pd_amount) throws Exception {
 		System.out.println("check0");
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		String mem_id = member.getmem_id();
@@ -835,7 +895,7 @@ public class MemberController {
 
 		int or_price = order.getOr_price();
 		System.out.println(or_price);
-		
+
 		cartservice.orderInfo(order);
 		System.out.println("check3");
 		orderDetail.setOr_id(or_id);
@@ -851,7 +911,7 @@ public class MemberController {
 		System.out.println("check6");
 		service.OrderCount(mdto);
 		System.out.println("check7");
-		
+
 		HashMap<String, Object> OrderProductSellCountMap = new HashMap<String, Object>();
 		String[] pd_nameArr = pd_name.split(",");
 		String[] pd_amountArr = pd_amount.split(",");
@@ -862,7 +922,7 @@ public class MemberController {
 			OrderProductSellCountMap.put("pd_amount", Integer.valueOf(pd_amountArr[i]));
 			prservice.OrderProductSellCount(OrderProductSellCountMap);
 		}
-		
+
 		return "redirect:/index";
 	}
 
@@ -890,7 +950,7 @@ public class MemberController {
 		model.addAttribute("ordermemdetail", odto);
 		return "/mypage_orderdetail";
 	}
-	
+
 	@RequestMapping(value = "admin/admin_order_detail", method = RequestMethod.GET)
 	public String admin_order_detail(OrderDTO dto, OrderDetailDTO order, Model model) throws Exception {
 		List<OrderDetailDTO> orderdetailList = cartservice.orderdetailList(order);
@@ -1011,7 +1071,7 @@ public class MemberController {
 		reservice.ReviewDelete(dto);
 		return "redirect:/admin/cm_review";
 	}
-	
+
 	@RequestMapping(value = "/best_eye", method = RequestMethod.GET)
 	public String bestproductlist(Model model, String pd_category) throws Exception {
 		List<ProductDTO> pddtos = prservice.BestProduct(pd_category);
@@ -1019,7 +1079,7 @@ public class MemberController {
 		System.out.println("best list select");
 		return "/best_eye";
 	}
-	
+
 	@RequestMapping(value = "/best_all", method = RequestMethod.GET)
 	public String bestproductlistall(Model model, String pd_category) throws Exception {
 		List<ProductDTO> pddtos = prservice.BestProductAll();
