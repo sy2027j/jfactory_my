@@ -162,6 +162,11 @@ public class MyController {
 		return("admin/memberSearch");
 	}
 	
+	@RequestMapping("admin/admin_order_info")
+	public String admin_order_info() {
+		return("admin/admin_order_info");
+	}
+	
 	@RequestMapping("admin/adminSearch")
 	public String adminSearch() {
 		return("admin/adminSearch");

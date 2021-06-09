@@ -56,7 +56,7 @@ div.box-footer {
 
 								<c:forEach items="${orderCancelList}" var="orderCancelList">
 									<tr
-										onClick="window.open('admin_orderdetail?or_id=${orderCancelList.getOr_id()}', '주문 상세 정보', 'width=500, height=700, left=100, top=50');">
+										onClick="window.open('admin_order_detail?or_id=${orderCancelList.getOr_id()}', '주문 상세 정보', 'width=500, height=700, left=100, top=50');">
 										<td><c:out value="${orderCancelList.getOr_datetime() }" /></td>
 										<td><c:out value="${orderCancelList.getOr_id()}" /></td>
 										<td><c:out value="${orderCancelList.getMem_id()}" /></td>									
