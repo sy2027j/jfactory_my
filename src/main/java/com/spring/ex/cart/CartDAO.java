@@ -1,13 +1,16 @@
 package com.spring.ex.cart;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.order.OrderDTO;
 import com.spring.ex.order.OrderDetailDTO;
 import com.spring.ex.product.ProductDTO;
+import com.spring.ex.util.Criteria;
 
 @Repository
 public interface CartDAO {
@@ -16,6 +19,18 @@ public interface CartDAO {
 	public void AddCart(CartDTO dto) throws Exception;
 	
 	public List<CartDTO> CartList(String mem_id) throws Exception;
+	
+	public List<OrderDTO> adminorderList(Criteria cri) throws Exception;
+	
+	public List<OrderDTO> adminorderListPage(int page) throws Exception;
+
+	public int orderListpageCount() throws Exception;
+	
+	public List<OrderDTO> adminordercancelList(Criteria cri) throws Exception;
+	
+	public List<OrderDTO> adminordercancelListPage(int page) throws Exception;
+	
+	public int ordercancelListpageCount() throws Exception;
 	
 	public void orderInfo(OrderDTO dto) throws Exception; 
 	

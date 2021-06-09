@@ -712,6 +712,46 @@ public class MemberController {
 		model.addAttribute("pm", pm);
 		return "admin/cm_qna";
 	}
+	
+	// admin qna list
+	@RequestMapping(value = "admin/order_index", method = RequestMethod.GET)
+	public String AdminOrderList(Criteria cri, Model model) throws Exception {
+		
+		List<OrderDTO> orderList = cartservice.adminorderList(cri);
+
+		model.addAttribute("orderList", orderList);
+		
+		System.out.println("1111");
+		
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(cartservice.orderListpageCount()); // DB의 전체ROW수 입력
+		System.out.println("555555");
+		// 뷰페이지로 전달
+		model.addAttribute("pm", pm);
+		System.out.println("44444");
+		return "admin/order_index";
+	}
+	
+	// admin qna list
+	@RequestMapping(value = "admin/order_cancel_index", method = RequestMethod.GET)
+	public String order_cancel_index(Criteria cri, Model model) throws Exception {
+		
+		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(cri);
+		
+		model.addAttribute("orderCancelList", orderCancelList);
+		
+		System.out.println("1111");
+		
+		PageMaker pm = new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(cartservice.ordercancelListpageCount()); // DB의 전체ROW수 입력
+		System.out.println("555555");
+		// 뷰페이지로 전달
+		model.addAttribute("pm", pm);
+		System.out.println("44444");
+		return "admin/order_cancel_index";
+	}
 
 	// admin qna list
 	@RequestMapping(value = "admin/cm_review", method = RequestMethod.GET)

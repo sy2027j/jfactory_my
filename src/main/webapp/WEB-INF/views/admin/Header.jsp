@@ -59,11 +59,7 @@ padding-left: 79%;
                                  </a>  
                                 <a class="nav-link" href="order_cancel_index">
                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                   주문취소관리
-                                 </a> 
-                                 <a class="nav-link" href="order_return_index">
-                                   <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                   반품관리
+                                   주문취소조회
                                  </a> 
                             <div class="sb-sidenav-menu-heading">제품관리</div>
                                <a class="nav-link" href="pd_add">

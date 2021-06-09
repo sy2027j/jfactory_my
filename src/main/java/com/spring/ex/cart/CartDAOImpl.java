@@ -1,5 +1,6 @@
 package com.spring.ex.cart;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,8 +9,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.order.OrderDTO;
 import com.spring.ex.order.OrderDetailDTO;
+import com.spring.ex.util.Criteria;
 
 @Repository
 public class CartDAOImpl implements CartDAO {
@@ -34,6 +37,47 @@ public class CartDAOImpl implements CartDAO {
 	public List<CartDTO> CartList(String mem_id) throws Exception{
 		return sqlSession.selectList(namespace+".CartList",mem_id);
 	}
+	
+	@Override
+	public List<OrderDTO> adminorderList(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".adminorderList", cri);
+	}
+
+	@Override
+	public List<OrderDTO> adminorderListPage(int page) throws Exception {
+		if (page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 15;
+		return sqlSession.selectList(namespace + ".adminorderList", page);
+	}
+
+	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public int orderListpageCount() throws Exception {
+		return sqlSession.selectOne(namespace + ".orderListpageCount");
+	}
+	
+	@Override
+	public List<OrderDTO> adminordercancelList(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".adminordercancelList", cri);
+	}
+	
+	@Override
+	public List<OrderDTO> adminordercancelListPage(int page) throws Exception {
+		if (page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 15;
+		return sqlSession.selectList(namespace + ".adminordercancelListPage", page);
+	}
+	
+	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public int ordercancelListpageCount() throws Exception {
+		return sqlSession.selectOne(namespace + ".ordercancelListpageCount");
+	}
+
 	
 	@Override
 	public void orderInfo(OrderDTO dto) throws Exception{
