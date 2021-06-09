@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.product.ProductDTO;
 import com.spring.ex.util.Criteria;
 
@@ -31,6 +32,26 @@ public class ReviewDAOlmpl implements ReviewDAO {
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception {
 		System.out.println("DAO: listPageCri �샇�뜝�룞�삕");
 		return sqlSession.selectList(namespace + ".ReviewList", cri);
+	}
+	
+	@Override
+	public List<AdminDTO> reviewSearchList(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".reviewSearchList", cri);
+	}
+
+	@Override
+	public List<AdminDTO> reviewSearchListPage(int page) throws Exception {
+		if (page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 15;
+		return sqlSession.selectList(namespace + ".reviewSearchListPage", page);
+	}
+
+	// DB ���̺� �ִ� ��� �� ���� ��� �� ����
+	@Override
+	public int reviewSearchpageCount() throws Exception {
+		return sqlSession.selectOne(namespace + ".reviewSearchpageCount");
 	}
 
 	@Override

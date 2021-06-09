@@ -53,7 +53,7 @@ div.box-footer {
 									<th style="width: 70px">삭제</th>
 								</tr>
 
-								<c:forEach items="${ReviewList}" var="reviewlist">
+								<c:forEach items="${searchList}" var="reviewlist">
 									<tr>
 										<td><a style="color: black; text-decoration: none"
 											href="admin_cm_review_view?re_no=${reviewlist.getRe_no()}"><c:out
@@ -70,29 +70,6 @@ div.box-footer {
 
 							</tbody>
 						</table>
-						<div class="box-footer">
-							<div class="text-center">
-								<ul class="pagination">
-									<!-- 이전prev -->
-									<c:if test="${pm.prev }">
-										<li class="page-item"><a class="page-link"
-											href="cm_review?page=${pm.startPage-1}">&laquo;</a></li>
-									</c:if>
-									<!-- 페이지블럭 -->
-									<c:forEach var="idx" begin="${pm.startPage }"
-										end="${pm.endPage }">
-										<li class="page-item"><a class="page-link"
-											href="cm_review?page=${idx }">${idx}</a></li>
-									</c:forEach>
-									<!-- 다음next -->
-									<c:if test="${pm.next && pm.endPage > 0}">
-										<li class="page-item"><a class="page-link"
-											href="cm_review?page=${pm.endPage+1}">&raquo;</a></li>
-									</c:if>
-								</ul>
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</div>

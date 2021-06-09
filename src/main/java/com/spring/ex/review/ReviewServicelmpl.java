@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.product.ProductDTO;
 import com.spring.ex.util.Criteria;
 import com.spring.ex.util.FileUtils;
@@ -33,6 +34,16 @@ public class ReviewServicelmpl implements ReviewService {
 	@Override
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception {
 		return dao.reviewList(cri);
+	}
+	
+	@Override
+	public List<AdminDTO> reviewSearchList(Criteria cri) throws Exception {
+		return dao.reviewSearchList(cri);
+	}
+
+	@Override
+	public int reviewSearchpageCount() throws Exception {
+		return dao.reviewSearchpageCount();
 	}
 
 	@Override

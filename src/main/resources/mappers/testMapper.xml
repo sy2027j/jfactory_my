@@ -105,15 +105,19 @@
 		or
 		pd_simplecontent like CONCAT('%', #{keyword}, '%')
 		or
-		pd_tag1 like CONCAT('%', #{keyword}, '%')
+		pd_tag1 like
+		CONCAT('%', #{keyword}, '%')
 		or
-		pd_tag2 like CONCAT('%', #{keyword}, '%')
+		pd_tag2 like CONCAT('%', #{keyword},
+		'%')
 		or
 		pd_tag3 like CONCAT('%', #{keyword}, '%')
 		or
-		pd_tag4 like CONCAT('%', #{keyword}, '%')
+		pd_tag4 like
+		CONCAT('%', #{keyword}, '%')
 		or
-		pd_tag5 like CONCAT('%', #{keyword}, '%')
+		pd_tag5 like CONCAT('%', #{keyword},
+		'%')
 		LIMIT
 		#{pageStart},#{pageSize}
 	</select>
@@ -150,7 +154,7 @@
 		BY qna_pin DESC, qna_datetime DESC
 		LIMIT #{page}, 15
 	</select>
-	
+
 	<!-- 검색 리스트 불러오기 -->
 	<select id="qnaSearchList" resultType="MemberqnaDTO">
 		SELECT * FROM jfactory_qna
@@ -163,13 +167,13 @@
 				qna_title = #{keyword}
 			</if>
 			<if test="searchType == 'qna_response'.toString()">
-			<if test="keyword == '답변완료'">
-				qna_response = 1
+				<if test="keyword == '답변완료'">
+					qna_response = 1
 				</if>
-			<if test="keyword == '답변아직'">
-				qna_response = 0
+				<if test="keyword == '답변아직'">
+					qna_response = 0
 				</if>
-				</if>
+			</if>
 			<if test="searchType == 'all'.toString()">
 				mem_id = #{keyword}
 				or qna_title = #{keyword}
@@ -211,7 +215,7 @@
 
 
 	<select id="qnaSearchpageCount" resultType="int">
-			SELECT count(*) FROM
+		SELECT count(*) FROM
 		jfactory_qna
 		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
@@ -226,7 +230,8 @@
 			<if test="searchType == 'all'.toString()">
 				WHERE mem_id = #{keyword}
 				or qna_title = #{keyword}
-				or qna_response = #{keyword}
+				or
+				qna_response = #{keyword}
 			</if>
 		</if>
 	</select>
@@ -309,6 +314,77 @@
 	<select id="reviewpageCount" resultType="int">
 		SELECT count(*) FROM
 		jfactory_review
+	</select>
+
+	<!-- 검색 리스트 불러오기 -->
+	<select id="reviewSearchList" resultType="ReviewDTO">
+		SELECT * FROM jfactory_review 
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				WHERE mem_id = #{keyword}
+			</if>
+			<if test="searchType == 're_title'.toString()">
+				WHERE re_title = #{keyword}
+			</if>
+			<if test="searchType == 'pd_name'.toString()">
+				WHERE pd_name = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+			    WHERE mem_id = #{keyword}
+				or re_title = #{keyword}
+				or
+				pd_name = #{keyword}
+			</if>
+		</if>
+		ORDER BY re_datetime DESC
+		LIMIT #{pageStart},600
+	</select>
+
+	<!-- 페이지정보를 10개씩 가져오기 -->
+	<select id="reviewSearchListPage" resultType="ReviewDTO">
+		SELECT * FROM jfactory_review
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				WHERE mem_id = #{keyword}
+			</if>
+			<if test="searchType == 're_title'.toString()">
+				WHERE re_title = #{keyword}
+			</if>
+			<if test="searchType == 'pd_name'.toString()">
+				WHERE pd_name = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				WHERE mem_id = #{keyword}
+				or re_title = #{keyword}
+				or
+				pd_name = #{keyword}
+			</if>
+		</if>
+		ORDER BY re_datetime DESC
+		LIMIT #{page}, 16
+	</select>
+
+
+	<select id="reviewSearchpageCount" resultType="int">
+		SELECT count(*) FROM jfactory_review
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				WHERE mem_id = #{keyword}
+			</if>
+			<if test="searchType == 're_title'.toString()">
+				WHERE re_title = #{keyword}
+			</if>
+			<if test="searchType == 'pd_name'.toString()">
+				WHERE pd_name = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				WHERE mem_id = #{keyword}
+				or re_title = #{keyword}
+				or
+				pd_name = #{keyword}
+			</if>
+		</if>
+		ORDER BY re_datetime DESC
 	</select>
 
 
