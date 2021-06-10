@@ -20,7 +20,7 @@ div.box-footer {
 			<br>
 			<div class="container-fluid">
 				<h1 class="mt-4">주문취소 조회</h1>
-				<form method="get" action="order_index" class="form-inline"
+				<form method="get" action="orderCancelSearch" class="form-inline"
 					style="font-size: 15pt">
 					<select id="searchType" name="searchType" size="1">
 						<option value="mem_id">주문자</option>

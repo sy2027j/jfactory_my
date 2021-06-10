@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.order.OrderDTO;
 import com.spring.ex.order.OrderDetailDTO;
 import com.spring.ex.review.ReviewDTO;
@@ -26,6 +27,14 @@ public interface CartService {
 	public List<OrderDTO> adminordercancelList(Criteria cri) throws Exception;
 	
 	public int ordercancelListpageCount() throws Exception;
+	
+	public List<OrderDTO> orderSearchList(Criteria cri) throws Exception;
+
+	public int orderSearchpageCount() throws Exception;
+	
+	public List<OrderDTO> orderCancelSearchList(Criteria cri) throws Exception;
+	
+	public int orderCancelSearchpageCount() throws Exception;
 	
 	public void orderInfo(OrderDTO dto) throws Exception;
 	

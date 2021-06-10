@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ex.admin.AdminDTO;
 import com.spring.ex.order.OrderDTO;
 import com.spring.ex.order.OrderDetailDTO;
 import com.spring.ex.util.Criteria;
@@ -51,6 +52,26 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public int ordercancelListpageCount() throws Exception {
 		return dao.ordercancelListpageCount();
+	}
+	
+	@Override
+	public List<OrderDTO> orderSearchList(Criteria cri) throws Exception {
+		return dao.orderSearchList(cri);
+	}
+
+	@Override
+	public int orderSearchpageCount() throws Exception {
+		return dao.orderSearchpageCount();
+	}
+	
+	@Override
+	public List<OrderDTO> orderCancelSearchList(Criteria cri) throws Exception {
+		return dao.orderCancelSearchList(cri);
+	}
+	
+	@Override
+	public int orderCancelSearchpageCount() throws Exception {
+		return dao.orderCancelSearchpageCount();
 	}
 	
 	@Override

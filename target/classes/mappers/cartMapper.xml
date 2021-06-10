@@ -85,6 +85,151 @@
 		WHERE or_cancel_state = 1
 	</select>
 	
+	<!-- 검색 리스트 불러오기 -->
+	<select id="orderSearchList" resultType="OrderDTO">
+		SELECT * FROM jfactory_order
+		WHERE or_cancel_state = 0
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_id'.toString()">
+				and or_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_price'.toString()">
+				and or_price = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or or_id = #{keyword}
+				or
+				or_price = #{keyword}
+			</if>
+		</if>
+		LIMIT #{pageStart},600
+	</select>
+
+	<!-- 페이지정보를 10개씩 가져오기 -->
+	<select id="orderSearchListPage" resultType="OrderDTO">
+		SELECT * FROM
+		jfactory_order
+		WHERE or_cancel_state = 0
+			<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_id'.toString()">
+				and or_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_price'.toString()">
+				and or_price = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or or_id = #{keyword}
+				or
+				or_price = #{keyword}
+			</if>
+		</if>
+		LIMIT #{page}, 16
+	</select>
+
+
+	<select id="orderSearchpageCount" resultType="int">
+		SELECT count(*) FROM
+		jfactory_order
+		WHERE or_cancel_state = 0
+			<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_id'.toString()">
+				and or_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_price'.toString()">
+				and or_price = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or or_id = #{keyword}
+				or
+				or_price = #{keyword}
+			</if>
+		</if>
+	</select>
+	<!-- 검색 리스트 불러오기 -->
+	<select id="orderCancelSearchList" resultType="OrderDTO">
+		SELECT * FROM jfactory_order
+		WHERE or_cancel_state = 1
+		<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_id'.toString()">
+				and or_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_price'.toString()">
+				and or_price = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or or_id = #{keyword}
+				or
+				or_price = #{keyword}
+			</if>
+		</if>
+		LIMIT #{pageStart},600
+	</select>
+
+	<!-- 페이지정보를 10개씩 가져오기 -->
+	<select id="orderCancelSearchListPage" resultType="OrderDTO">
+		SELECT * FROM
+		jfactory_order
+		WHERE or_cancel_state = 1
+			<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_id'.toString()">
+				and or_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_price'.toString()">
+				and or_price = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or or_id = #{keyword}
+				or
+				or_price = #{keyword}
+			</if>
+		</if>
+		LIMIT #{page}, 16
+	</select>
+
+
+	<select id="orderCancelSearchpageCount" resultType="int">
+		SELECT count(*) FROM
+		jfactory_order
+		WHERE or_cancel_state = 1
+			<if test="searchType != null">
+			<if test="searchType == 'mem_id'.toString()">
+				and mem_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_id'.toString()">
+				and or_id = #{keyword}
+			</if>
+			<if test="searchType == 'or_price'.toString()">
+				and or_price = #{keyword}
+			</if>
+			<if test="searchType == 'all'.toString()">
+				and mem_id = #{keyword}
+				or or_id = #{keyword}
+				or
+				or_price = #{keyword}
+			</if>
+		</if>
+	</select>
+	
 	<select id="OrdermemDetail" resultType="OrderDTO">
 		select * from jfactory_order where or_id=#{or_id} and re_check=0
 	</select>

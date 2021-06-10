@@ -32,6 +32,18 @@ public interface CartDAO {
 	
 	public int ordercancelListpageCount() throws Exception;
 	
+	public List<OrderDTO> orderSearchList(Criteria cri) throws Exception;
+
+	public List<OrderDTO> orderSearchListPage(int page) throws Exception;
+
+	public int orderSearchpageCount() throws Exception;
+	
+	public List<OrderDTO> orderCancelSearchList(Criteria cri) throws Exception;
+	
+	public List<OrderDTO> orderCancelSearchListPage(int page) throws Exception;
+	
+	public int orderCancelSearchpageCount() throws Exception;
+	
 	public void orderInfo(OrderDTO dto) throws Exception; 
 	
 	public void orderdetailInfo(OrderDetailDTO dto) throws Exception;

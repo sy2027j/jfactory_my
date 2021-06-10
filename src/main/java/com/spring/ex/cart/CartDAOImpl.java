@@ -77,6 +77,47 @@ public class CartDAOImpl implements CartDAO {
 	public int ordercancelListpageCount() throws Exception {
 		return sqlSession.selectOne(namespace + ".ordercancelListpageCount");
 	}
+	
+	@Override
+	public List<OrderDTO> orderSearchList(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".orderSearchList", cri);
+	}
+
+	@Override
+	public List<OrderDTO> orderSearchListPage(int page) throws Exception {
+		if (page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 15;
+		return sqlSession.selectList(namespace + ".orderSearchListPage", page);
+	}
+
+	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public int orderSearchpageCount() throws Exception {
+		return sqlSession.selectOne(namespace + ".orderSearchpageCount");
+	}
+	
+	@Override
+	public List<OrderDTO> orderCancelSearchList(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".orderCancelSearchList", cri);
+	}
+	
+	@Override
+	public List<OrderDTO> orderCancelSearchListPage(int page) throws Exception {
+		if (page <= 0) {
+			page = 1;
+		}
+		page = (page - 1) * 15;
+		return sqlSession.selectList(namespace + ".orderCancelSearchListPage", page);
+	}
+	
+	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	@Override
+	public int orderCancelSearchpageCount() throws Exception {
+		return sqlSession.selectOne(namespace + ".orderCancelSearchpageCount");
+	}
+
 
 	
 	@Override

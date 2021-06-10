@@ -8,7 +8,9 @@ p {
 	margin: 20px 0px;
 }
 
-div.box-footer {
+div.box-footer {ffef?Hc xdcdf 
+
+
 	position: absolute;
 	bottom: -10%;
 	left: 45%;
@@ -19,8 +21,8 @@ div.box-footer {
 		<main>
 			<br>
 			<div class="container-fluid">
-				<h1 class="mt-4">주문 조회</h1>
-				<form method="get" action="orderSearch" class="form-inline"
+				<h1 class="mt-4">주문취소 조회</h1>
+				<form method="get" action="orderCancelSearch" class="form-inline"
 					style="font-size: 15pt">
 					<select id="searchType" name="searchType" size="1">
 						<option value="mem_id">주문자</option>
@@ -39,7 +41,7 @@ div.box-footer {
 			<div class="col-lg-12">
 				<div class="card">
 					<div class="card-header">
-						<h3 class="card-title">주문목록</h3>
+						<h3 class="card-title">주문취소목록</h3>
 					</div>
 					<div class="card-body">
 						<table class="table table-bordered">
@@ -54,43 +56,21 @@ div.box-footer {
 
 								</tr>
 
-								<c:forEach items="${orderList}" var="orderlist">
+								<c:forEach items="${searchList}" var="searchlist">
 									<tr
-										onClick="window.open('admin_order_detail?or_id=${orderlist.getOr_id()}', '주문 상세 정보', 'width=500, height=700, left=100, top=50');">
-										<td><c:out value="${orderlist.getOr_datetime() }" /></td>
-										<td><c:out value="${orderlist.getOr_id()}" /></td>
-										<td><c:out value="${orderlist.getMem_id()}" /></td>									
-										<td><c:out value="${orderlist.getOr_price() }원" /></td>
+										onClick="window.open('admin_order_detail?or_id=${searchlist.getOr_id()}', '주문 상세 정보', 'width=500, height=700, left=100, top=50');">
+										<td><c:out value="${searchlist.getOr_datetime() }" /></td>
+										<td><c:out value="${searchlist.getOr_id()}" /></td>
+										<td><c:out value="${searchlist.getMem_id()}" /></td>									
+										<td><c:out value="${searchlist.getOr_price() }원" /></td>
 										<td><c:out
-												value="(${orderlist.getBuy_zipcode() })  ${orderlist.getBuy_address1()}  ${orderlist.getBuy_address2()}" /></td>
-										<td><c:out value="0${orderlist.getBuy_phone() }" /></td>
+												value="(${searchlist.getBuy_zipcode() })  ${searchlist.getBuy_address1()}  ${searchlist.getBuy_address2()}" /></td>
+										<td><c:out value="0${searchlist.getBuy_phone() }" /></td>
 									</tr>
 								</c:forEach>
 
 							</tbody>
 						</table>
-						<div class="box-footer">
-							<div class="text-center">
-								<ul class="pagination">
-									<!-- 이전prev -->
-									<c:if test="${pm.prev }">
-										<li class="page-item"><a class="page-link"
-											href="order_index?page=${pm.startPage-1}">&laquo;</a></li>
-									</c:if>
-									<!-- 페이지블럭 -->
-									<c:forEach var="idx" begin="${pm.startPage }"
-										end="${pm.endPage }">
-										<li class="page-item"><a class="page-link"
-											href="order_index?page=${idx }">${idx}</a></li>
-									</c:forEach>
-									<!-- 다음next -->
-									<c:if test="${pm.next && pm.endPage > 0}">
-										<li class="page-item"><a class="page-link"
-											href="order_index?page=${pm.endPage+1}">&raquo;</a></li>
-									</c:if>
-								</ul>
-							</div>
-						</div>
 
 					</div>
 				</div>

@@ -19,6 +19,7 @@ public class AdminServicelmpl implements AdminService {
 	public List<AdminDTO> adminMemberList() throws Exception {
 		return dao.adminMemberList();
 	}
+	
 	@Override
 	public List<AdminDTO> adminSearchList(Criteria cri) throws Exception {
 		return dao.adminSearchList(cri);

@@ -228,6 +228,68 @@ public class MemberController {
 		return "admin/qnaSearch";
 	}
 	
+	@RequestMapping(value = "admin/orderSearch", method = RequestMethod.GET)
+	public String orderSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
+			throws Exception {
+		
+		String searchType = request.getParameter("searchType");
+		String keyword = request.getParameter("keyword");
+		
+		System.out.println(searchType);
+		System.out.println(keyword);
+		List<OrderDTO> searchList = cartservice.orderSearchList(cri);
+		model.addAttribute("searchList", searchList);
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
+		
+		
+		PageMaker pm1 = new PageMaker();
+		System.out.println("44444");
+		pm1.setDisplayPageNum(15);
+		System.out.println("3333");
+		pm1.setCri(cri);
+		System.out.println("2222");
+		pm1.setTotalCount(cartservice.orderSearchpageCount()); // DB의 전체ROW수 입력
+		System.out.println("1111");
+		
+		// 뷰페이지로 전달
+		model.addAttribute("pm1", pm1);
+		System.out.println("Dd");
+		
+		return "admin/orderSearch";
+	}
+	
+	@RequestMapping(value = "admin/orderCancelSearch", method = RequestMethod.GET)
+	public String orderCancelSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
+			throws Exception {
+		
+		String searchType = request.getParameter("searchType");
+		String keyword = request.getParameter("keyword");
+		
+		System.out.println(searchType);
+		System.out.println(keyword);
+		List<OrderDTO> searchList = cartservice.orderCancelSearchList(cri);
+		model.addAttribute("searchList", searchList);
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
+		
+		
+		PageMaker pm1 = new PageMaker();
+		System.out.println("44444");
+		pm1.setDisplayPageNum(15);
+		System.out.println("3333");
+		pm1.setCri(cri);
+		System.out.println("2222");
+		pm1.setTotalCount(cartservice.orderCancelSearchpageCount()); // DB의 전체ROW수 입력
+		System.out.println("1111");
+		
+		// 뷰페이지로 전달
+		model.addAttribute("pm1", pm1);
+		System.out.println("Dd");
+		
+		return "admin/orderCancelSearch";
+	}
+	
 	@RequestMapping(value = "admin/reviewSearch", method = RequestMethod.GET)
 	public String reviewSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
 			throws Exception {
