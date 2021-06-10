@@ -30,7 +30,7 @@
     <div class="row">
     <c:forEach items="${bestlist}" var="bestlist">
       <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${bestlist.getPd_name()}'">
-      	<h2 style="color:#BB63DD;text-align:center">1</h2>
+      	
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${bestlist.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">

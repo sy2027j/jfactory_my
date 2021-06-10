@@ -26,7 +26,7 @@
             <div class="form-group">
             <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }"> </div> 
             <div class="form-group"> <label for="title">제목</label> 
-            <input class="form-control" id="qna_title" name="qna_title" placeholder="제목을 입력해주세요"> </div> 
+            <input class="form-control" id="qna_title" name="qna_title" placeholder="제목을 입력해주세요" autocomplete="off"> </div> 
             <div class="form-group"> <label for="writer">카테고리</label> <br/>
 		<select id="qna_category" name="qna_category" size="1" style="width:1040px;height:40px;" class="form-control">
 			<option value="">문의 종류를 선택해주세요.</option>

@@ -16,21 +16,6 @@ padding-bottom: 5%;
 }
 </style>
 <hr>
-<script src="resources/vendor/jquery/jquery.min.js"></script>
-<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script
-   src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="resources/vendor/jquery/jquery.min.js"></script>
-<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script
-   src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript"
-   src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
    var starscore = document.getElementById("starscore");
 
@@ -145,12 +130,6 @@ padding-bottom: 5%;
             </ul>
          </div>
       </div>
-
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script
-         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-      <script
-         src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </div>
 
 

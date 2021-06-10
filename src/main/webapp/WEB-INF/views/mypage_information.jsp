@@ -234,7 +234,6 @@
 		<%@ include file="./footer.jsp"%>
 		<!-- Bootstrap core JavaScript -->
 		<script src="resources/vendor/jquery/jquery.min.js"></script>
-		<script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script
 			src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 

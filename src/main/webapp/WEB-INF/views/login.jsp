@@ -29,14 +29,14 @@
 		
 					<div class="form-group"><input type="text"
 							class="form-control" id="id_input" name="mem_id"
-							placeholder="ID" size="100" style="width:470px;">
+							placeholder="ID" size="100" style="width:470px;" autocomplete="off">
 							<div id="id_check"></div>
 					</div>
 		
 					<div class="form-group">
 						<input type="password"
 							class="form-control" id="pw_input" name="mem_password" 
-							placeholder="PW" size="100" style="width:470px;">
+							placeholder="PW" size="100" style="width:470px;" autocomplete="off">
 						<div id="pw_check"></div>
 					</div>
 						
