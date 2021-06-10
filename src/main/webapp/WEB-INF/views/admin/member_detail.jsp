@@ -122,7 +122,7 @@ table.t1 {
 				</c:forEach>
 			</tbody>
 		</table>
-	</div>
+	</div> 
 	<br>
 	<h2>주문취소한 상품</h2>
 	<div class="memberManager">

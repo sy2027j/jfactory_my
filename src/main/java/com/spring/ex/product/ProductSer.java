@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.spring.ex.util.Criteria;
 
 @Service
-public interface ProductSer {
+public interface ProductSer {  
 
 	public void AddProduct(ProductDTO dto, MultipartHttpServletRequest mpRequest) throws Exception;
 
@@ -19,7 +19,7 @@ public interface ProductSer {
 	public void addDetail(ProductDTO dto) throws Exception;
 
 	public List<ProductDTO> productlist(String pd_category) throws Exception;
-	
+	 
 	public List<ProductDTO> Product_statisticslist(Criteria cri) throws Exception;
 
 	public List<ProductDTO> searchprolist(Criteria cri) throws Exception;

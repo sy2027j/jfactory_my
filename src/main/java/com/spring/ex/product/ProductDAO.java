@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.spring.ex.util.Criteria;
 
 @Repository
-public interface ProductDAO {
-
+public interface ProductDAO { 
+ 
 	public void AddProduct(Map<String, Object> map) throws Exception;
 
 	public ProductDTO AddDetail(String pd_name);

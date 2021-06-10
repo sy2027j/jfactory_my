@@ -6,7 +6,7 @@
 <style>
 p {
 	margin: 20px 0px;
-}
+} 
 
 div.box-footer {ffef?Hc xdcdf 
 

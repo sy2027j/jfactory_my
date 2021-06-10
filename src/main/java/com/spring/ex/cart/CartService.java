@@ -16,7 +16,7 @@ import com.spring.ex.util.Criteria;
 public interface CartService {
 	public void delete(CartDTO dto) throws Exception;
 	
-	public void AddCart(CartDTO dto) throws Exception;
+	public void AddCart(CartDTO dto) throws Exception; 
 	
 	public List<CartDTO> CartList(String mem_id) throws Exception;
 	

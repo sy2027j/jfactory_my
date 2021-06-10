@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.util.Criteria;
-
+ 
 @Service
 public interface AdminService {
 

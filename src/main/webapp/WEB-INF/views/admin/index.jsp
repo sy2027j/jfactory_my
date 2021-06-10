@@ -50,7 +50,7 @@ div.row {
 					<table class="table table-hover" id="adminMemberList">
 						<thead>
 							<tr>
-								<th>등급</th>
+								<th>등급</th> 
 								<th>ID</th>
 								<th>이름</th>
 								<th>생년월일</th>

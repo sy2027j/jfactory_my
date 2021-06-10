@@ -54,7 +54,7 @@ div.box-footer {ffef?Hc xdcdf
 									<th style="width: 250px">배송지</th>
 									<th style="width: 200px">휴대폰 번호</th>
 
-								</tr>
+								</tr> 
 
 								<c:forEach items="${searchList}" var="searchlist">
 									<tr

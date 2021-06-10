@@ -92,7 +92,7 @@ public class CartDAOImpl implements CartDAO {
 		return sqlSession.selectList(namespace + ".orderSearchListPage", page);
 	}
 
-	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	// DB ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿ ï¿½ï¿½ ï¿½ï ¿½ï¿½ï¿½
 	@Override
 	public int orderSearchpageCount() throws Exception {
 		return sqlSession.selectOne(namespace + ".orderSearchpageCount");

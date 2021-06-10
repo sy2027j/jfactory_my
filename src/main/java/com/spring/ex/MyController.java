@@ -160,7 +160,7 @@ public class MyController {
 	@RequestMapping("admin/memberSearch")
 	public String memberSearch() {
 		return("admin/memberSearch");
-	}
+	} 
 	
 	@RequestMapping("admin/admin_order_info")
 	public String admin_order_info() {

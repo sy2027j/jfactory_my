@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.spring.ex.adMember.MemberDTO;
 import com.spring.ex.util.Criteria;
 
-@Service
+@Service 
 public class AdminServicelmpl implements AdminService {
 
 	@Inject

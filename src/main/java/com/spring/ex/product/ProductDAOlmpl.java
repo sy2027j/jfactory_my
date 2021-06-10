@@ -23,7 +23,7 @@ public class ProductDAOlmpl implements ProductDAO {
 		sqlSession.insert(namespace + ".AddProduct", map);
 	}
 
-	@Override
+	@Override  
 	public ProductDTO AddDetail(String pd_name) {
 		return sqlSession.selectOne(namespace + ".ProductView", pd_name);
 	}

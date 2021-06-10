@@ -143,9 +143,9 @@
 		#{pageStart},600
 	</select>
 
-	<!-- 상품 검색 리스트 불러오기 -->
+	<!-- 상품 검색 리스트 불러오기 -->  
 	<select id="searchreviewlist" resultType="ReviewDTO">
-		SELECT * FROM
+		SELECT * FROM 
 		jfactory_review
 		where re_content like CONCAT('%', #{keyword}, '%')
 		or

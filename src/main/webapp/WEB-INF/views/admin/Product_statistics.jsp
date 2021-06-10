@@ -51,7 +51,7 @@ div.box-footer {
 					<li class="breadcrumb-item"><a href="index.html"><span
 							style="color: black;">상품 목록</span></a></li>
 				</ol>
-				<div class="row">
+				<div class="row"> 
 					<c:forEach items="${Product_statisticslist}" var="pdlist">
 						<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item"
 							onclick="location.href='product_statistics_detail?pd_name=${pdlist.getPd_name()}&pd_category=${pdlist.getPd_category() }'">

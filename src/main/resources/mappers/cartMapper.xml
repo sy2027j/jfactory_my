@@ -31,7 +31,7 @@
 		pd_amount, pd_price, pd_img, my_memo from jfactory_cart where
 		jfactory_cart.mem_id=#{mem_id}
 	</insert>
-
+ 
 	<insert id="orderdetailInfo_d">
 		insert into jfactory_order_detail(or_id, pd_name,
 		pd_amount, pd_price, pd_img) values(#{or_id}, #{pd_name},

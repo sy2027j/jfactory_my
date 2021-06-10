@@ -86,7 +86,7 @@ padding-left: 79%;
                               <div class="sb-sidenav-menu-heading">통계</div>
                                <a class="nav-link" href="chart">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                   판매현황   
+                                   판매현황    
                                </a>
                                <a class="nav-link" href="Product_statistics">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>

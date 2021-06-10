@@ -3,8 +3,8 @@
 <%@ include file="./header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
-<hr>
-  <%
+<hr> 
+  <% 
   	String pd_category=request.getParameter("pd_category");
   	String engname=request.getParameter("engname");
   %>

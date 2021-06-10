@@ -12,7 +12,7 @@ div.box-footer {
 	position: absolute;
 	bottom: -10%;
 	left: 45%;
-}
+} 
 </style>
 <body>
 	<div id="layoutSidenav_content">

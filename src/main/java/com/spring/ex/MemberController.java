@@ -146,7 +146,7 @@ public class MemberController {
 
 		return "admin/Product_statistics";
 	} 
-
+ 
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
 	public String member_detail(OrderDTO order, Model model, AdminDTO dto, Criteria cri) throws Exception {
 

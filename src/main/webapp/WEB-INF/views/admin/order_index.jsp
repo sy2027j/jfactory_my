@@ -8,7 +8,7 @@ p {
 	margin: 20px 0px;
 }
 
-div.box-footer {
+div.box-footer { 
 	position: absolute;
 	bottom: -10%;
 	left: 45%;

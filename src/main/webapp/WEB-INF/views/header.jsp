@@ -56,10 +56,10 @@
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown"> 
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           	   카테고리
-            </a>
+            </a> 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownCategory">
               <a class="dropdown-item" href="eye_product_list?pd_category=아이&engname=Eyes">아이</a>
               <a class="dropdown-item" href="eye_product_list?pd_category=립&engname=Lip">립</a>
