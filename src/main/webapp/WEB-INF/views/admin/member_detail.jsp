@@ -138,7 +138,7 @@ table.t1 {
 					<th>주문번호</th>
 					<th>결제금액</th>
 				</tr>
-			</thead>
+			</thead> 
 			<tbody>
 				<c:forEach items="${orderCancelList}" var="orderCancelList">
 					<tr
