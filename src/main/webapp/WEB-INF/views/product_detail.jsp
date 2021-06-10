@@ -47,22 +47,6 @@
             </div>  
 		</c:forEach>
         </h5>
-        
-        <!-- 
-        <hr>
-        <br/>
-        <form method="get" action="SelectServlet">
-		<select id="select" name="select" size="1" style="width:540px;height:100px;">
-			<option value="정렬">상품 옵션을 선택해주세요.</option>
-			<option value="주문 많은 순">졸려</option>
-			<option value="리뷰 많은 순">죽겟당</option>
-			<option value="가격 높은 순">하하</option>
-			<option value="가격 낮은 순">호호</option>
-		</select> <br> </form> 
-		<br/>
-		<div style="border:1px solid; border-color:black; background-color:white; color:black; WIDTH: 540px; HEIGHT: 100px"><p><br/><br/><p align="right">합계 원  </div>
-		<br/>
-		-->
 		<hr><form id="addcart" name="addcart" action="cartadd" method="POST">
 		<input type="hidden" id="my_memo" name="my_memo" value="">
 		<div>
@@ -95,18 +79,16 @@
 	</form>
     </div></div>
     <hr>
-    <!-- /.row -->
     <br/><br/>
     <div class="container" style="text-align : center;">
         <img style="width:1000px" src = '<c:url value="/resources/image/product/${ProductDetail.getPd_con_stored_file() }"/>' alt=""><br/>
     </div>
 <br/><br/><br/>
-    <!--Our Customers -->
     <h5>연관 상품 추천</h5>
     <hr><br/>
     <div class="row">
     <c:forEach items="${randompro}" var="randompro">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${randompro.getPd_name()}'">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${randompro.getPd_name()}&pd_category=${randompro.getPd_category() }'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${randompro.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">
@@ -121,7 +103,6 @@
     </div>
   </div>
   <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/jquery-1.11.3.min.js"></script>
   <script src="resources/js/star.js"></script>
   <script>

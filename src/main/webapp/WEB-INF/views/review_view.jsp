@@ -65,7 +65,6 @@
              <br/> 
                   <!-- Bootstrap core JavaScript -->
   <script src="resources/vendor/jquery/jquery.min.js"></script>
-  <script src="resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="resources/js/jquery-1.11.3.min.js"></script>
   <script src="resources/js/star.js"></script>
   
