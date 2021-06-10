@@ -119,7 +119,7 @@ public class MemberController {
 		model.addAttribute("searchList", service.memberSearchList(cri));
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
-		
+
 		PageMaker pm1 = new PageMaker();
 		System.out.println("44444");
 		pm1.setDisplayPageNum(15);
@@ -134,6 +134,17 @@ public class MemberController {
 		System.out.println("Dd");
 
 		return "admin/memberSearch";
+	}
+
+	@RequestMapping(value = "admin/Product_statistics", method = RequestMethod.GET)
+	public String Product_statistics(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
+
+		String searchType = request.getParameter("searchType");
+
+		model.addAttribute("Product_statisticslist", prservice.Product_statisticslist(cri));
+		model.addAttribute("searchType", searchType);
+
+		return "admin/Product_statistics";
 	}
 
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
@@ -151,7 +162,8 @@ public class MemberController {
 		System.out.println(ord);
 		List<OrderDTO> orderList = cartservice.orderList(order);
 		model.addAttribute("orderList", orderList);
-
+		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(cri);
+		model.addAttribute("orderCancelList", orderCancelList);
 		model.addAttribute("QnaList", qnaservice.qnaList(cri));
 
 		return "admin/member_detail";
@@ -167,21 +179,20 @@ public class MemberController {
 
 		return "admin/admin_index";
 	}
-	
+
 	@RequestMapping(value = "admin/adminSearch", method = RequestMethod.GET)
 	public String adminSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
 			throws Exception {
-		
+
 		String searchType = request.getParameter("searchType");
 		String keyword = request.getParameter("keyword");
-		
+
 		System.out.println(searchType);
 		System.out.println(keyword);
 		model.addAttribute("searchList", adminservice.adminSearchList(cri));
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
-		
-		
+
 		PageMaker pm1 = new PageMaker();
 		System.out.println("44444");
 		pm1.setDisplayPageNum(15);
@@ -197,21 +208,20 @@ public class MemberController {
 
 		return "admin/adminSearch";
 	}
-	
+
 	@RequestMapping(value = "admin/qnaSearch", method = RequestMethod.GET)
 	public String qnaSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
 			throws Exception {
-		
+
 		String searchType = request.getParameter("searchType");
 		String keyword = request.getParameter("keyword");
-		
+
 		System.out.println(searchType);
 		System.out.println(keyword);
 		model.addAttribute("searchList", qnaservice.qnaSearchList(cri));
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
-		
-		
+
 		PageMaker pm1 = new PageMaker();
 		System.out.println("44444");
 		pm1.setDisplayPageNum(15);
@@ -220,29 +230,28 @@ public class MemberController {
 		System.out.println("2222");
 		pm1.setTotalCount(qnaservice.qnaSearchpageCount()); // DB의 전체ROW수 입력
 		System.out.println("1111");
-		
+
 		// 뷰페이지로 전달
 		model.addAttribute("pm1", pm1);
 		System.out.println("Dd");
-		
+
 		return "admin/qnaSearch";
 	}
-	
+
 	@RequestMapping(value = "admin/orderSearch", method = RequestMethod.GET)
 	public String orderSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
 			throws Exception {
-		
+
 		String searchType = request.getParameter("searchType");
 		String keyword = request.getParameter("keyword");
-		
+
 		System.out.println(searchType);
 		System.out.println(keyword);
 		List<OrderDTO> searchList = cartservice.orderSearchList(cri);
 		model.addAttribute("searchList", searchList);
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
-		
-		
+
 		PageMaker pm1 = new PageMaker();
 		System.out.println("44444");
 		pm1.setDisplayPageNum(15);
@@ -251,29 +260,28 @@ public class MemberController {
 		System.out.println("2222");
 		pm1.setTotalCount(cartservice.orderSearchpageCount()); // DB의 전체ROW수 입력
 		System.out.println("1111");
-		
+
 		// 뷰페이지로 전달
 		model.addAttribute("pm1", pm1);
 		System.out.println("Dd");
-		
+
 		return "admin/orderSearch";
 	}
-	
+
 	@RequestMapping(value = "admin/orderCancelSearch", method = RequestMethod.GET)
 	public String orderCancelSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
 			throws Exception {
-		
+
 		String searchType = request.getParameter("searchType");
 		String keyword = request.getParameter("keyword");
-		
+
 		System.out.println(searchType);
 		System.out.println(keyword);
 		List<OrderDTO> searchList = cartservice.orderCancelSearchList(cri);
 		model.addAttribute("searchList", searchList);
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
-		
-		
+
 		PageMaker pm1 = new PageMaker();
 		System.out.println("44444");
 		pm1.setDisplayPageNum(15);
@@ -282,28 +290,27 @@ public class MemberController {
 		System.out.println("2222");
 		pm1.setTotalCount(cartservice.orderCancelSearchpageCount()); // DB의 전체ROW수 입력
 		System.out.println("1111");
-		
+
 		// 뷰페이지로 전달
 		model.addAttribute("pm1", pm1);
 		System.out.println("Dd");
-		
+
 		return "admin/orderCancelSearch";
 	}
-	
+
 	@RequestMapping(value = "admin/reviewSearch", method = RequestMethod.GET)
 	public String reviewSearch(Model model, Criteria cri, RedirectAttributes rttr, HttpServletRequest request)
 			throws Exception {
-		
+
 		String searchType = request.getParameter("searchType");
 		String keyword = request.getParameter("keyword");
-		
+
 		System.out.println(searchType);
 		System.out.println(keyword);
 		model.addAttribute("searchList", reservice.reviewSearchList(cri));
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
-		
-		
+
 		PageMaker pm1 = new PageMaker();
 		System.out.println("44444");
 		pm1.setDisplayPageNum(15);
@@ -312,14 +319,13 @@ public class MemberController {
 		System.out.println("2222");
 		pm1.setTotalCount(reservice.reviewSearchpageCount()); // DB의 전체ROW수 입력
 		System.out.println("1111");
-		
+
 		// 뷰페이지로 전달
 		model.addAttribute("pm1", pm1);
 		System.out.println("Dd");
-		
+
 		return "admin/reviewSearch";
 	}
-
 
 	@RequestMapping(value = "admin/admin_addlist", method = RequestMethod.GET)
 	public String memberaddList(Model model, Criteria cri) throws Exception {
@@ -646,12 +652,17 @@ public class MemberController {
 
 	// product list
 	@RequestMapping(value = "/MainSearch", method = RequestMethod.GET)
-	public String MainSearch(Model model, Criteria cri) throws Exception {
+	public String MainSearch(Model model, Criteria cri, HttpServletRequest request) throws Exception {
+		
+		String keyword = request.getParameter("keyword");
+		
+		if (keyword!="") {
 		List<ProductDTO> pddto = prservice.searchprolist(cri);
 		model.addAttribute("searchProductlist", pddto);
 		List<ReviewDTO> redto = reservice.searchreviewlist(cri);
 		model.addAttribute("searchreviewlist", redto);
 		System.out.println("searchproduct list select");
+		}
 		return "/MainSearch";
 	}
 
@@ -774,17 +785,17 @@ public class MemberController {
 		model.addAttribute("pm", pm);
 		return "admin/cm_qna";
 	}
-	
+
 	// admin qna list
 	@RequestMapping(value = "admin/order_index", method = RequestMethod.GET)
 	public String AdminOrderList(Criteria cri, Model model) throws Exception {
-		
+
 		List<OrderDTO> orderList = cartservice.adminorderList(cri);
 
 		model.addAttribute("orderList", orderList);
-		
+
 		System.out.println("1111");
-		
+
 		PageMaker pm = new PageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(cartservice.orderListpageCount()); // DB의 전체ROW수 입력
@@ -794,17 +805,17 @@ public class MemberController {
 		System.out.println("44444");
 		return "admin/order_index";
 	}
-	
+
 	// admin qna list
 	@RequestMapping(value = "admin/order_cancel_index", method = RequestMethod.GET)
 	public String order_cancel_index(Criteria cri, Model model) throws Exception {
-		
+
 		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(cri);
-		
+
 		model.addAttribute("orderCancelList", orderCancelList);
-		
+
 		System.out.println("1111");
-		
+
 		PageMaker pm = new PageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(cartservice.ordercancelListpageCount()); // DB의 전체ROW수 입력

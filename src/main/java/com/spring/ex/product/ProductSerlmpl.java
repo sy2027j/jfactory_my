@@ -46,6 +46,11 @@ public class ProductSerlmpl implements ProductSer {
 	public List<ProductDTO> productlist(String pd_category) throws Exception {
 		return dao.productlist(pd_category);
 	}
+	
+	@Override
+	public List<ProductDTO> Product_statisticslist(Criteria cri) throws Exception {
+		return dao.Product_statisticslist(cri);
+	}
 
 	@Override
 	public List<ProductDTO> searchprolist(Criteria cri) throws Exception {

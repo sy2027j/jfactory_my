@@ -3,49 +3,64 @@
 
 <mapper namespace="com.spring.ex.mappers.cartMapper">
 	<!-- 장바구니 개별 상품 삭제 -->
-    <delete id="delete" parameterType="int">
-        delete from jfactory_cart where cart_id=#{cart_id}
-    </delete>
-    
-    <insert id="AddCart">
-    	INSERT INTO jfactory_cart values(DEFAULT,#{mem_id},#{pd_no},#{pd_name},#{pd_amount},DEFAULT,#{pd_img},#{pd_price},#{my_memo})
-    </insert>
-	
+	<delete id="delete" parameterType="int">
+		delete from jfactory_cart where cart_id=#{cart_id}
+	</delete>
+
+	<insert id="AddCart">
+		INSERT INTO jfactory_cart
+		values(DEFAULT,#{mem_id},#{pd_no},#{pd_name},#{pd_amount},DEFAULT,#{pd_img},#{pd_price},#{my_memo})
+	</insert>
+
 	<select id="CartList" resultType="CartDTO">
-		SELECT * FROM jfactory_cart WHERE mem_id=#{mem_id} ORDER BY cart_datetime DESC
+		SELECT * FROM jfactory_cart
+		WHERE mem_id=#{mem_id} ORDER BY cart_datetime DESC
 	</select>
-	
+
 	<insert id="orderInfo">
-		insert into jfactory_order(or_id, mem_id, buy_realname, buy_zipcode, buy_address1, buy_address2, buy_phone, or_price, or_cancel_state, or_datetime, re_check) values(#{or_id}, #{mem_id}, #{buy_realname},#{buy_zipcode}, #{buy_address1}, #{buy_address2}, #{buy_phone},#{or_price},DEFAULT,DEFAULT,DEFAULT)
+		insert into jfactory_order(or_id, mem_id,
+		buy_realname, buy_zipcode, buy_address1, buy_address2, buy_phone,
+		or_price, or_cancel_state, or_datetime, re_check) values(#{or_id},
+		#{mem_id}, #{buy_realname},#{buy_zipcode}, #{buy_address1},
+		#{buy_address2}, #{buy_phone},#{or_price},DEFAULT,DEFAULT,DEFAULT)
 	</insert>
-	
+
 	<insert id="orderdetailInfo">
-		insert into jfactory_order_detail(or_id, pd_name, pd_amount, pd_price, pd_img, my_memo) select #{or_id}, pd_name, pd_amount, pd_price, pd_img, my_memo from jfactory_cart where jfactory_cart.mem_id=#{mem_id}
+		insert into jfactory_order_detail(or_id, pd_name,
+		pd_amount, pd_price, pd_img, my_memo) select #{or_id}, pd_name,
+		pd_amount, pd_price, pd_img, my_memo from jfactory_cart where
+		jfactory_cart.mem_id=#{mem_id}
 	</insert>
-	
+
 	<insert id="orderdetailInfo_d">
-		insert into jfactory_order_detail(or_id, pd_name, pd_amount, pd_price, pd_img) values(#{or_id}, #{pd_name}, #{pd_amount}, #{pd_price}, #{pd_img})
+		insert into jfactory_order_detail(or_id, pd_name,
+		pd_amount, pd_price, pd_img) values(#{or_id}, #{pd_name},
+		#{pd_amount}, #{pd_price}, #{pd_img})
 	</insert>
-	
+
 	<delete id="cartAllDelete">
 		DELETE FROM jfactory_cart WHERE mem_id=#{mem_id}
 	</delete>
-	
+
 	<select id="orderList" resultType="OrderDTO">
-		select * from jfactory_order where mem_id=#{mem_id} ORDER BY or_datetime DESC
+		select * from jfactory_order
+		where mem_id=#{mem_id} ORDER BY or_datetime DESC
 	</select>
-	
+
 	<select id="OrderDetail" resultType="OrderDetailDTO">
-		select * from jfactory_order_detail where or_id=#{or_id}
+		select * from
+		jfactory_order_detail where or_id=#{or_id}
 	</select>
-	
+
 	<select id="Order_Detail" resultType="OrderDetailDTO">
-		select * from jfactory_order_detail where or_id=#{or_id} and re_check=0
+		select * from
+		jfactory_order_detail where or_id=#{or_id} and re_check=0
 	</select>
-	
-		<!-- 회원 리스트 불러오기 -->
+
+	<!-- 회원 리스트 불러오기 -->
 	<select id="adminorderList" resultType="OrderDTO">
-		SELECT * FROM jfactory_order
+		SELECT * FROM
+		jfactory_order
 		WHERE or_cancel_state = 0
 		LIMIT #{pageStart},#{pageSize}
 	</select>
@@ -63,10 +78,11 @@
 		jfactory_order
 		WHERE or_cancel_state = 0
 	</select>
-	
-		<!-- 회원 리스트 불러오기 -->
+
+	<!-- 회원 리스트 불러오기 -->
 	<select id="adminordercancelList" resultType="OrderDTO">
-		SELECT * FROM jfactory_order
+		SELECT * FROM
+		jfactory_order
 		WHERE or_cancel_state = 1
 		LIMIT #{pageStart},#{pageSize}
 	</select>
@@ -80,11 +96,12 @@
 	</select>
 
 	<select id="ordercancelListpageCount" resultType="int">
-		SELECT count(*) FROM
+		SELECT count(*)
+		FROM
 		jfactory_order
 		WHERE or_cancel_state = 1
 	</select>
-	
+
 	<!-- 검색 리스트 불러오기 -->
 	<select id="orderSearchList" resultType="OrderDTO">
 		SELECT * FROM jfactory_order
@@ -103,7 +120,8 @@
 				and mem_id = #{keyword}
 				or or_id = #{keyword}
 				or
-				or_price = #{keyword}
+				or_price =
+				#{keyword}
 			</if>
 		</if>
 		LIMIT #{pageStart},600
@@ -114,7 +132,7 @@
 		SELECT * FROM
 		jfactory_order
 		WHERE or_cancel_state = 0
-			<if test="searchType != null">
+		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
 				and mem_id = #{keyword}
 			</if>
@@ -128,7 +146,8 @@
 				and mem_id = #{keyword}
 				or or_id = #{keyword}
 				or
-				or_price = #{keyword}
+				or_price =
+				#{keyword}
 			</if>
 		</if>
 		LIMIT #{page}, 16
@@ -139,7 +158,7 @@
 		SELECT count(*) FROM
 		jfactory_order
 		WHERE or_cancel_state = 0
-			<if test="searchType != null">
+		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
 				and mem_id = #{keyword}
 			</if>
@@ -153,7 +172,8 @@
 				and mem_id = #{keyword}
 				or or_id = #{keyword}
 				or
-				or_price = #{keyword}
+				or_price =
+				#{keyword}
 			</if>
 		</if>
 	</select>
@@ -175,7 +195,8 @@
 				and mem_id = #{keyword}
 				or or_id = #{keyword}
 				or
-				or_price = #{keyword}
+				or_price =
+				#{keyword}
 			</if>
 		</if>
 		LIMIT #{pageStart},600
@@ -186,7 +207,7 @@
 		SELECT * FROM
 		jfactory_order
 		WHERE or_cancel_state = 1
-			<if test="searchType != null">
+		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
 				and mem_id = #{keyword}
 			</if>
@@ -200,7 +221,8 @@
 				and mem_id = #{keyword}
 				or or_id = #{keyword}
 				or
-				or_price = #{keyword}
+				or_price =
+				#{keyword}
 			</if>
 		</if>
 		LIMIT #{page}, 16
@@ -211,7 +233,7 @@
 		SELECT count(*) FROM
 		jfactory_order
 		WHERE or_cancel_state = 1
-			<if test="searchType != null">
+		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
 				and mem_id = #{keyword}
 			</if>
@@ -225,21 +247,25 @@
 				and mem_id = #{keyword}
 				or or_id = #{keyword}
 				or
-				or_price = #{keyword}
+				or_price =
+				#{keyword}
 			</if>
 		</if>
 	</select>
-	
+
 	<select id="OrdermemDetail" resultType="OrderDTO">
-		select * from jfactory_order where or_id=#{or_id} and re_check=0
+		select * from
+		jfactory_order where or_id=#{or_id} and re_check=0
 	</select>
-	
+
 	<update id="OrderCancel" parameterType="OrderDTO">
-		UPDATE jfactory_order SET or_cancel_state=1 WHERE or_id=#{or_id}
+		UPDATE jfactory_order SET
+		or_cancel_state=1 WHERE or_id=#{or_id}
 	</update>
-	
+
 	<update id="ReviewOk" parameterType="OrderDetailDTO">
-		update jfactory_order_detail set re_check=1 where or_id=#{or_id} and pd_name=#{pd_name}
+		update jfactory_order_detail
+		set re_check=1 where or_id=#{or_id} and pd_name=#{pd_name}
 	</update>
-	
+
 </mapper>

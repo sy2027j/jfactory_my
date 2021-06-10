@@ -37,6 +37,11 @@ public class ProductDAOlmpl implements ProductDAO {
 	public List<ProductDTO> productlist(String pd_category) throws Exception {
 		return sqlSession.selectList(namespace + ".ProductListView", pd_category);
 	}
+	
+	@Override
+	public List<ProductDTO> Product_statisticslist(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".Product_statisticslist", cri);
+	}
 
 	@Override
 	public List<ProductDTO> searchprolist(Criteria cri) throws Exception {

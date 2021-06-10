@@ -18,6 +18,8 @@ public interface ProductDAO {
 	public void addDetail(ProductDTO dto) throws Exception;
 
 	public List<ProductDTO> productlist(String pd_category) throws Exception;
+	
+	public List<ProductDTO> Product_statisticslist(Criteria cri) throws Exception;
 
 	public List<ProductDTO> searchprolist(Criteria cri) throws Exception;
 

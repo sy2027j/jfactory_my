@@ -167,6 +167,16 @@ public class MyController {
 		return("admin/admin_order_info");
 	}
 	
+	@RequestMapping("admin/Product_statistics")
+	public String Product_statistics() {
+		return("admin/Product_statistics");
+	}
+	
+	@RequestMapping("admin/product_statistics_detail")
+	public String product_statistics_detail() {
+		return("admin/product_statistics_detail");
+	}
+	
 	@RequestMapping("admin/adminSearch")
 	public String adminSearch() {
 		return("admin/adminSearch");

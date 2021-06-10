@@ -96,6 +96,27 @@
 		</if>
 	</select>
 
+	<select id="Product_statisticslist" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product
+		<if test="searchType != null">
+			<if test="searchType == 'Category_eye'.toString()">
+				WHERE pd_category = '아이'
+			</if>
+			<if test="searchType == 'Category_lip'.toString()">
+				WHERE pd_category = '립'
+			</if>
+			<if test="searchType == 'Category_skin'.toString()">
+				WHERE pd_category = '스킨케어'
+			</if>
+			<if test="searchType == 'Category_face'.toString()">
+				WHERE pd_category = '페이스'
+			</if>
+			<if test="searchType == 'Category_cleansing'.toString()">
+				WHERE pd_category = '클렌징'
+			</if>
+		</if>
+	</select>
 
 	<!-- 상품 검색 리스트 불러오기 -->
 	<select id="searchProductlist" resultType="ProductDTO">
@@ -119,7 +140,7 @@
 		pd_tag5 like CONCAT('%', #{keyword},
 		'%')
 		LIMIT
-		#{pageStart},#{pageSize}
+		#{pageStart},600
 	</select>
 
 	<!-- 상품 검색 리스트 불러오기 -->
@@ -130,7 +151,7 @@
 		or
 		pd_name like CONCAT('%', #{keyword}, '%')
 		LIMIT
-		#{pageStart},#{pageSize}
+		#{pageStart}, 600
 	</select>
 
 	<!-- 관리자 리스트 불러오기 -->
@@ -318,7 +339,7 @@
 
 	<!-- 검색 리스트 불러오기 -->
 	<select id="reviewSearchList" resultType="ReviewDTO">
-		SELECT * FROM jfactory_review 
+		SELECT * FROM jfactory_review
 		<if test="searchType != null">
 			<if test="searchType == 'mem_id'.toString()">
 				WHERE mem_id = #{keyword}
@@ -330,7 +351,7 @@
 				WHERE pd_name = #{keyword}
 			</if>
 			<if test="searchType == 'all'.toString()">
-			    WHERE mem_id = #{keyword}
+				WHERE mem_id = #{keyword}
 				or re_title = #{keyword}
 				or
 				pd_name = #{keyword}

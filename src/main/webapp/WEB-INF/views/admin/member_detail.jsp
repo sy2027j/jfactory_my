@@ -125,6 +125,35 @@ table.t1 {
 	</div>
 	<br>
 	<h2>주문취소한 상품</h2>
+	<div class="memberManager">
+		<table class="t1" id="memberList" style="width: 730px">
+			<colgroup>
+				<col style="width: 33%;">
+				<col style="width: 33%;">
+				<col style="width: 33%;">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>주문일자</th>
+					<th>주문번호</th>
+					<th>결제금액</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${orderCancelList}" var="orderCancelList">
+					<tr
+						onClick="window.open('admin_order_detail?or_id=${orderCancelList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
+						<td style="text-align: center;"><c:out
+								value="${orderCancelList.getOr_datetime()}" /></td>
+						<td style="text-align: center;"><c:out
+								value="${orderCancelList.getOr_id() }" /></td>
+						<td style="text-align: center;"><c:out
+								value="${orderCancelList.getOr_price() }" /> 원</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 	<br>
 	<h2>총 구매 금액</h2>
 	<h3>${memdetaildto.getMem_total_cash()}원</h3>
