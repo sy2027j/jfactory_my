@@ -16,6 +16,8 @@ public interface ReviewDAO {
 	public ReviewDTO detail(int re_no);
 
 	public List<ReviewDTO> reviewList(Criteria cri) throws Exception;
+
+	public List<ReviewDTO> productreviewlist(Criteria cri) throws Exception;
 	
 	public List<AdminDTO> reviewSearchList(Criteria cri) throws Exception;
 

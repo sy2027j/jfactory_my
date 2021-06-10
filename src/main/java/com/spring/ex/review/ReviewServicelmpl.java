@@ -40,6 +40,11 @@ public class ReviewServicelmpl implements ReviewService {
 	public List<AdminDTO> reviewSearchList(Criteria cri) throws Exception {
 		return dao.reviewSearchList(cri);
 	}
+	
+	@Override
+	public List<ReviewDTO> productreviewlist(Criteria cri) throws Exception {
+		return dao.productreviewlist(cri);
+	}
 
 	@Override
 	public int reviewSearchpageCount() throws Exception {

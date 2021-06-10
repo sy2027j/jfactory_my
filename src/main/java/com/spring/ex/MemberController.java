@@ -665,13 +665,27 @@ public class MemberController {
 		}
 		return "/MainSearch";
 	}
+	
+	// product list
+	@RequestMapping(value = "/ProductReview", method = RequestMethod.GET)
+	public String ProductReview(Model model, Criteria cri, HttpServletRequest request) throws Exception {
+		
+		String keyword = request.getParameter("keyword");
+		
+		if (keyword!="") {
+			List<ReviewDTO> redto = reservice.productreviewlist(cri);
+			model.addAttribute("productreviewlist", redto);
+		}
+		return "/ProductReview";
+	}
 
 	// product detail
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, String pd_category)
+	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, String pd_category, Criteria cri)
 			throws Exception {
 		ProductDTO pddetaildto = prservice.AddDetail(pd_name);
 		model.addAttribute("ProductDetail", pddetaildto);
+		
 		System.out.println("product detail view");
 		int result = reservice.PdReviewCount(dto);
 		System.out.println(result);

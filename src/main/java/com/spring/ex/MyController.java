@@ -53,9 +53,14 @@ public class MyController {
 	public String facelist() {
 		return("/face_product_list");
 	}
+	
 	@RequestMapping("/lip_product_list")
 	public String liplist() {
 		return("/lip_product_list");
+	}
+	@RequestMapping("/ProductReview")
+	public String ProductReview() {
+		return("/ProductReview");
 	}
 	
 	@RequestMapping("/product_detail")

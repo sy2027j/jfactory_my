@@ -22,6 +22,8 @@ public interface ReviewService {
 	public int reviewSearchpageCount() throws Exception;
 
 	public List<ReviewDTO> searchreviewlist(Criteria cri) throws Exception;
+	
+	public List<ReviewDTO> productreviewlist(Criteria cri) throws Exception;
 
 	public int reviewpageCount() throws Exception;
 

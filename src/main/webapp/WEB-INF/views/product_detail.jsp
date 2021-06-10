@@ -28,7 +28,7 @@
         <h5>
         <c:forEach items="${ProductReviewScore }" var="ProductReviewScore">
         <div class="form-group">
-			<span class="star-input">
+			<span class="star-input" onclick="location.href='ProductReview?keyword=${ProductDetail.getPd_name()}'">
   				<span class="input">
   					<c:if test="${ProductReviewScore.Score eq '1'}"><input type="radio" name="starscore" id="p1" value="1" <c:if test="${ProductReviewScore.Score eq '1'}">checked</c:if>><label for="p1"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '2'}"><input type="radio" name="starscore" id="p2" value="2" <c:if test="${ProductReviewScore.Score eq '2'}">checked</c:if>><label for="p2"></label></c:if>

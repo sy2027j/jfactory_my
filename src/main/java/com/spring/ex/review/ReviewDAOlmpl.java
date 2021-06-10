@@ -35,6 +35,11 @@ public class ReviewDAOlmpl implements ReviewDAO {
 	}
 	
 	@Override
+	public List<ReviewDTO> productreviewlist(Criteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".productreviewlist", cri);
+	}
+	
+	@Override
 	public List<AdminDTO> reviewSearchList(Criteria cri) throws Exception {
 		return sqlSession.selectList(namespace + ".reviewSearchList", cri);
 	}
