@@ -201,8 +201,7 @@ table.t1 {
 	<h2>메모</h2>
 	<textarea rows="5" cols="50" id="gdsDes" name="gdsDes">${memdetaildto.getMem_adminmemo()}</textarea>
 	<br>
-	<button type="submit" id="update_Btn">완료</button>
-	<button type="submit" id="back_Btn">취소</button>
+
 
 
 </body>

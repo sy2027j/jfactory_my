@@ -168,6 +168,18 @@ public class MemberController {
 
 		return "admin/member_detail";
 	}
+	
+	@RequestMapping(value = "admin/admin_detail", method = RequestMethod.GET)
+	public String admin_detail(OrderDTO order, Model model, AdminDTO dto, Criteria cri) throws Exception {
+		
+		System.out.println("find id");
+		AdminDTO memdetaildto = adminservice.member_detail(dto);
+		System.out.println("find id");
+		model.addAttribute("memdetaildto", memdetaildto);
+		System.out.println("find id");
+		
+		return "admin/admin_detail";
+	}
 
 	// 관리자 목록 불러오기
 	@RequestMapping(value = "admin/admin_index", method = RequestMethod.GET)
