@@ -26,7 +26,7 @@
       <hr class="d-sm-none">
     </div>
  <div class="col-sm-10">
-      <br/><h4><strong>주문내역</strong></h4><br/>
+      <br/><h4><strong>주문내역</strong></h4> 상세 주문내역에서 리뷰를 작성할 수 있습니다.<br/><br/>
        <div class="mb-5">
                             <div class="memberManager">    
 								<table class="table table-hover" id="memberList">  

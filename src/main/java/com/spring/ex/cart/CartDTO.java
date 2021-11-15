@@ -12,6 +12,7 @@ public class CartDTO {
 	private int pd_price;
 	private String pd_name;
 	private String my_memo;
+	private String pd_category;
 	
 	public int getCart_id() {
 		return cart_id;
@@ -66,6 +67,12 @@ public class CartDTO {
 	}
 	public void setMy_memo(String my_memo) {
 		this.my_memo = my_memo;
+	}
+	public String getPd_category() {
+		return pd_category;
+	}
+	public void setPd_category(String pd_category) {
+		this.pd_category = pd_category;
 	}
 	
 	

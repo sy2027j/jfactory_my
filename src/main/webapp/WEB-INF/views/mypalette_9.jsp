@@ -241,6 +241,7 @@
 									 <input type="hidden" id="hidden_value7" name="hidden_value7" value="" />
 									 <input type="hidden" id="hidden_value8" name="hidden_value8" value="" />
 									 <input type="hidden" id="hidden_value9" name="hidden_value9" value="" />
+									 <input type="hidden" id="pd_category" name="pd_category" value="">
 									 <input type="hidden" id="pd_name" name="pd_name" value="마이 팔레트 9구">
 									 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 									 <input type="hidden" id="pd_img" name="pd_img" value="db3c3837-00f6-4303-9601-79e9ea6273d2_palette9.png">

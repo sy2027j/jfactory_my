@@ -1188,7 +1188,7 @@ public class MemberController {
 		List<OrderDetailDTO> order_detailList = cartservice.order_detailList(dto);
 		model.addAttribute("order_detailList", order_detailList);
 		System.out.println("review order list write");
-		return "review_write";
+		return "mypage_review_write";
 	}
 
 	@RequestMapping(value = "/mypage_ask", method = RequestMethod.GET)

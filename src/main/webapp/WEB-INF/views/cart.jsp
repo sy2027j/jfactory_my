@@ -54,7 +54,7 @@
 		                        <br/>
 		         <div class="form-group">
 		            <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }"> </div>
-		                        <table class="table" id="cartlist" name="cartList" style="table-layout:fixed; ">
+		                        <table class="table" id="cartlist" name="cartList" style="table-layout:fixed; cursor:pointer;">
 		                              <thead class="table-header-bg" style="background-color: #e6e6fa">
 		                              <tr>
 											<th style="width: 20%;">상품명</th>
@@ -66,7 +66,7 @@
 		                              <tbody id="cart" class="table-body-row" style="text-align: center; vertical-align: middle;">
 		                               <c:forEach items="${CartList}" var="cartlist">
 										<tr>
-											<td class="product_name" style="vertical-align: middle"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}<br/><span style="font-size:12px">${cartlist.getMy_memo() }</span></td>
+											<td class="product_name" style="vertical-align: middle" onclick="location.href='product_detail?pd_name=${cartlist.getPd_name()}&pd_category=${cartlist.getPd_category() }'"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}<br/><span style="font-size:12px">${cartlist.getMy_memo() }</span></td>
 											<td class="Quantity" style="vertical-align: middle"><c:out value="${cartlist.getPd_amount() }"/>개</td>
 											<td class="Price" style="vertical-align: middle">${cartlist.getPd_price() * cartlist.getPd_amount()}원</td>
 											<td style="vertical-align:middle"><button style="border-color:white; background-color:white; font-size:15px; color:black; WIDTH: 50pt; HEIGHT: 70pt" onclick="del(${cartlist.getCart_id()})" type="button" class="btn btn-secondary btn-lg">삭제</button></td>

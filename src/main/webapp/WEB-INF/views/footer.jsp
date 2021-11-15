@@ -18,7 +18,7 @@
     </p>
     
     <p class="copyright text-center">Copyright © 2021 <strong> JFACTORY </strong>. All rights reserved.</p>
-    <p class="pageTop text-center"><a href="index" title="화면 최상단으로 이동하기"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/layout/btn_top2.gif" alt="맨위로" /></a></p>
+    <p class="pageTop text-center"><a title="화면 최상단으로 이동하기"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/layout/btn_top2.gif" alt="맨위로" onclick="window.scrollTo(0,0);"/></a></p>
    
 </div>
 

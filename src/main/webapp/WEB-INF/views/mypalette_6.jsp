@@ -180,6 +180,7 @@
 									 <input type="hidden" id="hidden_value4" name="hidden_value4" value="" />
 									 <input type="hidden" id="hidden_value5" name="hidden_value5" value="" />
 									 <input type="hidden" id="hidden_value6" name="hidden_value6" value="" />
+									 <input type="hidden" id="pd_category" name="pd_category" value="">
 									 <input type="hidden" id="pd_name" name="pd_name" value="마이 팔레트 6구">
 									 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 									 <input type="hidden" id="pd_img" name="pd_img" value="6a489704-a0f9-490e-8cf2-8a40b5d56169_palette6구.jpg">

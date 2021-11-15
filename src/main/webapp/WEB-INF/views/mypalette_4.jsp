@@ -144,6 +144,7 @@
 									 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 									 <input type="hidden" id="pd_img" name="pd_img" value="aa909089-88cb-45e7-9768-22fc537d3f25_palette4.jpg">
 									 <input type="hidden" id="pd_price" name="pd_price" value="7000">
+									 <input type="hidden" id="pd_category" name="pd_category" value="">
 									 <input type="hidden" id="my" name="my_memo" value="" />
 									      <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
 	      								  <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" form="loginForm" class="btn btn-secondary btn-lg" onclick="auth();">바로구매</button>

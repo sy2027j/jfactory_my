@@ -27,7 +27,7 @@
         <h3>${ProductDetail.getPd_price()}원</h3><br/>
         <h5>
         <c:forEach items="${ProductReviewScore }" var="ProductReviewScore">
-        <div class="form-group">
+        <div class="form-group"  style="cursor:pointer;">
 			<span class="star-input" onclick="location.href='ProductReview?keyword=${ProductDetail.getPd_name()}'">
   				<span class="input">
   					<c:if test="${ProductReviewScore.Score eq '1'}"><input type="radio" name="starscore" id="p1" value="1" <c:if test="${ProductReviewScore.Score eq '1'}">checked</c:if>><label for="p1"></label></c:if>
@@ -40,11 +40,9 @@
   					<c:if test="${ProductReviewScore.Score eq '8'}"><input type="radio" name="starscore" id="p8" value="8" <c:if test="${ProductReviewScore.Score eq '8'}">checked</c:if>><label for="p8"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '9'}"><input type="radio" name="starscore" id="p9" value="9" <c:if test="${ProductReviewScore.Score eq '9'}">checked</c:if>><label for="p9"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '10'}"><input type="radio" name="starscore" id="p10" value="10" <c:if test="${ProductReviewScore.Score eq '10'}">checked</c:if>><label for="p10"></label></c:if>
-
   				</span>
-  					<output for="star-input">${ProductReviewScore.Score}점</output>
 			</span>
-            </div>  
+        </div>  
 		</c:forEach>
         </h5>
 		<hr><form id="addcart" name="addcart" action="cartadd" method="POST">
@@ -62,6 +60,7 @@
 		 <input type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
 		 <input type="hidden" id="pd_img" name="pd_img" value="${ProductDetail.getPd_main_stored_file() }">
 		 <input type="hidden" id="pd_price" name="pd_price" value="${ProductDetail.getPd_price()}">
+		 <input type="hidden" id="pd_category" name="pd_category" value="${ProductDetail.getPd_category()}">
 		 
       <button style="border-color:white; background-color:#e6e6fa; color:black; WIDTH: 200pt; HEIGHT: 40pt" type="button" class="btn btn-secondary btn-lg" onclick="Cart_check();">장바구니</button>
 	      <button style="border-color:white; background-color:black; color:white; WIDTH: 200pt; HEIGHT: 40pt " type="button" form="loginForm" class="btn btn-secondary btn-lg" onclick="auth();">바로구매</button>

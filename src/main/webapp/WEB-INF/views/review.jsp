@@ -68,7 +68,7 @@ padding-bottom: 5%;
       <button
          style="border-color: black; background-color: white; color: black; WIDTH: 200pt; HEIGHT: 40pt"
          type="button" class="btn btn-secondary btn-lg"
-         onclick="location.href='mypage_order'">
+         onclick="checkmember()">
          <span style="float: center; font-size: 13pt">리뷰 작성하고 적립금 받기</span>
       </button>
    </div>
@@ -141,6 +141,18 @@ padding-bottom: 5%;
 <br/>
 
 <br/>
+
+<script>
+
+function checkmember(){
+	var session = '<c:out value="${member}"/>';
+	if(session != null && session != ""){
+		location.href="mypage_order";
+	}else{
+		alert("회원만 리뷰를 작성할 수 있습니다.");
+	}
+}
+</script>
 <%@ include file="./footer.jsp"%>
 </body>
 </html>

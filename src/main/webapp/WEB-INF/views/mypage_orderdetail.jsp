@@ -87,8 +87,8 @@ table {
 							<tbody class="center">
 							<c:forEach items="${orderdetailList}" var="ordetailList">
 								<tr>
-									<td class="pdtCont"style="text-align:center">
-									<a style="color:black; text-decoration:none "href="product_detail?pd_name=${ordetailList.getPd_name()}">
+									<td class="pdtCont"style="text-align:center; cursor:pointer" onclick="location.href='product_detail?pd_name=${ordetailList.getPd_name()}'">
+									<a style="color:black; text-decoration:none ">
 											<img src = '<c:url value="/resources/image/product/${ordetailList.getPd_img() }"/>' alt="" width="90px">
 											<span class="name">
 												&nbsp;<c:out value="${ordetailList.getPd_name() }"/><br/><c:out value="${ordetailList.getMy_memo() }"/>

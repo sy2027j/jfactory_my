@@ -435,5 +435,9 @@ public class MyController {
 		return("/order_info");
 	}
 	
+	@RequestMapping("/mypage_review_write")
+	public String mypage_review_write() {
+		return("/mypage_review_write");
+	}
 	
 }

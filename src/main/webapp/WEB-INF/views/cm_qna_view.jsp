@@ -27,6 +27,16 @@ table {
   }
 </style>
 <div class="container">
+	<%
+		String id = request.getParameter("id");
+	%>
+<c:if test= "${member.mem_id ne param.id && param.id ne 'JFACTORY'}">
+	<script>
+		alert("본인이 작성한 글만 조회할 수 있습니다.");
+		history.go(-1);
+	</script>
+</c:if>
+
 	<div class="container-fluid">
 		<h1>Q&A</h1>
 		<br />
@@ -67,6 +77,7 @@ table {
             
              </div> </div> </div>
 	</div>
+	
 </div>
 <br />
 
