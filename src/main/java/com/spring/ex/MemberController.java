@@ -2,6 +2,7 @@ package com.spring.ex;
 
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -693,7 +694,7 @@ public class MemberController {
 
 	// product detail
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, String pd_category, Criteria cri)
+	public String ProductDetailView(Model model, String pd_name, ReviewDTO dto, ProductDTO pddto, Criteria cri)
 			throws Exception {
 		ProductDTO pddetaildto = prservice.AddDetail(pd_name);
 		model.addAttribute("ProductDetail", pddetaildto);
@@ -704,10 +705,20 @@ public class MemberController {
 		pddto.setPd_review_count(result);
 		prservice.ProductReviewCount(pddto);
 
-		System.out.println(prservice.ProductReviewScore(pd_name).get(0));
-		model.addAttribute("ProductReviewScore", prservice.ProductReviewScore(pd_name));
+		if (prservice.ProductReviewScore(pd_name).get(0) == null) {
+			ArrayList<HashMap<String, Object>> score = new ArrayList<HashMap<String, Object>>();
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			map.put("Score", 0);
+			score.add(map);
+			System.out.println("ddd");
+			model.addAttribute("ProductReviewScore", score);
+		}
+		else {
+			System.out.println(prservice.ProductReviewScore(pd_name));
+			model.addAttribute("ProductReviewScore", prservice.ProductReviewScore(pd_name));
+		}
 
-		List<ProductDTO> pddtos = prservice.CategoryProduct(pd_category);
+		List<ProductDTO> pddtos = prservice.CategoryProduct(pddetaildto.getPd_category());
 		model.addAttribute("randompro", pddtos);
 		System.out.println("category random product list");
 

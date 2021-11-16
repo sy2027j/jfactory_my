@@ -47,6 +47,10 @@
 .star-input>.input>label:hover~label{
     background-image: none;
 }
+.star-input>.input>label[for="p0"]{ 
+    width: 0px;
+    z-index: 11;
+}
 .star-input>.input>label[for="p1"]{ 
     width: 10px;
     z-index: 10;

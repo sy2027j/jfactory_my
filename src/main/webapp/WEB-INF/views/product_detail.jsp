@@ -30,6 +30,7 @@
         <div class="form-group"  style="cursor:pointer;">
 			<span class="star-input" onclick="location.href='ProductReview?keyword=${ProductDetail.getPd_name()}'">
   				<span class="input">
+  					<c:if test="${ProductReviewScore.Score eq '0'}"><input type="radio" name="starscore" id="p0" value="0" <c:if test="${ProductReviewScore.Score eq '0'}">checked</c:if>><label for="p0"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '1'}"><input type="radio" name="starscore" id="p1" value="1" <c:if test="${ProductReviewScore.Score eq '1'}">checked</c:if>><label for="p1"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '2'}"><input type="radio" name="starscore" id="p2" value="2" <c:if test="${ProductReviewScore.Score eq '2'}">checked</c:if>><label for="p2"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '3'}"><input type="radio" name="starscore" id="p3" value="3" <c:if test="${ProductReviewScore.Score eq '3'}">checked</c:if>><label for="p3"></label></c:if>
@@ -41,6 +42,7 @@
   					<c:if test="${ProductReviewScore.Score eq '9'}"><input type="radio" name="starscore" id="p9" value="9" <c:if test="${ProductReviewScore.Score eq '9'}">checked</c:if>><label for="p9"></label></c:if>
   					<c:if test="${ProductReviewScore.Score eq '10'}"><input type="radio" name="starscore" id="p10" value="10" <c:if test="${ProductReviewScore.Score eq '10'}">checked</c:if>><label for="p10"></label></c:if>
   				</span>
+  				<output for="star-input"><b></b>${ProductReviewScore.Score}점</output>
 			</span>
         </div>  
 		</c:forEach>

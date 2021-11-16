@@ -64,7 +64,14 @@
 										</tr>
 										</thead>
 		                              <tbody id="cart" class="table-body-row" style="text-align: center; vertical-align: middle;">
-		                               <c:forEach items="${CartList}" var="cartlist">
+		                              <c:choose>
+										 <c:when test="${empty CartList}">
+		                               		<tr>
+											<td colspan="4">장바구니에 담긴 상품이 없습니다</td>
+    									</tr>
+										</c:when>
+										<c:otherwise>
+										<c:forEach items="${CartList}" var="cartlist">
 										<tr>
 											<td class="product_name" style="vertical-align: middle" onclick="location.href='product_detail?pd_name=${cartlist.getPd_name()}&pd_category=${cartlist.getPd_category() }'"><img src="resources/image/product/${cartlist.getPd_img()}" width=100 height=100>&nbsp;&nbsp;${cartlist.getPd_name()}<br/><span style="font-size:12px">${cartlist.getMy_memo() }</span></td>
 											<td class="Quantity" style="vertical-align: middle"><c:out value="${cartlist.getPd_amount() }"/>개</td>
@@ -75,6 +82,8 @@
 										<input type="hidden" name="pd_name" id="pd_name" value="${cartlist.getPd_name()}">
 										<input type="hidden" name="pd_amount" id="pd_amount" value="${cartlist.getPd_amount()}">
 										</c:forEach>
+    									</c:otherwise>
+										</c:choose>
 		                        </tbody>
 		                        
 								</table>

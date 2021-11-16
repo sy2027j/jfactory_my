@@ -24,8 +24,8 @@
   	</c:if>
         <div id="header">
       <div id="wrapper">
-        <form id="Login" method="post">
-		<h3 class="contents" style="text-align:center">로그인</h3><br/><br/>
+        <form id="Login" method="post" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin-top:150px;">
+		<h3 class="contents" style="text-align:center">로그인</h3><br/>
 		
 					<div class="form-group"><input type="text"
 							class="form-control" id="id_input" name="mem_id"

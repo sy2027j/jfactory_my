@@ -6,8 +6,6 @@
 <head>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-</head>
-<body>
 <style>
 
 p{
@@ -16,12 +14,12 @@ text-align:center;
 
 button.seoul {
   position: absolute;
-  top: 464px;
-  left : 925px; 
-  border: 3px solid #9370DB;
+  top: 210px;
+  left : 440px; 
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -31,12 +29,12 @@ button.seoul {
 
 button.chuncheon {
   position: absolute;
-  top: 400px;
-  left : 1060px;
-  border: 3px solid #9370DB;
+  top: 170px;
+  left : 560px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -46,12 +44,12 @@ button.chuncheon {
 
 button.gangneung {
   position: absolute;
-  top: 435px;
-  left : 1130px;
-  border: 3px solid #9370DB;
+  top: 190px;
+  left : 650px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -60,12 +58,12 @@ button.gangneung {
 }
 button.dokdo {
   position: absolute;
-  top: 540px;
-  left : 1270px;
-  border: 3px solid #9370DB;
+  top: 340px;
+  left : 670px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -74,12 +72,12 @@ button.dokdo {
 }
 button.cheongju {
   position: absolute;
-  top: 560px;
-  left : 1060px;
-  border: 3px solid #9370DB;
+  top: 360px;
+  left : 500px; 
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -88,12 +86,12 @@ button.cheongju {
 }
 button.daejeon {
   position: absolute;
-  top: 650px;
-  left : 980px;
-  border: 3px solid #9370DB;
+  top: 400px;
+  left : 490px; 
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -102,12 +100,12 @@ button.daejeon {
 }
 button.jeonju {
   position: absolute;
-  top: 760px;
-  left : 930px;
-  border: 3px solid #9370DB;
+  top: 475px;
+  left : 460px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -116,12 +114,12 @@ button.jeonju {
 }
 button.daegu {
   position: absolute;
-  top: 720px; 
-  left : 1120px;
-  border: 3px solid #9370DB;
+  top: 470px;
+  left : 640px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -130,12 +128,12 @@ button.daegu {
 }
 button.gwangju {
   position: absolute;
-  top: 825px;
-  left : 900px;
-  border: 3px solid #9370DB;
+  top: 580px;
+  left : 415px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -144,12 +142,12 @@ button.gwangju {
 }
 button.busan {
   position: absolute;
-  top: 810px;
-  left : 1160px;
-  border: 3px solid #9370DB;
+  top: 570px;
+  left : 690px;
+  border:0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -158,12 +156,12 @@ button.busan {
 }
 button.jeju {
   position: absolute;
-  top: 1020px;
-  left : 875px;
-  border: 3px solid #9370DB;
+  top: 765px;
+  left : 390px;
+  border: 0;
   background-color : rgba(0,0,0,0);
   color: black;
-  font-size: 25px;
+  font-size: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; 
   border-top-right-radius: 5px;
@@ -173,14 +171,17 @@ button.jeju {
 
 
 </style>
+</head>
+<body>
+
 <br>
 <h3 style='text-align:center'> 지역을 선택해보세요 ! </h3>
 <br>
 <h5 style='text-align:center'> " 제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요! " </h5>
 <br>
-<p>
-<img src="//r.yna.co.kr/m-kr/home/v01/img/m_map_city.png" alt="전국지도"/>
-</p>
+<div class="container" style="text-align : center; position: relative;">
+<img src="//r.yna.co.kr/m-kr/home/v01/img/m_map_city.png" alt="전국지도" style="min-width: 640px; min-height: 864px;"/>
+
 <div id="testImg">
 
   <button class="seoul" type="button"  onclick="location.href='localWeather?city=Seoul&cityName=서울'">서울</button> 
@@ -195,6 +196,6 @@ button.jeju {
   <button class="jeju" type="button" onclick="location.href='localWeather?city=jeju&cityName=제주'">제주</button>
 
 </div>
-
+</div>
 </body>
 </html>
