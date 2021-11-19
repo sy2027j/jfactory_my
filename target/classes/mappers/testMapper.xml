@@ -668,4 +668,13 @@
 		LIMIT 4;
 	</select>
 
+	<select id="RandomProduct" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product ORDER BY RAND() LIMIT 1;
+	</select>
+	
+	<select id="RandomProduct2" resultType="ProductDTO">
+		SELECT * FROM
+		jfactory_product ORDER BY RAND() LIMIT 2;
+	</select>
 </mapper>

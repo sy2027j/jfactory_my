@@ -173,11 +173,10 @@ button.jeju {
 </style>
 </head>
 <body>
-
+<hr>
 <br>
-<h3 style='text-align:center'> 지역을 선택해보세요 ! </h3>
-<br>
-<h5 style='text-align:center'> " 제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요! " </h5>
+<h4 style='text-align:center'> 지역을 선택해보세요! </h4>
+<h6 style='text-align:center'> 제이팩토리에서 오늘의 날씨에 따른 화장품 추천을 받아보세요! </h6>
 <br>
 <div class="container" style="text-align : center; position: relative;">
 <img src="//r.yna.co.kr/m-kr/home/v01/img/m_map_city.png" alt="전국지도" style="min-width: 640px; min-height: 864px;"/>

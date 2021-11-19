@@ -24,7 +24,7 @@
   	</c:if>
         <div id="header">
       <div id="wrapper">
-        <form id="Login" method="post" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin-top:150px;">
+        <form id="Login" method="post" action="log_in" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin-top:150px;">
 		<h3 class="contents" style="text-align:center">로그인</h3><br/>
 		
 					<div class="form-group"><input type="text"

@@ -68,20 +68,40 @@ public class MemberController {
 			MemberDTO member = (MemberDTO) session.getAttribute("member");
 			String mem_id = member.getmem_id();
 			System.out.println(mem_id);
-			String mem_skintype = member.getMem_skintype();
-			List<ProductDTO> pdto = prservice.ProductTag4("#" + mem_skintype);
-			model.addAttribute("skintypepd", pdto);
-			System.out.println(mem_skintype);
+			
+			if((member.getMem_skintype() != "")&&(member.getMem_skintype()!=null)&&(!member.getMem_skintype().equals(""))&&(!member.getMem_skintype().equals(null)) ) {
+				String mem_skintype = member.getMem_skintype();
+				List<ProductDTO> pdto = prservice.ProductTag4("#" + mem_skintype);
+				model.addAttribute("skintypepd", pdto);
+				System.out.println(mem_skintype);
+			}else {
+				List<ProductDTO> rdpdto = prservice.RandomProduct2();
+				model.addAttribute("skintypepd", rdpdto);
+				System.out.println("스킨타입없음");
+			}
 
-			String mem_skintrouble1 = member.getMem_skintrouble1();
-			System.out.println(mem_skintrouble1);
-			ProductDTO trouble1 = prservice.ProductTag5('#' + mem_skintrouble1);
-			model.addAttribute("troubleo", trouble1);
-
-			String mem_skintrouble2 = member.getMem_skintrouble2();
-			System.out.println(mem_skintrouble2);
-			ProductDTO trouble2 = prservice.ProductTag5('#' + mem_skintrouble2);
-			model.addAttribute("troublet", trouble2);
+			if((member.getMem_skintrouble1() != "")&&(member.getMem_skintrouble1() != null)&&(!member.getMem_skintrouble1().equals(""))&&(!member.getMem_skintrouble1().equals(null))) {
+				String mem_skintrouble1 = member.getMem_skintrouble1();
+				System.out.println(mem_skintrouble1);
+				ProductDTO trouble1 = prservice.ProductTag5('#' + mem_skintrouble1);
+				model.addAttribute("troubleo", trouble1);
+			}else {
+				ProductDTO trouble1 = prservice.RandomProduct();
+				model.addAttribute("troubleo", trouble1);
+				System.out.println("고민없음1");
+				System.out.println(trouble1);
+			}
+			
+			if((member.getMem_skintrouble2() != "")&&(member.getMem_skintrouble2() != null)&&(!member.getMem_skintrouble2().equals(""))&&(!member.getMem_skintrouble2().equals(null))) {
+				String mem_skintrouble2 = member.getMem_skintrouble2();
+				System.out.println(mem_skintrouble2);
+				ProductDTO trouble2 = prservice.ProductTag5('#' + mem_skintrouble2);
+				model.addAttribute("troublet", trouble2);
+			}else {
+				ProductDTO trouble2 = prservice.RandomProduct();
+				model.addAttribute("troublet", trouble2);
+				System.out.println("고민없음2");
+			}
 		}
 
 		List<ProductDTO> indexbest = prservice.IndexBest();
@@ -413,17 +433,15 @@ public class MemberController {
 	}
 
 	/* 로그인 */
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@RequestMapping(value = "log_in")
 	public void loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr,
 			HttpServletResponse response) throws Exception {
 
-		// System.out.println("login 메서드 진입");
-		// System.out.println("전달된 데이터 : " + dto);
-
+		//System.out.println("login 메서드 진입");
+		//System.out.println("전달된 데이터 : " + dto);
 		// session 사용하기 위해 session변수 선언하고 request로 초기화
 		// lvo 값은 아이디 비번이 존재할 경우 데이터가 담긴 dto 객체가 저장되는 것
 		// 아이디 비번이 없으면 lvo에 null 저장
-
 		HttpSession session = request.getSession();
 		MemberDTO lvo = service.Login(dto);
 		if (lvo == null) {// 일치하지 않는 아이디, 비밀번호 입력 경우
@@ -461,17 +479,23 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/mypage_information", method = RequestMethod.POST)
-	public void mypage_information(Model model, HttpServletResponse response, Object handler, MemberDTO dto)
-			throws Exception {
-		System.out.println("find id");
+	public void mypage_information(Model model, HttpServletResponse response, Object handler, MemberDTO dto,RedirectAttributes rttr,HttpServletRequest request) throws Exception {
 		MemberDTO member = service.getinformation(dto);
-		System.out.println("find id");
 		model.addAttribute("member", member);
-		System.out.println("find id");
 		service.mypage_information(dto);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.print("<script>alert('회원정보가 수정되었습니다.'); location.href='/ex/mypage_order';</script>");
+		out.print("<script>alert('회원정보가 수정되었습니다.');</script>");
+		//HttpSession session = request.getSession();	
+		String mem_id=member.getmem_id();
+		String mem_password=member.getMem_password();
+		//dto.setmem_id(member.getmem_id());
+		//dto.setMem_password(member.getMem_password());
+		//model.addAttribute("MemberDTO", dto);
+		//session.removeAttribute("member");
+		//session.setAttribute("member", lvo);
+		String url="<script>location.href='/ex/log_in?mem_id="+mem_id+"&mem_password="+mem_password+"';</script>";
+		out.print(url);
 		out.flush();
 		out.close();
 	}

@@ -3,7 +3,6 @@
 <%@ include file="./header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
-<hr>
   
   <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

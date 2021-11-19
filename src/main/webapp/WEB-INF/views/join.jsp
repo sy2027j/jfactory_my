@@ -26,49 +26,50 @@
 
    <br />
    <br />
-   <div class="container col-lg-3">
+   <div class="container col-lg-4">
       <div class="row">
          <div id="header">
             <div id="wrapper">
-               <form id="signUp" name="signUp" method="post" action="index">
-                  <h3 class="contents" style="text-align: center">회원가입</h3>
+               <form id="signUp" name="signUp" method="post" action="index" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); margin-top:865px;">
+                  <h3 class="contents" style="text-align: center">회원가입</h3><br/>
                   <div class="myForm-group">
-                     <div class="form-group">
                         <label for="MEMBER_ID">아이디 *</label>
-                        <div class="form-inline">
-                           <input type="text" class="form-control" id="mem_id1" name="mem_id" placeholder="아이디를 입력하세요" style="width: 410px">
-                           &nbsp;
-                           <button type="button" class="btn btn-default" id="idChk"
-                              style="border-color: white; background-color: #e6e6fa; color: black;"
-                              onclick="fn_idChk();">인증</button>
+                     <div class="form-group">
+                        <div class="form-inline col-sm-13">
+                           <input type="text" class="form-control" id="mem_id1" name="mem_id" placeholder="아이디를 입력하세요" style="width:80%">&nbsp;
+                           <button type="button" class="btn" id="idChk" style="width: 18%; border-color: white; background-color: #e6e6fa; color: black;" onclick="fn_idChk();">인증</button>
                         </div>
                         <div id="id_check"></div>
                      </div>
 
                      <input type="hidden" id="isCheck" value="0">
                      <div class="form-group">
-                        <label for="MEMBER_NAME">이름 *</label> <input type="text"
-                           class="form-control" id="mem_realname" name="mem_realname"
-                           placeholder="이름을 입력하세요">
+                        <label for="MEMBER_NAME">이름 *</label> 
+                        <div class="col-sm-13">
+                        <input type="text" class="form-control" id="mem_realname" name="mem_realname" placeholder="이름을 입력하세요" style="width: 410px">
+                        </div>
                         <div id="name_check"></div>
                      </div>
 
                      <div class="form-group">
-                        <label for="pwd1">비밀번호 *</label> <input type="password"
-                           class="form-control" id="mem_password" name="mem_password"
-                           placeholder="비밀번호(영문,숫자,특수문자 포함 8~20자리 입력)" size="100">
+                        <label for="pwd1">비밀번호 *</label> 
+                        <div class="col-sm-13">
+                        <input type="password" class="form-control" id="mem_password" name="mem_password" placeholder="비밀번호(영문,숫자,특수문자 포함 8~20자리 입력)" size="100">
+                        </div>
                         <div id="pw1_check"></div>
                      </div>
 
                      <div class="form-group">
-                        <label for="pwd2">비밀번호 확인 *</label> <input type="password"
+                        <label for="pwd2">비밀번호 확인 *</label> 
+                        <div class="col-sm-13">
+                        <input type="password"
                            class="form-control" id="mem_password2" name="mem_password2"
-                           placeholder="비밀번호 확인" size="100">
+                           placeholder="비밀번호 확인" size="100"></div>
                         <div id="pw2_check"></div>
                      </div>
                      <div class="form-group">
                         <label for="member_zipcode">배송지 주소 *</label>
-                        <div class="form-inline">
+                        <div class="form-inline col-sm-13">
                            <input type="text" class="form-control" style="width: 100px;"
                               name="mem_zipcode" id="mem_zipcode" placeholder="우편번호"
                               onfocus="this.blur()"> &nbsp;
@@ -110,50 +111,48 @@
                      <div class="form-group">
                         <label for="MEMBER_BIRTH">전화번호 *</label>
                         <div class="form-inline">
-                           <select class="form-control" style="width: 125px;"
+                           <select class="form-control" style="width: 30%;"
                               name="mem_phone" id="mem_phone">
                               <option value="010">010</option>
                               <option value="011">011</option>
                               <option value="012">012</option>
                               <option value="013">013</option>
                            </select> &nbsp; - &nbsp; <input type="text" class="form-control"
-                              id="mem_phone1" name="mem_phone1" style="width: 150px">
+                              id="mem_phone1" name="mem_phone1" style="width: 29%">
                            &nbsp; - &nbsp; <input type="text" class="form-control"
-                              id="mem_phone2" name="mem_phone2" style="width: 150px">
-                           <br />
-                           <div id="phone_check"></div>
-                           <input type="checkbox" id="SMS_AGREE" name="SMS_AGREE"
-                              value="0"> <font size="3"> &nbsp;SMS 수신에 동의합니다.</font>
+                              id="mem_phone2" name="mem_phone2" style="width: 29%">
                         </div>
+                        <div id="phone_check"></div>
+                        <input type="checkbox" id="SMS_AGREE" name="SMS_AGREE"
+                              value="0"> <font size="2"> &nbsp;SMS 수신에 동의합니다.</font>
                      </div>
                      <div class="form-group">
                         <label for="MEMBER_EMAIL">이메일 주소 *</label>
-                        <div class="form-inline">
+                        <div class="form-inline col-sm-13">
                            <input type="email" class="form-control" id="mem_email"
-                              name="mem_email" placeholder="이메일을 입력하세요" style="width: 410px">
+                              name="mem_email" placeholder="이메일을 입력하세요" style="width: 80%">
                            &nbsp;
                            <button type="button" class="btn btn-default"
                               id="isCheck_Email" name="isCheck_Email"
-                              style="border-color: white; background-color: #e6e6fa; color: black;"
+                              style="border-color: white; background-color: #e6e6fa; color: black; width: 18%"
                               onclick="Email_send();">인증</button>
-                           <input type="hidden" id="isEmailCheck" value="0">
-                        </div>
+                        </div><input type="hidden" id="isEmailCheck" value="0">
                         <div id="email_check"></div>
                         <input type="checkbox" id="EMAIL_AGREE" name="EMAIL_AGREE"
-                           value="0"> <font size="3"> 이메일 수신에 동의합니다.</font>
+                           value="0"> <font size="2"> 이메일 수신에 동의합니다.</font>
                      </div>
                      <div id="isCheck_EmailForm" class="form-group">
                         <label for="user_email">인증코드 확인 *</label>
-                        <div class="form-inline">
+                        <div class="form-inline col-sm-13">
                            <input type="email" class="form-control" id="emailAuth"
-                              name="emailAuth" placeholder="인증코드를 입력하세요"> &nbsp;
+                              name="emailAuth" placeholder="인증코드를 입력하세요" style="width: 80%"> &nbsp;
                            <button type="button" class="btn btn-default" id="isAuth"
-                              style="border-color: white; background-color: #e6e6fa; color: black;"
+                              style="border-color: white; background-color: #e6e6fa; color: black;  width: 18%"
                               onclick="Email_chk();">확인</button>
                            <input type="hidden" name="mem_email_cert" id="mem_email_cert"
                               class="mem_email_cert" value="0">
                         </div>
-                     </div>
+                     </div><br/>
                      <div class="form-group" id="checkboxes">
                         <div>
                            <input type="checkbox" name="check1" id="check1"> <b>서비스
@@ -184,14 +183,12 @@
          </div> -->
                      <br />
                      <hr>
-                     <div class="choice_Title">
+                     <div class="choice_Title col-sm-13"">
                         <h3 class="choice_Title" style="text-align: center">선택사항</h3>
                      </div>
 
                      <div>
-                        <h5>
                            <label for="sex_Title">성별</label>
-                        </h5>
                      </div>
 
                      <div>
@@ -201,11 +198,9 @@
                      <input type="hidden" name="mem_sex" id="mem_sex" value="2">
                      <br />
                      <div>
-                        <h5>
                            <label for="skintype_Title">피부 타입</label>
-                        </h5>
                      </div>
-                     <div>
+                     <div class="col-sm-13">
                         <input type="radio" name="mem_skintype1" value="건성">건성
                         &nbsp; <input type="radio" name="mem_skintype1" value="중성">중성
                         &nbsp; <input type="radio" name="mem_skintype1" value="지성">지성
@@ -218,11 +213,9 @@
                      <input type="hidden" name="mem_skintype" id="mem_skintype"
                         value=""> <br />
                      <div>
-                        <h5>
                            <label for="skinworry_Title">피부 고민 (최대 2개 선택)</label>
-                        </h5>
                      </div>
-                     <div>
+                     <div class="col-sm-13">
                         <input onclick="CountChecked(this)" type="checkbox"
                            name="mem_skintrouble" value="주름">주름 &nbsp; <input
                            onclick="CountChecked(this)" type="checkbox"
@@ -584,7 +577,7 @@ function findAddr() {
    }).open();
 }
 </script>
-
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
    <%@ include file="./footer.jsp"%>
 
 </body>

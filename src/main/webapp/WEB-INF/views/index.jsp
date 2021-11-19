@@ -86,7 +86,6 @@
   </form>
 
 
-  <header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -120,7 +119,6 @@
         <span class="sr-only">Next</span>
       </a> 
     </div>
-  </header>
 
 
 
@@ -128,10 +126,24 @@
   <c:if test="${ member != null }">
   <div class="container">
    <br/>
-    <h2 class="my-4" align="center"> ${member.mem_realname }님! 이 제품은 어떠세요 ?</h2>
-    <br/>
+    <h2 class="my-4" align="center"> ${member.mem_realname }님! 이 제품은 어떠세요?</h2>
     <div class="form-inline" style="text-align: center; margin: 0auto;" >
-     <input size=60 maxlength=255 style="width:1100px;height:50px;text-align:center;" type="text" value="${member.mem_realname }님은 #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" readonly size=10>&nbsp;&nbsp;&nbsp;
+<!--<input size=60 maxlength=255 style="width:1100px;height:50px;text-align:center;" type="text" value="${member.mem_realname }님은 #${member.mem_skintype} #${member.mem_skintrouble1} #${member.mem_skintrouble2}" readonly size=10&nbsp;&nbsp;&nbsp;>-->
+		<h5 style="width: 1100px; height: 60px; text-align: center; border: solid 1px gray; border-radius:10px; margin-top:5px; padding-top:12px">
+			${member.mem_realname }님은 
+			<c:if test="${member.mem_skintype ne ''}">
+				#${member.mem_skintype}
+			</c:if>
+			<c:if test="${member.mem_skintrouble1 ne ''}">
+				#${member.mem_skintrouble1}
+			</c:if>
+			<c:if test="${member.mem_skintrouble2 ne ''}">
+				#${member.mem_skintrouble2}
+			</c:if>
+			<c:if test="${member.mem_skintype eq '' and member.mem_skintrouble1 eq '' and member.mem_skintrouble2 eq ''}">
+				선택하지 않으셨네요. 옵션을 선택해보세요!   <button type="button" class="btn btn-default" onclick="location.href='mypage_information'" style="border-color: white; background-color: #e6e6fa; color: black;">바로가기</button>
+			</c:if>
+		</h5>
     </div>
     </div>
     <br>

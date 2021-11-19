@@ -7,13 +7,6 @@
 p {
    margin: 20px 0px;
 }
-div.box-footer{
-    position: absolute;
-    left: 38%;
-}
-div.row{
-padding-bottom: 5%;
-}
 </style>
 <hr>
 <script type="text/javascript">
@@ -29,7 +22,7 @@ padding-bottom: 5%;
 </script>
 <div class="container">
    <br />
-   <h3 align="center">BEST 리뷰</h3>
+   <h3 align="center">BEST REVIEW</h3>
    <br /> <br />
 
    <div class="row">
@@ -62,7 +55,6 @@ padding-bottom: 5%;
       </c:forEach>
    </div>
 
-   <br />
    <!-- Pagination -->
    <div style="text-align: center;">
       <button
@@ -72,7 +64,7 @@ padding-bottom: 5%;
          <span style="float: center; font-size: 13pt">리뷰 작성하고 적립금 받기</span>
       </button>
    </div>
-   <br /> <br />
+   <br />
 </div>
 <hr>
 <div class="container">
@@ -109,8 +101,8 @@ padding-bottom: 5%;
          </div>
       </c:forEach>
    </div>
-   <div class="box-footer">
-         <div class="text-center">
+   <div class="row" style="align: center;">
+         <div class="text-center" >
             <ul class="pagination">
                <!-- 이전prev -->
                <c:if test="${pm.prev }">
@@ -153,6 +145,8 @@ function checkmember(){
 	}
 }
 </script>
+<div >
 <%@ include file="./footer.jsp"%>
+</div>
 </body>
 </html>

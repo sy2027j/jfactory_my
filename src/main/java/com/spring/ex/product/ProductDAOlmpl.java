@@ -137,4 +137,14 @@ public class ProductDAOlmpl implements ProductDAO {
 		return sqlSession.selectList(namespace+".CategoryProduct", pd_category);
 	}
 	
+	@Override
+	public ProductDTO RandomProduct() throws Exception{
+		return sqlSession.selectOne(namespace+".RandomProduct");
+	}
+	
+	@Override
+	public List<ProductDTO> RandomProduct2() throws Exception{
+		return sqlSession.selectList(namespace+".RandomProduct2");
+	}
+	
 }

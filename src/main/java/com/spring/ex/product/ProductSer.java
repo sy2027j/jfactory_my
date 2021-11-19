@@ -55,4 +55,8 @@ public interface ProductSer {
 	public List<ProductDTO> BestProductAll() throws Exception;
 	
 	public List<ProductDTO> CategoryProduct(String pd_category) throws Exception;
+	
+	public ProductDTO RandomProduct() throws Exception;
+	
+	public List<ProductDTO> RandomProduct2() throws Exception;
 }

@@ -136,4 +136,14 @@ public class ProductSerlmpl implements ProductSer {
 	public List<ProductDTO> CategoryProduct(String pd_category) throws Exception{
 		return dao.CategoryProduct(pd_category);
 	}
+	
+	@Override
+	public ProductDTO RandomProduct() throws Exception{
+		return dao.RandomProduct();
+	}
+	
+	@Override
+	public List<ProductDTO> RandomProduct2() throws Exception{
+		return dao.RandomProduct2();
+	}
 }
