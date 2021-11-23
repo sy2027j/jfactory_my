@@ -83,8 +83,8 @@
 	<select id="adminordercancelList" resultType="OrderDTO">
 		SELECT * FROM
 		jfactory_order
-		WHERE or_cancel_state = 1
-		LIMIT #{pageStart},#{pageSize}
+		WHERE or_cancel_state = 1 AND mem_id = #{AdminDTO.mem_id}
+		LIMIT #{cri.pageStart},#{cri.pageSize}
 	</select>
 
 	<!-- 페이지정보를 10개씩 가져오기 -->

@@ -24,7 +24,7 @@ public interface CartService {
 	
 	public int orderListpageCount() throws Exception;
 	
-	public List<OrderDTO> adminordercancelList(Criteria cri) throws Exception;
+	public List<OrderDTO> adminordercancelList(HashMap<String, Object> orderCancelListMap) throws Exception;
 	
 	public int ordercancelListpageCount() throws Exception;
 	

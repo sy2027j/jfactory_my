@@ -45,8 +45,8 @@ public class CartServiceImpl implements CartService {
 	}
 	 
 	@Override 
-	public List<OrderDTO> adminordercancelList(Criteria cri) throws Exception{
-		return dao.adminordercancelList(cri);
+	public List<OrderDTO> adminordercancelList(HashMap<String, Object> orderCancelListMap) throws Exception{
+		return dao.adminordercancelList(orderCancelListMap);
 	}
 	
 	@Override

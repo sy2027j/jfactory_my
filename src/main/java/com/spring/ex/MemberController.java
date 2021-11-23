@@ -171,21 +171,21 @@ public class MemberController {
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
 	public String member_detail(OrderDTO order, Model model, AdminDTO dto, Criteria cri) throws Exception {
 
-		System.out.println("find id");
 		AdminDTO memdetaildto = adminservice.member_detail(dto);
-		System.out.println("find id");
-		model.addAttribute("memdetaildto", memdetaildto);
-		System.out.println("find id");
 
-		String userId = memdetaildto.getmem_id();
-		order.setMem_id(userId);
-		String ord = order.getMem_id();
-		System.out.println(ord);
+		order.setMem_id(memdetaildto.getmem_id());
+		
+		HashMap<String, Object> orderCancelListMap = new HashMap<String, Object>();
+		orderCancelListMap.put("cri", cri);
+		orderCancelListMap.put("AdminDTO", dto);
+		
 		List<OrderDTO> orderList = cartservice.orderList(order);
+		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(orderCancelListMap);
+
 		model.addAttribute("orderList", orderList);
-		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(cri);
 		model.addAttribute("orderCancelList", orderCancelList);
 		model.addAttribute("QnaList", qnaservice.qnaList(cri));
+		model.addAttribute("memdetaildto", memdetaildto);
 
 		return "admin/member_detail";
 	}
@@ -871,7 +871,10 @@ public class MemberController {
 	@RequestMapping(value = "admin/order_cancel_index", method = RequestMethod.GET)
 	public String order_cancel_index(Criteria cri, Model model) throws Exception {
 
-		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(cri);
+		HashMap<String, Object> orderCancelListMap = new HashMap<String, Object>();
+		orderCancelListMap.put("cri", cri);
+		
+		List<OrderDTO> orderCancelList = cartservice.adminordercancelList(orderCancelListMap);
 
 		model.addAttribute("orderCancelList", orderCancelList);
 

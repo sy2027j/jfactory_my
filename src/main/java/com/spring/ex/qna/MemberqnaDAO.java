@@ -31,4 +31,6 @@ public interface MemberqnaDAO {
 	public void NoticeWrite(MemberqnaDTO dto) throws Exception;
 	
 	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception;
+	
+	public List<MemberqnaDTO> myqnaListPage(int page) throws Exception;
 }

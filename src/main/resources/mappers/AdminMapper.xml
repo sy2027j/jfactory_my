@@ -11,8 +11,7 @@
 
 	<!-- 관리자 리스트 불러오기 -->
 	<select id="AdminList" resultType="AdminDTO">
-		SELECT * FROM jfactory_member
-		where mem_is_admin=1 or mem_is_admin=2
+		SELECT * FROM jfactory_member where mem_is_admin = 1 OR mem_is_admin = 2
 	</select>
 
 	<!-- 관리자 서브 권한 주기 -->

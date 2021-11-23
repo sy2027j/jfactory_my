@@ -107,17 +107,14 @@ table.t1 {
 			</thead>
 			<tbody>
 				<c:forEach items="${orderList}" var="orderList">
-					<tr
-						onClick="window.open('admin_order_detail?or_id=${orderList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
-						<td style="text-align: center;"><c:out
-								value="${orderList.getOr_datetime()}" /></td>
-						<td style="text-align: center;"><c:out
-								value="${orderList.getOr_id() }" /></td>
-						<td style="text-align: center;"><c:out
-								value="${orderList.getOr_price() }" /> 원</td>
-						<td style="text-align: center;"><c:if
-								test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if> <c:if
-								test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if></td>
+					<tr onClick="window.open('admin_order_detail?or_id=${orderList.getOr_id()}', '주문 상세 정보', 'width=502, height=600, left=100, top=50');">
+						<td style="text-align: center;"><c:out value="${orderList.getOr_datetime()}" /></td>
+						<td style="text-align: center;"><c:out value="${orderList.getOr_id() }" /></td>
+						<td style="text-align: center;"><c:out value="${orderList.getOr_price() }" /> 원</td>
+						<td style="text-align: center;">
+							<c:if test="${orderList.getOr_cancel_state() eq 1}">주문 취소</c:if>
+							<c:if test="${orderList.getOr_cancel_state() eq 0}">결제 완료</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

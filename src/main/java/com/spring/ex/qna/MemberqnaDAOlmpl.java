@@ -84,4 +84,13 @@ public class MemberqnaDAOlmpl implements MemberqnaDAO {
 	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception{
 		return sqlSession.selectList(namespace+".MyQnaList",dto);
 	}
+
+	@Override
+	public List<MemberqnaDTO> myqnaListPage(int page) throws Exception {
+		if(page <= 0) {
+			page = 1;
+		}
+		page = (page - 1)*15;
+		return sqlSession.selectList(namespace+".MyQnaListPage", page);
+	}
 }

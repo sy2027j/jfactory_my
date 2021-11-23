@@ -36,7 +36,7 @@ public class AdminDAOlmpl implements AdminDAO {
 		return sqlSession.selectList(namespace + ".adminSearchListPage", page);
 	}
 
-	// DB ���̺� �ִ� ��� �� ���� ��� �� ����
+	// DB ���̺� �ִ� ��� �� ���� ��� �� ����
 	@Override
 	public int adminSearchpageCount() throws Exception {
 		return sqlSession.selectOne(namespace + ".adminSearchpageCount");

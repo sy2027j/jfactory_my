@@ -65,10 +65,8 @@ div.row {
 									<td><c:out value="${member.getMem_level()}" /></td>
 									<td><c:out value="${member.getmem_id()}" /></td>
 									<td><c:out value="${member.getMem_realname() }" /></td>
-									<td><c:out
-											value="${member.getMem_birth_year() }.${member.getMem_birth_month() }.${member.getMem_birth_day() }" /></td>
-									<td><c:out
-											value="${member.getMem_phone() }-${member.getMem_phone1() }-${member.getMem_phone2() }" /></td>
+									<td><c:out value="${member.getMem_birth_year() }.${member.getMem_birth_month() }.${member.getMem_birth_day() }" /></td>
+									<td><c:out value="${member.getMem_phone() }-${member.getMem_phone1() }-${member.getMem_phone2() }" /></td>
 									<td><c:out value="${member.getMem_count() }" /></td>
 								</tr>
 							</c:forEach>
