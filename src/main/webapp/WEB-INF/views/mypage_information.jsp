@@ -26,9 +26,7 @@
 			</div>
 			<div class="col-sm-8">
 				<div class="mb-4">
-					<h3 class="contents"
-						style="text-align: center; padding-top: 2%; padding-left: 10%;">회원
-						정보 수정</h3>
+					<h3 class="contents" style="text-align: center; padding-top: 2%; padding-left: 10%;">회원 정보 수정</h3>
 					<div
 						style="padding-top: 5%; padding-left: 10%; padding-right: 5%; padding-bottom: 5%;">
 						<form id="mypage_information" name="mypage_information"
@@ -75,23 +73,22 @@
 									<label for="MEMBER_BIRTH">생년월일 *</label>
 									<div class="form-inline">
 										<select class="form-control" style="width: 150px;"
-											name="mem_birth_year" id="mem_birth_year"
-											value="${member.mem_birth_year}">
-											<option value="">${member.mem_birth_year}년</option>
+											name="mem_birth_year" id="mem_birth_year">
+											<option value="${member.mem_birth_year}">${member.mem_birth_year}년</option>
 											<c:forEach var="i" begin="1950" end="2005">
 												<option value="${i }">${i }년</option>
 											</c:forEach>
 										</select> &nbsp;<select class="form-control" style="width: 120px;"
 											name="mem_birth_month" id="mem_birth_month"
 											value="${member.mem_birth_month}">
-											<option value="">${member.mem_birth_month}월</option>
+											<option value="${member.mem_birth_month}">${member.mem_birth_month}월</option>
 											<c:forEach var="i" begin="1" end="12">
 												<option value="<c:if test="${i < 10}">0</c:if>${i }">${i }월</option>
 											</c:forEach>
 										</select> &nbsp;<select class="form-control" style="width: 120px;"
 											name="mem_birth_day" id="mem_birth_day"
 											value="${member.mem_birth_day}">
-											<option value="">${member.mem_birth_day}일</option>
+											<option value="${member.mem_birth_day}">${member.mem_birth_day}일</option>
 											<c:forEach var="i" begin="1" end="31">
 												<option value="<c:if test="${i < 10}">0</c:if>${i }">${i }일</option>
 											</c:forEach>
@@ -118,37 +115,11 @@
 											value="${member.mem_phone2}"> <br />
 									</div>
 								</div>
-								<div class="form-group">
-									<label for="MEMBER_EMAIL">이메일 주소 *</label>
-									<div class="form-inline">
-										<input type="email" class="form-control" id="mem_email"
-											name="mem_email" placeholder="${member.mem_email}"
+										<input type="hidden" class="form-control" id="mem_email" name="mem_email" placeholder="${member.mem_email}"
 											value="${member.mem_email}" style="width: 410px">
 										&nbsp;
-										<button type="button" class="btn btn-default"
-											id="isCheck_Email" name="isCheck_Email"
-											style="border-color: white; background-color: #e6e6fa; color: black;"
-											onclick="Email_send();">인증</button>
 										<input type="hidden" id="isEmailCheck" value="0">
-									</div>
-								</div>
-								<div id="isCheck_EmailForm" class="form-group">
-									<label for="user_email">인증코드 확인 *</label>
-									<div class="form-inline">
-										<input type="email" class="form-control" id="emailAuth"
-											name="emailAuth" placeholder="인증코드를 입력하세요"> &nbsp;
-										<button type="button" class="btn btn-default" id="isAuth"
-											style="border-color: white; background-color: #e6e6fa; color: black;"
-											onclick="Email_chk();">확인</button>
-										<input type="hidden" name="mem_email_cert" id="mem_email_cert"
-											class="mem_email_cert" value="0">
-									</div>
-								</div>
-								<!-- 
-         <div class="chk_allAgree">
-            <input type="checkbox" name="chk_allAgree" id="chk_allAgree">
-            <b>내용 확인 및 전체 동의</b>
-         </div> -->
+								
 								<br />
 								<hr>
 								<div class="choice_Title">
@@ -191,23 +162,16 @@
 									</h5>
 								</div>
 								<div>
-									<input onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="주름">주름 &nbsp; <input
-										onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="여드름">여드름 &nbsp; <input
-										onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="피지&모공">피지&모공 &nbsp; <input
-										onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="수분부족">수분부족 &nbsp; <input
-										onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="다크써클">다크써클 &nbsp; <input
-										onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="각질">각질 &nbsp; <input
-										onclick="CountChecked(this)" type="checkbox"
-										name="mem_skintrouble" value="기타">기타 &nbsp; <input
-										type="hidden" value="" id="mem_skintrouble1"
-										name="mem_skintrouble1"> <input type="hidden" value=""
-										id="mem_skintrouble2" name="mem_skintrouble2">
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="주름">주름 &nbsp; 
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="여드름">여드름 &nbsp; 
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="피지&amp;모공">피지&모공 &nbsp; 
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="수분부족">수분부족 &nbsp; 
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="다크써클">다크써클 &nbsp; 
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="각질">각질 &nbsp; 
+									<input onclick="CountChecked(this)" type="checkbox" name="mem_skintrouble" value="기타">기타 &nbsp; 
+										
+										<input type="hidden" value="${member.mem_skintrouble1}" id="mem_skintrouble1" name="mem_skintrouble1"> 
+										<input type="hidden" value="${member.mem_skintrouble2}" id="mem_skintrouble2" name="mem_skintrouble2">
 								</div>
 								<br /> <br />
 								<div align="center">
@@ -240,11 +204,28 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript"
 			src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
-
+		<script>
+			$("input:radio[name='mem_sex1']:radio[value='<c:out value="${member.mem_sex}"/>']").prop("checked", true);
+			$("input:radio[name='mem_skintype1']:radio[value='<c:out value="${member.mem_skintype}"/>']").prop("checked", true);
+			var trouble1="${member.mem_skintrouble1}";
+			//$("input:checkbox[name='mem_skintrouble']:checkbox[value='<c:out value="${member.mem_skintrouble1}"/>']").prop("checked", true);
+			$('input:checkbox[name="mem_skintrouble"]:checkbox[value="'+trouble1+'"]').prop("checked", true);
+			var trouble2="${member.mem_skintrouble2}";
+			$('input:checkbox[name="mem_skintrouble"]:checkbox[value="'+trouble2+'"]').prop("checked", true);
+		</script>
 		<script type="text/javascript">
 			var maxCount = 2;
 			var count = 0;
+			var trouble1="${member.mem_skintrouble1}";
+			var trouble2="${member.mem_skintrouble2}";
 
+				if(trouble1 !=""){
+					count+=1;
+				}
+				if(trouble2 !=""){
+					count+=1;
+				}
+				
 			function CountChecked(field) {
 				if (field.checked) {
 					count += 1;
@@ -400,6 +381,9 @@
 
 				document.mypage_information.submit();
 			}
+		</script>
+		<script>
+			
 		</script>
 </body>
 
