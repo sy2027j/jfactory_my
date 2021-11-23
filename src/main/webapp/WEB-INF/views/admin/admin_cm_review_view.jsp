@@ -59,7 +59,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="float-right">
-					<button type="button" class="btn" onclick="location.href='review'">
+					<button type="button" class="btn" onclick="location.href='cm_review'">
 						<i class="fa fa-trash"></i>돌아가기
 					</button>
 

@@ -98,7 +98,7 @@
        
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://image.freepik.com/free-vector/blue-sky-with-white-clouds-clear-sunny-day-landscape-background-with-clouds-illustration_210544-16.jpg')" onclick="location.href='weather'">
+        <div class="carousel-item" style="background-image: url('https://t4.ftcdn.net/jpg/01/76/01/51/240_F_176015185_mPGNcaL7WygUCaaNWR5nhiC08H4tboBE.jpg')" onclick="location.href='weather'">
           <div class="carousel-caption d-none d-md-block">
             <h3 style="color:black" align="center" >오늘의 JFactory</h3>
             <p style="color:black">제이팩토리에서 제공하는 날씨에 따른 화장품을 찾아보세요!</p>

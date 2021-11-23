@@ -9,10 +9,9 @@
   %>
   <div class="container">
     <h3 class="mt-4 mb-3" style="padding-top: 3%;">
-      상품명: <%=keyword %>
+      <%=keyword %>
     </h3>
     <div id=review style="padding-top: 2%; padding-bottom: 10%;">
-    <h4 class="mt-4 mb-3">리뷰</h4>
     <div class="row">
      <c:forEach items="${productreviewlist}" var="productreviewlist">
          <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">

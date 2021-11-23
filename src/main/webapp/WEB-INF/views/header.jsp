@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +42,7 @@
           </ul>
           <form class="form-inline form-navbar-right " action="MainSearch">
       <input class="form-control mr-sm-2" id="keyword" name="keyword" type="text" placeholder="검색창">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit"><span style="font-size:10pt">검색</span></button>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="background-color: #e6e6fa; color: black; border-color: #e6e6fa"><span style="font-size:10pt">검색</span></button>
     </form>
     <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">
     <button type="submit" class="btn btn-link"><span style="color:black; font-size:10pt" onclick="location.href='cart'">장바구니</span></button>
@@ -82,7 +81,7 @@
             </div>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="mypalette">★ 나만의 팔레트 ★</a>
+            <a class="nav-link" href="mypalette">나만의 팔레트</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

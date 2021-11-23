@@ -17,7 +17,7 @@
     <h3 class="mt-4 mb-3">상품</h3>
     <div class="row">
     <c:forEach items="${searchProductlist}" var="searchProductlist">
-      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${searchProductlist.getPd_name()}'">
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item" onclick="location.href='product_detail?pd_name=${searchProductlist.getPd_name()}&pd_category=${searchProductlist.getPd_category()}'">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src = '<c:url value="/resources/image/product/${searchProductlist.getPd_main_stored_file() }"/>' alt=""></a>
           <div class="card-body">

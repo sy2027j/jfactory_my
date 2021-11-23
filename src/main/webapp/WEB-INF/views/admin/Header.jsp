@@ -84,17 +84,9 @@ padding-left: 79%;
                                    리뷰
                                  </a>   
                               <div class="sb-sidenav-menu-heading">통계</div>
-                               <a class="nav-link" href="chart">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                   판매현황    
-                               </a>
                                <a class="nav-link" href="Product_statistics">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                    상품별 현황
-                                 </a>
-                                 <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                   고객 현황
                                  </a>
                         </div>
                     </div>

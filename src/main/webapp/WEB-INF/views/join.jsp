@@ -361,7 +361,14 @@
    
    //아이디 중복 체크
    function fn_idChk(){
-      $.ajax({
+
+     if(!$("#mem_id1").val()){
+         alert("아이디를 입력하세요.");
+         mem_id.focus();
+         return false;
+      }
+     else {
+          $.ajax({
          url : "/ex/idChk",
          type : "POST",
          dataType : "json",
@@ -377,7 +384,10 @@
          },error:function(request,status,error){
               alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
              }
-      })
+      });
+     }
+    	  
+
    }
  
  

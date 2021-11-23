@@ -101,28 +101,28 @@ p {
          </div>
       </c:forEach>
    </div>
-   <div class="row" style="align: center;">
-         <div class="text-center" >
-            <ul class="pagination">
-               <!-- 이전prev -->
-               <c:if test="${pm.prev }">
-                  <li class="page-item"><a class="page-link"
-                     href="review?page=${pm.startPage-1}">&laquo;</a></li>
-               </c:if>
-               <!-- 페이지블럭 -->
-               <c:forEach var="idx" begin="${pm.startPage }" end="${pm.endPage }">
-                  <li class="page-item"><a class="page-link"
-                     href="review?page=${idx }">${idx}</a></li>
-               </c:forEach>
-               <!-- 다음next -->
-               <c:if test="${pm.next && pm.endPage > 0}">
-                  <li class="page-item"><a class="page-link"
-                     href="review?page=${pm.endPage+1}">&raquo;</a></li>
-               </c:if>
-            </ul>
+         <div class="d-flex">
+         	<div class="mx-auto">
+	            <ul class="pagination">
+	               <!-- 이전prev -->
+	               <c:if test="${pm.prev }">
+	                  <li class="page-item"><a class="page-link"
+	                     href="review?page=${pm.startPage-1}">&laquo;</a></li>
+	               </c:if>
+	               <!-- 페이지블럭 -->
+	               <c:forEach var="idx" begin="${pm.startPage }" end="${pm.endPage }">
+	                  <li class="page-item"><a class="page-link"
+	                     href="review?page=${idx }">${idx}</a></li>
+	               </c:forEach>
+	               <!-- 다음next -->
+	               <c:if test="${pm.next && pm.endPage > 0}">
+	                  <li class="page-item"><a class="page-link"
+	                     href="review?page=${pm.endPage+1}">&raquo;</a></li>
+	               </c:if>
+	            </ul>
+         	</div>
          </div>
       </div>
-</div>
 
 
 

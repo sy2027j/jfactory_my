@@ -65,9 +65,11 @@ td {
 						</c:forEach>
 					</tr>
 				</table>
-				<div class="box-footer">
-					<div class="text-center">
-						<ul class="pagination">
+				<button type="button" style="float: right; background-color: #e6e6fa; color: black; border-color: #e6e6fa" class="btn btn-primary" onclick="location.href='cm_qna_write'">글쓰기</button>
+				<br/><br/><br/>
+				<div style="text-align: center;">
+					<div class="text-center" style="text-align: center;">
+						<ul class="pagination justify-content-center">
 							<!-- 이전prev -->
 							<c:if test="${pm.prev }">
 								<li class="page-item"><a class="page-link"
@@ -87,9 +89,6 @@ td {
 				</div>
 			</div>
 	</div>
-	<button type="button"
-		style="float: right; background-color: #e6e6fa; color: black; border-color: #e6e6fa"
-		class="btn btn-primary" onclick="location.href='cm_qna_write'">글쓰기</button>
 </div>
 </main>
 

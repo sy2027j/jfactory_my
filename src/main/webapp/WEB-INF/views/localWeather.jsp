@@ -43,7 +43,47 @@
 				var $city = data.name;
 				var $humidity = data.main.humidity;
 				var $temp2 = Math.floor(data.main.temp);
+				var image;
+				switch($Icon){
+				case '01d':
+				case '01n': 
+					image="url('https://media.istockphoto.com/photos/blue-sky-with-cloud-picture-id1151056603?b=1&k=20&m=1151056603&s=170667a&w=0&h=gWVMsxMs2fnQHazBiqmbH-ccWKoYlTNOOg7iihVmex0=')";
+					break;
+					
+				case '02d':
+				case '03d':
+				case '04d':
+				case '02n':
+				case '03n':	
+					image="url('https://media.istockphoto.com/photos/looking-across-a-grass-field-as-the-storm-clouds-move-in-picture-id182413018?b=1&k=20&m=182413018&s=170667a&w=0&h=nTEp0pwSoZBQXlXIn8gqoKZxYy78qsfl9SgOyyfwIwo=')";
+					break;
+					
+				case '09d':
+				case '10d':
+				case '09n':
+				case '10n':	
+					image="url('https://media.istockphoto.com/photos/rain-drops-background-picture-id1251353875?b=1&k=20&m=1251353875&s=170667a&w=0&h=EUj0rGv2Xn7sR806QuLrw-Svh0EZP1VvQgMJ1ha0VVs=')";
+					break;
+					
+				case '11d':
+				case '11n':	
+					image="url('https://media.istockphoto.com/photos/thunderstorm-lightning-with-dark-cloudy-sky-picture-id517643357?b=1&k=20&m=517643357&s=170667a&w=0&h=-ofkaxfhjSM5HshQS5bSjk0dWTQeZKDGnbdOkq3O4ro=')";
+					break;
+					
+				case '13d':
+				case '13n':	
+				case '04n':	
+					image="url('https://media.istockphoto.com/photos/winter-landscape-with-snow-and-trees-picture-id154891176?b=1&k=20&m=154891176&s=170667a&w=0&h=lhwDg-48F-bZaX5Nu5KGuK2sYHt-VdysxIaa9ikpef4=')";
+					break;
+					
+				case '50d':
+				case '50n':
+					image="url('https://media.istockphoto.com/photos/dust-storm-in-the-desert-picture-id1177077318?b=1&k=20&m=1177077318&s=170667a&w=0&h=DtxlWORnoWlMoFJrsIf7ysVbCfZtb3oioQamlLjyF1w=')";
+					break;
+				
+				}
 
+				$('.weather').css("background-image", image);
 				$('.CurrIcon').append('<i class="' + weatherIcon[$Icon] +'"></i>');
 				$('.CurrTemp').prepend($temp);
 				$('.City').append($city);
@@ -112,7 +152,7 @@
     <div class="row">
       <div class="col-lg-6"><h4 style="text-align:center">오늘같은 날씨에는 ...</h4><br/><br/><br/>
       
-        <div class="weather" style="border:solid 2px; border-color:lightgray;  width:400px; height:300px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 10px; background-size: cover; background-image: url('https://media.istockphoto.com/photos/looking-across-a-grass-field-as-the-storm-clouds-move-in-picture-id182413018?b=1&k=20&m=182413018&s=170667a&w=0&h=nTEp0pwSoZBQXlXIn8gqoKZxYy78qsfl9SgOyyfwIwo=')">
+        <div class="weather" style="border:solid 2px; border-color:lightgray;  width:400px; height:300px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 10px; background-size: cover;">
 					<br/>
 					<div class="CurrIcon" style="text-align:center"></div>
 					<div class="weather_info">
@@ -145,7 +185,7 @@
 				<h4 style="text-align:center">이 제품 어떠신가요?</h4>
       </div>
     </div>
-     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     <br/><br/><br/><br/><br/>
     </div>
 	<jsp:include page="./footer.jsp"/>
 </body>
