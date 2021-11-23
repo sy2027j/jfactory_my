@@ -36,7 +36,7 @@
                         <label for="MEMBER_ID">아이디 *</label>
                      <div class="form-group">
                         <div class="form-inline col-sm-13">
-                           <input type="text" class="form-control" id="mem_id1" name="mem_id" placeholder="아이디를 입력하세요" style="width:80%">&nbsp;
+                           <input type="text" class="form-control" id="mem_id1" name="mem_id" placeholder="아이디를 입력하세요" style="width:80%" autocomplete="off">&nbsp;
                            <button type="button" class="btn" id="idChk" style="width: 18%; border-color: white; background-color: #e6e6fa; color: black;" onclick="fn_idChk();">인증</button>
                         </div>
                         <div id="id_check"></div>
@@ -46,7 +46,7 @@
                      <div class="form-group">
                         <label for="MEMBER_NAME">이름 *</label> 
                         <div class="col-sm-13">
-                        <input type="text" class="form-control" id="mem_realname" name="mem_realname" placeholder="이름을 입력하세요" style="width: 410px">
+                        <input type="text" class="form-control" id="mem_realname" name="mem_realname" placeholder="이름을 입력하세요" style="width: 410px" autocomplete="off">
                         </div>
                         <div id="name_check"></div>
                      </div>
@@ -64,7 +64,7 @@
                         <div class="col-sm-13">
                         <input type="password"
                            class="form-control" id="mem_password2" name="mem_password2"
-                           placeholder="비밀번호 확인" size="100"></div>
+                           placeholder="비밀번호 확인" size="100" autocomplete="off"></div>
                         <div id="pw2_check"></div>
                      </div>
                      <div class="form-group">
@@ -81,7 +81,7 @@
                            name="mem_address1" id="mem_address1" placeholder="주소 입력"
                            onfocus="this.blur()"> <input type="text"
                            class="form-control" style="margin-top: 5px;"
-                           name="mem_address2" id="mem_address2" placeholder="상세 주소 입력">
+                           name="mem_address2" id="mem_address2" placeholder="상세 주소 입력" autocomplete="off">
                         <div id="addr_check"></div>
                      </div>
                      <div class="form-group">
@@ -117,9 +117,9 @@
                               <option value="011">011</option>
                               <option value="012">012</option>
                               <option value="013">013</option>
-                           </select> &nbsp; - &nbsp; <input type="text" class="form-control"
+                           </select> &nbsp; - &nbsp; <input type="text" class="form-control" autocomplete="off"
                               id="mem_phone1" name="mem_phone1" style="width: 29%">
-                           &nbsp; - &nbsp; <input type="text" class="form-control"
+                           &nbsp; - &nbsp; <input type="text" class="form-control" autocomplete="off"
                               id="mem_phone2" name="mem_phone2" style="width: 29%">
                         </div>
                         <div id="phone_check"></div>
@@ -130,7 +130,7 @@
                         <label for="MEMBER_EMAIL">이메일 주소 *</label>
                         <div class="form-inline col-sm-13">
                            <input type="email" class="form-control" id="mem_email"
-                              name="mem_email" placeholder="이메일을 입력하세요" style="width: 80%">
+                              name="mem_email" placeholder="이메일을 입력하세요" style="width: 80%" autocomplete="off">
                            &nbsp;
                            <button type="button" class="btn btn-default"
                               id="isCheck_Email" name="isCheck_Email"
@@ -144,7 +144,7 @@
                      <div id="isCheck_EmailForm" class="form-group">
                         <label for="user_email">인증코드 확인 *</label>
                         <div class="form-inline col-sm-13">
-                           <input type="email" class="form-control" id="emailAuth"
+                           <input type="email" class="form-control" id="emailAuth" autocomplete="off"
                               name="emailAuth" placeholder="인증코드를 입력하세요" style="width: 80%"> &nbsp;
                            <button type="button" class="btn btn-default" id="isAuth"
                               style="border-color: white; background-color: #e6e6fa; color: black;  width: 18%"

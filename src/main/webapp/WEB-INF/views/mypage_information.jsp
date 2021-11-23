@@ -105,13 +105,11 @@
 											<option value="011">011</option>
 											<option value="012">012</option>
 											<option value="013">013</option>
-										</select> &nbsp; - &nbsp; <input type="text" class="form-control"
+										</select> &nbsp; - &nbsp; <input type="text" class="form-control" autocomplete="off"
 											id="mem_phone1" name="mem_phone1" style="width: 150px"
-											placeholder="${member.mem_phone1}"
 											value="${member.mem_phone1}"> &nbsp; - &nbsp; <input
-											type="text" class="form-control" id="mem_phone2"
+											type="text" class="form-control" id="mem_phone2" autocomplete="off"
 											name="mem_phone2" style="width: 150px"
-											placeholder="${member.mem_phone2}"
 											value="${member.mem_phone2}"> <br />
 									</div>
 								</div>

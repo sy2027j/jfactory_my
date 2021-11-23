@@ -41,7 +41,7 @@
               <h1><a class="navbar-brand " href="index">JFactory</a></h1>
           </ul>
           <form class="form-inline form-navbar-right " action="MainSearch">
-      <input class="form-control mr-sm-2" id="keyword" name="keyword" type="text" placeholder="검색창">
+      <input class="form-control mr-sm-2" id="keyword" name="keyword" type="text" placeholder="검색창" autocomplete="off">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="background-color: #e6e6fa; color: black; border-color: #e6e6fa"><span style="font-size:10pt">검색</span></button>
     </form>
     <input class="form-control" type="hidden" id="mem_id" name="mem_id" value="${member.mem_id }">

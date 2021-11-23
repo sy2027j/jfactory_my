@@ -55,7 +55,7 @@
                   </tr>
                   <c:forEach items="${AdminList}" var="admin">
                      <tr 
-                     onClick="window.open('admin_detail?mem_id=${member.getmem_id()}', '회원 상세 정보', 'width=520, height=460, left=100, top=50');">
+                     onClick="window.open('admin_detail?mem_id=${admin.getmem_id()}', '회원 상세 정보', 'width=520, height=460, left=100, top=50');">
                         <td><c:out value="${admin.getMem_is_admin()}"/></td>
                         <td><c:out value="${admin.getmem_id()}"/></td>
                         <td><c:out value="${admin.getMem_email() }"/></td>
