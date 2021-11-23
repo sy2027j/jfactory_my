@@ -61,7 +61,7 @@ div.row {
 						<tbody>
 							<c:forEach items="${List}" var="member">
 								<tr
-									onClick="window.open('member_detail?mem_id=${member.getmem_id()}', '회원 상세 정보', 'width=560, height=700, left=100, top=50');">
+									onClick="window.open('member_detail?mem_id=${member.getmem_id()}', '회원 상세 정보', 'width=100%, height=100%, left=100, top=50');">
 									<td><c:out value="${member.getMem_level()}" /></td>
 									<td><c:out value="${member.getmem_id()}" /></td>
 									<td><c:out value="${member.getMem_realname() }" /></td>
@@ -70,7 +70,6 @@ div.row {
 									<td><c:out value="${member.getMem_count() }" /></td>
 								</tr>
 							</c:forEach>
-
 						</tbody>
 					</table>
 					<div class="box-footer">
@@ -95,12 +94,9 @@ div.row {
 							</ul>
 						</div>
 					</div>
-
 					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-					<script
-						src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-					<script
-						src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+					<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 				</div>
 			</div>
 	</div>

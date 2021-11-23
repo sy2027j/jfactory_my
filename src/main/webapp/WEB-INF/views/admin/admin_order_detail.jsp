@@ -19,7 +19,15 @@ table {
 	border-spacing: 0 10px;
 }
 </style>
-<body>
+<script>
+function resizeWindow(win) {
+	var width = document.getElementById('rcvTable').clientWidth;
+	var height = win.document.body.offsetHeight + 40;
+	
+	win.resizeTo(width,height);
+}
+</script>
+<body onload="resizeWindow(this)">
 	<div class="container">
 		<div class="row">
 			<h1>

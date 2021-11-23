@@ -5,12 +5,7 @@
 <html lang="en">
 <head>
 <title>회원 상세정보</title>
-</head>
-<body>
-	<h1>회원 상세정보</h1>
-	<hr>
-	<table class="table">
-		<STYLE TYPE="text/css">
+<STYLE TYPE="text/css">
 table {
 	font-size: 100%;
 }
@@ -27,6 +22,19 @@ table.t1 {
 	width: 400px;
 }
 </STYLE>
+<script>
+function resizeWindow(win) {
+	var width = document.getElementById('memberList').clientWidth;
+	var height = win.document.body.offsetHeight + 40;
+	
+	win.resizeTo(width,height);
+}
+</script>
+</head>
+<body onload="resizeWindow(this)">
+	<h1>회원 상세정보</h1>
+	<hr>
+	<table class="table">
 		<tr>
 			<td><b>ID</b></td>
 			<td class="data_td">${memdetaildto.getmem_id()}</td>
@@ -45,10 +53,11 @@ table.t1 {
 		<tr>
 		<tr>
 			<td><b>성별</b></td>
-			<td class="data_td"><c:if
-					test="${memdetaildto.getMem_sex()eq 0}">여성</c:if> <c:if
-					test="${memdetaildto.getMem_sex()eq 1}">남성</c:if> <c:if
-					test="${memdetaildto.getMem_sex()eq 2}"></c:if></td>
+			<td class="data_td">
+				<c:if test="${memdetaildto.getMem_sex()eq 0}">여성</c:if>
+				<c:if test="${memdetaildto.getMem_sex()eq 1}">남성</c:if>
+				<c:if test="${memdetaildto.getMem_sex()eq 2}"></c:if>
+			</td>
 		<tr>
 		<tr>
 			<td><b>생년월일</b></td>
@@ -72,9 +81,12 @@ table.t1 {
 		<tr>
 		<tr>
 			<td><b>피부고민</b></td>
-			<td class="data_td"><c:if
-					test="${!empty memdetaildto.getMem_skintrouble1()}">${memdetaildto.getMem_skintrouble1()},</c:if>
-				${memdetaildto.getMem_skintrouble2()}</td>
+			<td class="data_td">
+				<c:if test="${!empty memdetaildto.getMem_skintrouble1()}">
+					${memdetaildto.getMem_skintrouble1()},
+				</c:if>
+				${memdetaildto.getMem_skintrouble2()}
+			</td>
 		<tr>
 		<tr>
 			<td><b>누적 주문 횟수</b></td>
@@ -198,7 +210,4 @@ table.t1 {
 	<h2>메모</h2>
 	<textarea rows="5" cols="50" id="gdsDes" name="gdsDes">${memdetaildto.getMem_adminmemo()}</textarea>
 	<br>
-
-
-
 </body>
