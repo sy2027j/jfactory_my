@@ -28,4 +28,6 @@ public interface MemberqnaService {
 	public void NoticeWrite(MemberqnaDTO dto) throws Exception;
 	
 	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception;
+	
+	public List<AdminDTO> persnalQnaList(MemberqnaDTO mDto) throws Exception;
 }

@@ -32,5 +32,5 @@ public interface MemberqnaDAO {
 	
 	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception;
 	
-	public List<MemberqnaDTO> myqnaListPage(int page) throws Exception;
+	public List<AdminDTO> persnalQnaList(MemberqnaDTO mDto) throws Exception;
 }

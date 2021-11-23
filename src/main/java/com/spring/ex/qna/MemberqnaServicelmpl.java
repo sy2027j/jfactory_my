@@ -59,4 +59,9 @@ public class MemberqnaServicelmpl implements MemberqnaService {
 	public List<MemberqnaDTO> myqnaList(MemberqnaDTO dto) throws Exception{
 		return dao.myqnaList(dto);
 	}
+
+	@Override
+	public List<AdminDTO> persnalQnaList(MemberqnaDTO mDto) throws Exception {
+		return dao.persnalQnaList(mDto);
+	}
 }

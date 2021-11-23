@@ -169,7 +169,7 @@ public class MemberController {
 	} 
  
 	@RequestMapping(value = "admin/member_detail", method = RequestMethod.GET)
-	public String member_detail(OrderDTO order, Model model, AdminDTO dto, Criteria cri) throws Exception {
+	public String member_detail(OrderDTO order, Model model, AdminDTO dto, Criteria cri, MemberqnaDTO mDto) throws Exception {
 
 		AdminDTO memdetaildto = adminservice.member_detail(dto);
 
@@ -184,7 +184,7 @@ public class MemberController {
 
 		model.addAttribute("orderList", orderList);
 		model.addAttribute("orderCancelList", orderCancelList);
-		model.addAttribute("QnaList", qnaservice.qnaList(cri));
+		model.addAttribute("QnaList", qnaservice.persnalQnaList(mDto));
 		model.addAttribute("memdetaildto", memdetaildto);
 
 		return "admin/member_detail";
